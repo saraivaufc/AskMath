@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+
+{% load i18n static %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" media="all" href="{% static "authentication/css/base.css" %}" />
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block breadcrumbs %}
+	<a href="{% url 'ask:home' %}" class="breadcrumb-item" >
+		<i class="fa fa-home" aria-hidden="true"></i>
+		{% trans "Home" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Site Administration" %}{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+
+{% block js %}
+	{{ block.super }}
+	<script src="{% static 'authentication/js/base.js' %}"></script>
+{% endblock %}

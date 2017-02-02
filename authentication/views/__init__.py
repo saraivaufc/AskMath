@@ -1,0 +1,1 @@
+from account_view import UserCreateView, UserDetailView, UserUpdateView, UserDeleteView

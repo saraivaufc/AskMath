@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<div class="container-fluid">
+	<div class="form-group row">
+		{% include 'fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			<input data-toggle="tooltip" placeholder="xx/xx/xxxx" title="{{ field.help_text }}"
+				class="form-control {{ field.css_classes }}"
+				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
+				type="date" id="{{ field.auto_id }}"
+				{% if field.value %}value="{{ field.value }}"{% endif %}
+				{% include 'fields/headers/attrs.html' %}
+				{% if field.field.required %}
+					required="required"
+				{% endif %}
+				tabindex="{{ forloop.counter }}"
+			/>
+			{% include 'fields/headers/errors.html' %}
+		</div>
+	</div>
+</div>

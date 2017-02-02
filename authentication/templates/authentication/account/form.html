@@ -1,0 +1,27 @@
+{% extends "authentication/account/detail.html" %}
+
+
+{% load i18n static %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block administrators %}active{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'authentication:account_update' pk=object.pk %}" class="breadcrumb-item" >
+		<i class="fa fa-user-circle"></i>
+		{% trans "Form User" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% trans "Form Author" %}
+{% endblock %}
+
+{% block content %}	
+	{% include "_form.html" %}
+{% endblock %}

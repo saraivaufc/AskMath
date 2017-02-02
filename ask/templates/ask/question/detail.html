@@ -1,0 +1,50 @@
+{% extends "ask/lesson/detail.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{% trans "Questions" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-question"></i>
+		{% trans "Questions" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with lesson=lesson %}
+		Questions of {{ lesson }}
+	{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+	<div class="col-md-6">
+		<p class="lead">{{ question.text }}</p>
+		<form action="." method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+		<div class="row">
+			<div class="btn-group" role="group">
+				<button type="submit" class="btn btn-success">
+					{% trans "Reply" %}
+				</button>
+				</form>
+				<button type="button" class="btn btn-info">
+					{% trans "Help" %}
+				</button>
+				<button type="button" class="btn btn-warning">
+					{% trans "Jump" %}
+				</button>
+				<button type="button" class="btn btn-danger">
+					{% trans "Review Jumps" %}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		
+	</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load i18n %}
+<div class="container-fluid">
+	<div class="form-group row">
+		{% include 'fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			{% if field.value %}
+			<div class="row">
+				{% trans "Currently" %}:<a href="{{ MEDIA_URL }}{{ field.value }}" target="_blank">{{ field.value }}</a>
+			</div>
+			{% endif %}
+			
+			{% if field.value %}
+				{% trans "Change" %}:
+			{% endif %}
+			<input data-toggle="tooltip" title="{{ field.help_text }}"
+				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
+				type="file" id="{{ field.auto_id }}"
+				{% include 'fields/headers/attrs.html' %}
+				{% if field.field.required and not field.value %}
+					required="required"
+				{% endif %}
+				tabindex="{{ forloop.counter }}" 
+			/>
+			{% include 'fields/headers/errors.html' %}
+		</div>
+	</div>
+</div>

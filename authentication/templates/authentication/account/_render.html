@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<dl class="definition text" itemscope>
+	<dt class="col-sm-3">{% trans "First Name" %}:</dt>
+	<dd class="col-sm-9" itemprop="first_name">
+		{% if object.first_name %}
+			{{ object.first_name }}
+		{% else %}
+			{% trans "Empty" %}
+		{% endif %}
+	</dd>
+
+	<dt class="col-sm-3">{% trans "Last Name" %}:</dt>
+	<dd class="col-sm-9" itemprop="last_name">
+		{% if object.last_name %}
+			{{ object.last_name }}
+		{% else %}
+			{% trans "Empty" %}
+		{% endif %}
+	</dd>
+
+	<dt class="col-sm-3">{% trans "Username" %}:</dt>
+	<dd class="col-sm-9" itemprop="username">{{ object.username }}</dd>
+
+	<dt class="col-sm-3">{% trans "Email" %}:</dt>
+	<dd class="col-sm-9" itemprop="email">{{ object.email }}</dd>
+
+	<dt class="col-sm-3">{% trans "Date Joined" %}:</dt>
+	<dd class="col-sm-9" itemprop="date_joined">{{ object.date_joined }}</dd>
+</dl>

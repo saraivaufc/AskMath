@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="container-fluid">
+	<div class="form-group row">
+		{% include 'fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			<input data-toggle="tooltip" placeholder="xx/xx/xxxx xx:xx:xx" title="{{ field.help_text }}"
+				{% if field.field.required %}
+					data-validate-func="required"
+					data-validate-hint="{% trans "This field can not be empty" %}"
+				{% endif %}
+				class="form-control"
+				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
+				type="datetime" id="{{ field.auto_id }}"
+				{% if field.value %}value="{{ field.value }}"{% endif %}
+				{% include 'fields/headers/attrs.html' %}
+				tabindex="{{ forloop.counter }}"
+			/>
+			{% include 'fields/headers/errors.html' %}
+		</div>
+	</div>
+</div>

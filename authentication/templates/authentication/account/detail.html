@@ -1,0 +1,38 @@
+{% extends "authentication/index.html" %}
+
+
+{% load i18n static %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block administrators %}active{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'authentication:account_detail' pk=object.pk %}" class="breadcrumb-item" >
+		<i class="fa fa-user-circle"></i>
+		{% trans "Profile" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{{ object.username }}
+	<div class="float-xs-right">
+		{% if request.user.pk == object.pk  %}
+		<a href="{% url 'authentication:account_update' pk=request.user.pk %}" class="btn btn-info" data-toggle="tooltip" title="{% trans "Edit" %}">
+			<i class="fa fa-edit"></i>
+		</a>
+
+		<a href="{% url 'authentication:account_delete' pk=request.user.pk %}" class="btn btn-danger" data-toggle="tooltip" title="{% trans "Delete" %}">
+			<i class="fa fa-remove"></i>
+		</a>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	{% include 'authentication/account/_render.html' %}	
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "ask/lesson/detail.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{% blocktrans with lesson=lesson %}
+		{{ lesson }} finished
+	{%  endblocktrans %}
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with lesson=lesson %}
+		{{ lesson }} finished
+	{%  endblocktrans %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-flag-checkered"></i>
+		{% trans "Finished" %}
+	</a>
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<p class="lead">{% trans "This lesson finished" %}</p>
+			<form action="#" method="POST">
+				{% csrf_token %}
+				<button type="submit" class="btn btn-success btn-lg" role="button">
+					<i class="fa fa-refresh"></i>
+					{% trans "Restart" %}
+				</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

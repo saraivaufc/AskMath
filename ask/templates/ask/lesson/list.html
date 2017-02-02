@@ -1,0 +1,43 @@
+{% extends "ask/issue/list.html" %}
+
+
+{% load i18n %}
+
+{% block title %}
+	{{ issue }}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:lesson_list' issue.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-book"></i>
+		{{ issue }}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with issue=issue %}
+		Lessons of {{ issue }}
+	{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+	{% for level, lessons in object_list.iteritems %}
+		<div class="col-md-12">
+			<div class="row flex-items-xs-center">
+				{% for lesson in lessons %}
+				<div class="tile {{ lesson.color }}">
+					<a href="{% url 'ask:lesson_detail' issue_slug=issue.slug slug=lesson.slug %}" class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
+						{% if lesson.icon %}
+							<img src="{{ lesson.icon.url }}" style="width: 100%;">
+						{% else %}
+							<span class="icon fa fa-puzzle-piece"></span>
+						{% endif %}
+					</a>
+					<span class="tile-label">{{ lesson }}</span>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

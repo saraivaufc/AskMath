@@ -1,0 +1,35 @@
+{% extends "authentication/account/detail.html" %}
+
+
+{% load i18n static %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'authentication:account_delete' pk=object.pk %}" class="breadcrumb-item" >
+		<i class="fa fa-remove"></i>
+		{% trans "Confirm delete" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Confirm delete" %}{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-xs-center full-width">
+	<div class="container-fluid">
+		<form action="" method="post">{% csrf_token %}
+			<p class="lead">{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
+			<a href="{% url 'authentication:account_detail' pk=object.pk %}" class="btn btn-info">
+				{% trans "No" %}
+			</a>
+			<button class="btn btn-primary" type="submit">
+				{% trans "Yes" %}
+			</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

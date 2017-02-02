@@ -1,0 +1,359 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-02 04:29+0000\n"
+"PO-Revision-Date: 2016-12-29 01:09-0234\n"
+"Last-Translator: None None <admin@email.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.7.8\n"
+
+#: authentication/apps.py:11
+msgid "Authentication"
+msgstr ""
+
+#: authentication/models/user.py:39
+msgid "First Name "
+msgstr ""
+
+#: authentication/models/user.py:39
+msgid "Please enter you first name."
+msgstr ""
+
+#: authentication/models/user.py:40
+msgid "Last Name "
+msgstr ""
+
+#: authentication/models/user.py:40
+msgid "Please enter you last name."
+msgstr ""
+
+#: authentication/models/user.py:41
+#: authentication/templates/authentication/account/_render.html:22
+msgid "Username"
+msgstr ""
+
+#: authentication/models/user.py:41
+msgid "Please enter you username."
+msgstr ""
+
+#: authentication/models/user.py:42
+#: authentication/templates/authentication/account/_render.html:25
+msgid "Email"
+msgstr ""
+
+#: authentication/models/user.py:42
+msgid "Please enter you email."
+msgstr ""
+
+#: authentication/models/user.py:43
+msgid "Active"
+msgstr ""
+
+#: authentication/models/user.py:43
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: authentication/models/user.py:44
+msgid "Date joined"
+msgstr ""
+
+#: authentication/models/user.py:45
+msgid "Moderator Status"
+msgstr ""
+
+#: authentication/models/user.py:46
+msgid "Staff Status"
+msgstr ""
+
+#: authentication/models/user.py:87
+msgid "User"
+msgstr ""
+
+#: authentication/models/user.py:88
+msgid "Users"
+msgstr ""
+
+#: authentication/templates/authentication/account/_render.html:4
+msgid "First Name"
+msgstr ""
+
+#: authentication/templates/authentication/account/_render.html:9
+#: authentication/templates/authentication/account/_render.html:18
+msgid "Empty"
+msgstr ""
+
+#: authentication/templates/authentication/account/_render.html:13
+msgid "Last Name"
+msgstr ""
+
+#: authentication/templates/authentication/account/_render.html:28
+msgid "Date Joined"
+msgstr ""
+
+#: authentication/templates/authentication/account/check_delete.html:15
+#: authentication/templates/authentication/account/check_delete.html:19
+msgid "Confirm delete"
+msgstr ""
+
+#: authentication/templates/authentication/account/check_delete.html:25
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: authentication/templates/authentication/account/check_delete.html:27
+msgid "No"
+msgstr ""
+
+#: authentication/templates/authentication/account/check_delete.html:30
+msgid "Yes"
+msgstr ""
+
+#: authentication/templates/authentication/account/detail.html:17
+msgid "Profile"
+msgstr ""
+
+#: authentication/templates/authentication/account/detail.html:25
+msgid "Edit"
+msgstr ""
+
+#: authentication/templates/authentication/account/detail.html:29
+msgid "Delete"
+msgstr ""
+
+#: authentication/templates/authentication/account/form.html:17
+msgid "Form User"
+msgstr ""
+
+#: authentication/templates/authentication/account/form.html:22
+msgid "Form Author"
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:14
+#: authentication/templates/authentication/account/login.html:18
+msgid "Login"
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:22
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:26
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:28
+msgid "Please login to see this page."
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:36
+msgid "Lost password?"
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:39
+#: authentication/templates/authentication/account/register.html:14
+#: authentication/templates/authentication/account/register.html:18
+msgid "Register"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_done.html:8
+msgid "Password Reset Change"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_done.html:12
+msgid "Change password done"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_done.html:18
+msgid "Password change successful"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_done.html:19
+msgid "Your password was changed."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_form.html:9
+msgid "Password Change Form"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_change_form.html:13
+msgid "Change password"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_complete.html:8
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_complete.html:10
+msgid "Log in"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_confirm.html:8
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_confirm.html:12
+msgid "Submit"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_confirm.html:16
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_confirm.html:17
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_done.html:8
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_done.html:10
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_form.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_form.html:13
+msgid "Recover Password"
+msgstr ""
+
+#: authentication/templates/authentication/account/password_reset_form.html:17
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+
+#: authentication/templates/authentication/index.html:15
+msgid "Home"
+msgstr ""
+
+#: authentication/templates/authentication/index.html:19
+msgid "Site Administration"
+msgstr ""
+
+#: authentication/urls/__init__.py:5
+msgid "^account/"
+msgstr ""
+
+#: authentication/urls/account.py:8
+msgid "^login$"
+msgstr ""
+
+#: authentication/urls/account.py:9
+msgid "^logout$"
+msgstr ""
+
+#: authentication/urls/account.py:10
+msgid "^register$"
+msgstr ""
+
+#: authentication/urls/account.py:11
+msgid "^(?P<pk>[0-9]+)/detail$"
+msgstr ""
+
+#: authentication/urls/account.py:12
+msgid "^(?P<pk>[0-9]+)/edit$"
+msgstr ""
+
+#: authentication/urls/account.py:13
+msgid "^(?P<pk>[0-9]+)/delete$"
+msgstr ""
+
+#: authentication/urls/account.py:15
+msgid "^password/change$"
+msgstr ""
+
+#: authentication/urls/account.py:22
+msgid "^password_change/done$"
+msgstr ""
+
+#: authentication/urls/account.py:27
+msgid "^password/reset$"
+msgstr ""
+
+#: authentication/urls/account.py:34
+msgid "^password_reset/done$"
+msgstr ""
+
+#: authentication/urls/account.py:38
+msgid "^password_reset/(?P<uidb64>[0-9A-Za-z_\\-]+)/(?P<token>.+)$"
+msgstr ""
+
+#: authentication/urls/account.py:43
+msgid "^password_reset/complete$"
+msgstr ""
+
+#~ msgid "Administrators"
+#~ msgstr "Administradores"
+
+#~ msgid "List of Administrators"
+#~ msgstr "Lista de Administradores"
+
+#, fuzzy
+#~| msgid "Administrators"
+#~ msgid "New Administrator"
+#~ msgstr "Administradores"
+
+#, fuzzy
+#~| msgid "List of Administrators"
+#~ msgid "List of Participants"
+#~ msgstr "Lista de Administradores"
+
+#, fuzzy
+#~| msgid "Administrators"
+#~ msgid "^administrator/"
+#~ msgstr "Administradores"
+
+#, fuzzy
+#~| msgid "List of Administrators"
+#~ msgid "You is Administrator!"
+#~ msgstr "Lista de Administradores"

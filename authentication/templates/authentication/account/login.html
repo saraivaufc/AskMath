@@ -1,0 +1,42 @@
+{% extends "authentication/index.html" %}
+
+{% load i18n static %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'authentication:account_login' %}" class="breadcrumb-item" >
+		<i class="fa fa-users"></i>
+		{% trans "Login" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Login" %}{% endblock %}
+
+{% block content %}
+	{% if form.errors %}
+	<p>{% trans "Your username and password didn't match. Please try again." %}</p>
+	{% endif %}
+	{% if next %}
+		{% if user.is_authenticated %}
+			<p>{% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}</p>
+		{% else %}
+			<p>{% trans "Please login to see this page." %}</p>
+		{% endif %}
+	{% endif %}
+	
+	{% include "_form.html" %}
+	
+	<div class="col-md-12">
+		<a href="{% url 'authentication:account_password_reset' %}">
+			{% trans "Lost password?" %}
+		</a>
+		<a href="{% url 'authentication:account_register' %}">
+			{% trans "Register" %}
+		</a>
+	</div>
+{% endblock %}

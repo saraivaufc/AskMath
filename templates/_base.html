@@ -1,0 +1,95 @@
+{% load i18n static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>AskMath - {% block title %}{% endblock %}</title>
+	
+	{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-flex.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-grid.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "packages/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "packages/metro/metro.css" %}" />
+		
+		<link rel="stylesheet" type="text/css" media="all" href="{% static "css/all_style.css" %}" />
+		<link rel="stylesheet" type="text/css" media="print" href="{% static "css/print_style.css" %}" />
+		<link rel="stylesheet" type="text/css" media="handheld" href="{% static "css/handheld_style.css" %}" />
+	{% endblock %}
+	
+	{% block stylesheet %}
+	
+	{% endblock %}
+
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+{% load i18n %}
+
+<body>
+	{% include '_no_script.html' %}
+	{% block header  %}
+	<header id="header">
+		{% include "_header.html" %}
+	</header>
+	{% endblock %}
+
+	
+	{% block two_header %}
+	<nav id="breadcrumb" class="breadcrumb">
+        {% block breadcrumbs %}
+        <a href="{% url 'ask:home' %}" class="breadcrumb-item" >
+			<i class="fa fa-home" aria-hidden="true"></i>
+			{% trans "Home" %}
+		</a>
+ 	   {% endblock %}
+	</nav>
+	{% endblock %}
+
+	{% block messages %}
+	<section id="messages">
+		{% include '_messages.html' %}
+	</section>
+	{% endblock messages %}
+
+	{% block site %}
+	<section id="content">
+		<label class="h4 text-xs-center text-sm-center text-md-center page-title">
+			{%  block page_title %}{% endblock %}
+		</label>
+		<div class="page-container">
+			<div class="container-fluid">
+				<div class="row">
+					{% block content %}
+
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endblock %}
+
+
+	{% block footer %}
+	<footer id="footer" class="navbar navbar-dark bg-primary bg-faded" style="display: inline-block; width: 100%;">
+		{% include "_footer.html" %}
+	</footer>
+	{% endblock %}
+
+	{% block js %}
+		<script src="{% static "packages/jquery-3.1.1.js" %}"></script>
+		<script src="{% static "packages/tether.min.js" %}"></script>
+		<script src="{% static "packages/bootstrap-4.0.0-alpha.5/dist/js/bootstrap.min.js" %}"></script>
+		<script src="{% static 'js/base.js' %}"></script>
+	{% endblock %}
+
+	{% block scripts %}
+		<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+	{% endblock %}
+</body>
+</html>

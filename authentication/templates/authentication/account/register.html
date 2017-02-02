@@ -1,0 +1,22 @@
+{% extends "authentication/index.html" %}
+
+{% load i18n static %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-users"></i>
+		{% trans "Register" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Register" %}{% endblock %}
+
+{% block content %}	
+	{% include "_form.html" %}
+{% endblock %}

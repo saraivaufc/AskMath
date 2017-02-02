@@ -1,0 +1,41 @@
+{% extends "ask/lesson/list.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{{ lesson }}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:lesson_detail' issue_slug=issue.slug slug=lesson.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-puzzle-piece"></i>
+		{{ lesson }}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{{ lesson }}
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<p class="lead">{{ lesson.description }}</p>
+			{% if lesson.questions.all %}
+				{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug as url %}
+			{% else %}
+				{% trans "#" as url %}
+			{% endif %}
+			<a href="{{ url }}" class="btn btn-success btn-lg" role="button" 
+				{% if not lesson.questions.all %} data-toggle="tooltip" title="{% trans "No question found." %}" {% endif %}>
+				<i class="fa fa-question"></i>
+				{% trans "Questions" %}
+			</a>
+			<a class="btn btn-info btn-lg" href="#" role="button">
+				<i class="fa fa-film"></i>
+				{% trans "Videos" %}
+			</a>
+		</div>
+	</div>
+{% endblock %}
