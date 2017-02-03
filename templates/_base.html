@@ -18,6 +18,9 @@
 		<link rel="stylesheet" type="text/css" media="all" href="{% static "css/all_style.css" %}" />
 		<link rel="stylesheet" type="text/css" media="print" href="{% static "css/print_style.css" %}" />
 		<link rel="stylesheet" type="text/css" media="handheld" href="{% static "css/handheld_style.css" %}" />
+
+		<link rel="stylesheet" type="text/css" href="{% static "css/accessibility.css" %}" />
+
 	{% endblock %}
 	
 	{% block stylesheet %}
@@ -58,7 +61,7 @@
 	{% endblock messages %}
 
 	{% block site %}
-	<section id="content">
+	<section id="content" class="container-fluid">
 		<label class="h4 text-xs-center text-sm-center text-md-center page-title">
 			{%  block page_title %}{% endblock %}
 		</label>
@@ -85,7 +88,10 @@
 		<script src="{% static "packages/jquery-3.1.1.js" %}"></script>
 		<script src="{% static "packages/tether.min.js" %}"></script>
 		<script src="{% static "packages/bootstrap-4.0.0-alpha.5/dist/js/bootstrap.min.js" %}"></script>
-		<script src="{% static 'js/base.js' %}"></script>
+		
+		<script src="{% static "js/base.js" %}"></script>
+		<script src="{% static "packages/cookies.js" %}"></script>
+		<script src="{% static "js/accessibility.js" %}"></script>
 	{% endblock %}
 
 	{% block scripts %}

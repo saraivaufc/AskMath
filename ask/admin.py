@@ -37,8 +37,8 @@ class QuestionAdmin(admin.ModelAdmin):
 	]
 
 class AnswerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'question','correct', 'date','exists', )
-	list_filter = ['user', 'question','correct', 'date']
+	list_display = ('user', 'lesson', 'question','correct','exists', 'date')
+	list_filter = ['user', 'lesson', 'question','correct','exists', 'date']
 
 admin.site.register(Issue, IssueAdmin)
 admin.site.register(Lesson, LessonAdmin)

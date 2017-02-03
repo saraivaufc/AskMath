@@ -8,6 +8,7 @@ from .choice import Choice
 class Question(models.Model):
 	position = models.IntegerField(verbose_name=_(u"Position"))
 	text = models.TextField(verbose_name=_(u"Question text"))
+	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
 
 	def get_choices(self):
 		return Choice.objects.filter(question=self)

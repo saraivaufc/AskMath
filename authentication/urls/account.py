@@ -3,10 +3,11 @@ from authentication.views import UserCreateView, UserDetailView, UserUpdateView,
 from django.contrib.auth import views as auth_views
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
 	url(_(r'^login$'), auth_views.login, {'template_name': 'authentication/account/login.html',}, name="account_login"),
-	url(_(r'^logout$'), auth_views.logout, {'next_page': reverse_lazy("authentication:account_login")}, name="account_logout"),
+	url(_(r'^logout$'), login_required(auth_views.logout), {'next_page': reverse_lazy("authentication:account_login")}, name="account_logout"),
 	url(_(r'^register$'), UserCreateView.as_view(), name="account_register"),
 	url(_(r'^(?P<pk>[0-9]+)/detail$'), UserDetailView.as_view(), name="account_detail"),
 	url(_(r'^(?P<pk>[0-9]+)/edit$'), UserUpdateView.as_view(), name="account_update"),

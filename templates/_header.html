@@ -1,18 +1,26 @@
 {% load i18n static %}
+
+<div class="header">
+	{% include '_accessibility.html' %}
+	<div class="wrap">
+		<div class="logo" style="padding: 5px 30px 5px 30px; ">
+			<a href="{% url 'ask:home' %}">
+				<img src="{% static 'img/logo.png' %}" width="120px" title="logo" />
+			</a>
+		</div>
+		<div class="clear"> </div>
+	</div>
+</div>
+
+
 <nav class="navbar navbar-dark nav-pills bg-primary bg-faded" style="width: 100%;">
 	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
 	<div class="collapse navbar-toggleable-xs" id="navbar-header">
-		<a class="navbar-brand" href="">
-	    	<img src="{% static "img/logo.png" %}" width="70" height="30" alt="AskMath">
+		<a href="{% url 'ask:home' %}" class="navbar-brand">
+			<i class="fa fa-home"></i>
+			{% trans "Home" %}
 	  	</a>
 		<ul class="nav navbar-nav">
-			<li class="nav-item active">
-				<a class="nav-link" href="">
-					<i class="fa fa-home"></i>
-					{% trans "Home" %}
-				</a>
-			</li>
-			
 			{% if request.user.is_superuser  %}
 			<li class="nav-item dropdown active">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="sites" aria-haspopup="true" aria-expanded="false">

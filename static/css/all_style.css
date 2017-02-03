@@ -17,6 +17,16 @@ html, body {
 	line-height: 1.5;
 }
 
+.header{
+    background-image: url('/static/img/header_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #fff;
+    padding: 1px 0px 1px 0px;
+}
+
+
+
 .page-container{
 	background-color: #ffa;
 	padding: 5px 5px;

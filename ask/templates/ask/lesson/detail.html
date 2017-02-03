@@ -27,15 +27,19 @@
 			{% else %}
 				{% trans "#" as url %}
 			{% endif %}
-			<a href="{{ url }}" class="btn btn-success btn-lg" role="button" 
-				{% if not lesson.questions.all %} data-toggle="tooltip" title="{% trans "No question found." %}" {% endif %}>
+			<a href="{{ url }}" type="button" class="btn btn-success btn-lg {% if not lesson.questions.all %}disabled{% endif %}" role="button" >
 				<i class="fa fa-question"></i>
 				{% trans "Questions" %}
 			</a>
-			<a class="btn btn-info btn-lg" href="#" role="button">
+			<a href="#" type="button" class="btn btn-info btn-lg" role="button">
 				<i class="fa fa-film"></i>
 				{% trans "Videos" %}
 			</a>
 		</div>
 	</div>
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	{% include "imports/latex.html" %}
 {% endblock %}

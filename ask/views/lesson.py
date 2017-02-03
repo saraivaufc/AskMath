@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -8,42 +10,7 @@ from django.http import HttpResponseRedirect
 import collections
 
 from ask.models import Issue, Lesson, Question, Answer
-from ask.utils.functions import lists_to_list
-
-class LessonSorting():
-	def __init__(self, lessons):
-		self.__lessons = lessons
-		self.__level_lesson = {}
-		self.__index_level = 1
-
-	def visit(self, lesson):
-		if lesson in lists_to_list(self.__level_lesson.values()):
-			return
-
-		requirements = lesson.requirements.filter(status='p')
-		if (set( lists_to_list(self.__level_lesson.values()) )).issuperset(set(requirements)):	
-			if requirements:
-				max_level = max(map(lambda x: self.get_level_lesson(x) , requirements)) 
-				self.__index_level += max_level + 1
-
-			if not self.__level_lesson.has_key(self.__index_level):
-				self.__level_lesson[self.__index_level] = []
-			self.__level_lesson[self.__index_level].append(lesson)
-		else:
-			for requirement in requirements:
-				self.visit(requirement)
-
-	def get_level_lesson(self, lesson):
-		for level, lessons in self.__level_lesson.items():
-			if lesson in lessons:
-				return level
-		return 0
-
-	def get(self):
-		while len(self.__lessons) > len(lists_to_list(self.__level_lesson.values())):
-			for lesson in self.__lessons:
-				self.visit(lesson)
-		return self.__level_lesson
+from ask.utils.sorting import LessonSorting
 
 class LessonListView(ListView):
 	template_name = 'ask/lesson/list.html'
@@ -54,8 +21,9 @@ class LessonListView(ListView):
 
 	def get_queryset(self):
 		"""Return the last published lessons."""
-		lessons = list(Lesson.objects.filter(issues=self.get_issue(), status='p'))
+		lessons = Lesson.objects.filter(issues=self.get_issue(), status='p')
 		lessons = LessonSorting(lessons).get()
+		#print lessons
 		levels = collections.OrderedDict(sorted(lessons.items()))
 		return levels
 

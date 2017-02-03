@@ -25,15 +25,16 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 	def get_object(self):
 		questions = list(self.get_lesson().questions.all().order_by('position'))
 		questions_ = []
+		#primeiramente, pego todas as questoes que ainda nao foram respondidas
 		for index, question in enumerate(questions):
 			if not Answer.objects.filter(user=self.request.user, question=question, exists=True).exists():
 				questions_.append(question)
+		#se nao existir mais questoes para serem respondidas, entao eu pego a resposta incorreta mais antiga
 		if not questions_:
 			answer = Answer.objects.filter(user=self.request.user, lesson=self.get_lesson(), correct=False, exists=True).last()
 			if answer:
 				return answer.question
 
-		print questions_
 		if len(questions_) >= 1:
 			return questions_[0]
 		else:
