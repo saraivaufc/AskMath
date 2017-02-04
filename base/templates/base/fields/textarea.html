@@ -13,7 +13,7 @@
 				{% if field.field.required %}
 					required="required"
 				{% endif %} 
-				tabindex="{{ forloop.counter }}"
+				tabindex="{{ forloop.counter }}" 
 				>{% if field.value %}{{ field.value }}{% endif %}</textarea>
 			{% include 'base/fields/headers/errors.html' %}
 		</div>

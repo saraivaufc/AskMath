@@ -3,7 +3,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 1,
 		"fields": {
-			"url": "/en/about-us/",
+			"url": "/en/about/",
 			"title": "About Us",
 			"content": "templates/en_about.html",
 			"sites": [1]

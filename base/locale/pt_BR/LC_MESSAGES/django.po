@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 16:34-0300\n"
-"PO-Revision-Date: 2017-02-04 16:35-0234\n"
+"POT-Creation-Date: 2017-02-04 17:18-0300\n"
+"PO-Revision-Date: 2017-02-04 17:18-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: forms/contact.py:5
+msgid "Subject"
+msgstr ""
+
+#: forms/contact.py:6
+msgid "Message"
+msgstr ""
+
+#: forms/contact.py:7
+msgid "Sender"
+msgstr ""
+
+#: forms/contact.py:8
+msgid "CC Myself"
+msgstr ""
 
 #: models/social_network.py:9
 msgid "Name"
@@ -35,7 +51,7 @@ msgstr "Ícone"
 msgid "Social Network"
 msgstr "Rede Social"
 
-#: models/social_network.py:19
+#: models/social_network.py:19 templates/base/contact.html:24
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
@@ -179,6 +195,10 @@ msgstr "Contato"
 msgid "Contact us"
 msgstr "Contate-nos"
 
+#: templates/base/contact.html:19
+msgid "Send Message"
+msgstr ""
+
 #: templates/base/fields/datetime.html:10
 msgid "This field can not be empty"
 msgstr "Este campo não pode ficar vazio"
@@ -196,11 +216,13 @@ msgid "This field is required!"
 msgstr "Este campo é obrigatório"
 
 #: urls/__init__.py:13
-msgid "^about-us/$"
+#| msgid "^about-us/$"
+msgid "^about/$"
 msgstr "^sobre/$"
 
 #: urls/__init__.py:13
-msgid "/about-us/"
+#| msgid "/about-us/"
+msgid "/about/"
 msgstr "/sobre/"
 
 #: urls/__init__.py:14
@@ -236,10 +258,17 @@ msgid "/credits/"
 msgstr "/creditos/"
 
 #: urls/__init__.py:18
-#| msgid "^contact_us$"
 msgid "^contact/"
 msgstr "^contato$"
 
 #: urls/contact.py:8
 msgid "^$"
+msgstr ""
+
+#: utils/constants.py:5
+msgid "Message send success"
+msgstr ""
+
+#: utils/constants.py:6
+msgid "Error send message"
 msgstr ""

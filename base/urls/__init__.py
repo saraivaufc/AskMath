@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 urlpatterns = (
 	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False), name='home'),
-	url(_(r'^about-us/$'), views.flatpage, {'url': _(u'/about-us/')}, name='about'),
+	url(_(r'^about/$'), views.flatpage, {'url': _(u'/about/')}, name='about'),
 	url(_(r'^license/$'), views.flatpage, {'url': _(u'/license/')}, name='license'),
 	url(_(r'^terms/$'), views.flatpage, {'url': _(u'/terms/')}, name='terms'),
 	url(_(r'^policies/$'), views.flatpage, {'url': _(u'/policies/')}, name='policies'),
