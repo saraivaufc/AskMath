@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 15:44-0300\n"
-"PO-Revision-Date: 2017-02-04 14:01-0234\n"
+"POT-Creation-Date: 2017-02-04 16:34-0300\n"
+"PO-Revision-Date: 2017-02-04 16:35-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,6 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: models/social_network.py:9
+msgid "Name"
+msgstr "Nome"
+
+#: models/social_network.py:10
+msgid "URL"
+msgstr "URL"
+
+#: models/social_network.py:11
+msgid "Icon"
+msgstr "Ícone"
+
+#: models/social_network.py:18
+msgid "Social Network"
+msgstr "Rede Social"
+
+#: models/social_network.py:19
+msgid "Social Networks"
+msgstr "Redes Sociais"
 
 #: templates/base/_base.html:44 templates/base/_base/header.html:21
 msgid "Home"
@@ -115,8 +135,8 @@ msgstr "Entrar"
 #: templates/base/_base/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video "
-"for free for you."
+"students who take the AskMath. There are several lessons and tutorials video"
+" for free for you."
 msgstr ""
 
 #: templates/base/_base/meta.html:4
@@ -126,8 +146,9 @@ msgstr ""
 #: templates/base/_base/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instructions on how to enable JavaScript in your browser "
+"</a>."
 msgstr ""
 
 #: templates/base/_form.html:11
@@ -150,11 +171,11 @@ msgstr "Próximo"
 msgid "CSV"
 msgstr "CSV"
 
-#: templates/base/contact_us.html:5 templates/base/contact_us.html:11
+#: templates/base/contact.html:5 templates/base/contact.html:11
 msgid "Contact"
 msgstr "Contato"
 
-#: templates/base/contact_us.html:15
+#: templates/base/contact.html:15
 msgid "Contact us"
 msgstr "Contate-nos"
 
@@ -174,46 +195,51 @@ msgstr "Alterar"
 msgid "This field is required!"
 msgstr "Este campo é obrigatório"
 
-#: urls.py:13
+#: urls/__init__.py:13
 msgid "^about-us/$"
 msgstr "^sobre/$"
 
-#: urls.py:13
+#: urls/__init__.py:13
 msgid "/about-us/"
 msgstr "/sobre/"
 
-#: urls.py:14
+#: urls/__init__.py:14
 msgid "^license/$"
 msgstr "^licenca/$"
 
-#: urls.py:14
+#: urls/__init__.py:14
 msgid "/license/"
 msgstr "/licenca/"
 
-#: urls.py:15
+#: urls/__init__.py:15
 msgid "^terms/$"
 msgstr "^termos/$"
 
-#: urls.py:15
+#: urls/__init__.py:15
 msgid "/terms/"
 msgstr "/termos/"
 
-#: urls.py:16
+#: urls/__init__.py:16
 msgid "^policies/$"
 msgstr "^politicas/$"
 
-#: urls.py:16
+#: urls/__init__.py:16
 msgid "/policies/"
 msgstr "/politicas/"
 
-#: urls.py:17
+#: urls/__init__.py:17
 msgid "^credits/$"
 msgstr "^creditos/$"
 
-#: urls.py:17
+#: urls/__init__.py:17
 msgid "/credits/"
 msgstr "/creditos/"
 
-#: urls.py:18
-msgid "^contact_us$"
-msgstr "^contate_nos$"
+#: urls/__init__.py:18
+#| msgid "^contact_us$"
+msgid "^contact/"
+msgstr "^contato$"
+
+#: urls/contact.py:8
+msgid "^$"
+msgstr ""

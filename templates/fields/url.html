@@ -4,7 +4,7 @@
 	<div class="form-group">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-10">
-			<input data-toggle="tooltip" title="{{ field.help_text }}"
+			<input data-toggle="tooltip" data-html="true" title="{{ field.help_text }}"
 				class="form-control"
 				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
 				type="text" id="{{ field.auto_id }}"

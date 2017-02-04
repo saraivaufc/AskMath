@@ -1,0 +1,33 @@
+{% extends "base/_base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Contact" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'base:contact' %}" class="breadcrumb-item" >
+		<i class="fa fa-vcard"></i>
+		{% trans "Contact" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Contact us" %}{% endblock %}
+
+{% block content %}
+	<div class="col-md-6">
+		
+	</div>
+	<div class="col-md-6">
+		<div class="tile-container">
+			<h3 class="text-xs-center">{% trans "Social Networks" %}:</h3>
+			{% for social_network in object_list %}
+				<div class="tile-small">
+					<a href="{{ social_network.url }}" target="_blank" class="tile-content image-set" data-toggle="tooltip" data-html="true" title="{{ social_network.name }}">
+						<img src="{{ social_network.icon.url }}" style="width: 100%;" alt="{{ social_network.name }}">
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

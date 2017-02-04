@@ -3,7 +3,7 @@
 	<div class="row">
 		{{field.label}}
 		{% if field.field.required %}
-			<span class="text-danger" data-toggle="tooltip" title="{% trans 'This field is required!' %}">*</span>
+			<span class="text-danger" data-toggle="tooltip" data-html="true" title="{% trans 'This field is required!' %}">*</span>
 		{% endif %}:
 	</div>
 </label>

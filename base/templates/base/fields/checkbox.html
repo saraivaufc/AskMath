@@ -4,7 +4,7 @@
 	<div class="form-check">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-10">
-			<label class="form-check-label" data-toggle="tooltip" title="{{ field.help_text }}">
+			<label class="form-check-label" data-toggle="tooltip" data-html="true" title="{{ field.help_text }}">
 			    <input id="{{ field.auto_id }}"
 			    class="form-check-input {{ field.css_classes }}"
 				type="checkbox"

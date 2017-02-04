@@ -12,7 +12,7 @@
 			{% if field.value %}
 				{% trans "Change" %}:
 			{% endif %}
-			<input data-toggle="tooltip" title="{{ field.help_text }}"
+			<input data-toggle="tooltip" data-html="true" title="{{ field.help_text }}"
 				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
 				type="file" id="{{ field.auto_id }}"
 				{% include 'base/fields/headers/attrs.html' %}

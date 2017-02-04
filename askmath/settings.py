@@ -193,7 +193,8 @@ MEDIA_ROOT = path('media/')
 MEDIA_URL = '/media/'
 
 # Media uploads dirs
-ISSUE_PHOTO_DIR = 'uploads/issue_photo/'
+ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
+SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 
 # Pagination
 PAGINATE_BY = 10

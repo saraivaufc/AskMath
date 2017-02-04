@@ -4,7 +4,7 @@
 	<div class="form-group">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-9">
-		    <select multiple="multiple" data-toggle="tooltip" title="{{ field.help_text }}"
+		    <select multiple="multiple" data-toggle="tooltip" data-html="true" title="{{ field.help_text }}"
 				class="form-control {{ field.css_classes }}"
 				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
 				id="{{ field.auto_id }}"

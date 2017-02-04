@@ -4,8 +4,8 @@ import os
 import glob
 import re
 
-TEXT = "'fields"
-NEW_TEXT = "'base/fields"
+TEXT = 'data-toggle="tooltip"'
+NEW_TEXT = 'data-toggle="tooltip" data-html="true"'
 FILE_TYPES = ['(.)\.html', ]
 
 rexs = []
