@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 urlpatterns = i18n_patterns(
-	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False), name='home'),
+	url(_(r'^'), include('base.urls', namespace="base", app_name="base")),
 	url(_(r'^ask/'), include('ask.urls', namespace="ask", app_name="ask")),
 	url(_(r'^authentication/'), include('authentication.urls', namespace="authentication", app_name="authentication")),
 
@@ -25,13 +25,6 @@ urlpatterns = i18n_patterns(
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^rosetta/', include('rosetta.urls')),
 	url(r'^i18n/', include('django.conf.urls.i18n')),
-
-	url(_(r'^about-us/$'), views.flatpage, {'url': _(u'/about-us/')}, name='about'),
-	url(_(r'^license/$'), views.flatpage, {'url': _(u'/license/')}, name='license'),
-	url(_(r'^terms/$'), views.flatpage, {'url': _(u'/terms/')}, name='terms'),
-	url(_(r'^policies/$'), views.flatpage, {'url': _(u'/policies/')}, name='policies'),
-	url(_(r'^credits/$'), views.flatpage, {'url': _(u'/credits/')}, name='credits'),
-	url(_(r'^contact_us$'), TemplateView.as_view(template_name="contact_us.html"), name="contact_us"),
 )
 
 urlpatterns += (

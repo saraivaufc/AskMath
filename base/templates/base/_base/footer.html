@@ -1,0 +1,41 @@
+{% load i18n %}
+
+{% now "Y" as current_year %}
+
+<ul class="nav navbar-nav">
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'base:license' %}">&copy; 2014 - {{ current_year }} Ciano Saraiva</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'base:about' %}">{% trans "About" %}</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'base:terms' %}">{% trans "Terms of Use" %}</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'base:policies' %}">{% trans "Privacy Policy" %}</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="{% url 'base:contact_us' %}">{% trans "Contact Us" %}</a>
+	</li>
+	<li class="nav-item active">
+		<div class="nav-link">
+			<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+			{# Não usei {{ redirect_to }} no valor pois, após a tradução das URL, a URL para redirecionamento está desatualizada  #}
+			<input name="next" type="hidden" value="{{ redirect_to }}" />
+			<select name="language">
+			{% get_current_language as LANGUAGE_CODE %}
+			{% get_available_languages as LANGUAGES %}
+			{% get_language_info_list for LANGUAGES as languages %}
+			{% for language in languages %}
+			<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected" {% endif %}> 
+				{{ language.code }}
+			</option>
+			{% endfor %}
+			</select>
+			{# Translators: Label of a button that triggers language #}
+			<input type="submit" class="btn btn-success btn-sm" value="{% trans 'Go' %}" />
+			</form>
+		</div>
+	</li>
+</ul>

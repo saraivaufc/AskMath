@@ -5,5 +5,5 @@ from django.contrib.auth.decorators import login_required
 from ask.views import QuestionDetailView
 
 urlpatterns = [
-	url(_(r'^answer_question/$'), login_required(QuestionDetailView.as_view()), name="answer_question"),
+	url(_(r'^answer/$'), login_required(QuestionDetailView.as_view()), name="answer_question"),
 ]

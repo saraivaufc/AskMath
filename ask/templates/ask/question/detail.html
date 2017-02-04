@@ -47,7 +47,7 @@
 			
 		</div>
 		{% if question.help %}
-			{% include '_modal.html' with id="help" title="Help" body=question.help %}
+			{% include 'base/_modal.html' with id="help" title="Help" body=question.help %}
 		{% endif %}
 
 	{% else %}

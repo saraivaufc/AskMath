@@ -1,0 +1,41 @@
+{% load i18n static %}
+<div class="col-md-6">
+ <ul class="pagination pagination-sm">
+	{% if page_obj.has_previous %}
+	<li class="page-item">
+	 	<a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-label="{% trans 'Previous' %}">
+			<span aria-hidden="true">&laquo;</span>
+			<span class="sr-only">{% trans 'Previous' %}</span>
+		</a>
+	</li>
+
+	{% endif %}
+	
+	{% for page in page_obj.paginator.page_range %}
+		<li class="page-item {% if page_obj.number == page %}active{% endif %}">
+		  <a class="page-link" href="?page={{ page }}">
+		  	{{ page }} 
+		  </a>
+		</li>
+	{% endfor %}
+
+	{% if page_obj.has_next %}
+	<li class="page-item">
+	  <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="{% trans 'Next' %}">
+		<span aria-hidden="true">&raquo;</span>
+		<span class="sr-only">{% trans 'Next' %}</span>
+	  </a>
+	</li>
+	{% endif %}
+</ul>
+</div>
+<div class="col-md-6">
+	{% if is_csv %}
+	<div class="float-xs-right">
+		<a href="?type=csv" class="btn btn-link">
+			<i class="fa fa-file-text-o"></i>
+			{% trans "CSV" %}
+		</a>
+	</div>
+	{% endif %}
+</div>

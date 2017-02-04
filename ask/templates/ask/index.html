@@ -1,4 +1,4 @@
-{% extends "_base.html" %}
+{% extends "base/_base.html" %}
 
 {% load static i18n %}
 
@@ -62,7 +62,7 @@
 		</div>
 		<div class="col-xs-6">
 			<div class="tile bg-darkBlue">
-				<a href="{% url 'about' %}" class="tile-content iconic">
+				<a href="{% url 'base:about' %}" class="tile-content iconic">
 					<span class="icon fa fa-exclamation"></span>
 				</a>
 				<span class="tile-label">{% trans "About the project" %}</span>

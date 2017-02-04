@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 11:43-0300\n"
+"POT-Creation-Date: 2017-02-04 15:36-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,10 @@ msgstr "Inglês"
 msgid "Spanish"
 msgstr "Espanhol"
 
+#: urls.py:20
+msgid "^"
+msgstr ""
+
 #: urls.py:21
 msgid "^ask/"
 msgstr "^ask/"
@@ -39,50 +43,38 @@ msgstr "^ask/"
 msgid "^authentication/"
 msgstr "^autenticacao/"
 
-#: urls.py:29
-msgid "^about-us/$"
-msgstr "^sobre/$"
+#~ msgid "^about-us/$"
+#~ msgstr "^sobre/$"
 
-#: urls.py:29
-msgid "/about-us/"
-msgstr "/sobre/"
+#~ msgid "/about-us/"
+#~ msgstr "/sobre/"
 
-#: urls.py:30
-msgid "^license/$"
-msgstr "^licenca/$"
+#~ msgid "^license/$"
+#~ msgstr "^licenca/$"
 
-#: urls.py:30
-msgid "/license/"
-msgstr "/licenca/"
+#~ msgid "/license/"
+#~ msgstr "/licenca/"
 
-#: urls.py:31
-msgid "^terms/$"
-msgstr "^termos/$"
+#~ msgid "^terms/$"
+#~ msgstr "^termos/$"
 
-#: urls.py:31
-msgid "/terms/"
-msgstr "/termos/"
+#~ msgid "/terms/"
+#~ msgstr "/termos/"
 
-#: urls.py:32
-msgid "^policies/$"
-msgstr "^politicas/$"
+#~ msgid "^policies/$"
+#~ msgstr "^politicas/$"
 
-#: urls.py:32
-msgid "/policies/"
-msgstr "/politicas/"
+#~ msgid "/policies/"
+#~ msgstr "/politicas/"
 
-#: urls.py:33
-msgid "^credits/$"
-msgstr "^creditos/$"
+#~ msgid "^credits/$"
+#~ msgstr "^creditos/$"
 
-#: urls.py:33
-msgid "/credits/"
-msgstr "/creditos/"
+#~ msgid "/credits/"
+#~ msgstr "/creditos/"
 
-#: urls.py:34
-#| msgid "Contact Us"
-msgid "^contact_us$"
-msgstr "^contate-nos$"
+#~ msgid "^contact_us$"
+#~ msgstr "^contate-nos$"
 
 #~ msgid "Home"
 #~ msgstr "Início"

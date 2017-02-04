@@ -1,0 +1,76 @@
+{% load i18n static %}
+
+<div class="header">
+	{% include 'base/_base/accessibility.html' %}
+	<div class="wrap">
+		<div class="logo" style="padding: 5px 30px 5px 30px; ">
+			<a href="{% url 'ask:home' %}">
+				<img src="{% static 'base/img/logo.png' %}" width="120px" title="logo" />
+			</a>
+		</div>
+		<div class="clear"> </div>
+	</div>
+</div>
+
+
+<nav class="navbar navbar-dark nav-pills bg-primary bg-faded" style="width: 100%;">
+	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+	<div class="collapse navbar-toggleable-xs" id="navbar-header">
+		<a href="{% url 'ask:home' %}" class="navbar-brand">
+			<i class="fa fa-home"></i>
+			{% trans "Home" %}
+	  	</a>
+		<ul class="nav navbar-nav">
+			{% if request.user.is_superuser  %}
+			<li class="nav-item dropdown active">
+				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="sites" aria-haspopup="true" aria-expanded="false">
+					<i class="fa fa-puzzle-piece"></i>
+					{% trans "Extra" %}
+				</a>
+				<div class="dropdown-menu" aria-labelledby="users">
+					<a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">
+						<i class="fa fa-gears"></i>
+						{% trans "Django Admin" %}
+					</a>
+					<a class="dropdown-item" href="/rosetta" target="_blank">
+						<i class="fa fa-language"></i>
+						{% trans "Rosetta" %}
+					</a>
+				</div>
+			</li>
+			{% endif %}
+		</ul>
+
+		<ul class="nav navbar-nav float-sm-right">
+			{% if request.user.is_authenticated %}
+			<li class="nav-item dropdown active">
+				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-user-circle"></i>
+					{{ request.user.email  }}
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="{% url 'authentication:account_detail' pk=request.user.pk %}">
+						<i class="fa fa-user"></i>
+						{% trans "Profile" %}
+					</a>
+					<a class="dropdown-item" href="{% url 'authentication:account_password_change' %}">
+						<i class="fa fa-key"></i>
+						{% trans "Change password" %}
+					</a>
+					<a class="dropdown-item" href="{% url 'authentication:account_logout' %}">
+						<i class="fa fa-sign-out"></i>
+						{% trans "Logout" %}
+					</a>
+				</div>
+			</li>
+			{% else %}
+				<li class="nav-item active">
+					<a href="{% url 'authentication:account_login' %}" class="nav-link">
+						<i class="fa fa-sign-in"></i>
+						{% trans "Login" %}
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>

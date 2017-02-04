@@ -8,7 +8,7 @@ urlpatterns = [
 	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False)),
 	url(_(r'^index$'), TemplateView.as_view(template_name="ask/index.html"), name="home"),
 
-	url(_(r'^issue/'), include('ask.urls.issue')),
-	url(_(r'^issue/(?P<issue_slug>[-\w]+)/lesson/'), include('ask.urls.lesson')),
-	url(_(r'^issue/(?P<issue_slug>[-\w]+)/lesson/(?P<lesson_slug>[-\w]+)/question/'), include('ask.urls.question')),
+	url(_(r'^issues/'), include('ask.urls.issue')),
+	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/'), include('ask.urls.lesson')),
+	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/questions/'), include('ask.urls.question')),
 ]

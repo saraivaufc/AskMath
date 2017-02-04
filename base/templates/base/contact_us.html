@@ -1,0 +1,20 @@
+{% extends "base/_base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Contact" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'base:contact_us' %}" class="breadcrumb-item" >
+		<i class="fa fa-vcard"></i>
+		{% trans "Contact" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Contact us" %}{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}

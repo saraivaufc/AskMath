@@ -4,8 +4,8 @@ import os
 import glob
 import re
 
-TEXT = "base/"
-NEW_TEXT = ''
+TEXT = "'fields"
+NEW_TEXT = "'base/fields"
 FILE_TYPES = ['(.)\.html', ]
 
 rexs = []

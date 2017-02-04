@@ -1,0 +1,143 @@
+html, body {
+	height: 100%;
+	background-color: #fff;
+}
+
+.header{
+    background-image: url('/static/base/img/header_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1px 0px 1px 0px;
+}
+
+
+.page-title{
+	color:#FFF;
+	/*background-color: #0275d8;*/
+	background-color: #1ba1e2;
+	margin: 1em 0em 0em 0em;
+	padding: 5px;
+	width: 100%;
+	line-height: 1.5;
+}
+
+.page-container{
+	background-color: #ffa;
+	margin: 0em 0em 1em 0em;
+	padding: 5px 5px;
+	width: 100%;
+}
+
+.sidebar, .sidebar > .sidebar-item{
+	width: 100%;
+	margin-right: 5px;
+	font-weight: bold;
+	color: #0275d8;
+}
+
+.sidebar-item.active{
+	color: #fff;
+}
+
+.alert{
+	margin-bottom: 0px;
+}
+
+.breadcrumb{
+	margin: 0em;
+}
+
+.breadcrumb > .breadcrumb-item:last-child{
+	color: #818a91;
+}
+
+.full-width{
+	width: 100%;
+	min-width: 100%;
+}
+
+.full-height{
+	height: 100%;
+}
+
+.text{
+	background-color: #fff;
+	padding: 10px;
+}
+
+/* DEFINITION */
+dl.definition{
+	width: 100%;
+}
+
+dl.definition > dt, dl.definition > dd{
+	padding: 10px;
+	border-top: 1px solid #eee;
+}
+
+/* CARD */
+.card{
+	border: 1px solid #ddd;
+}
+
+
+ul.errorlist > li{
+	color: red;
+}
+
+hr.divider{
+	padding: 0px;
+	margin-bottom: 10px solid #eee;
+}
+
+.hide{
+	display: none;
+}
+
+
+/* FORMS */
+.form-group{
+	margin-bottom: 0px;
+}
+
+span.select2-selection--multiple{
+	width: 100% !important;
+}
+
+input[type="email"]{
+	width: 300px !important;
+}
+
+input[type="datetime"]{
+	width: 150px !important;
+}
+
+input[type="number"], input[type="date"]{
+	width: 200px !important;
+}
+
+.navbar{
+	border-radius: 0;
+}
+
+.nav-link.active:after {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  margin-left: -3rem;
+  vertical-align: middle;
+  content: "";
+  border-right: .5rem solid transparent;
+  border-bottom: .5rem solid;
+  border-left: .5rem solid transparent;
+}
+
+.tag-sm{
+	font-size: .6em;
+}
+
+.jumbotron{
+  width: 100%;
+  margin-bottom: 0em;
+}

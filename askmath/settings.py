@@ -63,6 +63,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
+    'base',
     'ask',
     'authentication',
 )
@@ -89,7 +90,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'templates',
+            'base/templates',
             'authentication/templates',
             'ask/templates',
         ],
@@ -155,8 +156,10 @@ FORMAT_MODULE_PATH = [
 from askmath.formats.pt_BR.formats import * #GAMBI
 
 LOCALE_PATHS = (
+    path('base/locale'),
     path('askmath/locale'),
     path('ask/locale'),
+    path('authentication/locale'),
     '/var/local/translations/locale',
 )
 
@@ -181,7 +184,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(PROJECT_DIR, '.')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    path('static/'),
+    path('base/static/'),
     path('ask/static/'),
     path('authentication/static/'),
 )
