@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 04:29+0000\n"
-"PO-Revision-Date: 2017-01-31 17:52+0000\n"
+"POT-Creation-Date: 2017-02-04 11:43-0300\n"
+"PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,129 +19,109 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: templates/_base.html:48 templates/_header.html:12
-msgid "Home"
-msgstr "Início"
+#: settings.py:164
+msgid "Brazilian Portuguese"
+msgstr "Português Brasileiro"
 
-#: templates/_footer.html:10
-msgid "About"
-msgstr "Sobre"
+#: settings.py:165
+msgid "English"
+msgstr "Inglês"
 
-#: templates/_footer.html:13
-msgid "Terms of Use"
-msgstr "Termos de Uso"
+#: settings.py:166
+msgid "Spanish"
+msgstr "Espanhol"
 
-#: templates/_footer.html:16
-msgid "Privacy Policy"
-msgstr "Politica de Privacidade"
+#: urls.py:21
+msgid "^ask/"
+msgstr "^ask/"
 
-#: templates/_footer.html:19
-#, fuzzy
+#: urls.py:22
+msgid "^authentication/"
+msgstr "^autenticacao/"
+
+#: urls.py:29
+msgid "^about-us/$"
+msgstr "^sobre/$"
+
+#: urls.py:29
+msgid "/about-us/"
+msgstr "/sobre/"
+
+#: urls.py:30
+msgid "^license/$"
+msgstr "^licenca/$"
+
+#: urls.py:30
+msgid "/license/"
+msgstr "/licenca/"
+
+#: urls.py:31
+msgid "^terms/$"
+msgstr "^termos/$"
+
+#: urls.py:31
+msgid "/terms/"
+msgstr "/termos/"
+
+#: urls.py:32
+msgid "^policies/$"
+msgstr "^politicas/$"
+
+#: urls.py:32
+msgid "/policies/"
+msgstr "/politicas/"
+
+#: urls.py:33
+msgid "^credits/$"
+msgstr "^creditos/$"
+
+#: urls.py:33
+msgid "/credits/"
+msgstr "/creditos/"
+
+#: urls.py:34
 #| msgid "Contact Us"
-msgid "Contact Us"
-msgstr "Contate-nos"
+msgid "^contact_us$"
+msgstr "^contate-nos$"
 
-#. Translators: Label of a button that triggers language
-#: templates/_footer.html:37
-msgid "Go"
-msgstr "Ir"
+#~ msgid "Home"
+#~ msgstr "Início"
 
-#: templates/_form.html:44
-msgid "Save"
-msgstr "Salvar"
+#~ msgid "About"
+#~ msgstr "Sobre"
 
-#: templates/_header.html:20
-msgid "Extra"
-msgstr "Extra"
+#~ msgid "Terms of Use"
+#~ msgstr "Termos de Uso"
 
-#: templates/_header.html:25
-msgid "Django Admin"
-msgstr ""
+#~ msgid "Privacy Policy"
+#~ msgstr "Politica de Privacidade"
 
-#: templates/_header.html:29
-msgid "Rosetta"
-msgstr ""
+#~ msgid "Go"
+#~ msgstr "Ir"
 
-#: templates/_header.html:46
-msgid "Profile"
-msgstr ""
+#~ msgid "Save"
+#~ msgstr "Salvar"
 
-#: templates/_header.html:50
-msgid "Change password"
-msgstr ""
+#~ msgid "Extra"
+#~ msgstr "Extra"
 
-#: templates/_header.html:54
-msgid "Logout"
-msgstr ""
+#~ msgid "Profile"
+#~ msgstr "Perfil"
 
-#: templates/_header.html:62
-msgid "Login"
-msgstr ""
+#~ msgid "Change password"
+#~ msgstr "Alterar senha"
 
-#: templates/_no_script.html:3
-msgid ""
-"For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
-msgstr ""
+#~ msgid "Logout"
+#~ msgstr "Sair"
 
-#: templates/_paginate.html:6 templates/_paginate.html:8
-msgid "Previous"
-msgstr ""
+#~ msgid "Login"
+#~ msgstr "Entrar"
 
-#: templates/_paginate.html:24 templates/_paginate.html:26
-msgid "Next"
-msgstr ""
+#~ msgid "Close"
+#~ msgstr "Fechar"
 
-#: templates/_paginate.html:37
-msgid "CSV"
-msgstr ""
+#~ msgid "Previous"
+#~ msgstr "Anterior"
 
-#: templates/fields/datetime.html:10
-msgid "This field can not be empty"
-msgstr ""
-
-#: templates/fields/file.html:8 templates/fields/image.html:8
-msgid "Currently"
-msgstr ""
-
-#: templates/fields/file.html:13 templates/fields/image.html:13
-msgid "Change"
-msgstr ""
-
-#: templates/fields/headers/caption.html:6
-msgid "This field is required!"
-msgstr ""
-
-#~ msgid "Brazilian Portuguese"
-#~ msgstr "Português Brasileiro"
-
-#~ msgid "English"
-#~ msgstr "Inglês"
-
-#~ msgid "Spanish"
-#~ msgstr "Espanhol"
-
-#~ msgid "^ask/"
-#~ msgstr "^ask/"
-
-#~ msgid "^authentication/"
-#~ msgstr "^autenticacao/"
-
-#~ msgid "^about-us/$"
-#~ msgstr "^sobre/$"
-
-#~ msgid "/about-us/"
-#~ msgstr "/sobre/"
-
-#~ msgid "^license/$"
-#~ msgstr "^licensa/$"
-
-#~ msgid "/license/"
-#~ msgstr "/licensa/"
-
-#~ msgid "^terms/$"
-#~ msgstr "^termos/$"
-
-#~ msgid "/terms/"
-#~ msgstr "/termos/"
+#~ msgid "Next"
+#~ msgstr "Próxima"

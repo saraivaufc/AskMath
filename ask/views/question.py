@@ -4,9 +4,12 @@ from django.views.generic.detail import SingleObjectMixin
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from ask.models import Issue, Lesson, Question, Answer
 from ask.forms import AnswerForm
+from ask.utils.constants import Constants
+from ask.utils.lesson import get_question_of_lesson
 
 class QuestionDetailView(SingleObjectMixin, FormView):
 	template_name = 'ask/question/detail.html'
@@ -23,22 +26,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		return reverse_lazy('ask:answer_question', kwargs={'issue_slug': self.get_issue().slug, 'lesson_slug': self.get_lesson().slug})
 
 	def get_object(self):
-		questions = list(self.get_lesson().questions.all().order_by('position'))
-		questions_ = []
-		#primeiramente, pego todas as questoes que ainda nao foram respondidas
-		for index, question in enumerate(questions):
-			if not Answer.objects.filter(user=self.request.user, question=question, exists=True).exists():
-				questions_.append(question)
-		#se nao existir mais questoes para serem respondidas, entao eu pego a resposta incorreta mais antiga
-		if not questions_:
-			answer = Answer.objects.filter(user=self.request.user, lesson=self.get_lesson(), correct=False, exists=True).last()
-			if answer:
-				return answer.question
-
-		if len(questions_) >= 1:
-			return questions_[0]
-		else:
-			return None
+		return get_question_of_lesson(self.request.user, self.get_lesson())
 
 	def get_form(self, * args, ** kwargs):
 		return self.form_class(self.object, *args, **kwargs)
@@ -53,7 +41,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		if not self.get_issue().status == 'p' or not self.get_lesson().status == 'p':
 			raise PermissionDenied
 		self.object = self.get_object()
-		if not self.object:
+		if not self.object and self.get_lesson().questions.all():
 			return HttpResponseRedirect(reverse_lazy('ask:lesson_finished', kwargs={'issue_slug': self.get_issue().slug, 'slug': self.get_lesson().slug } ))
 		return super(QuestionDetailView, self).get(request)
 
@@ -76,4 +64,8 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		answer.correct = set(list(  answer.question.get_choices().filter(is_correct=True)  )) == set(list(  form.cleaned_data['choices'] ))
 		answer.save()
 		form.save_m2m()
+		if answer.correct:
+			messages.success(self.request, Constants.ANSWER_CORRECT)
+		else:
+			messages.error(self.request, Constants.ANSWER_INCORRECT)
 		return super(QuestionDetailView, self).form_valid(form)

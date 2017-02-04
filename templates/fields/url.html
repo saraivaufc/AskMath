@@ -1,17 +1,20 @@
 {% load i18n %}
 
-<div class="form-group">
-	{% include 'fields/headers/caption.html' %}
-	<input data-toggle="tooltip" data-placement="top" title="{{ field.help_text }}"
-		class="form-control"
-		name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
-		type="text" id="{{ field.auto_id }}"
-		{% if field.value %}value="{{ field.value }}"{% endif %}
-		{% include 'fields/headers/attrs.html' %}
-		{% if field.field.required %}
-			required="required" 
-		{% endif %}
-		tabindex="{{ forloop.counter }}"
-	/>
-	{% include 'fields/headers/errors.html' %}
+<div class="container-fluid">
+	<div class="form-group">
+		{% include 'fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			<input data-toggle="tooltip" title="{{ field.help_text }}"
+				class="form-control"
+				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
+				type="text" id="{{ field.auto_id }}"
+				{% if field.value %}value="{{ field.value }}"{% endif %}
+				{% include 'fields/headers/attrs.html' %}
+				{% if field.field.required %}
+					required="required"
+				{% endif %}
+				tabindex="{{ forloop.counter }}" />
+			{% include 'fields/headers/errors.html' %}
+		</div>
+	</div>
 </div>

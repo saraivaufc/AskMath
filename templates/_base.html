@@ -9,18 +9,16 @@
 	<title>AskMath - {% block title %}{% endblock %}</title>
 	
 	{% block css %}
-		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap.min.css" %}" />
-		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-flex.min.css" %}" />
-		<link rel="stylesheet" type="text/css" href="{% static "packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-grid.min.css" %}" />
-		<link rel="stylesheet" type="text/css" href="{% static "packages/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
-		<link rel="stylesheet" type="text/css" href="{% static "packages/metro/metro.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-flex.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-grid.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/packages/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/packages/metro/metro.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base/css/accessibility.css" %}" />
 		
-		<link rel="stylesheet" type="text/css" media="all" href="{% static "css/all_style.css" %}" />
-		<link rel="stylesheet" type="text/css" media="print" href="{% static "css/print_style.css" %}" />
-		<link rel="stylesheet" type="text/css" media="handheld" href="{% static "css/handheld_style.css" %}" />
-
-		<link rel="stylesheet" type="text/css" href="{% static "css/accessibility.css" %}" />
-
+		<link rel="stylesheet" type="text/css" media="all" href="{% static "base/css/all_style.css" %}" />
+		<link rel="stylesheet" type="text/css" media="print" href="{% static "base/css/print_style.css" %}" />
+		<link rel="stylesheet" type="text/css" media="handheld" href="{% static "base/css/handheld_style.css" %}" />
 	{% endblock %}
 	
 	{% block stylesheet %}
@@ -42,7 +40,6 @@
 	</header>
 	{% endblock %}
 
-	
 	{% block two_header %}
 	<nav id="breadcrumb" class="breadcrumb">
         {% block breadcrumbs %}
@@ -53,7 +50,7 @@
  	   {% endblock %}
 	</nav>
 	{% endblock %}
-
+	
 	{% block messages %}
 	<section id="messages">
 		{% include '_messages.html' %}
@@ -85,13 +82,12 @@
 	{% endblock %}
 
 	{% block js %}
-		<script src="{% static "packages/jquery-3.1.1.js" %}"></script>
-		<script src="{% static "packages/tether.min.js" %}"></script>
-		<script src="{% static "packages/bootstrap-4.0.0-alpha.5/dist/js/bootstrap.min.js" %}"></script>
-		
-		<script src="{% static "js/base.js" %}"></script>
-		<script src="{% static "packages/cookies.js" %}"></script>
-		<script src="{% static "js/accessibility.js" %}"></script>
+		<script src="{% static "base/packages/jquery-3.1.1.js" %}"></script>
+		<script src="{% static "base/packages/tether.min.js" %}"></script>
+		<script src="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/js/bootstrap.min.js" %}"></script>
+		<script src="{% static "base/packages/cookies.js" %}"></script>
+		<script src="{% static "base/js/accessibility.js" %}"></script>
+		<script src="{% static "base/js/base.js" %}"></script>
 	{% endblock %}
 
 	{% block scripts %}

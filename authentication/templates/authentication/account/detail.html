@@ -22,11 +22,11 @@
 	{{ object.username }}
 	<div class="float-xs-right">
 		{% if request.user.pk == object.pk  %}
-		<a href="{% url 'authentication:account_update' pk=request.user.pk %}" class="btn btn-info" data-toggle="tooltip" title="{% trans "Edit" %}">
+		<a href="{% url 'authentication:account_update' pk=request.user.pk %}" class="btn btn-info btn-sm" data-toggle="tooltip" title="{% trans "Edit" %}">
 			<i class="fa fa-edit"></i>
 		</a>
 
-		<a href="{% url 'authentication:account_delete' pk=request.user.pk %}" class="btn btn-danger" data-toggle="tooltip" title="{% trans "Delete" %}">
+		<a href="{% url 'authentication:account_delete' pk=request.user.pk %}" class="btn btn-danger btn-sm" data-toggle="tooltip" title="{% trans "Delete" %}">
 			<i class="fa fa-remove"></i>
 		</a>
 		{% endif %}

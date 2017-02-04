@@ -5,7 +5,7 @@
 	<div class="wrap">
 		<div class="logo" style="padding: 5px 30px 5px 30px; ">
 			<a href="{% url 'ask:home' %}">
-				<img src="{% static 'img/logo.png' %}" width="120px" title="logo" />
+				<img src="{% static 'base/img/logo.png' %}" width="120px" title="logo" />
 			</a>
 		</div>
 		<div class="clear"> </div>
@@ -41,7 +41,7 @@
 			{% endif %}
 		</ul>
 
-		<ul class="nav navbar-nav float-xs-right">
+		<ul class="nav navbar-nav float-sm-right">
 			{% if request.user.is_authenticated %}
 			<li class="nav-item dropdown active">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">

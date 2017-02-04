@@ -13,6 +13,7 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
+from django.contrib.messages import constants as message_constants
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -167,8 +168,6 @@ LANGUAGES = (
 
 TIME_ZONE = 'America/Fortaleza'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = False
@@ -193,5 +192,17 @@ MEDIA_URL = '/media/'
 # Media uploads dirs
 ISSUE_PHOTO_DIR = 'uploads/issue_photo/'
 
-#Pagination
+# Pagination
 PAGINATE_BY = 10
+
+# MessagesTAGS
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'debug',
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger',
+}
+
+# Session
+SESSION_COOKIE_NAME = "ask_sessionid"

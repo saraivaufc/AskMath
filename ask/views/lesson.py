@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 import collections
 
 from ask.models import Issue, Lesson, Question, Answer
-from ask.utils.sorting import LessonSorting
+from ask.utils.lesson import LessonSorting, get_question_of_lesson
 
 class LessonListView(ListView):
 	template_name = 'ask/lesson/list.html'
@@ -22,7 +22,7 @@ class LessonListView(ListView):
 	def get_queryset(self):
 		"""Return the last published lessons."""
 		lessons = Lesson.objects.filter(issues=self.get_issue(), status='p')
-		lessons = LessonSorting(lessons).get()
+		lessons = LessonSorting(lessons).get_lessons()
 		#print lessons
 		levels = collections.OrderedDict(sorted(lessons.items()))
 		return levels
@@ -63,8 +63,11 @@ class LessonFinishedView(DetailView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().status == 'p':
+		lesson = self.get_object()
+		if not lesson.status == 'p':
 			raise PermissionDenied
+		if get_question_of_lesson(request.user, lesson):
+			return HttpResponseRedirect(reverse_lazy('ask:answer_question', kwargs={'issue_slug': self.get_issue().slug, 'lesson_slug': lesson.slug}))
 		return super(LessonFinishedView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):

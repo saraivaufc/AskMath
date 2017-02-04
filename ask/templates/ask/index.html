@@ -1,8 +1,15 @@
 {% extends "_base.html" %}
 
-{% load i18n %}
+{% load static i18n %}
 
 {% block title %}{% trans "Welcome" %}{% endblock %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" media="all" href="{% static "ask/css/all_style.css" %}" />
+	<link rel="stylesheet" type="text/css" media="print" href="{% static "ask/css/print_style.css" %}" />
+	<link rel="stylesheet" type="text/css" media="handheld" href="{% static "ask/css/handheld_style.css" %}" />
+{% endblock %}
 
 {% block breadcrumbs %}
 	{{ block.super }}
@@ -64,4 +71,9 @@
 	</div>
 </div>
 
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="{% static "ask/js/base.js" %}"></script>
 {% endblock %}

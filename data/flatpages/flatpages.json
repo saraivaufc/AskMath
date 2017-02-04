@@ -1,0 +1,102 @@
+[
+	{
+		"model": "flatpages.flatpage",
+		"pk": 1,
+		"fields": {
+			"url": "/en/about-us/",
+			"title": "About Us",
+			"content": "templates/en_about.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 2,
+		"fields": {
+			"url": "/en/credits/",
+			"title": "Credits",
+			"content": "templates/en_credits.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 3,
+		"fields": {
+			"url": "/en/license/",
+			"title": "License",
+			"content": "templates/en_license.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 4,
+		"fields": {
+			"url": "/en/policies/",
+			"title": "Privacy Policies",
+			"content": "templates/en_policies.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 5,
+		"fields": {
+			"url": "/en/terms/",
+			"title": "Terms os Use",
+			"content": "templates/en_terms.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 6,
+		"fields": {
+			"url": "/pt-br/sobre/",
+			"title": "Sobre",
+			"content": "templates/pt-br_about.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 7,
+		"fields": {
+			"url": "/pt-br/creditos/",
+			"title": "Créditos",
+			"content": "templates/pt-br_credits.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 8,
+		"fields": {
+			"url": "/pt-br/licenca/",
+			"title": "Licença",
+			"content": "templates/pt-br_license.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 9,
+		"fields": {
+			"url": "/pt-br/politicas/",
+			"title": "Políticas de Privacidade",
+			"content": "templates/pt-br_policies.html",
+			"sites": [1]
+		}
+	},
+	{
+		"model": "flatpages.flatpage",
+		"pk": 10,
+		"fields": {
+			"url": "/pt-br/termos/",
+			"title": "Termos de Uso",
+			"content": "templates/pt-br_terms.html",
+			"sites": [1]
+		}
+	}
+]

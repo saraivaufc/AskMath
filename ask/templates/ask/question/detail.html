@@ -21,37 +21,41 @@
 {% endblock %}
 
 {% block content %}
-	<div class="col-md-6">
-		<p class="lead">{{ question.text }}</p>
-		<form action="." method="post">
-			{% csrf_token %}
-			{{ form.as_p }}
-		<div class="row">
-			<div class="btn-group" role="group">
-				<button type="submit" class="btn btn-success">
-					<i class="fa fa-check"></i>
-					{% trans "Reply" %}
-				</button>
-				</form>
-				<button type="button" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
-					<i class="fa fa-exclamation"></i>
-					{% trans "Help" %}
-				</button>
-				<button type="button" class="btn btn-warning">
-					<i class="fa fa-child"></i>
-					{% trans "Jump" %}
-				</button>
-				<button type="button" class="btn btn-danger">
-					<i class="fa fa-history"></i>
-					{% trans "Review Jumps" %}
-				</button>
+
+	{% if question %}
+	
+		<div class="col-md-6">
+			<p class="lead">{{ question.text }}</p>
+			<form action="." method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+			<div class="row">
+				<div class="btn-group" role="group">
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-check"></i>
+						{% trans "Reply" %}
+					</button>
+					</form>
+					<button type="button" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
+						<i class="fa fa-exclamation"></i>
+						{% trans "Help" %}
+					</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-6">
-		
-	</div>
-	{% if question.help %}
-		{% include '_modal.html' with id="help" title="Help" body=question.help %}
+		<div class="col-md-6">
+			
+		</div>
+		{% if question.help %}
+			{% include '_modal.html' with id="help" title="Help" body=question.help %}
+		{% endif %}
+
+	{% else %}
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<p class="lead">{% trans "No found questions." %}</p>
+			</div>
+		</div>
 	{% endif %}
+
 {% endblock %}

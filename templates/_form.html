@@ -5,40 +5,7 @@
 	<input type="hidden" name="next" value="{{ next }}" />
 	<input type="hidden" name="is_popup" value="{% if is_popup %}true{% else %}false{% endif %}" />
 	
-	{% for hidden in form.hidden_fields %}
-		{{hidden }}
-	{% endfor %}
-
-	{% for field in form.visible_fields %}
-		{% if field|is_checkbox %}
-			{% include 'fields/checkbox.html' %}
-		{% elif field|is_radio %}
-			{% include 'fields/radio.html' %}
-		{% elif field|is_select %}
-			{% include 'fields/select.html' %}
-		{% elif field|is_select_multiple %}
-			{% include 'fields/select_multiple.html' %}
-		{% elif field|is_file %}
-			{% include 'fields/file.html' %}
-		{% elif field|is_text  %}
-			{% include 'fields/text.html' %}
-		{% elif field|is_textarea %}
-			{% include 'fields/textarea.html' %}
-		{% elif field|is_email %}
-			{% include 'fields/email.html' %}
-		{% elif field|is_number %}
-			{% include 'fields/number.html' %}
-		{% elif field|is_date %}
-			{% include 'fields/date.html' %}
-		{% elif field|is_datetime %}
-			{% include 'fields/datetime.html' %}
-		{% elif field|is_password %}
-			{% include 'fields/password.html' %}
-		{% else %}
-			{% include 'fields/field.html' %}
-		{% endif %}
-		<hr class="divider"/>
-	{% endfor %}
+	{% include "_form_fields.html" %}
 
 	<div class="float-xs-right">
 		<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>

@@ -22,19 +22,16 @@
 	<div class="jumbotron">
 		<div class="container-fluid">
 			<p class="lead">{{ lesson.description }}</p>
-			{% if lesson.questions.all %}
-				{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug as url %}
-			{% else %}
-				{% trans "#" as url %}
-			{% endif %}
-			<a href="{{ url }}" type="button" class="btn btn-success btn-lg {% if not lesson.questions.all %}disabled{% endif %}" role="button" >
+			<a href="{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
 				<i class="fa fa-question"></i>
 				{% trans "Questions" %}
 			</a>
-			<a href="#" type="button" class="btn btn-info btn-lg" role="button">
+			{% comment %}
+			<a href="#" type="button" class="btn btn-info" role="button">
 				<i class="fa fa-film"></i>
 				{% trans "Videos" %}
 			</a>
+			{% endcomment %}
 		</div>
 	</div>
 {% endblock %}
