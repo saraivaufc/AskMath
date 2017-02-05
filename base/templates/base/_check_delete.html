@@ -1,0 +1,10 @@
+{% load i18n static %}
+
+<div class="jumbotron jumbotron-fluid text-xs-center full-width">
+	<div class="container-fluid">
+		<p class="lead">{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
+		<form action="" method="post">{% csrf_token %}
+			<button class="btn btn-primary" type="submit">{% trans "Yes" %}</button>
+		</form>
+	</div>
+</div>

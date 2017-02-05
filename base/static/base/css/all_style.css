@@ -104,10 +104,6 @@ span.select2-selection--multiple{
 	width: 100% !important;
 }
 
-input[type="email"]{
-	width: 300px !important;
-}
-
 input[type="datetime"]{
 	width: 150px !important;
 }

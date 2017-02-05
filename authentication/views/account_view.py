@@ -5,6 +5,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from authentication.models import User
 from django.conf import settings
+from django.contrib import messages
+
+from ..utils.constants import Constants
 
 class UserCreateView(CreateView):
 	template_name = 'authentication/account/register.html'
@@ -16,6 +19,7 @@ class UserCreateView(CreateView):
 		user = form.save(commit=False)
 		user.set_password(user.password)
 		user.save(group="student")
+		messages.success(self.request, Constants.USER_SUCCESS_CREATED)
 		return super(UserCreateView, self).form_valid(form)
 
 

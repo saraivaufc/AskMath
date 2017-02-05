@@ -4,17 +4,10 @@
 	<div class="form-group">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-9">
-		    <select multiple="multiple" data-toggle="tooltip" data-html="true" title="{{ field.help_text }}"
-				class="form-control {{ field.css_classes }}"
-				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
-				id="{{ field.auto_id }}"
+		    <select multiple="multiple"
 				{% include 'base/fields/headers/attrs.html' %}
-				{% if field.field.required %}
-					required="required"
-				{% endif %}
-				tabindex="{{ forloop.counter }}">
 				{% for value, text in field.field.choices %}
-				<option value="{{ value }}" {% if value|convert:'int' in field.value|convert:'int' %}selected="selected"{% endif %}>{{ text }}</option>
+					<option value="{{ value }}" {% if value|convert:'int' in field.value|convert:'int' %}selected="selected"{% endif %}>{{ text }}</option>
 				{% endfor %}
 			</select>
 			{% include 'base/fields/headers/errors.html' %}

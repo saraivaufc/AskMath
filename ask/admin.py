@@ -4,9 +4,10 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 from django.contrib.admin import AdminSite
 
+from base.actions import (StatusAction, )
+
 from .models import (Issue, Lesson, Question, Choice, Answer)
 from .forms import (IssueForm, LessonForm, QuestionForm, ChoiceForm, AnswerForm)
-from .actions import (StatusAction, )
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm

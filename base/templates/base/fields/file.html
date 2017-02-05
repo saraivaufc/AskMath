@@ -12,15 +12,11 @@
 			{% if field.value %}
 				{% trans "Change" %}:
 			{% endif %}
-			<input data-toggle="tooltip" data-html="true" title="{{ field.help_text }}"
-				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
-				type="file" id="{{ field.auto_id }}"
+			<input type="file"
 				{% include 'base/fields/headers/attrs.html' %}
 				{% if field.field.required and not field.value %}
 					required="required"
-				{% endif %}
-				tabindex="{{ forloop.counter }}" 
-			/>
+				{% endif %} />
 			{% include 'base/fields/headers/errors.html' %}
 		</div>
 	</div>

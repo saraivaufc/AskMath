@@ -4,18 +4,9 @@
 	<div class="form-check">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-10">
-			<label class="form-check-label" data-toggle="tooltip" data-html="true" title="{{ field.help_text }}">
-			    <input id="{{ field.auto_id }}"
-			    class="form-check-input {{ field.css_classes }}"
-				type="checkbox"
-				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
-				{% if field.value == True or field.initial == True %}checked{% endif %}
-				{% include 'base/fields/headers/attrs.html' %}
-				{% if field.field.required %}
-					required="required"
-				{% endif %}
-				tabindex="{{ forloop.counter }}"
-				/>
+			<label class="form-check-label">
+			    <input  class="form-check-input" type="checkbox" {% if field.value == True or field.initial == True %}checked{% endif %}
+				{% include 'base/fields/headers/attrs.html' %} />
 			</label>
 			{% include 'base/fields/headers/errors.html' %}
 		</div>

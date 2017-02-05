@@ -20,6 +20,7 @@ urlpatterns = i18n_patterns(
 	url(_(r'^'), include('base.urls', namespace="base", app_name="base")),
 	url(_(r'^'), include('ask.urls', namespace="ask", app_name="ask")),
 	url(_(r'^'), include('authentication.urls', namespace="authentication", app_name="authentication")),
+	url(_(r'^'), include('forum.urls', namespace="forum", app_name="forum")),
 
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

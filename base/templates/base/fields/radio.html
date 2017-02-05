@@ -1,7 +1,15 @@
-{% include 'base/fields/headers/caption.html' %}
-<label class="form-group" title="{{ field.help_text }}">
-	{{ field }}
-    <span class="check"></span>
-    <span class="caption">Checkbox</span>
-    {% include 'base/fields/headers/errors.html' %}
-</label>
+{% load i18n %}
+
+<div class="container-fluid">
+	<div class="form-group">
+		{% include 'base/fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			<div class="form-check">
+			<label class="form-check-label">
+				<input type="radio" class="form-check-input"  {% include 'base/fields/headers/attrs.html' %} />
+			</label>
+			</div>
+			{% include 'base/fields/headers/errors.html' %}
+		</div>
+	</div>
+</div>

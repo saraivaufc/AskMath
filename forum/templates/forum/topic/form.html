@@ -1,0 +1,36 @@
+{% extends 'forum/topic/list.html' %}
+
+{% load i18n %}
+
+{% block title %}
+	{% trans "Form Topic" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'forum:topic_add' category_slug=category.slug" class="breadcrumb-item" >
+		<i class="fa fa-hashtag"></i>
+		{% trans "Form Topic" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% trans "Add Topic" %}
+{% endblock %}
+
+{% block content %}	
+	
+	<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+	{% csrf_token %}
+		
+		{% include 'base/_form_fields.html' %}
+
+		{% with form=comment_form %}
+			{% include 'base/_form_fields.html' %}
+		{% endwith %}
+
+		<div class="float-xs-right">
+			<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
+		</div>
+	</form>
+{% endblock %}

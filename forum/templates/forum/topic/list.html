@@ -1,0 +1,73 @@
+{% extends 'forum/category/list.html' %}
+
+{% load i18n humanize %}
+
+{% block title %}
+	{% blocktrans with category=category %}
+		Topics of {{ category }}
+	{% endblocktrans %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'forum:topic_list' category_slug=category.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-hashtag"></i>
+		{% blocktrans with category=category %}
+			Topics of {{ category }}
+		{% endblocktrans %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with category=category %}
+		Topics of {{ category }}
+	{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+	<a href="{% url 'forum:topic_add' category_slug=category.slug %}" class="btn btn-success btn-sm">
+		<i class="fa fa-plus"></i>
+		{% trans "New topic" %}
+	</a>
+
+	<table class="table table-borderedtable-hover text">
+		<thead>
+			<tr>
+				<th>{% trans "Title" %}</th>
+				<th>{% trans "Comments" %}</th>
+				<th>{% trans "Date" %}</th>
+				<th>{% trans "Options" %}</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for topic in object_list %}
+				<tr>
+					<td>
+						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug %}">
+							{{ topic.title }}
+						</a>
+					</td>
+					<td>{{ topic.get_comments|length }}</td>
+					<td>{{ topic.date|naturaltime }}</td>
+					<td>
+						{% ifequal topic.user request.user  %}
+						<a href="{% url 'forum:topic_update' category_slug=category.slug slug=topic.slug %}" class="btn btn-primary btn-sm">
+							<i class="fa fa-edit"></i>					
+						</a>
+						<a href="{% url 'forum:topic_delete' category_slug=category.slug slug=topic.slug %}" class="btn btn-danger btn-sm">
+							<i class="fa fa-remove"></i>
+						</a>
+						{% endifequal %}
+					</td>
+				</tr>
+			{% empty %}
+				<tr>
+					<td class="text-xs-center">{% trans "No topic found!" %}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% include "base/_paginate.html" %}
+{% endblock %}

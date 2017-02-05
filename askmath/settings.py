@@ -59,13 +59,14 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rosetta',
-    'django_js_reverse',
+    #'django_js_reverse',
 )
 
 LOCAL_APPS = (
     'base',
     'ask',
     'authentication',
+    'forum',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

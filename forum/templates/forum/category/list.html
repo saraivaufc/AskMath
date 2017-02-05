@@ -1,0 +1,51 @@
+{% extends "forum/index.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "List of Categories" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'forum:category_list' %}" class="breadcrumb-item" >
+		<i class="fa fa-comments-o"></i>
+		{% trans "Forum" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "List of Categories" %}{% endblock %}
+
+{% block content %}
+
+	<table class="table table-borderedtable-hover text">
+		<thead>
+			<tr>
+				<th>{% trans "Name" %}</th>
+				<th>{% trans "Last topic" %}</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for category in object_list %}
+				<tr>
+					<td>
+						<a href="{% url 'forum:topic_list' category_slug=category.slug %}">
+							{{ category.name }}
+						</a>
+					</td>
+					<td>
+						{% if category.get_topics.first %}
+						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=category.get_topics.first.slug %}">
+							{{ category.get_topics.first }}
+						</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% empty %}
+				<tr>
+					<td class="text-xs-center">{% trans "No Category found!" %}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% include "base/_paginate.html" %}
+{% endblock %}

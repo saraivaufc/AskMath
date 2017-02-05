@@ -4,18 +4,8 @@
 	<div class="form-group">
 		{% include 'base/fields/headers/caption.html' %}
 		<div class="col-xs-10">
-			<input data-toggle="tooltip" data-html="true" placeholder="xx/xx/xxxx xx:xx:xx" title="{{ field.help_text }}"
-				{% if field.field.required %}
-					data-validate-func="required"
-					data-validate-hint="{% trans "This field can not be empty" %}"
-				{% endif %}
-				class="form-control"
-				name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
-				type="datetime" id="{{ field.auto_id }}"
-				{% if field.value %}value="{{ field.value }}"{% endif %}
-				{% include 'base/fields/headers/attrs.html' %}
-				tabindex="{{ forloop.counter }}"
-			/>
+			<input type="datetime" placeholder="xx/xx/xxxx xx:xx:xx"
+			{% include 'base/fields/headers/attrs.html' %} />
 			{% include 'base/fields/headers/errors.html' %}
 		</div>
 	</div>

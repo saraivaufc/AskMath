@@ -1,6 +1,6 @@
 {% load i18n ask_tags %}
 
-<form class="full-width" action="" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
 	{% csrf_token %}
 	<input type="hidden" name="next" value="{{ next }}" />
 	<input type="hidden" name="is_popup" value="{% if is_popup %}true{% else %}false{% endif %}" />
