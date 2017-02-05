@@ -8,5 +8,5 @@ class CommentForm(forms.ModelForm):
 		model = Comment
 		fields = ['text',]
 		widgets = {
-			'text': forms.Textarea(attrs={'rows': 1}), 
+			'text': forms.Textarea(attrs={'rows': 2, 'onchange': 'UpdateMath(this.value)'}), 
 		}

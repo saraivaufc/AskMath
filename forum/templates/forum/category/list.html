@@ -19,7 +19,8 @@
 	<table class="table table-borderedtable-hover text">
 		<thead>
 			<tr>
-				<th>{% trans "Name" %}</th>
+				<th>{% trans "Category" %}</th>
+				<th>{% trans "Topics" %}</th>
 				<th>{% trans "Last topic" %}</th>
 			</tr>
 		</thead>
@@ -32,6 +33,7 @@
 							{{ category.name }}
 						</a>
 					</td>
+					<td>{{ category.get_topics|length }}</td>
 					<td>
 						{% if category.get_topics.first %}
 						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=category.get_topics.first.slug %}">

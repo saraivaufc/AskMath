@@ -19,7 +19,7 @@ class Comment(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"))
 	topic = models.ForeignKey('forum.Topic')
 
-	text = models.TextField(_("Comment text"), max_length=COMMENT_MAX_LEN)
+	text = models.TextField(_("Comment"), max_length=COMMENT_MAX_LEN)
 	date = models.DateTimeField(auto_now_add=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	

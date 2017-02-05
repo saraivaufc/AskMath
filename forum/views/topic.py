@@ -48,11 +48,20 @@ class TopicDetailView(SingleObjectMixin, FormMixin, ListView, ):
 	def get_queryset(self):
 		return self.object.get_comments()
 
+	def get_form(self, * args, ** kwargs):
+		if self.kwargs.has_key("comment_id"):
+			comment = Comment.objects.get(user=self.request.user, id=self.kwargs["comment_id"])
+			if comment:
+				return self.form_class(instance=comment, * args, ** kwargs)
+		return super(TopicDetailView, self).get_form()
+
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDetailView, self).get_context_data(** kwargs)
 		context['category'] = self.get_category()
 		context['topic'] = self.object
 		context['form'] = self.get_form()
+		if self.kwargs.has_key("comment_id"):
+			context['comment_edit'] = True
 		return context
 
 	def get(self, request, * args, ** kwargs):
@@ -63,7 +72,7 @@ class TopicDetailView(SingleObjectMixin, FormMixin, ListView, ):
 
 	def post(self, request, * args, ** kwargs):
 		self.object = self.get_object(queryset=self.get_category().get_topics())
-		form = self.get_form()
+		form = self.get_form(request.POST, request.FILES)
 		if form.is_valid():
 			return self.form_valid(form)
 		else:

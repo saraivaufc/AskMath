@@ -29,8 +29,10 @@
 			{% include 'base/_form_fields.html' %}
 		{% endwith %}
 
-		<div class="float-xs-right">
-			<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
+		<div class="container-fluid">
+			<div class="float-xs-right">
+				<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
+			</div>
 		</div>
 	</form>
 {% endblock %}

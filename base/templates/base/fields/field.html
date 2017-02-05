@@ -1,3 +1,11 @@
-{% include 'base/fields/headers/caption.html' %}
-{{ field }}
-{% include 'base/fields/headers/errors.html' %}
+{% load i18n %}
+
+<div class="container-fluid">
+	<div class="form-group row">
+		{% include 'base/fields/headers/caption.html' %}
+		<div class="col-xs-10">
+			{{ field }}
+			{% include 'base/fields/headers/errors.html' %}
+		</div>
+	</div>
+</div>
