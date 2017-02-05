@@ -24,10 +24,15 @@
 	{% csrf_token %}
 		
 		{% include 'base/_form_fields.html' %}
-
+		
 		{% with form=comment_form %}
 			{% include 'base/_form_fields.html' %}
 		{% endwith %}
+
+		<div class="col-md-10 offset-md-2">
+			<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer"></div>
+		</div>
 
 		<div class="container-fluid">
 			<div class="float-xs-right">
@@ -35,4 +40,10 @@
 			</div>
 		</div>
 	</form>
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	{% include "base/imports/latex.html" %}
+	{% include "base/imports/latex_preview.html" with id='id_text' id_preview='MathPreview' id_buffer='MathBuffer'  %}
 {% endblock %}
