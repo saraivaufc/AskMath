@@ -25,11 +25,10 @@
 {% endblock %}
 
 {% block content %}
-	<a href="{% url 'forum:topic_add' category_slug=category.slug %}" class="btn btn-success btn-sm">
+	<a href="{% url 'forum:topic_add' category_slug=category.slug %}" class="btn btn-success">
 		<i class="fa fa-plus"></i>
 		{% trans "New topic" %}
 	</a>
-
 	<table class="table table-borderedtable-hover text">
 		<thead>
 			<tr>
@@ -50,7 +49,7 @@
 					</td>
 					<td>{{ topic.get_comments|length }}</td>
 					<td>{{ topic.date|naturaltime }}</td>
-					<td>
+					<td class="text-xs-center">
 						{% ifequal topic.user request.user  %}
 						<a href="{% url 'forum:topic_update' category_slug=category.slug slug=topic.slug %}" class="btn btn-primary btn-sm">
 							<i class="fa fa-edit"></i>					

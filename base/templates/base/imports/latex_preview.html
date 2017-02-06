@@ -1,7 +1,7 @@
 
 <script>
 
-var Preview = {
+var Preview_{{ id }} = {
   delay: 150,        // delay after keystroke before updating
 
   preview: null,     // filled in by Init below
@@ -52,7 +52,7 @@ var Preview = {
   //    typesetting.  After it is done, call PreviewDone.
   //  
   CreatePreview: function () {
-    Preview.timeout = null;
+    Preview_{{ id }}.timeout = null;
     if (this.mjRunning) return;
     var text = document.getElementById("{{ id }}").value;
     if (text === this.oldtext) return;
@@ -78,8 +78,8 @@ var Preview = {
 //
 //  Cache a callback to the CreatePreview action
 //
-Preview.Init();
-Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-Preview.callback.autoReset = true;  // make sure it can run more than once
+Preview_{{ id }}.Init();
+Preview_{{ id }}.callback = MathJax.Callback(["CreatePreview",Preview_{{ id }}]);
+Preview_{{ id }}.callback.autoReset = true;  // make sure it can run more than once
 
 </script>

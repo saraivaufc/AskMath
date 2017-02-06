@@ -19,36 +19,16 @@
 {% endblock %}
 
 {% block content %}
-
-	<div class="col-md-6">
-		<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
-			{% csrf_token %}
-
-			{% include 'base/_form_fields.html' %}
-
-			<div class="container-fluid">
-				<div class="float-xs-right">
-					{% if comment_edit %}
-					<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug %}" class="btn btn-secondary">
-						<i class="fa fa-minus-circle"></i>
-						{% trans "Cancel" %}
-					</a>
-					{% endif %}
-					<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
-				</div>
-			</div>
-		</form>
-	</div>
-	<div class="col-md-6">
-		<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-		<div id="MathBuffer"></div>
-	</div>
+	<a href="{% url 'forum:comment_add' category_slug=category.slug topic_slug=topic.slug %}" class="btn btn-success">
+		<i class="fa fa-plus"></i>
+		{% trans "New Comment" %}
+	</a>
 
 	<table class="table table-bordered table-hover text">
 		<thead>
 			<tr>
 				<th>{% trans "User" %}</th>
-				<th>{% trans "Text" %}</th>
+				<th>{% trans "Comment" %}</th>
 				<th>{% trans "Date" %}</th>
 				<th>{% trans "Options" %}</th>
 			</tr>
@@ -60,12 +40,12 @@
 					<td>{{ comment.user }}</td>
 					<td>{{ comment.text }}</td>
 					<td>{{ comment.date|naturaltime }}</td>
-					<td>
+					<td class="text-xs-center">
 						{% ifequal comment.user request.user  %}
-						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug comment_id=comment.id %}" class="btn btn-primary btn-sm">
+						<a href="{% url 'forum:comment_update' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-primary btn-sm">
 							<i class="fa fa-edit"></i>					
 						</a>
-						<a href="#" class="btn btn-danger btn-sm">
+						<a href="{% url 'forum:comment_delete' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-danger btn-sm">
 							<i class="fa fa-remove"></i>
 						</a>
 						{% endifequal %}
@@ -80,10 +60,4 @@
 	</table>
 
 	{% include "base/_paginate.html" %}
-{% endblock %}
-
-{% block js %}
-	{{ block.super }}
-	{% include "base/imports/latex.html" %}
-	{% include "base/imports/latex_preview.html" with id='id_text' id_preview='MathPreview' id_buffer='MathBuffer'  %}
 {% endblock %}

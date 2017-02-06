@@ -29,7 +29,7 @@ class Topic(models.Model):
 	comment_count = models.PositiveIntegerField(verbose_name=_("Comment count"), default=0)
 
 	def get_comments(self):
-		return Comment.objects.filter(topic=self)
+		return Comment.objects.filter(topic=self, status='p')
 
 	def __unicode__(self):
 		return self.title

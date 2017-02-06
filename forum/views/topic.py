@@ -33,35 +33,21 @@ class TopicListView(ListView):
 		context['category'] = self.get_category()
 		return context
 
-class TopicDetailView(SingleObjectMixin, FormMixin, ListView, ):
+class TopicDetailView(SingleObjectMixin, ListView):
 	template_name = 'forum/topic/detail.html'
-	paginate_by = settings.PAGINATE_BY
 	model = Topic
-	form_class = CommentForm
+	paginate_by = settings.PAGINATE_BY
 
 	def get_category(self):
 		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
 
-	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.object.slug})
-
 	def get_queryset(self):
 		return self.object.get_comments()
 
-	def get_form(self, * args, ** kwargs):
-		if self.kwargs.has_key("comment_id"):
-			comment = Comment.objects.get(user=self.request.user, id=self.kwargs["comment_id"])
-			if comment:
-				return self.form_class(instance=comment, * args, ** kwargs)
-		return super(TopicDetailView, self).get_form()
-
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDetailView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
+		context['category'] = self.get_category() 
 		context['topic'] = self.object
-		context['form'] = self.get_form()
-		if self.kwargs.has_key("comment_id"):
-			context['comment_edit'] = True
 		return context
 
 	def get(self, request, * args, ** kwargs):
@@ -69,21 +55,6 @@ class TopicDetailView(SingleObjectMixin, FormMixin, ListView, ):
 		if not self.object.status == 'p':
 			return HttpResponseForbidden()
 		return super(TopicDetailView, self).get(request)
-
-	def post(self, request, * args, ** kwargs):
-		self.object = self.get_object(queryset=self.get_category().get_topics())
-		form = self.get_form(request.POST, request.FILES)
-		if form.is_valid():
-			return self.form_valid(form)
-		else:
-			return self.form_invalid(form)
-
-	def form_valid(self, form):
-		form.instance.user = self.request.user
-		form.instance.topic = self.object
-		form.instance.ip_address = self.request.META['REMOTE_ADDR']
-		form.save()
-		return super(TopicDetailView, self).form_valid(form)
 
 class TopicCreateView(CreateView):
 	template_name = 'forum/topic/form.html'
@@ -135,6 +106,7 @@ class TopicUpdateView(UpdateView):
 	def get_context_data(self, ** kwargs):
 		context = super(TopicUpdateView, self).get_context_data(** kwargs)
 		context['category'] = self.get_category()
+		context['comment_form'] = CommentForm(instance=self.object.get_comments().last())
 		return context
 
 	def get(self, request, * args, ** kwargs):
@@ -146,13 +118,19 @@ class TopicUpdateView(UpdateView):
 	def post(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
+		self.object = self.get_object()
+		form = self.get_form()
+		form_comment = CommentForm(request.POST, request.FILES, instance=self.object.get_comments().last())
+		if form.is_valid() and form_comment.is_valid():
+			return self.form_valid(form, form_comment)
+		else:
+			return self.form_invalid(form)
 
-		return super(TopicUpdateView, self).post(request)
-
-	def form_valid(self, form):
-		topic = form.save(commit=False)
-		topic.date = timezone.now()
-		topic.save()
+	def form_valid(self, form, form_comment):
+		form.save()
+		form_comment.instance.date = timezone.now()
+		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
+		form_comment.save()
 		return super(TopicUpdateView, self).form_valid(form)
 
 class TopicDeleteView(DeleteView):

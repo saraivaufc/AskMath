@@ -51,3 +51,8 @@
 	</table>
 	{% include "base/_paginate.html" %}
 {% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	{% include "base/imports/latex.html" %}
+{% endblock %}

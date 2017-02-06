@@ -20,10 +20,10 @@ class TopicAdmin(admin.ModelAdmin, StatusAction):
 	search_fields = ['title', 'status']
 	actions = []
 
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
-	list_display = ('user', 'topic', 'text')
-	filter_fields = ['user', 'topic', 'date']
+	list_display = ('user', 'topic', 'text', 'status')
+	filter_fields = ['user', 'topic', 'date', 'status']
 	actions = []
 
 admin.site.register(Category, CategoryAdmin)

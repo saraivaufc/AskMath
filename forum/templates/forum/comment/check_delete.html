@@ -1,0 +1,20 @@
+{% extends "forum/topic/detail.html" %}
+
+
+{% load i18n %}
+
+{% block title %}{% trans "Confirm delete" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'forum:comment_delete' category_slug=category.slug topic_slug=topic.slug pk=object.pk %}" class="breadcrumb-item" >
+		<i class="fa fa-remove"></i>
+		{% trans "Confirm delete" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Confirm delete" %}{% endblock %}
+
+{% block content %}
+	{% include 'base/_check_delete.html' %}
+{% endblock %}

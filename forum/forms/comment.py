@@ -10,5 +10,5 @@ class CommentForm(forms.ModelForm):
 		model = Comment
 		fields = ['text',]
 		widgets = {
-			'text': forms.Textarea(attrs={'rows': 2, 'onkeyup':'Preview.Update()', 'title': Constants.HELP_TEXT_LATEX}), 
+			'text': forms.Textarea(attrs={'rows': 2, 'onkeyup':'Preview_id_text.Update()', 'title': Constants.HELP_TEXT_LATEX}), 
 		}
