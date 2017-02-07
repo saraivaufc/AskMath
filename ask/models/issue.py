@@ -21,10 +21,12 @@ class Issue(models.Model):
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.ISSUE_PHOTO_DIR, null=True, blank=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
+	date = models.DateTimeField(auto_now_add=True)
 
 	def __unicode__(self):
 		return self.name
 
 	class Meta:
+		ordering = ['name']
 		verbose_name = _(u'Issue')
 		verbose_name_plural = _(u'Issues')

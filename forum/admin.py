@@ -16,13 +16,13 @@ class CategoryAdmin(admin.ModelAdmin, StatusAction):
 	actions = []
 
 class TopicAdmin(admin.ModelAdmin, StatusAction):
-	list_display = ('title', 'status')
+	list_display = ('title', 'status', 'date')
 	search_fields = ['title', 'status']
 	actions = []
 
 class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
-	list_display = ('user', 'topic', 'text', 'status')
+	list_display = ('user', 'topic', 'text', 'status', 'date')
 	filter_fields = ['user', 'topic', 'date', 'status']
 	actions = []
 

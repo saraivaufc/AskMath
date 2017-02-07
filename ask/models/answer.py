@@ -9,9 +9,10 @@ class Answer(models.Model):
 	lesson = models.ForeignKey('Lesson', verbose_name=_(u"Lesson"), blank=True)
 	question = models.ForeignKey('Question', verbose_name=_(u"Question"), blank=True)
 	choices = models.ManyToManyField('Choice', verbose_name=_(u"Choices"))
-	date = models.DateTimeField(verbose_name=_(u"Date"), auto_now_add=True, auto_now=False)
 	correct = models.BooleanField(verbose_name=_("Correct"), default=False)
 	exists = models.BooleanField(verbose_name=_("Exists"), default=True)
+	date = models.DateTimeField(verbose_name=_(u"Date"), auto_now_add=True, auto_now=False)
+	
 
 	def __unicode__(self):
 		return "Casa"

@@ -16,14 +16,14 @@ STATUS_CHOICES = (
 )
 
 class Comment(models.Model):
+	ancient = models.ForeignKey('self', verbose_name=_("Ancient"), null=True, blank=True)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"))
 	topic = models.ForeignKey('forum.Topic')
 
 	text = models.TextField(_("Comment"), max_length=COMMENT_MAX_LEN)
 	date = models.DateTimeField(auto_now_add=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
-	
-	is_removed = models.BooleanField(default=False)
+
 	ip_address = models.GenericIPAddressField(blank=True, null=True)
 
 	def __unicode__(self):

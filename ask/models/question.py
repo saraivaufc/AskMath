@@ -9,7 +9,8 @@ class Question(models.Model):
 	position = models.IntegerField(verbose_name=_(u"Position"))
 	text = models.TextField(verbose_name=_(u"Question text"))
 	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
-
+	date = models.DateTimeField(auto_now_add=True)
+	
 	def get_choices(self):
 		return Choice.objects.filter(question=self)
 
@@ -17,5 +18,6 @@ class Question(models.Model):
 		return self.text
 
 	class Meta:
+		ordering = ['position']
 		verbose_name = _(u'Question')
 		verbose_name_plural = _(u'Questions')

@@ -74,6 +74,18 @@ class CommentUpdateView(UpdateView):
 		return super(CommentUpdateView, self).post(request, * args, ** kwargs)
 
 	def form_valid(self, form):
+		comment = self.get_object()
+		ancient = Comment(
+			user = comment.user,
+			topic = comment.topic,
+			text = comment.text,
+			date = comment.date,
+			status = 'r',
+			ip_address =comment.ip_address,
+		)
+		ancient.save()
+		print ancient
+		form.instance.ancient = ancient
 		form.instance.user = self.request.user
 		form.instance.date = timezone.now()
 		form.instance.status = 'p'

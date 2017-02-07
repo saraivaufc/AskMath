@@ -23,10 +23,13 @@ class Lesson(models.Model):
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
 	questions = models.ManyToManyField("Question", verbose_name=_(u"Questions"), related_name='lesson_question', blank=True)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
+	date = models.DateTimeField(auto_now_add=True)
+	
 
 	def __unicode__(self):
 		return self.name
 
 	class Meta:
+		ordering = ['name']
 		verbose_name = _(u'Lesson')
 		verbose_name_plural = _(u'Lessons')
