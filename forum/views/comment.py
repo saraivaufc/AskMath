@@ -63,6 +63,16 @@ class CommentUpdateView(UpdateView):
 		context['topic'] = self.get_topic()
 		return context
 
+	def get(self, request, * args, ** kwargs):
+		if not self.get_object().user == request.user:
+			return HttpResponseForbidden()
+		return super(CommentUpdateView, self).get(request, * args, ** kwargs)
+
+	def post(self, request, * args, ** kwargs):
+		if not self.get_object().user == request.user:
+			return HttpResponseForbidden()
+		return super(CommentUpdateView, self).post(request, * args, ** kwargs)
+
 	def form_valid(self, form):
 		form.instance.user = self.request.user
 		form.instance.date = timezone.now()
@@ -93,7 +103,6 @@ class CommentDeleteView(DeleteView):
 	def get(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
-
 		return super(CommentDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):

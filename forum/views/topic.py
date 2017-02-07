@@ -42,7 +42,8 @@ class TopicDetailView(SingleObjectMixin, ListView):
 		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
 
 	def get_queryset(self):
-		return self.object.get_comments()
+		comments = self.object.get_comments()
+		return comments.exclude(pk=comments.first().pk)
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDetailView, self).get_context_data(** kwargs)
@@ -89,6 +90,7 @@ class TopicCreateView(CreateView):
 		form_comment.instance.user = self.request.user
 		form_comment.instance.topic = topic
 		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
+		form_comment.instance.status = 'p'
 		form_comment.save()
 		return super(TopicCreateView, self).form_valid(form)
 
@@ -106,21 +108,21 @@ class TopicUpdateView(UpdateView):
 	def get_context_data(self, ** kwargs):
 		context = super(TopicUpdateView, self).get_context_data(** kwargs)
 		context['category'] = self.get_category()
-		context['comment_form'] = CommentForm(instance=self.object.get_comments().last())
+		context['comment_form'] = CommentForm(instance=self.object.get_comments().first())
 		return context
 
 	def get(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
-
 		return super(TopicUpdateView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
+			
 		self.object = self.get_object()
 		form = self.get_form()
-		form_comment = CommentForm(request.POST, request.FILES, instance=self.object.get_comments().last())
+		form_comment = CommentForm(request.POST, request.FILES, instance=self.object.get_comments().first())
 		if form.is_valid() and form_comment.is_valid():
 			return self.form_valid(form, form_comment)
 		else:
@@ -128,8 +130,8 @@ class TopicUpdateView(UpdateView):
 
 	def form_valid(self, form, form_comment):
 		form.save()
-		form_comment.instance.date = timezone.now()
 		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
+		form_comment.instance.status = 'p'
 		form_comment.save()
 		return super(TopicUpdateView, self).form_valid(form)
 

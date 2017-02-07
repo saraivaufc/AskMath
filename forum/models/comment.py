@@ -30,6 +30,6 @@ class Comment(models.Model):
 		return self.text
 
 	class Meta:
-		ordering = ['-date', ]
+		ordering = ['date', ]
 		verbose_name = _("Comment")
 		verbose_name_plural = _("Comments")

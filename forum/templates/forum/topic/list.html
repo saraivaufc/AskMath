@@ -10,7 +10,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'forum:topic_list' category_slug=category.slug %}" class="breadcrumb-item" >
+	<a href="{% url 'forum:topic_list' category_slug=category.slug %}?page=last" class="breadcrumb-item" >
 		<i class="fa fa-hashtag"></i>
 		{% blocktrans with category=category %}
 			Topics of {{ category }}
@@ -32,7 +32,8 @@
 	<table class="table table-borderedtable-hover text">
 		<thead>
 			<tr>
-				<th>{% trans "Title" %}</th>
+				<th>{% trans "Topic" %}</th>
+				<th>{% trans "Author" %}</th>
 				<th>{% trans "Comments" %}</th>
 				<th>{% trans "Date" %}</th>
 				<th>{% trans "Options" %}</th>
@@ -46,6 +47,10 @@
 						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug %}">
 							{{ topic.title }}
 						</a>
+					</td>
+					<td>
+						{% url 'authentication:account_detail' pk=topic.user.pk as link %}
+						<a href="{{ link }}" class="tag tag-success">{{ topic.user.get_full_name }}</a>
 					</td>
 					<td>{{ topic.get_comments|length }}</td>
 					<td>{{ topic.date|naturaltime }}</td>

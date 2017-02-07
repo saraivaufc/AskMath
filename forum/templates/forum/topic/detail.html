@@ -19,6 +19,14 @@
 {% endblock %}
 
 {% block content %}
+	<div class="col-md-12">
+		<div class="row">
+			<p class="lead text full-width">
+				{{ topic.get_comments.first }}
+			</p>
+		</div>
+	</div>
+
 	<a href="{% url 'forum:comment_add' category_slug=category.slug topic_slug=topic.slug %}" class="btn btn-success">
 		<i class="fa fa-plus"></i>
 		{% trans "New Comment" %}
@@ -27,8 +35,8 @@
 	<table class="table table-bordered table-hover text">
 		<thead>
 			<tr>
-				<th>{% trans "User" %}</th>
 				<th>{% trans "Comment" %}</th>
+				<th>{% trans "Author" %}</th>
 				<th>{% trans "Date" %}</th>
 				<th>{% trans "Options" %}</th>
 			</tr>
@@ -36,9 +44,12 @@
 
 		<tbody>
 			{% for comment in page_obj %}
-				<tr>
-					<td>{{ comment.user }}</td>
+				<tr>					
 					<td>{{ comment.text }}</td>
+					<td>
+						{% url 'authentication:account_detail' pk=comment.user.pk as link %}
+						<a href="{{ link }}" class="tag tag-success">{{ comment.user.get_full_name }}</a>
+					</td>
 					<td>{{ comment.date|naturaltime }}</td>
 					<td class="text-xs-center">
 						{% ifequal comment.user request.user  %}

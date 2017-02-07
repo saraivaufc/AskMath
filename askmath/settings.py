@@ -92,8 +92,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'base/templates',
-            'authentication/templates',
             'ask/templates',
+            'authentication/templates',
+            'forum/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -157,10 +158,11 @@ FORMAT_MODULE_PATH = [
 from askmath.formats.pt_BR.formats import * #GAMBI
 
 LOCALE_PATHS = (
-    path('base/locale'),
     path('askmath/locale'),
+    path('base/locale'),
     path('ask/locale'),
     path('authentication/locale'),
+    path('forum/locale'),
     '/var/local/translations/locale',
 )
 
@@ -188,6 +190,7 @@ STATICFILES_DIRS = (
     path('base/static/'),
     path('ask/static/'),
     path('authentication/static/'),
+    path('forum/static/'),
 )
 
 MEDIA_ROOT = path('media/')
@@ -210,4 +213,4 @@ MESSAGE_TAGS = {
 }
 
 # Session
-SESSION_COOKIE_NAME = "ask_sessionid"
+SESSION_COOKIE_NAME = "askmath_sessionid"

@@ -6,7 +6,6 @@ from django.views.generic.detail import DetailView
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-
 import collections
 
 from ask.models import Issue, Lesson, Question, Answer
