@@ -112,6 +112,6 @@ class CommentDeleteView(DeleteView):
 		comment = self.get_object()
 		if not comment.user == request.user:
 			return HttpResponseForbidden()
-		comment.status = 'w'
+		comment.status = 'r'
 		comment.save()
 		return HttpResponseRedirect(self.get_success_url())

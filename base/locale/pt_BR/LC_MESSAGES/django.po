@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 17:18-0300\n"
+"POT-Creation-Date: 2017-02-07 14:36-0300\n"
 "PO-Revision-Date: 2017-02-04 17:18-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,256 +19,281 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: forms/contact.py:5
+#: base/actions.py:30
+msgid "Mark selected stories as published"
+msgstr ""
+
+#: base/actions.py:31
+msgid "Mark selected stories as draft"
+msgstr ""
+
+#: base/actions.py:32
+msgid "Mark selected stories as withdrawn"
+msgstr ""
+
+#: base/forms/contact.py:5
 msgid "Subject"
 msgstr ""
 
-#: forms/contact.py:6
+#: base/forms/contact.py:6
 msgid "Message"
 msgstr ""
 
-#: forms/contact.py:7
-msgid "Sender"
+#: base/forms/contact.py:7
+msgid "Email"
 msgstr ""
 
-#: forms/contact.py:8
-msgid "CC Myself"
-msgstr ""
-
-#: models/social_network.py:9
+#: base/models/social_network.py:9
 msgid "Name"
 msgstr "Nome"
 
-#: models/social_network.py:10
+#: base/models/social_network.py:10
 msgid "URL"
 msgstr "URL"
 
-#: models/social_network.py:11
+#: base/models/social_network.py:11
 msgid "Icon"
 msgstr "Ícone"
 
-#: models/social_network.py:18
+#: base/models/social_network.py:18
 msgid "Social Network"
 msgstr "Rede Social"
 
-#: models/social_network.py:19 templates/base/contact.html:24
+#: base/models/social_network.py:19
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
-#: templates/base/_base.html:44 templates/base/_base/header.html:21
+#: base/templates/base/_base.html:44
 msgid "Home"
 msgstr "Início"
 
-#: templates/base/_base/accessibility.html:5
+#: base/templates/base/_base/accessibility.html:5
 msgid "Skip to main content of the page - Shortcut #1"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:6
+#: base/templates/base/_base/accessibility.html:6
 msgid "To Content"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:10
+#: base/templates/base/_base/accessibility.html:10
 msgid "Skip to navigation of the page - Shortcut #2"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:11
+#: base/templates/base/_base/accessibility.html:11
 msgid "To Navigation"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:15
+#: base/templates/base/_base/accessibility.html:15
 msgid "On/Off High Contrast - Shortcut #3"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:16
+#: base/templates/base/_base/accessibility.html:16
 msgid "High Contrast-OFF"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:20
+#: base/templates/base/_base/accessibility.html:20
 msgid "Increase Font - Shortcut #4"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:21
+#: base/templates/base/_base/accessibility.html:21
 msgid "Increase Font"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:25
+#: base/templates/base/_base/accessibility.html:25
 msgid "Decrease Font - Shortcut #5"
 msgstr ""
 
-#: templates/base/_base/accessibility.html:26
+#: base/templates/base/_base/accessibility.html:26
 msgid "Decrease Font"
 msgstr ""
 
-#: templates/base/_base/footer.html:10
+#: base/templates/base/_base/footer.html:10
 msgid "About"
 msgstr "Sobre"
 
-#: templates/base/_base/footer.html:13
+#: base/templates/base/_base/footer.html:13
 msgid "Terms of Use"
 msgstr "Termos de Uso"
 
-#: templates/base/_base/footer.html:16
+#: base/templates/base/_base/footer.html:16
 msgid "Privacy Policy"
 msgstr "Politica de Privacidade"
 
-#: templates/base/_base/footer.html:19
+#: base/templates/base/_base/footer.html:19
 msgid "Contact Us"
 msgstr "Contate-nos"
 
 #. Translators: Label of a button that triggers language
-#: templates/base/_base/footer.html:37
+#: base/templates/base/_base/footer.html:37
 msgid "Go"
 msgstr "Ir"
 
-#: templates/base/_base/header.html:28
+#: base/templates/base/_base/header.html:20
+msgid "AskMath"
+msgstr ""
+
+#: base/templates/base/_base/header.html:26
+msgid "Forum"
+msgstr ""
+
+#: base/templates/base/_base/header.html:33
 msgid "Extra"
 msgstr "Extra"
 
-#: templates/base/_base/header.html:33
+#: base/templates/base/_base/header.html:38
 msgid "Django Admin"
 msgstr "Administração do Django"
 
-#: templates/base/_base/header.html:37
+#: base/templates/base/_base/header.html:42
 msgid "Rosetta"
 msgstr "Rosetta"
 
-#: templates/base/_base/header.html:54
+#: base/templates/base/_base/header.html:59
 msgid "Profile"
 msgstr "Perfil"
 
-#: templates/base/_base/header.html:58
+#: base/templates/base/_base/header.html:63
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/base/_base/header.html:62
+#: base/templates/base/_base/header.html:67
 msgid "Logout"
 msgstr "Sair"
 
-#: templates/base/_base/header.html:70
+#: base/templates/base/_base/header.html:75
 msgid "Login"
 msgstr "Entrar"
 
-#: templates/base/_base/meta.html:3
+#: base/templates/base/_base/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video"
-" for free for you."
+"students who take the AskMath. There are several lessons and tutorials video "
+"for free for you."
 msgstr ""
 
-#: templates/base/_base/meta.html:4
+#: base/templates/base/_base/meta.html:4
 msgid "Education,Mathematics,University"
 msgstr ""
 
-#: templates/base/_base/no_script.html:3
+#: base/templates/base/_base/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
-"target=\"_blank\">instructions on how to enable JavaScript in your browser "
-"</a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
+"\">instructions on how to enable JavaScript in your browser </a>."
 msgstr ""
 
-#: templates/base/_form.html:11
+#: base/templates/base/_check_delete.html:5
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: base/templates/base/_check_delete.html:7
+msgid "Yes"
+msgstr ""
+
+#: base/templates/base/_form.html:11
 msgid "Save"
 msgstr "Salvar"
 
-#: templates/base/_modal.html:16
+#: base/templates/base/_modal.html:16
 msgid "Close"
 msgstr "Fechar"
 
-#: templates/base/_paginate.html:6 templates/base/_paginate.html:8
+#: base/templates/base/_paginate.html:6 base/templates/base/_paginate.html:8
 msgid "Previous"
 msgstr "Anterior"
 
-#: templates/base/_paginate.html:24 templates/base/_paginate.html:26
+#: base/templates/base/_paginate.html:24 base/templates/base/_paginate.html:26
 msgid "Next"
 msgstr "Próximo"
 
-#: templates/base/_paginate.html:37
-msgid "CSV"
-msgstr "CSV"
-
-#: templates/base/contact.html:5 templates/base/contact.html:11
+#: base/templates/base/contact.html:5 base/templates/base/contact.html:11
 msgid "Contact"
 msgstr "Contato"
 
-#: templates/base/contact.html:15
+#: base/templates/base/contact.html:15
 msgid "Contact us"
 msgstr "Contate-nos"
 
-#: templates/base/contact.html:19
-msgid "Send Message"
+#: base/templates/base/contact.html:21
+msgid "Logo PET information technology group."
 msgstr ""
 
-#: templates/base/fields/datetime.html:10
-msgid "This field can not be empty"
-msgstr "Este campo não pode ficar vazio"
-
-#: templates/base/fields/file.html:8 templates/base/fields/image.html:8
+#: base/templates/base/fields/file.html:8
 msgid "Currently"
 msgstr "Atualmente"
 
-#: templates/base/fields/file.html:13 templates/base/fields/image.html:13
+#: base/templates/base/fields/file.html:13
 msgid "Change"
 msgstr "Alterar"
 
-#: templates/base/fields/headers/caption.html:6
+#: base/templates/base/fields/headers/caption.html:6
 msgid "This field is required!"
 msgstr "Este campo é obrigatório"
 
-#: urls/__init__.py:13
-#| msgid "^about-us/$"
+#: base/urls/__init__.py:13
 msgid "^about/$"
 msgstr "^sobre/$"
 
-#: urls/__init__.py:13
-#| msgid "/about-us/"
+#: base/urls/__init__.py:13
 msgid "/about/"
 msgstr "/sobre/"
 
-#: urls/__init__.py:14
+#: base/urls/__init__.py:14
 msgid "^license/$"
 msgstr "^licenca/$"
 
-#: urls/__init__.py:14
+#: base/urls/__init__.py:14
 msgid "/license/"
 msgstr "/licenca/"
 
-#: urls/__init__.py:15
+#: base/urls/__init__.py:15
 msgid "^terms/$"
 msgstr "^termos/$"
 
-#: urls/__init__.py:15
+#: base/urls/__init__.py:15
 msgid "/terms/"
 msgstr "/termos/"
 
-#: urls/__init__.py:16
+#: base/urls/__init__.py:16
 msgid "^policies/$"
 msgstr "^politicas/$"
 
-#: urls/__init__.py:16
+#: base/urls/__init__.py:16
 msgid "/policies/"
 msgstr "/politicas/"
 
-#: urls/__init__.py:17
+#: base/urls/__init__.py:17
 msgid "^credits/$"
 msgstr "^creditos/$"
 
-#: urls/__init__.py:17
+#: base/urls/__init__.py:17
 msgid "/credits/"
 msgstr "/creditos/"
 
-#: urls/__init__.py:18
+#: base/urls/__init__.py:18
 msgid "^contact/"
 msgstr "^contato$"
 
-#: urls/contact.py:8
+#: base/urls/contact.py:8
 msgid "^$"
 msgstr ""
 
-#: utils/constants.py:5
+#: base/utils/constants.py:5
 msgid "Message send success"
 msgstr ""
 
-#: utils/constants.py:6
+#: base/utils/constants.py:6
 msgid "Error send message"
 msgstr ""
+
+#: base/utils/constants.py:8
+msgid ""
+"Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = "
+"0 $>"
+msgstr ""
+
+#~ msgid "CSV"
+#~ msgstr "CSV"
+
+#~ msgid "This field can not be empty"
+#~ msgstr "Este campo não pode ficar vazio"

@@ -163,6 +163,6 @@ class TopicDeleteView(DeleteView):
 		topic = self.get_object()
 		if not topic.user == request.user:
 			return HttpResponseForbidden()
-		topic.status = 'w'
+		topic.status = 'r'
 		topic.save()
 		return HttpResponseRedirect(self.get_success_url())

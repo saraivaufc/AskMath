@@ -11,7 +11,7 @@ from ..utils.colors import get_color
 STATUS_CHOICES = (
 	('d', _('Draft')),
 	('p', _('Published')),
-	('w', _('Withdrawn')),
+	('r', _('Removed')),
 )
 
 class Lesson(models.Model):

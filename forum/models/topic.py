@@ -10,7 +10,7 @@ from .comment import Comment
 STATUS_CHOICES = (
 	('d', _('Draft')),
 	('p', _('Published')),
-	('w', _('Withdrawn')),
+	('r', _('Removed')),
 )
 
 class Topic(models.Model):

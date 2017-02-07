@@ -122,8 +122,12 @@ LOGOUT_URL = reverse_lazy("authentication:account_logout")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'askmath_lite',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -176,7 +180,7 @@ TIME_ZONE = 'America/Fortaleza'
 
 USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = True
 
@@ -201,7 +205,7 @@ ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 
 # Pagination
-PAGINATE_BY = 20
+PAGINATE_BY = 10
 
 # MessagesTAGS
 MESSAGE_TAGS = {

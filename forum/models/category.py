@@ -9,7 +9,7 @@ from .topic import Topic
 STATUS_CHOICES = (
 	('d', _('Draft')),
 	('p', _('Published')),
-	('w', _('Withdrawn')),
+	('r', _('Removed')),
 )
 
 class Category(models.Model):

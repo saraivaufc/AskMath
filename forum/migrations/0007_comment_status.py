@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='comment',
             name='status',
-            field=models.CharField(choices=[('d', 'Draft'), ('p', 'Published'), ('w', 'Withdrawn')], default=1, max_length=1),
+            field=models.CharField(choices=[('d', 'Draft'), ('p', 'Published'), ('w', 'Removed')], default=1, max_length=1),
             preserve_default=False,
         ),
     ]

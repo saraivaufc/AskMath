@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='category',
             name='status',
-            field=models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Withdrawn')], default=1, max_length=1),
+            field=models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Removed')], default=1, max_length=1),
             preserve_default=False,
         ),
     ]

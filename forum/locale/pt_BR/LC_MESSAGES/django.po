@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-07 14:36-0300\n"
+"PO-Revision-Date: 2017-02-07 14:45-0234\n"
+"Last-Translator: Ciano Saraiva <admin@email.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: forum/models/category.py:10 forum/models/comment.py:13
+#: forum/models/topic.py:11
+msgid "Draft"
+msgstr "Rascunho"
+
+#: forum/models/category.py:11 forum/models/comment.py:14
+#: forum/models/topic.py:12
+msgid "Published"
+msgstr "Publicado"
+
+#: forum/models/category.py:12 forum/models/comment.py:15
+#: forum/models/topic.py:13
+msgid "Removed"
+msgstr "Removido"
+
+#: forum/models/category.py:16
+msgid "Name"
+msgstr "Nome"
+
+#: forum/models/category.py:28 forum/models/topic.py:18
+#: forum/templates/forum/category/list.html:22
+msgid "Category"
+msgstr "Categoria"
+
+#: forum/models/category.py:29
+msgid "Categories"
+msgstr "Categorias"
+
+#: forum/models/comment.py:19
+msgid "User"
+msgstr "Usuário"
+
+#: forum/models/comment.py:22 forum/models/comment.py:34
+#: forum/templates/forum/topic/detail.html:38
+msgid "Comment"
+msgstr "Comentário"
+
+#: forum/models/comment.py:35 forum/templates/forum/topic/list.html:37
+msgid "Comments"
+msgstr "Comentários"
+
+#: forum/models/topic.py:17
+msgid "user"
+msgstr "usuário"
+
+#: forum/models/topic.py:20
+msgid "Title"
+msgstr "Título"
+
+#: forum/models/topic.py:22 forum/templates/forum/topic/detail.html:40
+#: forum/templates/forum/topic/list.html:38
+msgid "Date"
+msgstr "Data"
+
+#: forum/models/topic.py:25
+msgid "Closed"
+msgstr "Fechado"
+
+#: forum/models/topic.py:28
+msgid "Views count"
+msgstr "Quantidade de visualizações"
+
+#: forum/models/topic.py:29
+msgid "Comment count"
+msgstr "Quantidade de comentários"
+
+#: forum/models/topic.py:39 forum/templates/forum/topic/list.html:35
+msgid "Topic"
+msgstr "Tópico"
+
+#: forum/models/topic.py:40 forum/templates/forum/category/list.html:23
+msgid "Topics"
+msgstr "Tópicos"
+
+#: forum/templates/forum/category/list.html:5
+#: forum/templates/forum/category/list.html:15
+msgid "List of Categories"
+msgstr "Lista de Categorias"
+
+#: forum/templates/forum/category/list.html:11
+#: forum/templates/forum/index.html:5 forum/templates/forum/index.html:11
+msgid "Forum"
+msgstr "Fórum"
+
+#: forum/templates/forum/category/list.html:24
+msgid "Last topic"
+msgstr "Último tópico"
+
+#: forum/templates/forum/category/list.html:44
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> in %(date)s\n"
+"\t\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"de <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> há %(date)s"
+
+#: forum/templates/forum/category/list.html:53
+msgid "No Category found!"
+msgstr "Nenhuma categoria encontrada!"
+
+#: forum/templates/forum/comment/check_delete.html:6
+#: forum/templates/forum/comment/check_delete.html:12
+#: forum/templates/forum/comment/check_delete.html:16
+#: forum/templates/forum/topic/check_delete.html:6
+#: forum/templates/forum/topic/check_delete.html:12
+#: forum/templates/forum/topic/check_delete.html:16
+msgid "Confirm delete"
+msgstr "Confirme a exclusão"
+
+#: forum/templates/forum/comment/form.html:6
+#: forum/templates/forum/comment/form.html:13
+#: forum/templates/forum/comment/form.html:18
+msgid "Form Comment"
+msgstr "Formulário do Comentário"
+
+#: forum/templates/forum/comment/form.html:34
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: forum/templates/forum/comment/form.html:37
+#: forum/templates/forum/topic/form.html:33
+msgid "Save"
+msgstr "Salvar"
+
+#: forum/templates/forum/comment/form.html:43
+#: forum/templates/forum/topic/form.html:40
+msgid "Preview is shown here:"
+msgstr "Pré-visualização: "
+
+#: forum/templates/forum/topic/detail.html:32
+msgid "New Comment"
+msgstr "Novo Comentário"
+
+#: forum/templates/forum/topic/detail.html:39
+#: forum/templates/forum/topic/list.html:36
+msgid "Author"
+msgstr "Autor"
+
+#: forum/templates/forum/topic/detail.html:41
+#: forum/templates/forum/topic/list.html:39
+msgid "Options"
+msgstr "Opções"
+
+#: forum/templates/forum/topic/detail.html:67
+msgid "No comment found!"
+msgstr "Nenhum comentário encontrado!"
+
+#: forum/templates/forum/topic/form.html:6
+#: forum/templates/forum/topic/form.html:13
+#: forum/templates/forum/topic/form.html:18
+msgid "Form Topic"
+msgstr "Formulário do Tópico"
+
+#: forum/templates/forum/topic/list.html:6
+#: forum/templates/forum/topic/list.html:22
+#, python-format
+msgid ""
+"\n"
+"\t\tTopics of %(category)s\n"
+"\t"
+msgstr ""
+"\n"
+"Tópicos de  %(category)s"
+
+#: forum/templates/forum/topic/list.html:15
+#, python-format
+msgid ""
+"\n"
+"\t\t\tTopics of %(category)s\n"
+"\t\t"
+msgstr ""
+"\n"
+"Tópicos de %(category)s"
+
+#: forum/templates/forum/topic/list.html:30
+msgid "New topic"
+msgstr "Novo Tópico"
+
+#: forum/templates/forum/topic/list.html:70
+msgid "No topic found!"
+msgstr "Nenhum tópico encontrado!"
+
+#: forum/urls/__init__.py:5
+msgid "^categories/"
+msgstr "^categorias/"
+
+#: forum/urls/__init__.py:6
+msgid "^categories/(?P<category_slug>[-\\w]+)/topics/"
+msgstr "^categorias/(?P<category_slug>[-\\w]+)/topicos/"
+
+#: forum/urls/__init__.py:7
+msgid ""
+"^categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-\\w]+)/comments/"
+msgstr ""
+"^categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-\\w]+)/comentarios/"

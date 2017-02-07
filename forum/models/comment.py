@@ -12,7 +12,7 @@ COMMENT_MAX_LEN = 3000  # changing this needs migration
 STATUS_CHOICES = (
 	('d', _('Draft')),
 	('p', _('Published')),
-	('w', _('Withdrawn')),
+	('r', _('Removed')),
 )
 
 class Comment(models.Model):

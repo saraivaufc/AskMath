@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 11:15-0300\n"
+"POT-Creation-Date: 2017-02-07 14:36-0300\n"
 "PO-Revision-Date: 2017-01-11 12:41-0234\n"
 "Last-Translator: None None <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,13 +133,11 @@ msgid "Delete"
 msgstr "Excluir"
 
 #: authentication/templates/authentication/account/form.html:17
+#: authentication/templates/authentication/account/form.html:22
 msgid "Form User"
 msgstr "Formulário de Usuário"
 
-#: authentication/templates/authentication/account/form.html:22
-msgid "Form Author"
-msgstr "Formulário de Autor"
-
+#: authentication/templates/authentication/account/login.html:5
 #: authentication/templates/authentication/account/login.html:14
 #: authentication/templates/authentication/account/login.html:18
 msgid "Login"
@@ -185,13 +183,14 @@ msgstr "Senha alterada com sucesso"
 msgid "Your password was changed."
 msgstr "Sua senha foi alterada"
 
-#: authentication/templates/authentication/account/password_change_form.html:9
-msgid "Password Change Form"
-msgstr "Formulário para alterar senha"
-
-#: authentication/templates/authentication/account/password_change_form.html:13
+#: authentication/templates/authentication/account/password_change_form.html:5
+#: authentication/templates/authentication/account/password_change_form.html:15
 msgid "Change password"
 msgstr "Alterar senha"
+
+#: authentication/templates/authentication/account/password_change_form.html:11
+msgid "Password Change Form"
+msgstr "Formulário para alterar senha"
 
 #: authentication/templates/authentication/account/password_reset_complete.html:8
 msgid "Your password has been set.  You may go ahead and log in now."
@@ -332,6 +331,13 @@ msgstr "^recuperar_senha/(?P<uidb64>[0-9A-Za-z_\\-]+)/(?P<token>.+)$"
 #: authentication/urls/account.py:44
 msgid "^password_reset/complete$"
 msgstr "^recuperar_senha/completo$"
+
+#: authentication/utils/constants.py:5
+msgid "User success created"
+msgstr ""
+
+#~ msgid "Form Author"
+#~ msgstr "Formulário de Autor"
 
 #~ msgid "Reviser Status"
 #~ msgstr "Status de Revisor"

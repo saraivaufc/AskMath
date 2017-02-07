@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(blank=True, help_text='A short label, generally used in URLs.')),
                 ('name', models.CharField(max_length=255, verbose_name='Name')),
                 ('icon', models.ImageField(blank=True, null=True, upload_to=b'uploads/issue_photo/', verbose_name='Icon')),
-                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Withdrawn')], max_length=1)),
+                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Removed')], max_length=1)),
             ],
             options={
                 'verbose_name': 'Issue',
@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('slug', models.SlugField(blank=True, help_text='A short label, generally used in URLs.')),
                 ('name', models.CharField(max_length=255, verbose_name='Name')),
-                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Withdrawn')], max_length=1)),
+                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Removed')], max_length=1)),
                 ('issues', models.ManyToManyField(blank=True, related_name='lesson_issues', to='ask.Issue', verbose_name='Issues')),
             ],
             options={

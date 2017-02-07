@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=75, verbose_name='Title')),
                 ('slug', base.utils.models.AutoSlugField(blank=True, db_index=False, populate_from=b'title', unique=True)),
                 ('date', models.DateTimeField(auto_now_add=True, verbose_name='Date')),
-                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Withdrawn')], max_length=1)),
+                ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'w', 'Removed')], max_length=1)),
                 ('is_closed', models.BooleanField(default=False, verbose_name='Closed')),
                 ('is_removed', models.BooleanField(default=False)),
                 ('view_count', models.PositiveIntegerField(default=0, verbose_name='Views count')),

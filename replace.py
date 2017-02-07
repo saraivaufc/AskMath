@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = 'data-toggle="tooltip"'
-NEW_TEXT = 'data-toggle="tooltip" data-html="true"'
-FILE_TYPES = ['(.)\.html', ]
+TEXT = "('w', _"
+NEW_TEXT = "('r', _"
+FILE_TYPES = ['(.)\.py', ]
 
 rexs = []
 for i in FILE_TYPES:
