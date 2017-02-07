@@ -1422,6 +1422,9 @@
   bottom: 0;
   left: .625rem;
   padding: .425rem .25rem;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-shadow: 1px #000;
   z-index: 999;
 }
 .tile-content .image-container,
