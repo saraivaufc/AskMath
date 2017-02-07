@@ -26,7 +26,7 @@ class TopicListView(ListView):
 
 	def get_queryset(self):
 		"""Return the last topics issues."""
-		return Topic.objects.filter(category=self.get_category(), status='p')
+		return self.get_category().get_topics()
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicListView, self).get_context_data(** kwargs)

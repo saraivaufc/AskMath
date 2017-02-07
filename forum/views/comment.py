@@ -64,12 +64,12 @@ class CommentUpdateView(UpdateView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
 			return HttpResponseForbidden()
 		return super(CommentUpdateView, self).get(request, * args, ** kwargs)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
 			return HttpResponseForbidden()
 		return super(CommentUpdateView, self).post(request, * args, ** kwargs)
 
@@ -101,12 +101,12 @@ class CommentDeleteView(DeleteView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
 			return HttpResponseForbidden()
 		return super(CommentDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
 			return HttpResponseForbidden()
 
 		comment = self.get_object()
