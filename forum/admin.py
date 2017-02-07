@@ -12,18 +12,21 @@ from .forms import (CategoryForm)
 class CategoryAdmin(admin.ModelAdmin, StatusAction):
 	form = CategoryForm
 	list_display = ('name', 'status')
-	search_fields = ['name', 'status']
+	search_fields = ['name']
+	list_filter = ['status',]
 	actions = []
 
 class TopicAdmin(admin.ModelAdmin, StatusAction):
 	list_display = ('title', 'status', 'date')
-	search_fields = ['title', 'status']
+	search_fields = ['title']
+	list_filter = ['date', 'status',]
 	actions = []
 
 class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
 	list_display = ('user', 'topic', 'text', 'status', 'date')
-	filter_fields = ['user', 'topic', 'date', 'status']
+	search_fields = ['text']
+	list_filter = ['user', 'topic', 'date', 'status',]
 	actions = []
 
 admin.site.register(Category, CategoryAdmin)
