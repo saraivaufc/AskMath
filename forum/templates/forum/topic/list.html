@@ -52,7 +52,7 @@
 						{% url 'authentication:account_detail' pk=topic.user.pk as link %}
 						<a href="{{ link }}" class="tag tag-success">{{ topic.user.get_full_name }}</a>
 					</td>
-					<td>{{ topic.get_comments|length }}</td>
+					<td>{{ topic.get_comments|length|add:"-1" }}</td>
 					<td>{{ topic.date|naturaltime }}</td>
 					<td class="text-xs-center">
 						{% ifequal topic.user request.user  %}
