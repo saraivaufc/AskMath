@@ -1,13 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import FormView
+from django.views.generic.list import ListView
 from django.views.generic.detail import SingleObjectMixin
-from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseForbidden
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 from ask.models import Issue, Lesson, Question, Answer
-from ask.forms import AnswerForm
+from ask.forms import AnswerForm, LessonForm
 from ask.utils.constants import Constants
 from ask.utils.lesson import get_question_of_lesson
 
@@ -39,7 +40,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 
 	def get(self, request, * args, ** kwargs):
 		if not self.get_issue().status == 'p' or not self.get_lesson().status == 'p':
-			raise PermissionDenied
+			return HttpResponseForbidden()
 		self.object = self.get_object()
 		if not self.object and self.get_lesson().questions.all():
 			return HttpResponseRedirect(reverse_lazy('ask:lesson_finished', kwargs={'issue_slug': self.get_issue().slug, 'slug': self.get_lesson().slug } ))
@@ -47,7 +48,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 
 	def post(self, request, * args, ** kwargs):
 		if not self.get_issue().status == 'p' or not self.get_lesson().status == 'p':
-			raise PermissionDenied
+			return HttpResponseForbidden()
 		self.object = self.get_object()
 		form = self.get_form(request.POST, request.FILES)
 		if form.is_valid():

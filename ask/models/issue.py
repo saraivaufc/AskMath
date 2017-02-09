@@ -22,6 +22,7 @@ class Issue(models.Model):
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
 	date = models.DateTimeField(auto_now_add=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
 
 	def __unicode__(self):
 		return self.name

@@ -33,7 +33,7 @@ SECRET_KEY = 'i!5=0!@pro+ehzbcd&l!k-bi0lza*rkb*grplz6n=7*+ba&p&3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', ]
 
 # Authentication
 
@@ -67,6 +67,7 @@ LOCAL_APPS = (
     'ask',
     'authentication',
     'forum',
+    'partners_admin',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -188,13 +189,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, '.')
+STATIC_ROOT = path('static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     path('base/static/'),
     path('ask/static/'),
     path('authentication/static/'),
     path('forum/static/'),
+    "django/contrib/admin/static/admin/",
 )
 
 MEDIA_ROOT = path('media/')
@@ -203,6 +205,7 @@ MEDIA_URL = '/media/'
 # Media uploads dirs
 ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
+USER_AVATAR_DIR = 'uploads/user_avatar'
 
 # Pagination
 PAGINATE_BY = 10

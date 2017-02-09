@@ -11,4 +11,5 @@ urlpatterns = [
 	url(_(r'^issues/'), include('ask.urls.issue')),
 	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/'), include('ask.urls.lesson')),
 	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/questions/'), include('ask.urls.question')),
+	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/videos/'), include('ask.urls.video')),
 ]

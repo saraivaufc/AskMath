@@ -26,12 +26,10 @@
 				<i class="fa fa-question"></i>
 				{% trans "Questions" %}
 			</a>
-			{% comment %}
-			<a href="#" type="button" class="btn btn-info" role="button">
+			<a href="{% url 'ask:video_list' issue_slug=issue.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
 				<i class="fa fa-film"></i>
 				{% trans "Videos" %}
 			</a>
-			{% endcomment %}
 		</div>
 	</div>
 {% endblock %}

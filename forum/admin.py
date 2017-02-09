@@ -16,6 +16,10 @@ class CategoryAdmin(admin.ModelAdmin, StatusAction):
 	list_filter = ['status',]
 	actions = []
 
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
+
 class TopicAdmin(admin.ModelAdmin, StatusAction):
 	list_display = ('title', 'status', 'date')
 	search_fields = ['title']

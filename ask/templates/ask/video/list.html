@@ -1,0 +1,35 @@
+{% extends "ask/lesson/detail.html" %}
+
+
+{% load i18n %}
+
+{% block title %}
+	{% trans "Videos" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:video_list' issue_slug=issue.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-list"></i>
+		{% trans "Videos" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with lesson=lesson %}
+		Videos of {{ lesson }}
+	{% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+	{% for video in object_list %}
+		<div class="tile {{ video.color }}">
+			<a href="{% url 'ask:video_detail' issue_slug=issue.slug lesson_slug=lesson.slug slug=video.slug %}" class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
+				<span class="icon fa fa-film"></span>
+			</a>
+			<span class="tile-label">{{ video.title }}</span>
+		</div>
+	{% endfor %}
+
+	{% include "base/_paginate.html" %}
+{% endblock %}

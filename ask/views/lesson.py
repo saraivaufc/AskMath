@@ -3,7 +3,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseForbidden
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 import collections
@@ -46,7 +46,7 @@ class LessonDetailView(DetailView):
 
 	def get(self, request, * args, ** kwargs):
 		if not self.get_object().status == 'p':
-			raise PermissionDenied
+			return HttpResponseForbidden()
 		return super(LessonDetailView, self).get(request)
 
 class LessonFinishedView(DetailView):
@@ -64,7 +64,7 @@ class LessonFinishedView(DetailView):
 	def get(self, request, * args, ** kwargs):
 		lesson = self.get_object()
 		if not lesson.status == 'p':
-			raise PermissionDenied
+			return HttpResponseForbidden()
 		if get_question_of_lesson(request.user, lesson):
 			return HttpResponseRedirect(reverse_lazy('ask:answer_question', kwargs={'issue_slug': self.get_issue().slug, 'lesson_slug': lesson.slug}))
 		return super(LessonFinishedView, self).get(request)

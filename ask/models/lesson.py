@@ -3,6 +3,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.template.defaultfilters import slugify
+from django.conf import settings
 
 from base.utils.models import AutoSlugField
 
@@ -22,8 +23,10 @@ class Lesson(models.Model):
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
 	questions = models.ManyToManyField("Question", verbose_name=_(u"Questions"), related_name='lesson_question', blank=True)
+	videos = models.ManyToManyField("Video", verbose_name=_(u"Videos"), related_name='lesson_video', blank=True)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
 	date = models.DateTimeField(auto_now_add=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
 	
 
 	def __unicode__(self):
