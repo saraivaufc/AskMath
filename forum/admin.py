@@ -11,7 +11,7 @@ from .forms import (CategoryForm)
 
 class CategoryAdmin(admin.ModelAdmin, StatusAction):
 	form = CategoryForm
-	list_display = ('name', 'status')
+	list_display = ('name', 'status', 'last_modified')
 	search_fields = ['name']
 	list_filter = ['status',]
 	actions = []
@@ -21,16 +21,16 @@ class CategoryAdmin(admin.ModelAdmin, StatusAction):
 		form.save()
 
 class TopicAdmin(admin.ModelAdmin, StatusAction):
-	list_display = ('title', 'status', 'date')
+	list_display = ('title', 'status', 'last_modified')
 	search_fields = ['title']
-	list_filter = ['date', 'status',]
+	list_filter = ['last_modified', 'status',]
 	actions = []
 
 class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
-	list_display = ('user', 'topic', 'text', 'status', 'date')
+	list_display = ('user', 'topic', 'text', 'status', 'last_modified')
 	search_fields = ['text']
-	list_filter = ['user', 'topic', 'date', 'status',]
+	list_filter = ['user', 'topic', 'last_modified', 'status',]
 	actions = []
 
 admin.site.register(Category, CategoryAdmin)

@@ -3,6 +3,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.template.defaultfilters import slugify
+from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 
 from base.utils.models import AutoSlugField
@@ -21,8 +22,14 @@ class Issue(models.Model):
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.ISSUE_PHOTO_DIR, null=True, blank=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
-	date = models.DateTimeField(auto_now_add=True)
+	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True) 
+
+
+	def get_absolute_url(self):
+		return reverse_lazy('ask:lesson_list', kwargs={'issue_slug': self.slug})
 
 	def __unicode__(self):
 		return self.name

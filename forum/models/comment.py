@@ -21,8 +21,10 @@ class Comment(models.Model):
 	topic = models.ForeignKey('forum.Topic')
 
 	text = models.TextField(_("Comment"), max_length=COMMENT_MAX_LEN)
-	date = models.DateTimeField(auto_now_add=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	ip_address = models.GenericIPAddressField(blank=True, null=True)
 
@@ -30,6 +32,6 @@ class Comment(models.Model):
 		return self.text
 
 	class Meta:
-		ordering = ['date', ]
+		ordering = ['last_modified', ]
 		verbose_name = _("Comment")
 		verbose_name_plural = _("Comments")

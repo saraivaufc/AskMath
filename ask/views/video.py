@@ -19,7 +19,7 @@ class VideoListView(ListView):
 
 	def get_queryset(self):
 		"""Return the last published issues."""
-		return self.get_lesson().videos.filter(status='p')
+		return self.get_lesson().videos.all()
 
 	def get_context_data(self, ** kwargs):
 		context = super(VideoListView, self).get_context_data(** kwargs)
@@ -42,8 +42,3 @@ class VideoDetailView(DetailView):
 		context['issue'] = self.get_issue()
 		context['lesson'] = self.get_lesson()
 		return context
-
-	def get(self, request, * args, ** kwargs):
-		if not self.get_object().status == 'p':
-			return HttpResponseForbidden()
-		return super(VideoDetailView, self).get(request)

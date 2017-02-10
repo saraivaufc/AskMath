@@ -10,8 +10,8 @@ from .forms import (IssueForm, LessonForm, QuestionForm, ChoiceForm, AnswerForm,
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm
-	list_display = ('name', 'status' )
-	list_filter = ['status']
+	list_display = ('name', 'status', 'last_modified')
+	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name', 'status']
 	actions = []
 
@@ -21,8 +21,8 @@ class IssueAdmin(admin.ModelAdmin, StatusAction):
 
 class LessonAdmin(admin.ModelAdmin, StatusAction):
 	form = LessonForm
-	list_display = ('name', 'status')
-	list_filter = ['issues', 'status', ]
+	list_display = ('name', 'status', 'last_modified')
+	list_filter = ['issues', 'status', 'creation', 'last_modified']
 	search_fields = ['name', 'status']
 	filter_horizontal = ['issues', 'requirements','questions', 'videos', ]
 	actions = []
@@ -39,7 +39,7 @@ class ChoiceInline(admin.TabularInline):
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
 	extra = 1
-	list_display = ('position', 'text', 'date')
+	list_display = ('text', 'last_modified')
 	inlines = [
 		ChoiceInline,
 	]
@@ -49,14 +49,13 @@ class QuestionAdmin(admin.ModelAdmin):
 		form.save()
 
 class AnswerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'lesson', 'question','correct','exists', 'date')
-	list_filter = ['user', 'lesson', 'question','correct','exists', 'date']
+	list_display = ('user', 'lesson', 'question','correct','exists', 'last_modified')
+	list_filter = ['user', 'lesson', 'question','correct','exists', 'last_modified']
 
-class VideoAdmin(admin.ModelAdmin, StatusAction):
+class VideoAdmin(admin.ModelAdmin):
 	form = VideoForm
-	list_display = ('position', 'title', 'url', 'status', )
-	list_filter = ['status']
-	search_fields = ['title', 'description']
+	list_display = ('title', 'position', 'url', 'last_modified')
+	search_fields = ['title', 'description', 'creation', 'last_modified']
 	actions = []
 
 	def save_model(self, request, obj, form, change):

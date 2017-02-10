@@ -9,15 +9,41 @@ from django.template.response import TemplateResponse
 
 from partners_admin.urls import partners_admin_urls
 
+#Base
+from base.models import SocialNetwork
+from base.admin import SocialNetworkAdmin
+
+#Ask
 from ask.models import Issue, Lesson, Question, Video
 from ask.admin import IssueAdmin, LessonAdmin, QuestionAdmin, VideoAdmin
+
+#Forum
+from forum.models import Category, Topic, Comment
+from forum.admin import CategoryAdmin, TopicAdmin, CommentAdmin
+
+#Authentication
+from django.contrib.auth.models import User, Group, Permission
+from authentication.admin import UserAdmin, GroupAdmin, PermissionAdmin
+
+#FlatPage
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.flatpages.admin import FlatPageAdmin
+
+#Sites
+from django.contrib.sites.models import Site
+from django.contrib.sites.admin import SiteAdmin
 
 class PartnersAdminSite(AdminSite):
 	site_header = _(u"AskMath Administration")
 
 	def get_urls(self):
 		new_registry = {}
-		allowed_models = [Issue, Lesson, Question, Video]
+		allowed_models = [	SocialNetwork, 
+							Issue, Lesson, Question, Video,
+						  	Category, Topic, Comment, 
+						  	User, Group, Permission, 
+						  	FlatPage,
+						 	Site]
 		for model, admin_model in self._registry.items():
 			if model in allowed_models:
 				new_registry[model] = admin_model
@@ -107,8 +133,27 @@ class LessonPartnerAdmin(LessonAdmin):
 	
 partners_admin = PartnersAdminSite(name='partners_admin')
 
+#Base
+partners_admin.register(SocialNetwork, SocialNetworkAdmin)
+
+#Ask
 partners_admin.register(Issue, IssueAdmin)
 partners_admin.register(Lesson, LessonPartnerAdmin)
 partners_admin.register(Question, QuestionAdmin)
 partners_admin.register(Video, VideoAdmin)
 
+#Forum
+partners_admin.register(Category, CategoryAdmin)
+partners_admin.register(Topic, TopicAdmin)
+partners_admin.register(Comment, CommentAdmin)
+
+#Authentication
+partners_admin.register(User, UserAdmin)
+partners_admin.register(Group, GroupAdmin)
+partners_admin.register(Permission, PermissionAdmin)
+
+#Flatpage
+partners_admin.register(FlatPage, FlatPageAdmin)
+
+#Site
+partners_admin.register(Site, SiteAdmin)

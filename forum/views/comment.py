@@ -9,15 +9,17 @@ from django.http import HttpResponseForbidden
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.utils import timezone
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 from ..models import Category, Topic, Comment
 from ..forms import CommentForm
 
-class CommentCreateView(CreateView):
+class CommentCreateView(SuccessMessageMixin, CreateView):
 	template_name = 'forum/comment/form.html'
 	model = Comment
 	form_class = CommentForm
+	success_message = _(u"Comment created successfully")
 	
 	def get_category(self):
 		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
@@ -43,10 +45,11 @@ class CommentCreateView(CreateView):
 		form.save()
 		return super(CommentCreateView, self).form_valid(form)
 
-class CommentUpdateView(UpdateView):
+class CommentUpdateView(SuccessMessageMixin, UpdateView):
 	template_name = 'forum/comment/form.html'
 	model = Comment
 	form_class = CommentForm
+	success_message = _(u"Comment updated successfully")
 	
 	def get_category(self):
 		return Category.objects.filter(slug=self.kwargs['category_slug']).first()

@@ -11,9 +11,11 @@ class Question(models.Model):
 	position = models.IntegerField(verbose_name=_(u"Position"))
 	text = models.TextField(verbose_name=_(u"Question text"))
 	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
-	date = models.DateTimeField(auto_now_add=True)
+	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
-
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
+	
 	def get_choices(self):
 		return Choice.objects.filter(question=self)
 

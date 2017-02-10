@@ -5,7 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 
 group_permissions = {
 	"student": [
-
+	
 	],
 	"teacher": [
 		

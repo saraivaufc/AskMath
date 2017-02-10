@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.template.defaultfilters import slugify
+from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 
 from base.utils.models import AutoSlugField
@@ -19,22 +20,21 @@ class Topic(models.Model):
 
 	title = models.CharField(verbose_name=_("Title"), max_length=75)
 	slug = AutoSlugField(populate_from="title", db_index=False, blank=True, unique=True)
-	date = models.DateTimeField(verbose_name=_("Date"), auto_now_add=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-	is_closed = models.BooleanField(verbose_name=_("Closed"), default=False)
-	is_removed = models.BooleanField(default=False)
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 	
-	view_count = models.PositiveIntegerField(verbose_name=_("Views count"), default=0)
-	comment_count = models.PositiveIntegerField(verbose_name=_("Comment count"), default=0)
-
 	def get_comments(self):
 		return Comment.objects.filter(topic=self, status='p')
+
+	def get_absolute_url(self):
+		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.category.slug, 'slug': self.slug})
 
 	def __unicode__(self):
 		return self.title
 
 	class Meta:
-		ordering = ['date', ]
+		ordering = ['last_modified',]
 		verbose_name = _("Topic")
 		verbose_name_plural = _("Topics")

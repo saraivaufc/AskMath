@@ -1,11 +1,16 @@
 from django.contrib import admin
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import User, Group, Permission
 from authentication.models import (User,)
 
-@admin.register(User)
 class UserAdmin(admin.ModelAdmin):
 	pass
 
-@admin.register(Permission)
+class GroupAdmin(admin.ModelAdmin):
+	pass
+
 class PermissionAdmin(admin.ModelAdmin):
-	list_filter = ('content_type', )
+	pass
+
+admin.site.register(User, UserAdmin)
+#admin.site.register(Group, GroupAdmin)
+admin.site.register(Permission, PermissionAdmin)

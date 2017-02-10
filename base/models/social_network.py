@@ -10,6 +10,10 @@ class SocialNetwork(models.Model):
 	url = models.URLField(verbose_name=_(u"URL"))
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.SOCIAL_NETWORK_ICON_DIR)
 	sites = models.ManyToManyField(Site)
+
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 	
 	def __unicode__(self):
 		return self.name

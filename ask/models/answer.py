@@ -11,14 +11,16 @@ class Answer(models.Model):
 	choices = models.ManyToManyField('Choice', verbose_name=_(u"Choices"))
 	correct = models.BooleanField(verbose_name=_("Correct"), default=False)
 	exists = models.BooleanField(verbose_name=_("Exists"), default=True)
-	date = models.DateTimeField(verbose_name=_(u"Date"), auto_now_add=True, auto_now=False)
+	
+	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	def __unicode__(self):
 		return "Casa"
 		return u"{0} >> {1} >> {2}".format(self.user, self.question, self.date)
 
 	class Meta:
-		ordering = ("-date", )
+		ordering = ("-last_modified",)
 		verbose_name = _(u'Answer')
 		verbose_name_plural = _(u'Answers')
 
