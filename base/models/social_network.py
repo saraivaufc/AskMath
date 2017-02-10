@@ -11,7 +11,7 @@ class SocialNetwork(models.Model):
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.SOCIAL_NETWORK_ICON_DIR)
 	sites = models.ManyToManyField(Site)
 
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="social_network_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 	

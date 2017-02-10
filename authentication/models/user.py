@@ -72,7 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 			self.groups.add(group)
 
 	def __unicode__(self):
-		return self.get_full_name() + " - " +self.email
+		return self.get_full_name()
 
 	def natural_key(self):
 		return self.email

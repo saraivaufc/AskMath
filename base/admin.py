@@ -9,7 +9,13 @@ from .forms import (SocialNetworkForm)
 
 class SocialNetworkAdmin(admin.ModelAdmin):
 	form = SocialNetworkForm
-	list_display = ('name', 'url')
+	list_display = ('name', 'url', 'created_by', 'last_modified')
 	list_filter = ['sites']
+	search_fields = ['name', ]
+	
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
 
 admin.site.register(SocialNetwork, SocialNetworkAdmin)

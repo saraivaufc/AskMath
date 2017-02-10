@@ -38,6 +38,7 @@ class CommentCreateView(SuccessMessageMixin, CreateView):
 
 	def form_valid(self, form):
 		form.instance.user = self.request.user
+		form.instance.created_by = self.request.user
 		form.instance.topic = self.get_topic()
 		form.instance.date = timezone.now()
 		form.instance.status = 'p'

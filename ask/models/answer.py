@@ -12,6 +12,7 @@ class Answer(models.Model):
 	correct = models.BooleanField(verbose_name=_("Correct"), default=False)
 	exists = models.BooleanField(verbose_name=_("Exists"), default=True)
 	
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="answer_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 

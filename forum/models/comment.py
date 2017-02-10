@@ -23,6 +23,7 @@ class Comment(models.Model):
 	text = models.TextField(_("Comment"), max_length=COMMENT_MAX_LEN)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="comment_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 

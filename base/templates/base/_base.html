@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html 
-	lang="{{ LANGUAGE_CODE }}"
+	lang="{{ LANGUAGE_CODE|default:"en-us" }}"
 	itemscope=""
 	itemtype="http://schema.org/Organization"
 	xmlns:og="http://opengraphprotocol.org/schema/"
@@ -18,7 +18,7 @@
 	{% endblock %}
 	
 	{% block stylesheet %}
-	
+
 	{% endblock %}
 
 	<!--[if (lt IE 9) & (!IEMobile)]>
@@ -30,6 +30,7 @@
 
 <body>
 	{% include 'base/_base/no_script.html' %}
+
 	{% block header  %}
 	<header id="header">
 		{% include "base/_base/header.html" %}
@@ -54,7 +55,7 @@
 	{% endblock messages %}
 
 	{% block site %}
-	<section id="content" class="container-fluid">
+	<section id="container" class="container-fluid">
 		<label class="h4 text-xs-center text-sm-center text-md-center page-title">
 			{%  block page_title %}{% endblock %}
 		</label>

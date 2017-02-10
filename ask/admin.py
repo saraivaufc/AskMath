@@ -10,9 +10,9 @@ from .forms import (IssueForm, LessonForm, QuestionForm, ChoiceForm, AnswerForm,
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm
-	list_display = ('name', 'status', 'last_modified')
+	list_display = ('name', 'status', 'created_by', 'last_modified')
 	list_filter = ['status', 'creation', 'last_modified']
-	search_fields = ['name', 'status']
+	search_fields = ['name']
 	actions = []
 
 	def save_model(self, request, obj, form, change):
@@ -21,9 +21,9 @@ class IssueAdmin(admin.ModelAdmin, StatusAction):
 
 class LessonAdmin(admin.ModelAdmin, StatusAction):
 	form = LessonForm
-	list_display = ('name', 'status', 'last_modified')
-	list_filter = ['issues', 'status', 'creation', 'last_modified']
-	search_fields = ['name', 'status']
+	list_display = ('name', 'status', 'created_by', 'last_modified')
+	list_filter = ['issues', 'status', 'last_modified']
+	search_fields = ['name']
 	filter_horizontal = ['issues', 'requirements','questions', 'videos', ]
 	actions = []
 
@@ -31,15 +31,21 @@ class LessonAdmin(admin.ModelAdmin, StatusAction):
 		form.instance.created_by = request.user
 		form.save()
 
-
 class ChoiceInline(admin.TabularInline):
 	model = Choice
 	extra = 0
 
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
+
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
 	extra = 1
-	list_display = ('text', 'last_modified')
+	list_display = ('text', 'created_by', 'last_modified')
+	list_filter = ['last_modified']
+	search_fields = ['text']
+
 	inlines = [
 		ChoiceInline,
 	]
@@ -49,13 +55,18 @@ class QuestionAdmin(admin.ModelAdmin):
 		form.save()
 
 class AnswerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'lesson', 'question','correct','exists', 'last_modified')
+	list_display = ('user', 'lesson', 'question','correct','exists', 'created_by', 'last_modified')
 	list_filter = ['user', 'lesson', 'question','correct','exists', 'last_modified']
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
 
 class VideoAdmin(admin.ModelAdmin):
 	form = VideoForm
-	list_display = ('title', 'position', 'url', 'last_modified')
-	search_fields = ['title', 'description', 'creation', 'last_modified']
+	list_display = ('title', 'position', 'url', 'created_by', 'last_modified')
+	list_filter = ['last_modified']
+	search_fields = ['title', 'description']
 	actions = []
 
 	def save_model(self, request, obj, form, change):

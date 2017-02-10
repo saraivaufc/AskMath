@@ -35,7 +35,7 @@
 				<th>{% trans "Topic" %}</th>
 				<th>{% trans "Author" %}</th>
 				<th>{% trans "Comments" %}</th>
-				<th>{% trans "Date" %}</th>
+				<th>{% trans "Last Modified" %}</th>
 				<th>{% trans "Options" %}</th>
 			</tr>
 		</thead>
@@ -53,7 +53,7 @@
 						<a href="{{ link }}" class="tag tag-success">{{ topic.user.get_full_name }}</a>
 					</td>
 					<td>{{ topic.get_comments|length|add:"-1" }}</td>
-					<td>{{ topic.date|naturaltime }}</td>
+					<td>{{ topic.last_modified|naturaltime }}</td>
 					<td class="text-xs-center">
 						{% ifequal topic.user request.user  %}
 						<a href="{% url 'forum:topic_update' category_slug=category.slug slug=topic.slug %}" class="btn btn-primary btn-sm">

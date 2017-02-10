@@ -28,8 +28,6 @@ from partners_admin.admin import partners_admin
 from .sitemap import (issues, lessons,
 					  categories, topics)
 
-print FlatPageSitemap
-
 urlpatterns = i18n_patterns(
 	url(r'^', include('ask.urls', namespace="ask", app_name="ask")),
 	url(r'^base/', include('base.urls', namespace="base", app_name="base")),

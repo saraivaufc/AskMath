@@ -60,6 +60,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 	def form_valid(self, form):
 		answer = form.save(commit=False)
 		answer.user = self.request.user
+		answer.created_by = self.request.user
 		answer.lesson = self.get_lesson()
 		answer.question = self.get_object()
 		answer.correct = set(list(  answer.question.get_choices().filter(is_correct=True)  )) == set(list(  form.cleaned_data['choices'] ))

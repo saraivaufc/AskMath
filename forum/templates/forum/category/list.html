@@ -41,7 +41,7 @@
 						</a>
 						<label>
 							{% url 'authentication:account_detail' pk=category.get_topics.last.user.pk as link %}
-							{% blocktrans with user=category.get_topics.first.user.get_full_name date=category.get_topics.last.date|naturaltime %}
+							{% blocktrans with user=category.get_topics.first.user.get_full_name date=category.get_topics.last.creation|naturaltime %}
 							by <a href="{{ link }}" class="tag tag-success">{{ user }}</a> in {{ date }}
 							{% endblocktrans %}
 						</label>

@@ -11,9 +11,9 @@ from .forms import (CategoryForm)
 
 class CategoryAdmin(admin.ModelAdmin, StatusAction):
 	form = CategoryForm
-	list_display = ('name', 'status', 'last_modified')
+	list_display = ('name', 'status', 'created_by', 'last_modified')
 	search_fields = ['name']
-	list_filter = ['status',]
+	list_filter = ['status', 'last_modified']
 	actions = []
 
 	def save_model(self, request, obj, form, change):
@@ -21,17 +21,25 @@ class CategoryAdmin(admin.ModelAdmin, StatusAction):
 		form.save()
 
 class TopicAdmin(admin.ModelAdmin, StatusAction):
-	list_display = ('title', 'status', 'last_modified')
+	list_display = ('title', 'status', 'created_by', 'last_modified')
 	search_fields = ['title']
-	list_filter = ['last_modified', 'status',]
+	list_filter = ['status', 'last_modified',]
 	actions = []
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
 
 class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
-	list_display = ('user', 'topic', 'text', 'status', 'last_modified')
+	list_display = ('user', 'topic', 'text', 'status', 'created_by', 'last_modified')
+	list_filter = ['user', 'topic', 'status', 'last_modified',]
 	search_fields = ['text']
-	list_filter = ['user', 'topic', 'last_modified', 'status',]
 	actions = []
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Topic, TopicAdmin)

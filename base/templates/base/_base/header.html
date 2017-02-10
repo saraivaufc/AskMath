@@ -27,16 +27,19 @@
 				</a>
 			</li>
 			{% if request.user.is_superuser  %}
+			<li class="nav-item active">
+				<a href="{% url 'admin:index' %}" target="_blank" class="nav-link {% if request.resolver_match.namespace == 'admin' %}active{% endif %}">
+					<i class="fa fa-gears"></i>
+					{% trans "Administration" %}
+				</a>
+			</li>
+
 			<li class="nav-item dropdown active">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="sites" aria-haspopup="true" aria-expanded="false">
 					<i class="fa fa-puzzle-piece"></i>
 					{% trans "Extra" %}
 				</a>
 				<div class="dropdown-menu" aria-labelledby="users">
-					<a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">
-						<i class="fa fa-gears"></i>
-						{% trans "Django Admin" %}
-					</a>
 					<a class="dropdown-item" href="/rosetta" target="_blank">
 						<i class="fa fa-language"></i>
 						{% trans "Rosetta" %}

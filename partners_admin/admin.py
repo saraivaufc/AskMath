@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.conf.urls import url
 from django.template.response import TemplateResponse
 
-from partners_admin.urls import partners_admin_urls
+from .actions import SortableAction
 
 #Base
 from base.models import SocialNetwork
@@ -35,27 +35,21 @@ from django.contrib.sites.admin import SiteAdmin
 
 class PartnersAdminSite(AdminSite):
 	site_header = _(u"AskMath Administration")
-
-	def get_urls(self):
-		new_registry = {}
-		allowed_models = [	SocialNetwork, 
-							Issue, Lesson, Question, Video,
-						  	Category, Topic, Comment, 
-						  	User, Group, Permission, 
-						  	FlatPage,
-						 	Site]
-		for model, admin_model in self._registry.items():
-			if model in allowed_models:
-				new_registry[model] = admin_model
-		self._registry = new_registry
+	site_title = _(u"AskMath Site Administration")
+	index_title = ""
 		
-		urlpatterns = super(PartnersAdminSite, self).get_urls()
-		urlpatterns += partners_admin_urls()
-		return urlpatterns
-		
-class LessonPartnerAdmin(LessonAdmin):
+class LessonPartnerAdmin(LessonAdmin, SortableAction):
 	list_display = ('name', 'status', 'sort_questions', 'sort_videos',)
 	model = Lesson
+
+	def get_urls(self):
+		info = self.model._meta.app_label, self.model._meta.model_name
+		urls = super(LessonPartnerAdmin, self).get_urls()
+		my_urls = [
+			url(r'^(?P<pk>[0-9]+)/sort_questions/$', self.admin_site.admin_view(self.sort_questions_view, cacheable=True) , name='%s_%s_sort_questions' % info),
+			url(r'^(?P<pk>[0-9]+)/sort_videos/$', self.admin_site.admin_view(self.sort_videos_view, cacheable=True) , name='%s_%s_sort_videos' % info),
+		]
+		return my_urls + urls
 
 	def sort_questions(self, obj):
 		return format_html("<a href='{}'>{}</a>",
@@ -69,66 +63,30 @@ class LessonPartnerAdmin(LessonAdmin):
 			_(u"Sort {count} Videos".format(count=len(obj.videos.all()) ) ),
 		)
 
-	def get_urls(self):
-		#reference in 709
-		info = self.model._meta.app_label, self.model._meta.model_name
-		urls = super(LessonPartnerAdmin, self).get_urls()
-		my_urls = [
-			url(r'^(?P<pk>[0-9]+)/sort_questions/$', self.admin_site.admin_view(self.sort_questions_view, cacheable=True) , name='%s_%s_sort_questions' % info),
-			url(r'^(?P<pk>[0-9]+)/sort_videos/$', self.admin_site.admin_view(self.sort_videos_view, cacheable=True) , name='%s_%s_sort_videos' % info),
-		]
-		return my_urls + urls
-
-	def sort_fields(self, request, model, count):
-		if request.method == 'POST':
-			for i in range(1, count+1):
-				if request.POST.has_key('result_{}'.format(i)):
-					result = request.POST['result_{}'.format(i)]
-					model.objects.filter(pk=result).update(position=i)
-			return True
-		else:
-			return False
-
-
 	def sort_questions_view(self, request, pk):
-		opts = self.model._meta
+		context = super(LessonPartnerAdmin, self).get_context(request)
+		
 		object = Lesson.objects.get(pk=pk)
 		results = object.questions.all()
-		
-		context = dict(
-			self.admin_site.each_context(request),
-			opts=opts,
-			object=object,
-			has_change_permission=True,
-			results=results,
-		)
+		context.update({'object':object, 'results':results,})
 
 		if request.method == 'POST':
 			self.sort_fields(request, Question,  len(results))
 			request.method = "GET"
 			return self.sort_questions_view(request, pk)
-		
 		return TemplateResponse(request, "partners_admin/question/sort.html", context)
 
-
 	def sort_videos_view(self, request, pk):
-		opts = self.model._meta
-		object = Lesson.objects.get(pk=pk)
-		results = object.videos.filter(status='p')
+		context = super(LessonPartnerAdmin, self).get_context(request)
 		
-		context = dict(
-			self.admin_site.each_context(request),
-			opts=opts,
-			object=object,
-			has_change_permission=True,
-			results=results,
-		)
-
+		object = Lesson.objects.get(pk=pk)
+		results = object.videos.all()
+		context.update({'object':object,'results':results})
+		
 		if request.method == 'POST':
 			self.sort_fields(request, Video, len(results))
 			request.method = "GET"
 			return self.sort_videos_view(request, pk)
-		
 		return TemplateResponse(request, "partners_admin/video/sort.html", context)
 	
 partners_admin = PartnersAdminSite(name='partners_admin')

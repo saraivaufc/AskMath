@@ -19,7 +19,7 @@ class Category(models.Model):
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="category_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 

@@ -86,10 +86,12 @@ class TopicCreateView(SuccessMessageMixin, CreateView):
 
 	def form_valid(self, form, form_comment):
 		form.instance.user = self.request.user
+		form.instance.created_by = self.request.user
 		form.instance.category = self.get_category()
 		form.instance.status = 'p'
 		topic = form.save()
 		form_comment.instance.user = self.request.user
+		form_comment.instance.created_by = self.request.user
 		form_comment.instance.topic = topic
 		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form_comment.instance.status = 'p'
