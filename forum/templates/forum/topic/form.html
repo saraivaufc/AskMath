@@ -23,10 +23,10 @@
 	<div class="col-md-6">
 		<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
 		{% csrf_token %}
-			{% include 'base/_form_fields.html' %}
+			{% include 'base/_fields.html' %}
 			
 			{% with form=comment_form %}
-				{% include 'base/_form_fields.html' %}
+				{% include 'base/_fields.html' %}
 			{% endwith %}
 			<div class="container-fluid">
 				<div class="float-xs-right">

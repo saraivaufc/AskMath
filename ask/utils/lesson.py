@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 from ask.utils.functions import lists_to_list
 from ask.models import Answer

@@ -4,6 +4,7 @@ from django.contrib.admin import AdminSite
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponseRedirect
 from django.conf.urls import url
 from django.template.response import TemplateResponse
 
@@ -14,30 +15,45 @@ from base.models import SocialNetwork
 from base.admin import SocialNetworkAdmin
 
 #Ask
-from ask.models import Issue, Lesson, Question, Video
-from ask.admin import IssueAdmin, LessonAdmin, QuestionAdmin, VideoAdmin
+from ask.models import Issue, Lesson, Question, Video, Answer
+from ask.admin import IssueAdmin, LessonAdmin, QuestionAdmin, VideoAdmin, AnswerAdmin
 
 #Forum
 from forum.models import Category, Topic, Comment
 from forum.admin import CategoryAdmin, TopicAdmin, CommentAdmin
 
 #Authentication
-from django.contrib.auth.models import User, Group, Permission
+from authentication.models import User
+from django.contrib.auth.models import Group, Permission
 from authentication.admin import UserAdmin, GroupAdmin, PermissionAdmin
 
 #FlatPage
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.admin import FlatPageAdmin
 
+#LogEntry
+from django.contrib.admin.models import LogEntry
+
+#LogEntry
+from django.contrib.sessions.models import Session
+
 #Sites
 from django.contrib.sites.models import Site
 from django.contrib.sites.admin import SiteAdmin
 
 class PartnersAdminSite(AdminSite):
-	site_header = _(u"AskMath Administration")
-	site_title = _(u"AskMath Site Administration")
-	index_title = ""
-		
+	site_header = _(u"AskMath - Administration")
+	site_title = _(u"AskMath - Site Administration")
+	index_title = _(u"Applications")
+
+class LogEntryPartnerAdmin(admin.ModelAdmin):
+	list_display = [ '__str__', 'content_type', 'user', 'action_time']
+	list_filter = ['user', 'action_time', 'content_type', ]
+
+class SessionPartnerAdmin(admin.ModelAdmin):
+	list_display = [ 'session_key', 'expire_date']
+	#list_filter = ['user', 'action_time', 'content_type', ]
+	
 class LessonPartnerAdmin(LessonAdmin, SortableAction):
 	list_display = ('name', 'status', 'sort_questions', 'sort_videos',)
 	model = Lesson
@@ -72,8 +88,7 @@ class LessonPartnerAdmin(LessonAdmin, SortableAction):
 
 		if request.method == 'POST':
 			self.sort_fields(request, Question,  len(results))
-			request.method = "GET"
-			return self.sort_questions_view(request, pk)
+			return HttpResponseRedirect(request.path)
 		return TemplateResponse(request, "partners_admin/question/sort.html", context)
 
 	def sort_videos_view(self, request, pk):
@@ -85,8 +100,7 @@ class LessonPartnerAdmin(LessonAdmin, SortableAction):
 		
 		if request.method == 'POST':
 			self.sort_fields(request, Video, len(results))
-			request.method = "GET"
-			return self.sort_videos_view(request, pk)
+			return HttpResponseRedirect(request.path)
 		return TemplateResponse(request, "partners_admin/video/sort.html", context)
 	
 partners_admin = PartnersAdminSite(name='partners_admin')
@@ -99,6 +113,7 @@ partners_admin.register(Issue, IssueAdmin)
 partners_admin.register(Lesson, LessonPartnerAdmin)
 partners_admin.register(Question, QuestionAdmin)
 partners_admin.register(Video, VideoAdmin)
+partners_admin.register(Answer, AnswerAdmin)
 
 #Forum
 partners_admin.register(Category, CategoryAdmin)
@@ -112,6 +127,12 @@ partners_admin.register(Permission, PermissionAdmin)
 
 #Flatpage
 partners_admin.register(FlatPage, FlatPageAdmin)
+
+#LogEntry
+partners_admin.register(LogEntry, LogEntryPartnerAdmin)
+
+#Session
+partners_admin.register(Session, SessionPartnerAdmin)
 
 #Site
 partners_admin.register(Site, SiteAdmin)

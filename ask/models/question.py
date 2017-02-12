@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.translation import ugettext as _
@@ -20,7 +21,7 @@ class Question(models.Model):
 		return Choice.objects.filter(question=self)
 
 	def __unicode__(self):
-		return self.text
+		return self.text[:50]
 
 	class Meta:
 		ordering = ['position']

@@ -56,10 +56,12 @@
 						<a href="{% url 'forum:comment_update' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-primary btn-sm">
 							<i class="fa fa-edit"></i>					
 						</a>
+						{% endifequal %}
+						{% if comment.user == request.user or perms.forum.delete_comment  %}
 						<a href="{% url 'forum:comment_delete' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-danger btn-sm">
 							<i class="fa fa-remove"></i>
 						</a>
-						{% endifequal %}
+						{% endif %}
 					</td>
 				</tr>
 			{% empty %}

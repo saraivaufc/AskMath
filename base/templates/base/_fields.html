@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load ask_tags %}
+{% load base_tags %}
 
 {% for hidden in form.hidden_fields %}
 	{{hidden }}
@@ -33,4 +33,5 @@
 	{% else %}
 		{% include 'base/fields/field.html' %}
 	{% endif %}
+	<hr class="divider"></hr>
 {% endfor %}

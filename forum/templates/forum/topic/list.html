@@ -59,10 +59,13 @@
 						<a href="{% url 'forum:topic_update' category_slug=category.slug slug=topic.slug %}" class="btn btn-primary btn-sm">
 							<i class="fa fa-edit"></i>					
 						</a>
+						{% endifequal %}
+						{% if topic.user == request.user or perms.forum.delete_topic  %}
 						<a href="{% url 'forum:topic_delete' category_slug=category.slug slug=topic.slug %}" class="btn btn-danger btn-sm">
 							<i class="fa fa-remove"></i>
 						</a>
-						{% endifequal %}
+						{% endif %}
+						
 					</td>
 				</tr>
 			{% empty %}

@@ -159,7 +159,7 @@ ul.messagelist li.warning {
     background-size: 14px auto;
 }
 
-ul.messagelist li.error {
+ul.messagelist li.danger {
     background: #ffefef url(../img/icon-no.svg) 40px 12px no-repeat;
     background-size: 16px auto;
 }

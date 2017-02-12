@@ -117,17 +117,15 @@ class CommentDeleteView(DeleteView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
+		if not self.get_object().user == request.user and not self.get_object().pk == self.get_object().topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
 		return super(CommentDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
+		if not self.get_object().user == request.user and not self.get_object().pk == self.get_object().topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
 
 		comment = self.get_object()
-		if not comment.user == request.user:
-			return HttpResponseForbidden()
 		comment.status = 'r'
 		comment.save()
 		return HttpResponseRedirect(self.get_success_url())

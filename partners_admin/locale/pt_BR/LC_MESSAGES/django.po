@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-12 14:14-0300\n"
+"PO-Revision-Date: 2017-02-12 14:14-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: partners_admin/admin.py:39
+msgid "AskMath - Administration"
+msgstr "AskMath - Administração"
+
+#: partners_admin/admin.py:40
+msgid "AskMath - Site Administration"
+msgstr "AskMath - Site de Administração"
+
+#: partners_admin/admin.py:41
+msgid "Applications"
+msgstr "Aplicações"
+
+#: partners_admin/admin.py:59
+#, python-brace-format
+msgid "Sort {count} Questions"
+msgstr "Ordenar {count} Questões"
+
+#: partners_admin/admin.py:65
+#, python-brace-format
+msgid "Sort {count} Videos"
+msgstr "Ordenar {count} Vídeos"
+
+#: partners_admin/templates/partners_admin/question/sort.html:7
+#: partners_admin/templates/partners_admin/video/sort.html:8
+msgid "Home"
+msgstr "Início"
+
+#: partners_admin/templates/partners_admin/question/sort.html:11
+msgid "Sort Questions"
+msgstr "Ordenar Questões"
+
+#: partners_admin/templates/partners_admin/sortable.html:18
+msgid "No item found"
+msgstr "Nenhum item encontrado"
+
+#: partners_admin/templates/partners_admin/sortable.html:23
+msgid "Save"
+msgstr "Salvar"
+
+#: partners_admin/templates/partners_admin/video/sort.html:12
+msgid "Sort Videos"
+msgstr "Ordenar Vídeos"
+
+#: partners_admin/utils/constants.py:5
+msgid "Objects ordered successfully"
+msgstr "Objetos ordenados com sucesso"
+
+#: partners_admin/utils/constants.py:6
+msgid "Objects ordered error"
+msgstr "Ocorreu um erro ao ordenar os objetos"

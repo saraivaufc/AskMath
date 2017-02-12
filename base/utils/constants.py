@@ -7,3 +7,5 @@ class Constants():
 	#Latex
 	HELP_TEXT_LATEX = _("Use <$ and $> to insert latex in text.\
 					Example: <$ ax^2 + bx + c = 0 $>")
+	#Timezone
+	TIMEZONE_SUCCESS_CONFIG = _("Timezone configured success")

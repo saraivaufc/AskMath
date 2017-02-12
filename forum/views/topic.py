@@ -156,18 +156,16 @@ class TopicDeleteView(DeleteView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
 
 		return super(TopicDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user:
+		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
 
 		topic = self.get_object()
-		if not topic.user == request.user:
-			return HttpResponseForbidden()
 		topic.status = 'r'
 		topic.save()
 		return HttpResponseRedirect(self.get_success_url())

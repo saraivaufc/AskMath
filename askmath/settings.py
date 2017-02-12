@@ -84,6 +84,8 @@ MIDDLEWARE = [
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     #add to translate
     'django.middleware.locale.LocaleMiddleware',
+    #add to timezone
+    'base.middleware.timezone.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'askmath.urls'
@@ -96,6 +98,7 @@ TEMPLATES = [
             'ask/templates',
             'authentication/templates',
             'forum/templates',
+            'partners_admin/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -168,6 +171,7 @@ LOCALE_PATHS = (
     path('ask/locale'),
     path('authentication/locale'),
     path('forum/locale'),
+    path('partners_admin/locale'),
     '/var/local/translations/locale',
 )
 

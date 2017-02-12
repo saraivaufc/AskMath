@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 14:36-0300\n"
-"PO-Revision-Date: 2017-02-04 15:46-0234\n"
-"Last-Translator: Ciano Saraiva <admin@email.com>\n"
+"POT-Creation-Date: 2017-02-12 14:14-0300\n"
+"PO-Revision-Date: 2017-02-12 12:41-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,25 +19,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: ask/models/answer.py:8
+#: ask/models/answer.py:9
 msgid "User"
 msgstr "Usuário"
 
-#: ask/models/answer.py:9 ask/models/lesson.py:31
+#: ask/models/answer.py:10 ask/models/lesson.py:44
 msgid "Lesson"
 msgstr "Lição"
 
-#: ask/models/answer.py:10 ask/models/choice.py:7 ask/models/question.py:20
+#: ask/models/answer.py:11 ask/models/choice.py:9 ask/models/question.py:28
 msgid "Question"
 msgstr "Questão"
 
-#: ask/models/answer.py:11 ask/models/choice.py:16
+#: ask/models/answer.py:12 ask/models/choice.py:22
 msgid "Choices"
 msgstr "Opções"
-
-#: ask/models/answer.py:12
-msgid "Date"
-msgstr "Data"
 
 #: ask/models/answer.py:13
 msgid "Correct"
@@ -47,85 +43,108 @@ msgstr "Correta"
 msgid "Exists"
 msgstr "Existe"
 
-#: ask/models/answer.py:22
+#: ask/models/answer.py:16 ask/models/issue.py:27 ask/models/lesson.py:31
+#: ask/models/question.py:16 ask/models/video.py:19
+msgid "Created by"
+msgstr "Criado por"
+
+#: ask/models/answer.py:26
 msgid "Answer"
 msgstr "Resposta"
 
-#: ask/models/answer.py:23
+#: ask/models/answer.py:27
 msgid "Answers"
 msgstr "Respostas"
 
-#: ask/models/choice.py:8
+#: ask/models/choice.py:10
 msgid "Choice text"
 msgstr "Texto da opção"
 
-#: ask/models/choice.py:9
+#: ask/models/choice.py:11
 msgid "Is correct"
 msgstr "É correta"
 
-#: ask/models/choice.py:15
+#: ask/models/choice.py:21
 msgid "Choice"
 msgstr "Opção"
 
-#: ask/models/issue.py:13 ask/models/lesson.py:12
+#: ask/models/issue.py:15 ask/models/lesson.py:15
 msgid "Draft"
 msgstr "Rascunho"
 
-#: ask/models/issue.py:14 ask/models/lesson.py:13
+#: ask/models/issue.py:16 ask/models/lesson.py:16
 msgid "Published"
 msgstr "Publicado"
 
-#: ask/models/issue.py:15 ask/models/lesson.py:14
+#: ask/models/issue.py:17 ask/models/lesson.py:17
 msgid "Removed"
-msgstr ""
+msgstr "Removido"
 
-#: ask/models/issue.py:19 ask/models/lesson.py:19
+#: ask/models/issue.py:21 ask/models/lesson.py:22
 msgid "Name"
 msgstr "Nome"
 
-#: ask/models/issue.py:21
+#: ask/models/issue.py:23
 msgid "Icon"
 msgstr "Ícone"
 
-#: ask/models/issue.py:29
+#: ask/models/issue.py:40
 msgid "Issue"
 msgstr "Assunto"
 
-#: ask/models/issue.py:30 ask/models/lesson.py:18
+#: ask/models/issue.py:41 ask/models/lesson.py:21
 #: ask/templates/ask/issue/list.html:12
 msgid "Issues"
 msgstr "Assuntos"
 
-#: ask/models/lesson.py:21
+#: ask/models/lesson.py:24 ask/models/video.py:15
 msgid "Description"
 msgstr "Descrição"
 
-#: ask/models/lesson.py:23
+#: ask/models/lesson.py:26
 msgid "Requirements"
 msgstr "Requisitos"
 
-#: ask/models/lesson.py:24 ask/models/question.py:21
+#: ask/models/lesson.py:27 ask/models/question.py:29
 #: ask/templates/ask/lesson/detail.html:27
 #: ask/templates/ask/question/detail.html:6
 #: ask/templates/ask/question/detail.html:13
 msgid "Questions"
 msgstr "Questões"
 
-#: ask/models/lesson.py:32
+#: ask/models/lesson.py:28 ask/models/video.py:29
+#: ask/templates/ask/lesson/detail.html:31 ask/templates/ask/video/list.html:7
+#: ask/templates/ask/video/list.html:14
+msgid "Videos"
+msgstr "Vídeos"
+
+#: ask/models/lesson.py:45
 msgid "Lessons"
 msgstr "Lições"
 
-#: ask/models/question.py:9
+#: ask/models/question.py:12 ask/models/video.py:12
 msgid "Position"
 msgstr "Posição"
 
-#: ask/models/question.py:10
+#: ask/models/question.py:13
 msgid "Question text"
 msgstr "Texto da questão"
 
-#: ask/models/question.py:11
+#: ask/models/question.py:14
 msgid "Help text"
 msgstr "Texto de ajuda"
+
+#: ask/models/video.py:13
+msgid "Title"
+msgstr "Título"
+
+#: ask/models/video.py:16
+msgid "URL"
+msgstr "URL"
+
+#: ask/models/video.py:28
+msgid "Video"
+msgstr "Vídeo"
 
 #: ask/templates/ask/index.html:5 ask/templates/ask/index.html:18
 msgid "Welcome"
@@ -166,7 +185,7 @@ msgstr ""
 msgid "Finished"
 msgstr "Finalizada"
 
-#: ask/templates/ask/lesson/finished.html:28 ask/utils/constants.py:8
+#: ask/templates/ask/lesson/finished.html:28 ask/utils/constants.py:11
 msgid "This lesson finished"
 msgstr "Essa lição foi finalizada"
 
@@ -175,11 +194,7 @@ msgid "Restart"
 msgstr "Reiniciar"
 
 #: ask/templates/ask/lesson/finished.html:39
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "\t\t\t\t\tGo to %(issue)s\n"
-#| "\t\t\t\t"
+#, python-format
 msgid ""
 "\n"
 "\t\t\t\t\tBack to %(issue)s\n"
@@ -220,47 +235,66 @@ msgstr "Ajuda"
 msgid "No found questions."
 msgstr "Não foram encontradas questões."
 
-#: ask/urls/__init__.py:9
+#: ask/templates/ask/video/list.html:19
+#, python-format
+msgid ""
+"\n"
+"\t\tVideos of %(lesson)s\n"
+"\t"
+msgstr ""
+"\n"
+"Vídeos de  %(lesson)s"
+
+#: ask/urls/__init__.py:12
 msgid "^index$"
 msgstr "^indice$"
 
-#: ask/urls/__init__.py:11
+#: ask/urls/__init__.py:14
 msgid "^issues/"
 msgstr "^assuntos/"
 
-#: ask/urls/__init__.py:12
+#: ask/urls/__init__.py:15
 msgid "^issues/(?P<issue_slug>[-\\w]+)/lessons/"
 msgstr "^assuntos/(?P<issue_slug>[-\\w]+)/licoes/"
 
-#: ask/urls/__init__.py:13
+#: ask/urls/__init__.py:16
 msgid ""
 "^issues/(?P<issue_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/questions/"
 msgstr ""
 "^assuntos/(?P<issue_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/questoes/"
 
-#: ask/urls/issue.py:7 ask/urls/lesson.py:8
+#: ask/urls/__init__.py:17
+msgid ""
+"^issues/(?P<issue_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
+msgstr ""
+"^assuntos/(?P<issue_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/videos/"
+
+#: ask/urls/issue.py:10 ask/urls/lesson.py:11 ask/urls/video.py:11
 msgid "^list$"
 msgstr "^lista$"
 
-#: ask/urls/lesson.py:9
-msgid "^(?P<slug>[-\\w]+)$"
-msgstr "^(?P<slug>[-\\w]+)$"
+#: ask/urls/lesson.py:12 ask/urls/video.py:12
+msgid "^(?P<slug>[-\\w]+)/detail$"
+msgstr "^(?P<slug>[-\\w]+)/detalhe$"
 
-#: ask/urls/lesson.py:10
+#: ask/urls/lesson.py:13
 msgid "^(?P<slug>[-\\w]+)/finished$"
 msgstr "^(?P<slug>[-\\w]+)/finalizada$"
 
-#: ask/urls/question.py:8
-msgid "^answer/$"
-msgstr "^responder/$"
+#: ask/urls/question.py:11
+msgid "^answer$"
+msgstr "^responder$"
 
-#: ask/utils/constants.py:5
+#: ask/utils/constants.py:8
 msgid "You answer is correct"
 msgstr "Sua resposta está correta"
 
-#: ask/utils/constants.py:6
+#: ask/utils/constants.py:9
 msgid "You answer is incorrect"
 msgstr "Sua resposta está incorreta"
+
+#~ msgid "Date"
+#~ msgstr "Data"
 
 #~ msgid "Mark selected stories as published"
 #~ msgstr "Marcar todos os objetos selecionados como publicados "
@@ -270,6 +304,3 @@ msgstr "Sua resposta está incorreta"
 
 #~ msgid "Mark selected stories as withdrawn"
 #~ msgstr "Marcar todos os objetos selecionados como ainda escrevendo"
-
-#~ msgid "Videos"
-#~ msgstr "Vídeos"

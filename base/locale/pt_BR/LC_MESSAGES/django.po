@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 14:36-0300\n"
-"PO-Revision-Date: 2017-02-04 17:18-0234\n"
-"Last-Translator: Ciano Saraiva <admin@email.com>\n"
+"POT-Creation-Date: 2017-02-12 14:14-0300\n"
+"PO-Revision-Date: 2017-02-12 12:54-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -33,15 +33,15 @@ msgstr ""
 
 #: base/forms/contact.py:5
 msgid "Subject"
-msgstr ""
+msgstr "Assunto"
 
 #: base/forms/contact.py:6
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 #: base/forms/contact.py:7
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: base/models/social_network.py:9
 msgid "Name"
@@ -55,37 +55,67 @@ msgstr "URL"
 msgid "Icon"
 msgstr "Ícone"
 
-#: base/models/social_network.py:18
+#: base/models/social_network.py:14
+msgid "Created by"
+msgstr "Criado por"
+
+#: base/models/social_network.py:22
 msgid "Social Network"
 msgstr "Rede Social"
 
-#: base/models/social_network.py:19
+#: base/models/social_network.py:23
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
-#: base/templates/base/_base.html:44
+#: base/templates/base/404.html:7 base/templates/base/404.html:11
+msgid "Page not found"
+msgstr "Página não encontrada"
+
+#: base/templates/base/404.html:13
+msgid "We're sorry, but the requested page could not be found."
+msgstr ""
+
+#: base/templates/base/500.html:7
+msgid "Server error"
+msgstr "Erro no servidor"
+
+#: base/templates/base/500.html:12
+msgid "Server error (500)"
+msgstr "Erro no servidor (500)"
+
+#: base/templates/base/500.html:15
+msgid "Server Error <em>(500)</em>"
+msgstr "Erro no servidor <em>(500)</em>"
+
+#: base/templates/base/500.html:16
+msgid ""
+"There's been an error. It's been reported to the site administrators via "
+"email and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: base/templates/base/_base.html:45
 msgid "Home"
 msgstr "Início"
 
 #: base/templates/base/_base/accessibility.html:5
 msgid "Skip to main content of the page - Shortcut #1"
-msgstr ""
+msgstr "Ir para o conteúdo principal da página - Atalho #1"
 
 #: base/templates/base/_base/accessibility.html:6
 msgid "To Content"
-msgstr ""
+msgstr "Ir para conteúdo"
 
 #: base/templates/base/_base/accessibility.html:10
 msgid "Skip to navigation of the page - Shortcut #2"
-msgstr ""
+msgstr "Ir para a barra de navegação da página - Atalho #2"
 
 #: base/templates/base/_base/accessibility.html:11
 msgid "To Navigation"
-msgstr ""
+msgstr "Ir para navegação"
 
 #: base/templates/base/_base/accessibility.html:15
 msgid "On/Off High Contrast - Shortcut #3"
-msgstr ""
+msgstr "Ligar/Desligar Alto Contraste - Atalho #3"
 
 #: base/templates/base/_base/accessibility.html:16
 msgid "High Contrast-OFF"
@@ -123,44 +153,51 @@ msgstr "Politica de Privacidade"
 msgid "Contact Us"
 msgstr "Contate-nos"
 
+#: base/templates/base/_base/footer.html:22
+#: base/templates/base/set_timezone.html:6
+#: base/templates/base/set_timezone.html:8
+msgid "Timezone"
+msgstr ""
+
 #. Translators: Label of a button that triggers language
-#: base/templates/base/_base/footer.html:37
+#: base/templates/base/_base/footer.html:39
+#: base/templates/base/set_timezone.html:26
 msgid "Go"
 msgstr "Ir"
 
 #: base/templates/base/_base/header.html:20
 msgid "AskMath"
-msgstr ""
+msgstr "AskMath"
 
 #: base/templates/base/_base/header.html:26
 msgid "Forum"
-msgstr ""
+msgstr "Fórum"
 
 #: base/templates/base/_base/header.html:33
+msgid "Administration"
+msgstr "Administração"
+
+#: base/templates/base/_base/header.html:40
 msgid "Extra"
 msgstr "Extra"
 
-#: base/templates/base/_base/header.html:38
-msgid "Django Admin"
-msgstr "Administração do Django"
-
-#: base/templates/base/_base/header.html:42
+#: base/templates/base/_base/header.html:45
 msgid "Rosetta"
 msgstr "Rosetta"
 
-#: base/templates/base/_base/header.html:59
+#: base/templates/base/_base/header.html:62
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/base/_base/header.html:63
+#: base/templates/base/_base/header.html:66
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/base/_base/header.html:67
+#: base/templates/base/_base/header.html:70
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/base/_base/header.html:75
+#: base/templates/base/_base/header.html:78
 msgid "Login"
 msgstr "Entrar"
 
@@ -173,7 +210,7 @@ msgstr ""
 
 #: base/templates/base/_base/meta.html:4
 msgid "Education,Mathematics,University"
-msgstr ""
+msgstr "Educação, Matemática, Universidade"
 
 #: base/templates/base/_base/no_script.html:3
 msgid ""
@@ -190,7 +227,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: base/templates/base/_form.html:11
+#: base/templates/base/_form.html:12
 msgid "Save"
 msgstr "Salvar"
 
@@ -216,61 +253,64 @@ msgstr "Contate-nos"
 
 #: base/templates/base/contact.html:21
 msgid "Logo PET information technology group."
-msgstr ""
+msgstr "Logo do grupo PET - Tecnologia da Informação"
 
 #: base/templates/base/fields/file.html:8
+#: base/templates/base/set_timezone.html:15
 msgid "Currently"
 msgstr "Atualmente"
 
 #: base/templates/base/fields/file.html:13
+#: base/templates/base/set_timezone.html:18
 msgid "Change"
 msgstr "Alterar"
 
 #: base/templates/base/fields/headers/caption.html:6
+#: base/templates/base/fieldset.html:22
 msgid "This field is required!"
 msgstr "Este campo é obrigatório"
 
-#: base/urls/__init__.py:13
+#: base/urls/__init__.py:32
 msgid "^about/$"
 msgstr "^sobre/$"
 
-#: base/urls/__init__.py:13
+#: base/urls/__init__.py:32
 msgid "/about/"
 msgstr "/sobre/"
 
-#: base/urls/__init__.py:14
+#: base/urls/__init__.py:33
 msgid "^license/$"
 msgstr "^licenca/$"
 
-#: base/urls/__init__.py:14
+#: base/urls/__init__.py:33
 msgid "/license/"
 msgstr "/licenca/"
 
-#: base/urls/__init__.py:15
+#: base/urls/__init__.py:34
 msgid "^terms/$"
 msgstr "^termos/$"
 
-#: base/urls/__init__.py:15
+#: base/urls/__init__.py:34
 msgid "/terms/"
 msgstr "/termos/"
 
-#: base/urls/__init__.py:16
+#: base/urls/__init__.py:35
 msgid "^policies/$"
 msgstr "^politicas/$"
 
-#: base/urls/__init__.py:16
+#: base/urls/__init__.py:35
 msgid "/policies/"
 msgstr "/politicas/"
 
-#: base/urls/__init__.py:17
+#: base/urls/__init__.py:36
 msgid "^credits/$"
 msgstr "^creditos/$"
 
-#: base/urls/__init__.py:17
+#: base/urls/__init__.py:36
 msgid "/credits/"
 msgstr "/creditos/"
 
-#: base/urls/__init__.py:18
+#: base/urls/__init__.py:37
 msgid "^contact/"
 msgstr "^contato$"
 
@@ -280,17 +320,25 @@ msgstr ""
 
 #: base/utils/constants.py:5
 msgid "Message send success"
-msgstr ""
+msgstr "Mensagem enviada com sucesso"
 
 #: base/utils/constants.py:6
 msgid "Error send message"
-msgstr ""
+msgstr "Erro ao enviar a mensagem"
 
 #: base/utils/constants.py:8
 msgid ""
 "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = "
 "0 $>"
 msgstr ""
+"Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
+
+#: base/utils/constants.py:11
+msgid "Timezone configured success"
+msgstr ""
+
+#~ msgid "Django Admin"
+#~ msgstr "Administração do Django"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

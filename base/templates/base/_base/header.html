@@ -26,7 +26,7 @@
 					{% trans "Forum" %}
 				</a>
 			</li>
-			{% if request.user.is_superuser  %}
+			{% if request.user.is_staff  %}
 			<li class="nav-item active">
 				<a href="{% url 'admin:index' %}" target="_blank" class="nav-link {% if request.resolver_match.namespace == 'admin' %}active{% endif %}">
 					<i class="fa fa-gears"></i>

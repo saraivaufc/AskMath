@@ -6,7 +6,7 @@ from django.contrib.admin import AdminSite
 from base.actions import (StatusAction, )
 
 from .models import (Issue, Lesson, Question, Choice, Answer, Video)
-from .forms import (IssueForm, LessonForm, QuestionForm, ChoiceForm, AnswerForm, VideoForm, )
+from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, )
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm
@@ -33,11 +33,8 @@ class LessonAdmin(admin.ModelAdmin, StatusAction):
 
 class ChoiceInline(admin.TabularInline):
 	model = Choice
+	fields = ['text','is_correct',]
 	extra = 0
-
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
 
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm

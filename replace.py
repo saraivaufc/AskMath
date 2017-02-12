@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = "('w', _"
-NEW_TEXT = "('r', _"
-FILE_TYPES = ['(.)\.py', ]
+TEXT = "_form_fields"
+NEW_TEXT = "_fields"
+FILE_TYPES = ['(.)\.html', ]
 
 rexs = []
 for i in FILE_TYPES:
