@@ -32,7 +32,7 @@
 
 	<p class="lead">
 		{% trans 'Timezone' %}: 
-		<form action="{% url 'base:set_timezone' %}" method="POST">
+		<form action="{% url 'base:language' %}" method="POST">
 			{% csrf_token %}
 			<select name="timezone">
 			{% for tz in timezones %}

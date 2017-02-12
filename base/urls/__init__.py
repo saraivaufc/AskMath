@@ -25,7 +25,7 @@ from django.contrib.flatpages import views
 from django.contrib.flatpages.sitemaps import FlatPageSitemap
 
 from ..sitemap import (issues, lessons, categories, topics)
-from ..views.language import get_config, set_timezone
+from ..views.language import language_config
 
 urlpatterns = (
 	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False), name='home'),
@@ -38,12 +38,18 @@ urlpatterns = (
 )
 
 urlpatterns += (
+	#Files serving
 	url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT,}),
 	url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
+	
+	#javascript
 	url(r'^jsreverse/$', cache_page(3600)(urls_js), name='js_reverse'),
 	url(r'^jsi18n/$', JavaScriptCatalog.as_view(packages=['ask', ]), name='javascript-catalog'),
-	url(r'^language$', get_config, name='language'),
-	url(r'^set_timezone$', set_timezone, name='set_timezone'),	
+	
+	#Internationalization
+	url(_(r'^language$'), language_config, name='language'),
+	
+	#SiteMap	
 	url(r'^sitemap\.xml$', sitemap, {'sitemaps': 
 			{
 			'flatpages': FlatPageSitemap, 
