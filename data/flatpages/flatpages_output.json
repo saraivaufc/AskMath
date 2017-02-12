@@ -4,7 +4,7 @@
         "model": "flatpages.flatpage", 
         "fields": {
             "url": "/en/about/", 
-            "content": "oskdoaskd", 
+            "content": "<a class=\"nav-link\" href=\"/en/credits/\">Credits</a>", 
             "sites": [
                 1
             ], 
@@ -16,7 +16,7 @@
         "model": "flatpages.flatpage", 
         "fields": {
             "url": "/en/credits/", 
-            "content": "", 
+            "content": "<ul>\n\t<li>Python - https://www.python.org</li>\n\t<li>Django - https://www.djangoproject.com</li>\n\t<li>Metro Ui CSS - https://metroui.org.ua</li>\n\t<li>Rosetta Package - https://pypi.python.org/pypi/django-rosetta</li>\n\t<li>Django REST framework - http://www.django-rest-framework.org</li>\n\t<li>Python Social Auth - http://psa.matiasaguirre.net/docs/index.html</li>\n\t<li>Jquery - https://jquery.com</li>\n\t<li>Jquery UI - https://jqueryui.com</li>\n\t<li>Highcharts - http://www.highcharts.com</li>\n\t<li>MathJax - https://www.mathjax.org</li>\n\t<li>WebKit - http://www.webkit.org</li>\n\t<li>Web Animation - https://github.com/web-animations/web-animations-js</li>\n\t<li>Select2 - https://select2.github.io</li>\n\t<li>Celery - http://www.celeryproject.org</li></li>\n</ul>", 
             "sites": [
                 1
             ], 
@@ -76,7 +76,7 @@
         "model": "flatpages.flatpage", 
         "fields": {
             "url": "/pt-br/creditos/", 
-            "content": "", 
+            "content": "<ul>\n\t<li>Python - https://www.python.org</li>\n\t<li>Django - https://www.djangoproject.com</li>\n\t<li>Metro Ui CSS - https://metroui.org.ua</li>\n\t<li>Rosetta Package - https://pypi.python.org/pypi/django-rosetta</li>\n\t<li>Django REST framework - http://www.django-rest-framework.org</li>\n\t<li>Python Social Auth - http://psa.matiasaguirre.net/docs/index.html</li>\n\t<li>Jquery - https://jquery.com</li>\n\t<li>Jquery UI - https://jqueryui.com</li>\n\t<li>Highcharts - http://www.highcharts.com</li>\n\t<li>MathJax - https://www.mathjax.org</li>\n\t<li>WebKit - http://www.webkit.org</li>\n\t<li>Web Animation - https://github.com/web-animations/web-animations-js</li>\n\t<li>Select2 - https://select2.github.io</li>\n\t<li>Celery - http://www.celeryproject.org</li></li>\n</ul>", 
             "sites": [
                 1
             ], 

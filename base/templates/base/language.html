@@ -1,0 +1,46 @@
+{% extends "base/_base.html" %}
+
+{% load i18n %}
+{% load tz %}
+
+{% block title %}{% trans "Language" %}{% endblock %}
+
+{% block page_title %}{% trans "Language" %}{% endblock %}
+
+{% block content %}
+{% get_current_timezone as TIME_ZONE %}
+
+<div class="jumbotron">
+	<p class="lead">
+		{% trans 'Language' %}: 
+		<form action="{% url 'set_language' %}" method="POST">
+			{% csrf_token %}
+			<select name="language">
+				{% get_current_language as LANGUAGE_CODE %}
+				{% get_available_languages as LANGUAGES %}
+				{% get_language_info_list for LANGUAGES as languages %}
+				{% for language in languages %}
+					<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected" {% endif %}> 
+						{{ language.name_local }} ({{ language.code }})
+					</option>
+				{% endfor %}
+			</select>
+			{# Translators: Label of a button that triggers language #}
+			<input type="submit" class="btn btn-success btn-sm" value="{% trans 'Go' %}" />
+		</form>
+	</p>	
+
+	<p class="lead">
+		{% trans 'Timezone' %}: 
+		<form action="{% url 'base:set_timezone' %}" method="POST">
+			{% csrf_token %}
+			<select name="timezone">
+			{% for tz in timezones %}
+			<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected="selected"{% endif %}>{{ tz }}</option>
+			{% endfor %}
+			</select>
+			<input type="submit" class="btn btn-success btn-sm" value="{% trans 'Go' %}" />
+		</form>
+	</p>
+</div>
+{% endblock %}

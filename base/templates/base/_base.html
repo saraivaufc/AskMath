@@ -56,15 +56,17 @@
 
 	{% block site %}
 	<section id="container" class="container-fluid">
-		<label class="h4 text-xs-center text-sm-center text-md-center page-title">
-			{%  block page_title %}{% endblock %}
-		</label>
-		<div class="page-container">
-			<div class="container-fluid">
-				<div class="row">
-					{% block content %}
+		<div class="row">
+			<label class="h4 text-xs-center text-sm-center text-md-center page-title">
+				{%  block page_title %}{% endblock %}
+			</label>
+			<div class="page-container">
+				<div class="container-fluid">
+					<div class="row">
+						{% block content %}
 
-					{% endblock %}
+						{% endblock %}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,7 +75,7 @@
 
 
 	{% block footer %}
-	<footer id="footer" class="navbar navbar-dark bg-primary bg-faded" style="display: inline-block; width: 100%;">
+	<footer id="footer">
 		{% include "base/_base/footer.html" %}
 	</footer>
 	{% endblock %}

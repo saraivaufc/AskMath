@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 14:14-0300\n"
-"PO-Revision-Date: 2017-02-12 12:54-0234\n"
+"POT-Creation-Date: 2017-02-12 14:55-0300\n"
+"PO-Revision-Date: 2017-02-12 14:56-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -150,17 +150,22 @@ msgid "Privacy Policy"
 msgstr "Politica de Privacidade"
 
 #: base/templates/base/_base/footer.html:19
+#| msgid "/credits/"
+msgid "Credits"
+msgstr "Créditos"
+
+#: base/templates/base/_base/footer.html:22
 msgid "Contact Us"
 msgstr "Contate-nos"
 
-#: base/templates/base/_base/footer.html:22
+#: base/templates/base/_base/footer.html:25
 #: base/templates/base/set_timezone.html:6
 #: base/templates/base/set_timezone.html:8
 msgid "Timezone"
 msgstr ""
 
 #. Translators: Label of a button that triggers language
-#: base/templates/base/_base/footer.html:39
+#: base/templates/base/_base/footer.html:42
 #: base/templates/base/set_timezone.html:26
 msgid "Go"
 msgstr "Ir"
@@ -204,8 +209,8 @@ msgstr "Entrar"
 #: base/templates/base/_base/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video "
-"for free for you."
+"students who take the AskMath. There are several lessons and tutorials video"
+" for free for you."
 msgstr ""
 
 #: base/templates/base/_base/meta.html:4
@@ -215,8 +220,9 @@ msgstr "Educação, Matemática, Universidade"
 #: base/templates/base/_base/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instructions on how to enable JavaScript in your browser "
+"</a>."
 msgstr ""
 
 #: base/templates/base/_check_delete.html:5
@@ -327,9 +333,7 @@ msgid "Error send message"
 msgstr "Erro ao enviar a mensagem"
 
 #: base/utils/constants.py:8
-msgid ""
-"Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = "
-"0 $>"
+msgid "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = 0 $>"
 msgstr ""
 "Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
 
