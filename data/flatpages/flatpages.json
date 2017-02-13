@@ -23,25 +23,15 @@
 		"model": "flatpages.flatpage",
 		"pk": 3,
 		"fields": {
-			"url": "/en/license/",
-			"title": "License",
-			"content": "templates/en_license.html",
+			"url": "/en/privacy/",
+			"title": "Privacy Policies",
+			"content": "templates/en_privacy.html",
 			"sites": [1]
 		}
 	},
 	{
 		"model": "flatpages.flatpage",
 		"pk": 4,
-		"fields": {
-			"url": "/en/policies/",
-			"title": "Privacy Policies",
-			"content": "templates/en_policies.html",
-			"sites": [1]
-		}
-	},
-	{
-		"model": "flatpages.flatpage",
-		"pk": 5,
 		"fields": {
 			"url": "/en/terms/",
 			"title": "Terms os Use",
@@ -51,7 +41,7 @@
 	},
 	{
 		"model": "flatpages.flatpage",
-		"pk": 6,
+		"pk": 5,
 		"fields": {
 			"url": "/pt-br/sobre/",
 			"title": "Sobre",
@@ -61,7 +51,7 @@
 	},
 	{
 		"model": "flatpages.flatpage",
-		"pk": 7,
+		"pk": 6,
 		"fields": {
 			"url": "/pt-br/creditos/",
 			"title": "Créditos",
@@ -71,27 +61,17 @@
 	},
 	{
 		"model": "flatpages.flatpage",
-		"pk": 8,
+		"pk": 7,
 		"fields": {
-			"url": "/pt-br/licenca/",
-			"title": "Licença",
-			"content": "templates/pt-br_license.html",
-			"sites": [1]
-		}
-	},
-	{
-		"model": "flatpages.flatpage",
-		"pk": 9,
-		"fields": {
-			"url": "/pt-br/politicas/",
+			"url": "/pt-br/privacidade/",
 			"title": "Políticas de Privacidade",
-			"content": "templates/pt-br_policies.html",
+			"content": "templates/pt-br_privacy.html",
 			"sites": [1]
 		}
 	},
 	{
 		"model": "flatpages.flatpage",
-		"pk": 10,
+		"pk": 8,
 		"fields": {
 			"url": "/pt-br/termos/",
 			"title": "Termos de Uso",

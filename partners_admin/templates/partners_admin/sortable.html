@@ -3,8 +3,8 @@
 {% load i18n admin_urls static admin_modify %}
 
 {% block content %}
-	{% include 'base/_base/css.html' %}
-	{% include 'base/_base/js.html' %}
+	{% include 'base/blocks/css.html' %}
+	{% include 'base/blocks/js.html' %}
 
 	<form action="#" method="POST">
 		{% csrf_token %}

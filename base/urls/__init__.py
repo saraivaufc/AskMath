@@ -30,9 +30,8 @@ from ..views.language import language_config
 urlpatterns = (
 	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False), name='home'),
 	url(_(r'^about/$'), views.flatpage, {'url': _(u'/about/')}, name='about'),
-	url(_(r'^license/$'), views.flatpage, {'url': _(u'/license/')}, name='license'),
 	url(_(r'^terms/$'), views.flatpage, {'url': _(u'/terms/')}, name='terms'),
-	url(_(r'^policies/$'), views.flatpage, {'url': _(u'/policies/')}, name='policies'),
+	url(_(r'^privacy/$'), views.flatpage, {'url': _(u'/privacy/')}, name='privacy'),
 	url(_(r'^credits/$'), views.flatpage, {'url': _(u'/credits/')}, name='credits'),
 	url(_(r'^contact/'), include('base.urls.contact')),
 )

@@ -6,9 +6,9 @@
 	<div class="collapse navbar-toggleable-xs" id="navbar-footer">
 		<ul class="nav navbar-nav">
 			<li class="nav-item">
-				<a class="nav-link" href="{% url 'base:license' %}">
+				<div class="nav-link">
 			  		&copy; 2014 - {{ current_year }} Ciano Saraiva
-			  	</a>
+			  	</div>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'base:about' %}">{% trans "About" %}</a>
@@ -17,7 +17,7 @@
 				<a class="nav-link" href="{% url 'base:terms' %}">{% trans "Terms of Use" %}</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{% url 'base:policies' %}">{% trans "Privacy Policy" %}</a>
+				<a class="nav-link" href="{% url 'base:privacy' %}">{% trans "Privacy Policy" %}</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'base:contact' %}">{% trans "Contact Us" %}</a>

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 14:55-0300\n"
-"PO-Revision-Date: 2017-02-12 14:56-0234\n"
+"POT-Creation-Date: 2017-02-13 11:32-0300\n"
+"PO-Revision-Date: 2017-02-13 11:33-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -137,38 +137,21 @@ msgstr ""
 msgid "Decrease Font"
 msgstr ""
 
-#: base/templates/base/_base/footer.html:10
+#: base/templates/base/_base/footer.html:14
 msgid "About"
 msgstr "Sobre"
 
-#: base/templates/base/_base/footer.html:13
+#: base/templates/base/_base/footer.html:17
 msgid "Terms of Use"
 msgstr "Termos de Uso"
 
-#: base/templates/base/_base/footer.html:16
+#: base/templates/base/_base/footer.html:20
 msgid "Privacy Policy"
 msgstr "Politica de Privacidade"
 
-#: base/templates/base/_base/footer.html:19
-#| msgid "/credits/"
-msgid "Credits"
-msgstr "Créditos"
-
-#: base/templates/base/_base/footer.html:22
+#: base/templates/base/_base/footer.html:23
 msgid "Contact Us"
 msgstr "Contate-nos"
-
-#: base/templates/base/_base/footer.html:25
-#: base/templates/base/set_timezone.html:6
-#: base/templates/base/set_timezone.html:8
-msgid "Timezone"
-msgstr ""
-
-#. Translators: Label of a button that triggers language
-#: base/templates/base/_base/footer.html:42
-#: base/templates/base/set_timezone.html:26
-msgid "Go"
-msgstr "Ir"
 
 #: base/templates/base/_base/header.html:20
 msgid "AskMath"
@@ -190,19 +173,25 @@ msgstr "Extra"
 msgid "Rosetta"
 msgstr "Rosetta"
 
-#: base/templates/base/_base/header.html:62
+#: base/templates/base/_base/header.html:53
+#: base/templates/base/language.html:6 base/templates/base/language.html:8
+#: base/templates/base/language.html:15
+msgid "Language"
+msgstr "Linguagem"
+
+#: base/templates/base/_base/header.html:68
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/base/_base/header.html:66
+#: base/templates/base/_base/header.html:72
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/base/_base/header.html:70
+#: base/templates/base/_base/header.html:76
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/base/_base/header.html:78
+#: base/templates/base/_base/header.html:84
 msgid "Login"
 msgstr "Entrar"
 
@@ -237,7 +226,7 @@ msgstr ""
 msgid "Save"
 msgstr "Salvar"
 
-#: base/templates/base/_modal.html:16
+#: base/templates/base/_modal.html:13
 msgid "Close"
 msgstr "Fechar"
 
@@ -262,12 +251,10 @@ msgid "Logo PET information technology group."
 msgstr "Logo do grupo PET - Tecnologia da Informação"
 
 #: base/templates/base/fields/file.html:8
-#: base/templates/base/set_timezone.html:15
 msgid "Currently"
 msgstr "Atualmente"
 
 #: base/templates/base/fields/file.html:13
-#: base/templates/base/set_timezone.html:18
 msgid "Change"
 msgstr "Alterar"
 
@@ -275,6 +262,15 @@ msgstr "Alterar"
 #: base/templates/base/fieldset.html:22
 msgid "This field is required!"
 msgstr "Este campo é obrigatório"
+
+#. Translators: Label of a button that triggers language
+#: base/templates/base/language.html:29 base/templates/base/language.html:42
+msgid "Go"
+msgstr "Ir"
+
+#: base/templates/base/language.html:34
+msgid "Timezone"
+msgstr ""
 
 #: base/urls/__init__.py:32
 msgid "^about/$"
@@ -301,12 +297,12 @@ msgid "/terms/"
 msgstr "/termos/"
 
 #: base/urls/__init__.py:35
-msgid "^policies/$"
-msgstr "^politicas/$"
+msgid "^privacy/$"
+msgstr "^privacidade/$"
 
 #: base/urls/__init__.py:35
-msgid "/policies/"
-msgstr "/politicas/"
+msgid "/privacy/"
+msgstr "/privacidade/"
 
 #: base/urls/__init__.py:36
 msgid "^credits/$"
@@ -319,6 +315,10 @@ msgstr "/creditos/"
 #: base/urls/__init__.py:37
 msgid "^contact/"
 msgstr "^contato$"
+
+#: base/urls/__init__.py:50
+msgid "^language$"
+msgstr "^linguagem$"
 
 #: base/urls/contact.py:8
 msgid "^$"
@@ -340,6 +340,15 @@ msgstr ""
 #: base/utils/constants.py:11
 msgid "Timezone configured success"
 msgstr ""
+
+#~ msgid "Credits"
+#~ msgstr "Créditos"
+
+#~ msgid "^policies/$"
+#~ msgstr "^politicas/$"
+
+#~ msgid "/policies/"
+#~ msgstr "/politicas/"
 
 #~ msgid "Django Admin"
 #~ msgstr "Administração do Django"

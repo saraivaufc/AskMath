@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 14:55-0300\n"
+"POT-Creation-Date: 2017-02-13 11:32-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,14 @@ msgstr "Inglês"
 #: askmath/settings.py:181
 msgid "Spanish"
 msgstr "Espanhol"
+
+#: data/flatpages/templates/pt-br_privacy.html:3
+msgid "AskMath<sup>TM</sup>"
+msgstr ""
+
+#: data/flatpages/templates/pt-br_privacy.html:4
+msgid "Saraiva, LLC"
+msgstr ""
 
 #~ msgid "^ask/"
 #~ msgstr "^ask/"
