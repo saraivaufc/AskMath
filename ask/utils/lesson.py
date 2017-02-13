@@ -19,7 +19,11 @@ class LessonSorting():
 		#verifico se todos os pré-requisitos já foram atendidos 
 		if (set( lists_to_list(self.__level_lesson.values()) )).issuperset(set(requirements)):	
 			#se todos os pré-requisitos já foram atendidos, então eu pego o nivel mais alto que estão seus pré-requisitos
-			max_level = max(map(lambda x: self.get_level_lesson(x) , requirements)) 
+			try:
+				max_level = max(map(lambda x: self.get_level_lesson(x) , requirements)) 
+			except Exception, e:
+				print e
+				return
 			#o nível que essa lição irá ficar é um nível acima ao mais alto nível dos seus pré-requisitos
 			self.__index_level = max_level + 1
 			if not self.__level_lesson.has_key(self.__index_level):
@@ -38,10 +42,10 @@ class LessonSorting():
 		return 0
 
 	def get_lessons(self):
-		#primeiramente, insiro todas as licoes que nao possuem requisitos no primeiro nivel
-		self.__level_lesson[self.__index_level] = self.__lessons.filter(requirements=None,status='p')
+		#primeiramente, insiro todas as licoes que nao possuem requisitos publicados
+		self.__level_lesson[self.__index_level] = self.__lessons.filter(status='p').exclude(requirements__status__contains='p')
 		#agora visito apenas as licoes que possuem requisitos
-		map(lambda x: self.visit(x), self.__lessons.filter(status='p').exclude(requirements=None))
+		map(lambda x: self.visit(x), self.__lessons.filter(status='p', requirements__status__contains='p'))
 		return self.__level_lesson
 
 def get_question_of_lesson(user, lesson):

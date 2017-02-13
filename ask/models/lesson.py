@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.translation import ugettext as _
-from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 

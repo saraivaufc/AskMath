@@ -5,8 +5,8 @@ from django.contrib.admin import AdminSite
 
 from base.actions import (StatusAction, )
 
-from .models import (Issue, Lesson, Question, Choice, Answer, Video)
-from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, )
+from .models import (Issue, Lesson, Question, Choice, Answer, Video, Introduction, )
+from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm, )
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm
@@ -70,8 +70,19 @@ class VideoAdmin(admin.ModelAdmin):
 		form.instance.created_by = request.user
 		form.save()
 
+class IntroductionAdmin(admin.ModelAdmin):
+	form = IntroductionForm
+	list_display = ('text',)
+	list_filter = ['last_modified']
+	search_fields = ['text']
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
+
 admin.site.register(Issue, IssueAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Video, VideoAdmin)
+admin.site.register(Introduction, IntroductionAdmin)

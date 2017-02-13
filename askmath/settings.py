@@ -225,3 +225,5 @@ MESSAGE_TAGS = {
 
 # Session
 SESSION_COOKIE_NAME = "askmath_sessionid"
+CSRF_COOKIE_NAME = "askmath_csrftoken"
+LANGUAGE_COOKIE_NAME = "askmath_language"

@@ -6,3 +6,4 @@ from .lesson import LessonForm
 from .question import QuestionForm
 from .answer import AnswerForm
 from .video import VideoForm
+from .introduction import IntroductionForm

@@ -21,9 +21,13 @@
 {% endblock %}
 
 {% block content %}
-
 	{% if question %}
-	
+		
+		{% if question.introduction %}
+			{% trans "Introduction" as INTRODUCTION_TITLE %}
+			{% include 'base/_modal.html' with id="introduction" title=INTRODUCTION_TITLE body=question.introduction.text %}
+		{% endif %}
+		
 		<div class="col-md-6">
 			<p class="lead">{{ question.text }}</p>
 			<form action="#" method="post">
@@ -43,11 +47,13 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="col-md-6">
 			
 		</div>
 		{% if question.help %}
-			{% include 'base/_modal.html' with id="help" title="Help" body=question.help %}
+			{% trans "Help" as HELP_TITLE %}
+			{% include 'base/_modal.html' with id="help" title=HELP_TITLE body=question.help %}
 		{% endif %}
 
 	{% else %}
@@ -58,4 +64,14 @@
 		</div>
 	{% endif %}
 
+{% endblock %}
+
+{% block scripts %}
+	{{ block.super }}
+
+	{% if question.introduction %}
+	<script type="text/javascript">
+		$("#introduction").modal('show');
+	</script>
+	{% endif %}
 {% endblock %}

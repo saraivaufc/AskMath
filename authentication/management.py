@@ -26,6 +26,8 @@ group_permissions = {
 			'add_question', 'change_question', 'delete_question',
 			#Choice
 			'add_choice', 'change_choice', 'delete_choice',
+			#Introduction
+			'add_introduction', 'change_introduction', 'delete_introduction',
 			#Video
 			'add_video', 'change_video', 'delete_video',
 			#Answer
@@ -48,6 +50,8 @@ group_permissions = {
 			'add_question', 'change_question', 'delete_question',
 			#Choice
 			'add_choice', 'change_choice', 'delete_choice',
+			#Introduction
+			'add_introduction', 'change_introduction', 'delete_introduction',
 			#Video
 			'add_video', 'change_video', 'delete_video',
 			#Answer
@@ -70,6 +74,8 @@ group_permissions = {
 			'add_question', 'change_question', 'delete_question',
 			#Choice
 			'add_choice', 'change_choice', 'delete_choice',
+			#Introduction
+			'add_introduction', 'change_introduction', 'delete_introduction',
 			#Video
 			'add_video', 'change_video', 'delete_video',
 		#Forum

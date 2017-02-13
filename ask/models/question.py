@@ -9,7 +9,8 @@ from .lesson import Lesson
 from .choice import Choice
 
 class Question(models.Model):
-	position = models.IntegerField(verbose_name=_(u"Position"))
+	position = models.IntegerField(verbose_name=_(u"Position"), null=True, blank=True)
+	introduction = models.ForeignKey("Introduction", verbose_name=_(u"Introduction"), null=True, blank=True)
 	text = models.TextField(verbose_name=_(u"Question text"))
 	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
 	
@@ -24,6 +25,6 @@ class Question(models.Model):
 		return self.text[:50]
 
 	class Meta:
-		ordering = ['position']
+		ordering = ['position', 'creation', 'last_modified']
 		verbose_name = _(u'Question')
 		verbose_name_plural = _(u'Questions')
