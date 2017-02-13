@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-import os
+import os, config
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
@@ -28,7 +28,7 @@ SITE_ID = 1
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i!5=0!@pro+ehzbcd&l!k-bi0lza*rkb*grplz6n=7*+ba&p&3'
+SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,7 +59,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rosetta',
-    #'django_js_reverse',
+    'django_js_reverse',
 )
 
 LOCAL_APPS = (
@@ -126,12 +126,12 @@ LOGOUT_URL = reverse_lazy("authentication:account_logout")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'askmath_lite',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': config.DATABASE_ENGINE,
+        'NAME': config.DATABASE_NAME,
+        'USER': config.DATABASE_USER,
+        'PASSWORD': config.DATABASE_PASSWORD,
+        'HOST': config.DATABASE_HOST,
+        'PORT': config.DATABASE_PORT,
     }
 }
 
@@ -207,14 +207,17 @@ MEDIA_ROOT = path('media/')
 MEDIA_URL = '/media/'
 
 # Media uploads dirs
+
 ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 USER_AVATAR_DIR = 'uploads/user_avatar'
 
 # Pagination
+
 PAGINATE_BY = 10
 
 # MessagesTAGS
+
 MESSAGE_TAGS = {
     message_constants.DEBUG: 'debug',
     message_constants.INFO: 'info',
@@ -224,6 +227,20 @@ MESSAGE_TAGS = {
 }
 
 # Session
+
 SESSION_COOKIE_NAME = "askmath_sessionid"
 CSRF_COOKIE_NAME = "askmath_csrftoken"
 LANGUAGE_COOKIE_NAME = "askmath_language"
+
+#Email
+
+EMAIL_ADMINS = config.EMAIL_ADMINS
+DEFAULT_FROM_EMAIL = config.DEFAULT_FROM_EMAIL
+
+EMAIL_HOST = config.EMAIL_HOST
+EMAIL_HOST_USER = config.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = config.EMAIL_HOST_PASSWORD
+EMAIL_PORT = config.EMAIL_PORT
+EMAIL_USE_TLS = config.EMAIL_USE_TLS
+EMAIL_BACKEND = config.EMAIL_BACKEND
+
