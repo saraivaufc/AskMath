@@ -7,9 +7,9 @@ from django.conf import settings
 
 class Answer(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
-	lesson = models.ForeignKey('Lesson', verbose_name=_(u"Lesson"), blank=True)
-	question = models.ForeignKey('Question', verbose_name=_(u"Question"), blank=True)
-	choices = models.ManyToManyField('Choice', verbose_name=_(u"Choices"))
+	lesson = models.ForeignKey('ask.Lesson', verbose_name=_(u"Lesson"), blank=True)
+	question = models.ForeignKey('ask.Question', verbose_name=_(u"Question"), blank=True)
+	choices = models.ManyToManyField('ask.Choice', verbose_name=_(u"Choices"))
 	correct = models.BooleanField(verbose_name=_("Correct"), default=False)
 	exists = models.BooleanField(verbose_name=_("Exists"), default=True)
 	

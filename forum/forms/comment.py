@@ -2,7 +2,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from ..models import Comment
-from base.utils.constants import Constants
+from ..utils.constants import Constants
 
 class CommentForm(forms.ModelForm):
 	

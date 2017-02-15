@@ -7,10 +7,11 @@ from django.conf import settings
 
 from .lesson import Lesson
 from .choice import Choice
+from .answer import Answer
 
 class Question(models.Model):
 	position = models.IntegerField(verbose_name=_(u"Position"), null=True, blank=True)
-	introduction = models.ForeignKey("Introduction", verbose_name=_(u"Introduction"), null=True, blank=True)
+	introduction = models.ForeignKey("ask.Introduction", verbose_name=_(u"Introduction"), null=True, blank=True)
 	text = models.TextField(verbose_name=_(u"Question text"))
 	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
 	
@@ -20,6 +21,9 @@ class Question(models.Model):
 	
 	def get_choices(self):
 		return Choice.objects.filter(question=self)
+
+	def get_answers(self):
+		return Answer.objects.filter(question=self)
 
 	def __unicode__(self):
 		return self.text[:50]

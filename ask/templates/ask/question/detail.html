@@ -29,7 +29,9 @@
 		{% endif %}
 		
 		<div class="col-md-6">
-			<p class="lead">{{ question.text }}</p>
+			<p class="lead">
+				{{ question.text }}
+			</p>
 			<form action="#" method="post">
 				{% csrf_token %}
 				{{ form.as_p }}
@@ -45,6 +47,20 @@
 						{% trans "Help" %}
 					</button>
 				</div>
+			</div>
+			<div class="row">
+				<details>
+					<summary class="tag tag-warning">
+						{% trans "Statistics of question" %}
+					</summary>
+					<dl>
+						<dt>{% trans "Answers" %}:</dt>
+						<dd>{{ answers_amount }}</dd>
+						
+						<dt>{% trans "Corrects" %}:</dt>
+						<dd>{{ answers_corrects }}</dd>
+					</dl>
+				</details>
 			</div>
 		</div>
 		

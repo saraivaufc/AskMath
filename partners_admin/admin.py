@@ -11,8 +11,8 @@ from django.template.response import TemplateResponse
 from .actions import SortableAction
 
 #Base
-from base.models import SocialNetwork
-from base.admin import SocialNetworkAdmin
+from base.models import SocialNetwork, Report
+from base.admin import SocialNetworkAdmin, ReportAdmin
 
 #Ask
 from ask.models import Issue, Lesson, Introduction, Question, Video, Answer
@@ -107,6 +107,7 @@ partners_admin = PartnersAdminSite(name='partners_admin')
 
 #Base
 partners_admin.register(SocialNetwork, SocialNetworkAdmin)
+partners_admin.register(Report, ReportAdmin)
 
 #Ask
 partners_admin.register(Issue, IssueAdmin)

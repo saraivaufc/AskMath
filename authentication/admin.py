@@ -14,3 +14,5 @@ class PermissionAdmin(admin.ModelAdmin):
 admin.site.register(User, UserAdmin)
 #admin.site.register(Group, GroupAdmin)
 admin.site.register(Permission, PermissionAdmin)
+
+

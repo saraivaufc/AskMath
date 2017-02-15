@@ -22,7 +22,6 @@ class LessonListView(ListView):
 		"""Return the last published lessons."""
 		lessons = Lesson.objects.filter(issues=self.get_issue(), status='p')
 		lessons = LessonSorting(lessons).get_lessons()
-		#print lessons
 		levels = collections.OrderedDict(sorted(lessons.items()))
 		return levels
 

@@ -4,8 +4,8 @@ from django.contrib import admin
 from django.utils.translation import ugettext as _
 from django.contrib.admin import AdminSite
 
-from .models import (SocialNetwork)
-from .forms import (SocialNetworkForm)
+from .models import (SocialNetwork, Report, )
+from .forms import (SocialNetworkForm, ReportForm, )
 
 class SocialNetworkAdmin(admin.ModelAdmin):
 	form = SocialNetworkForm
@@ -18,4 +18,26 @@ class SocialNetworkAdmin(admin.ModelAdmin):
 		form.instance.created_by = request.user
 		form.save()
 
+class ReportAdmin(admin.ModelAdmin):
+	model = Report
+	list_display = ('page', 'text','created_by', 'solved', 'solved_by')
+	list_filter = ['solved', 'created_by', 'last_modified',]
+	search_fields = ['text']
+	actions = ['make_solved']
+
+	def make_solved(self, request, queryset):
+		rows_updated = queryset.update(solved=True, solved_by=request.user)
+		if rows_updated == 1:
+			message_bit = _("1 story was")
+		else:
+			message_bit = _("%s stories were" % rows_updated)
+		self.message_user(request, _("%s successfully marked as solved." % message_bit) )
+
+	make_solved.short_description = _("Mark selected stories as solved")
+
+	def save_model(self, request, obj, form, change):
+		form.instance.created_by = request.user
+		form.save()
+
 admin.site.register(SocialNetwork, SocialNetworkAdmin)
+admin.site.register(Report, ReportAdmin)

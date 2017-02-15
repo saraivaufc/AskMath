@@ -1,7 +1,7 @@
 from django import forms
 
 from ..models import Topic
-from base.utils.constants import Constants
+from ..utils.constants import Constants
 
 class TopicForm(forms.ModelForm):
 	

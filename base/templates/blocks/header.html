@@ -1,7 +1,35 @@
-{% load i18n static %}
+{% load i18n static base_tags %}
 
 <div class="header">
-	{% include 'base/blocks/accessibility.html' %}
+	
+	<ul id="skiplinks" class="float-xs-right">
+		<li>
+			<a href="#content" accesskey="1" title="{% trans "Skip to main content of the page - Shortcut #1" %}">
+				{% trans "To Content" %} [1]
+			</a>
+		</li>
+		<li>
+			<a href="#navigation" accesskey="2" title="{% trans "Skip to navigation of the page - Shortcut #2" %}">
+				{% trans "To Navigation" %} [2]
+			</a>
+		</li>
+		<li>
+			<a href="#" class="disable-contrast" id="button-contrast" accesskey="3" title="{% trans "On/Off High Contrast - Shortcut #3" %}">
+				{% trans "High Contrast-OFF" %} [3]
+			</a>
+		</li>
+		<li>
+			<a href="#" class="font-minus" id="increase-font" accesskey="4" title="{% trans "Increase Font - Shortcut #4" %}">
+				{% trans "Increase Font" %} [4]
+			</a>
+		</li>
+		<li>
+			<a href="#" class="font-minus" id="decrease-font" accesskey="5" title="{% trans "Decrease Font - Shortcut #5" %}">
+				{% trans "Decrease Font" %} [5]
+			</a>
+		</li>
+	</ul>
+	
 	<div class="wrap">
 		<div class="logo" style="padding: 5px 30px 5px 30px; ">
 			<a href="{% url 'ask:home' %}">
@@ -47,10 +75,10 @@
 				</div>
 			</li>
 			{% endif %}
-			<li class="nav-item active">
-				<a href="{% url 'base:language' %}" class="nav-link">
-					<i class="fa fa-language"></i>
-					{% trans "Language" %}
+			<li class="nav-item active" data-toggle="tooltip" title="{% trans 'Report errors and problems here!' %}">
+				<a href="" class="nav-link"  data-toggle="modal" data-target="#report"  >
+					<i class="fa fa-bug"></i>
+					{% trans "Bug?" %}
 				</a>
 			</li>
 		</ul>
@@ -88,3 +116,21 @@
 		</ul>
 	</div>
 </nav>
+
+<!-- Modal Report -->
+<div id="report" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">{% trans "Report" %}</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form" action="{% url 'base:report_create' %}" method="POST">
+				{% csrf_token %}
+					{% form_report 'sda' as form %}
+					{% include 'base/_form.html' %}
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,7 @@ from django.contrib.admin import AdminSite
 from base.actions import (StatusAction, )
 
 from .models import (Issue, Lesson, Question, Choice, Answer, Video, Introduction, )
-from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm, )
+from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm,)
 
 class IssueAdmin(admin.ModelAdmin, StatusAction):
 	form = IssueForm

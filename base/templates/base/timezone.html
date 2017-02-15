@@ -1,0 +1,35 @@
+{% extends "base/_base.html" %}
+
+{% load i18n %}
+{% load tz %}
+
+{% block title %}{% trans "Timezone" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'base:timezone' %}" class="breadcrumb-item" >
+		<i class="fa fa-clock-o"></i>
+		{% trans "Timezone" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Timezone" %}{% endblock %}
+
+{% block content %}
+{% get_current_timezone as TIME_ZONE %}
+
+<div class="jumbotron">
+	<p class="lead">
+		{% trans 'Timezone' %}: 
+		<form action="{% url 'base:timezone' %}" method="POST">
+			{% csrf_token %}
+			<select name="timezone">
+			{% for tz in timezones %}
+			<option value="{{ tz }}"{% if tz == TIME_ZONE %} selected="selected"{% endif %}>{{ tz }}</option>
+			{% endfor %}
+			</select>
+			<input type="submit" class="btn btn-success btn-sm" value="{% trans 'Go' %}" />
+		</form>
+	</p>
+</div>
+{% endblock %}

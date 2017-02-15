@@ -71,3 +71,9 @@ def is_datetime(field):
 @register.filter(name='is_url')
 def is_url(field):
 	return field.field.widget.__class__.__name__ == URLInput().__class__.__name__
+
+from ..forms import ReportForm
+
+@register.simple_tag(takes_context=True)
+def form_report(context, format_string):
+	return ReportForm(initial={'page': context['request'].build_absolute_uri()})

@@ -9,12 +9,12 @@
 	xmlns:fb="http://www.facebook.com/2008/fbml"
 	class="modernizr-no-touchevents modernizr-flexbox modernizr-no-flexboxtweener">
 <head>
-	{% include 'base/blocks/meta.html' %}
+	{% include 'blocks/meta.html' %}
 	
 	<title>AskMath - {% block title %}{% endblock %}</title>
 	
 	{% block css %}
-		{% include 'base/blocks/css.html' %}	
+		{% include 'blocks/css.html' %}	
 	{% endblock %}
 	
 	{% block stylesheet %}
@@ -29,11 +29,11 @@
 {% load i18n %}
 
 <body>
-	{% include 'base/blocks/no_script.html' %}
+	{% include 'blocks/no_script.html' %}
 
 	{% block header  %}
 	<header id="header">
-		{% include "base/blocks/header.html" %}
+		{% include "blocks/header.html" %}
 	</header>
 	{% endblock %}
 
@@ -50,7 +50,7 @@
 	
 	{% block messages %}
 	<section id="messages">
-		{% include 'base/blocks/messages.html' %}
+		{% include 'blocks/messages.html' %}
 	</section>
 	{% endblock messages %}
 
@@ -76,12 +76,12 @@
 
 	{% block footer %}
 	<footer id="footer">
-		{% include "base/blocks/footer.html" %}
+		{% include "blocks/footer.html" %}
 	</footer>
 	{% endblock %}
 
 	{% block js %}
-		{% include 'base/blocks/js.html' %}
+		{% include 'blocks/js.html' %}
 	{% endblock %}
 
 	{% block scripts %}

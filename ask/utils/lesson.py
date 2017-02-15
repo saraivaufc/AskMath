@@ -34,6 +34,8 @@ class LessonSorting():
 			#se ainda existir pré-requisitos que ainda não foram atendidos, eu visito(atendo) eles
 			for requirement in requirements:
 				self.visit(requirement)
+			#depois de visitar todos seus requisitos, eu visito o no novamente
+			self.visit(lesson)
 
 	def get_level_lesson(self, lesson):
 		for level, lessons in self.__level_lesson.items():

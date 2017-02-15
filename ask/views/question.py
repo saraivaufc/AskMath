@@ -36,6 +36,8 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		context = super(QuestionDetailView, self).get_context_data(** kwargs)
 		context['issue'] = self.get_issue()
 		context['lesson'] = self.get_lesson()
+		context['answers_amount'] = len(self.get_object().get_answers())
+		context['answers_corrects'] = len(self.get_object().get_answers().filter(correct=True))
 		return context
 
 	def get(self, request, * args, ** kwargs):

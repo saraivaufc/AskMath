@@ -4,7 +4,7 @@ from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 
-from base.utils.models import AutoSlugField
+from ..utils.models import AutoSlugField
 
 from .topic import Topic
 
