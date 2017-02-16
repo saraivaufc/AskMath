@@ -21,4 +21,4 @@ class ReportCreateView(CreateView):
 
 	def form_invalid(self,form):
 		messages.success(self.request, Constants.REPORT_ERROR_SEND)
-		return HttpResponseRedirect(form.instance.page)		
+		return HttpResponseRedirect(form.instance.page)

@@ -1,4 +1,4 @@
-
+	
 <script>
 
 var Preview_{{ id }} = {
@@ -15,8 +15,8 @@ var Preview_{{ id }} = {
   //  Get the preview and buffer DIV's
   //
   Init: function () {
-    this.preview = document.getElementById("{{ id_preview }}");
-    this.buffer = document.getElementById("{{ id_buffer }}");
+	this.preview = document.getElementById("{{ id_preview }}");
+	this.buffer = document.getElementById("{{ id_buffer }}");
   },
 
   //
@@ -25,10 +25,10 @@ var Preview_{{ id }} = {
   //  the results of running MathJax are more accurate that way.)
   //
   SwapBuffers: function () {
-    var buffer = this.preview, preview = this.buffer;
-    this.buffer = buffer; this.preview = preview;
-    buffer.style.visibility = "hidden"; buffer.style.position = "absolute";
-    preview.style.position = ""; preview.style.visibility = "";
+	var buffer = this.preview, preview = this.buffer;
+	this.buffer = buffer; this.preview = preview;
+	buffer.style.visibility = "hidden"; buffer.style.position = "absolute";
+	preview.style.position = ""; preview.style.visibility = "";
   },
 
   //
@@ -40,8 +40,8 @@ var Preview_{{ id }} = {
   //  The callback function is set up below, after the Preview object is set up.
   //
   Update: function () {
-    if (this.timeout) {clearTimeout(this.timeout)}
-    this.timeout = setTimeout(this.callback,this.delay);
+	if (this.timeout) {clearTimeout(this.timeout)}
+	this.timeout = setTimeout(this.callback,this.delay);
   },
 
   //
@@ -52,16 +52,16 @@ var Preview_{{ id }} = {
   //    typesetting.  After it is done, call PreviewDone.
   //  
   CreatePreview: function () {
-    Preview_{{ id }}.timeout = null;
-    if (this.mjRunning) return;
-    var text = document.getElementById("{{ id }}").value;
-    if (text === this.oldtext) return;
-    this.buffer.innerHTML = this.oldtext = text;
-    this.mjRunning = true;
-    MathJax.Hub.Queue(
-      ["Typeset",MathJax.Hub,this.buffer],
-      ["PreviewDone",this]
-    );
+	Preview_{{ id }}.timeout = null;
+	if (this.mjRunning) return;
+	var text = document.getElementById("{{ id }}").value;
+	if (text === this.oldtext) return;
+	this.buffer.innerHTML = this.oldtext = text;
+	this.mjRunning = true;
+	MathJax.Hub.Queue(
+	  ["Typeset",MathJax.Hub,this.buffer],
+	  ["PreviewDone",this]
+	);
   },
 
   //
@@ -69,8 +69,8 @@ var Preview_{{ id }} = {
   //  and swap the buffers to show the results.
   //
   PreviewDone: function () {
-    this.mjRunning = false;
-    this.SwapBuffers();
+	this.mjRunning = false;
+	this.SwapBuffers();
   }
 
 };

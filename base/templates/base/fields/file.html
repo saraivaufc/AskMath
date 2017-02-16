@@ -1,23 +1,12 @@
 {% load i18n %}
-<div class="container-fluid">
-	<div class="form-group row">
-		{% include 'base/fields/headers/caption.html' %}
-		<div class="col-xs-10">
-			{% if field.value %}
-			<div class="row">
-				{% trans "Currently" %}:<a href="{{ MEDIA_URL }}{{ field.value }}" target="_blank">{{ field.value }}</a>
-			</div>
-			{% endif %}
-			
-			{% if field.value %}
-				{% trans "Change" %}:
-			{% endif %}
-			<input type="file"
-				{% include 'base/fields/headers/attrs.html' %}
-				{% if field.field.required and not field.value %}
-					required="required"
-				{% endif %} />
-			{% include 'base/fields/headers/errors.html' %}
-		</div>
-	</div>
+<div class="form-group">
+	{% include 'base/fields/headers/caption.html' %}
+		{% if field.value %}
+			{% trans "Currently" %}:<a href="{{ MEDIA_URL }}{{ field.value }}" target="_blank">{{ field.value }}</a>
+		{% endif %}
+		{% if field.value %}
+			{% trans "Change" %}:
+		{% endif %}
+		<input type="file" {% include 'base/fields/headers/attrs.html' %} />
+		{% include 'base/fields/headers/errors.html' %}
 </div>

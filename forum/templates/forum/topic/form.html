@@ -19,31 +19,31 @@
 {% endblock %}
 
 {% block content %}	
-	
-	<div class="col-md-6">
-		<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
-		{% csrf_token %}
+	<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+	{% csrf_token %}
+		<div class="col-md-8">
 			{% include 'base/_fields.html' %}
 			
 			{% with form=comment_form %}
 				{% include 'base/_fields.html' %}
 			{% endwith %}
-			<div class="container-fluid">
-				<div class="float-xs-right">
-					<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
-				</div>
+		</div>
+
+		<div class="col-md-4">
+			<label>{% trans "Preview is shown here:" %}</label>
+			<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+
+			<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="float-xs-right">
+				<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
 			</div>
-		</form>	
-	</div>
-
-	<div class="col-md-6">
-		<label>{% trans "Preview is shown here:" %}</label>
-		<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-		<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
-
-		<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-		<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
-	</div>
+		</div>
+	</form>	
 {% endblock %}
 
 {% block js %}

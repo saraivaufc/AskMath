@@ -1,21 +1,11 @@
 {% load i18n ask_tags %}
 
-<div class="container-fluid">
-	<div class="form-group row">
-		{% include 'base/fields/headers/caption.html' %}
-		<div class="col-xs-9">
-			<select
-				{% include 'base/fields/headers/attrs.html' %}
-				{% for value, text in field.field.choices %}
-					<option value="{{ value }}" {% ifequal value field.value %}selected="selected"{% endifequal %}>{{ text }}</option>
-				{% endfor %}
-			</select>
-			{% include 'base/fields/headers/errors.html' %}
-		</div>
-		<div class="col-xs-1">
-			<div class="btn-plus">
-				
-			</div>
-		</div>
-	</div>
+<div class="form-group">
+	{% include 'base/fields/headers/caption.html' %}
+	<select {% include 'base/fields/headers/attrs.html' %}>
+		{% for value, text in field.field.choices %}
+			<option value="{{ value }}" {% ifequal value field.value %}selected="selected"{% endifequal %}>{{ text }}</option>
+		{% endfor %}
+	</select>
+	{% include 'base/fields/headers/errors.html' %}
 </div>

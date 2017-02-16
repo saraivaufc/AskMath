@@ -1,21 +1,12 @@
 {% load i18n manager_tags %}
 
-<div class="container-fluid">
-	<div class="form-group row">
-		{% include 'base/fields/headers/caption.html' %}
-		<div class="col-xs-9">
-		    <select multiple="multiple"
-				{% include 'base/fields/headers/attrs.html' %}
-				{% for value, text in field.field.choices %}
-					<option value="{{ value }}" {% if value|convert:'int' in field.value|convert:'int' %}selected="selected"{% endif %}>{{ text }}</option>
-				{% endfor %}
-			</select>
-			{% include 'base/fields/headers/errors.html' %}
-		</div>
-		<div class="col-xs-1">
-			<div class="btn-plus">
-				
-			</div>
-		</div>
-	</div>
+<div class="form-group">
+	{% include 'base/fields/headers/caption.html' %}
+	<select multiple="multiple"
+		{% include 'base/fields/headers/attrs.html' %}
+		{% for value, text in field.field.choices %}
+			<option value="{{ value }}" {% if value|convert:'int' in field.value|convert:'int' %}selected="selected"{% endif %}>{{ text }}</option>
+		{% endfor %}
+	</select>
+	{% include 'base/fields/headers/errors.html' %}
 </div>

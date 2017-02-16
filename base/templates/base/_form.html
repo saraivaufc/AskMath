@@ -1,15 +1,15 @@
 {% load i18n ask_tags %}
 
-<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
-	{% csrf_token %}
-	<input type="hidden" name="next" value="{{ next }}" />
-	<input type="hidden" name="is_popup" value="{% if is_popup %}true{% else %}false{% endif %}" />
+<div class="col-md-12">
+	<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+		{% csrf_token %}
+		<input type="hidden" name="next" value="{{ next }}" />
+		<input type="hidden" name="is_popup" value="{% if is_popup %}true{% else %}false{% endif %}" />
+			
+		{% include "base/_fields.html" %}
 		
-	{% include "base/_fields.html" %}
-	
-	<div class="container-fluid">
-		<div class="float-xs-right">
+		<div class="text-xs-right">
 			<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
 		</div>
-	</div>
-</form>
+	</form>
+</div>

@@ -1,1 +1,7 @@
-{% extends 'base/fields/text.html' %}
+{% load i18n %}
+
+<div class="form-group">
+	{% include 'base/fields/headers/caption.html' %}
+	<input type="url" {% include 'base/fields/headers/attrs.html' %} />
+	{% include 'base/fields/headers/errors.html' %}
+</div>

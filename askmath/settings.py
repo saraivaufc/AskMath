@@ -200,7 +200,7 @@ STATICFILES_DIRS = (
     path('ask/static/'),
     path('authentication/static/'),
     path('forum/static/'),
-    "django/contrib/admin/static/admin/",
+    path('/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'),
 )
 
 MEDIA_ROOT = path('media/')
