@@ -15,10 +15,13 @@
 {% block page_title %}{% trans "Contact us" %}{% endblock %}
 
 {% block content %}
-	<div class="col-md-6 text">
+	<div class="col-xs-12 col-sm-12 col-md-8">
+		{% include "base/_form.html" %}
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 text">
 		<div class="tile-container">
 			<figure class="text-xs-center">
-				<img src="{% static "base/img/pet.png" %}" title="{% trans "Logo PET information technology group." %}" width="70%" height="100%">
+				<img src="{% static "base/img/us.png" %}" title="" width="70%" height="100%">
 			</figure>
 			{% for social_network in object_list %}
 				<div class="tile-small">
@@ -28,8 +31,5 @@
 				</div>
 			{% endfor %}
 		</div>
-	</div>
-	<div class="col-md-6">
-		{% include "base/_form.html" %}
 	</div>
 {% endblock %}

@@ -6,7 +6,7 @@ from ..forms import ReportForm
 from ..utils.constants import Constants
 
 class ReportCreateView(CreateView):
-	template_name = "dsd"
+	template_name = "base/_form.html"
 	form_class = ReportForm
 
 	def get_success_url(self):

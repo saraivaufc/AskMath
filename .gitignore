@@ -1,3 +1,5 @@
+/static/
 /media/
 /env/
+
 *.pyc

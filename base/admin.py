@@ -3,6 +3,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 from django.contrib.admin import AdminSite
+from django.utils import timezone
 
 from .models import (SocialNetwork, Report, )
 from .forms import (SocialNetworkForm, ReportForm, )
@@ -20,13 +21,13 @@ class SocialNetworkAdmin(admin.ModelAdmin):
 
 class ReportAdmin(admin.ModelAdmin):
 	model = Report
-	list_display = ('page', 'report_text','created_by', 'solved', 'solved_by')
-	list_filter = ['solved', 'created_by', 'last_modified',]
+	list_display = ('page', 'report_text','created_by', 'solved', 'solved_by', 'last_modified')
+	list_filter = ['solved', 'solved_by', 'created_by', 'last_modified',]
 	search_fields = ['report_text']
 	actions = ['make_solved']
 
 	def make_solved(self, request, queryset):
-		rows_updated = queryset.update(solved=True, solved_by=request.user)
+		rows_updated = queryset.update(solved=timezone.now(), solved_by=request.user)
 		if rows_updated == 1:
 			message_bit = _("1 story was")
 		else:

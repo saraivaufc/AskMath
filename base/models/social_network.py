@@ -19,5 +19,6 @@ class SocialNetwork(models.Model):
 		return self.name
 
 	class Meta:
+		ordering = ("name", )
 		verbose_name = _(u'Social Network')
 		verbose_name_plural = _(u'Social Networks')

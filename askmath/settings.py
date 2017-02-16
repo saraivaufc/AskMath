@@ -181,6 +181,8 @@ LANGUAGES = (
     ('es', _('Spanish')),
 )
 
+LANGUAGE_CODE='en'
+
 TIME_ZONE = 'America/Fortaleza'
 
 USE_I18N = True
