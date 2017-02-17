@@ -11,32 +11,30 @@
 {% block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
 
 {% block content %}
-		<div class="col-md-12">
-			<a href="{% url 'forum:topic_add' %}" class="btn btn-success">
-				<i class="fa fa-plus"></i>
-				{% trans "New Topic" %}
-			</a>
+
+		<div class="col-xs-12 col-sm-4 col-md-3 text">
+			{% include 'forum/category/list.html' %}
 		</div>
 
-		<div class="col-xs-6 col-sm-8 col-md-9">
+		<div class="col-xs-12 col-sm-8 col-md-9">
 			{% for topic in object_list %}
 				<div class="card card-block">
-					<h3 id="{ topic.slug }}">
+					<h1 class="h4" id="{ topic.slug }}">
 						<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
 						<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
 				
 						<div class="float-xs-right">
 							{% if topic.created_by == request.user  %}
-							<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+							<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
 							{% endif %}
 							{% if perms.forum.delete_topic or topic.created_by == request.user %}
 							<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
 							{% endif %}
 						</div>
-					</h3>					
-					<p class="text-muted">
+					</h1>					
+					<h2 class="text-muted h6">
 						{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
-					</p>
+					</h2>
 					
 					<p>{{ topic.get_comments.first.text|truncatewords_html:20 }}</p>
 					
@@ -52,10 +50,6 @@
 				<nav class="blog-pagination">
 					{% include 'base/_paginate.html' %}
 				</nav>
-		</div>
-
-		<div class="col-xs-6 col-sm-4 col-md-3">
-			{% include 'forum/category/list.html' %}
 		</div>
 {% endblock %}
 

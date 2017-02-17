@@ -167,3 +167,8 @@ ul.messagelist li.danger {
 .form-control {
     width: inherit;
 }
+
+/* Links */
+a {
+	text-decoration: underline !important ;
+}

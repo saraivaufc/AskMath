@@ -19,28 +19,36 @@
 {% endblock %}
 
 {% block content %}	
-	<div class="col-md-8">
-		<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
-		{% csrf_token %}
-			{% include 'base/_fields.html' %}
-			
-			{% with form=comment_form %}
-				{% include 'base/_fields.html' %}
-			{% endwith %}
 	
-			<div class="float-xs-right">
-				<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
-			</div>
-		</form>
+	<div class="col-xs-12 col-sm-4 col-md-3 text">
+		{% include 'forum/category/list.html' %}
 	</div>
 
-	<div class="col-md-4 text">
-		<label>{% trans "Preview is shown here:" %}</label>
-		<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-		<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+	<div class="col-xs-12 col-sm-8 col-md-9">
 
-		<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-		<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+		<div class="col-md-8">
+			<form class="full-width" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+			{% csrf_token %}
+				{% include 'base/_fields.html' %}
+				
+				{% with form=comment_form %}
+					{% include 'base/_fields.html' %}
+				{% endwith %}
+		
+				<div class="float-xs-right">
+					<button type="submit" tabindex="{{ form.visible_fields|length|add:1 }}" class="btn btn-primary">{% trans "Save" %}</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-md-4 text">
+			<label>{% trans "Preview is shown here:" %}</label>
+			<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+
+			<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+		</div>
 	</div>
 {% endblock %}
 
