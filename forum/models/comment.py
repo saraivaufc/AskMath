@@ -20,7 +20,7 @@ class Comment(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"))
 	topic = models.ForeignKey('forum.Topic')
 
-	text = models.TextField(_("Comment"), max_length=COMMENT_MAX_LEN)
+	text = models.TextField(_("Text"), max_length=COMMENT_MAX_LEN)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="comment_created_by", blank=True)
@@ -33,6 +33,6 @@ class Comment(models.Model):
 		return self.text
 
 	class Meta:
-		ordering = ['last_modified', ]
+		ordering = ['creation',]
 		verbose_name = _("Comment")
 		verbose_name_plural = _("Comments")

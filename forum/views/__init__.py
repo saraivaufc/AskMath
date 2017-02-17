@@ -1,3 +1,2 @@
-from .category import CategoryListView
 from .topic import TopicListView, TopicDetailView, TopicCreateView, TopicUpdateView, TopicUpdateView, TopicDeleteView
 from .comment import CommentCreateView, CommentUpdateView, CommentDeleteView

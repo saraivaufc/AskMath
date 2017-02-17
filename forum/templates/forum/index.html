@@ -1,14 +1,23 @@
 {% extends "base/_base.html" %}
 
-{% load static i18n %}
+{% load static i18n humanize %}
 
 {% block title %}{% trans "Forum" %}{% endblock %}
 
-{% block breadcrumbs %}
+{% block css %}
 	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'forum/css/base.css' %}">
 {% endblock %}
 
-{% block page_title %}{% trans "Forum" %}{% endblock %}
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'forum:topic_list' %}" class="breadcrumb-item" >
+		<i class="fa fa-comments-o"></i>
+		{% trans "Forum" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
 
 {% block content %}
 

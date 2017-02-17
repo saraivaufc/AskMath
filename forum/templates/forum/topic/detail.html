@@ -1,76 +1,69 @@
-{% extends 'forum/topic/list.html' %}
+{% extends "forum/topic/list.html" %}
 
-{% load i18n humanize %}
+{% load static i18n humanize %}
 
-{% block title %}
-	{{ topic }}
-{% endblock %}
+{% block title %}{{ topic.title }}{% endblock %}
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug %}" class="breadcrumb-item" >
+	<a href="#" class="breadcrumb-item" >
 		<i class="fa fa-hashtag"></i>
-		{{ topic }}
+		{{ topic.title }}
 	</a>
-{% endblock %}
-
-{%  block page_title %}
-	{{ topic }}
 {% endblock %}
 
 {% block content %}
-	<div class="col-md-12">
-		<div class="row">
-			<p class="lead text full-width">
-				{{ topic.get_comments.first }}
+	<div class="col-xs-6 col-sm-8 col-md-9">
+		<div class="card card-block">
+			<h3 id="{ topic.slug }}">
+				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
+				<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
+				<div class="float-xs-right">
+					{% if topic.created_by == request.user  %}
+					<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+					{% endif %}
+					{% if perms.forum.delete_topic or topic.created_by == request.user %}
+					<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+					{% endif %}
+				</div>
+			</h3>	
+			<p class="text-muted">
+				{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
 			</p>
+
+			<p>{{ topic.get_comments.first }}</p>
+			
+			<ul>
+				{% for comment in topic.get_comments  %}
+					{% if not forloop.first %}
+						<li>
+							{{ comment.text }} 
+							{% if comment.created_by == request.user  %}
+							<a href="{% url 'forum:comment_update' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-edit"></i></a>
+							{% endif %}
+							{% if perms.comment.delete_comment or comment.created_by == request.user %}
+							<a href="{% url 'forum:comment_delete' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-remove"></i></a>
+							{% endif %}
+							<p class="text-muted">
+								{{ comment.creation|naturaltime }} {% trans "by" %} <b>{{ comment.created_by.get_full_name }}</b>
+							</p>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+			<a href="{% url 'forum:comment_add' topic_slug=topic.slug %}" class="btn btn-link">
+				<i class="fa fa-plus"></i>
+				{% trans "New Comment" %}
+			</a>
 		</div>
 	</div>
 
-	<a href="{% url 'forum:comment_add' category_slug=category.slug topic_slug=topic.slug %}" class="btn btn-success">
-		<i class="fa fa-plus"></i>
-		{% trans "New Comment" %}
-	</a>
+	<div class="col-xs-6 col-sm-4 col-md-3">
+		{% include 'forum/category/list.html' %}
+	</div>
+{% endblock %}
 
-	<table class="table table-bordered table-hover text">
-		<thead>
-			<tr>
-				<th>{% trans "Comment" %}</th>
-				<th>{% trans "Author" %}</th>
-				<th>{% trans "Last Modified" %}</th>
-				<th>{% trans "Options" %}</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			{% for comment in page_obj %}
-				<tr>					
-					<td>{{ comment.text }}</td>
-					<td>
-						{% url 'authentication:account_detail' pk=comment.user.pk as link %}
-						<a href="{{ link }}" class="tag tag-success">{{ comment.user.get_full_name }}</a>
-					</td>
-					<td>{{ comment.last_modified|naturaltime }}</td>
-					<td class="text-xs-center">
-						{% ifequal comment.user request.user  %}
-						<a href="{% url 'forum:comment_update' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-primary btn-sm">
-							<i class="fa fa-edit"></i>					
-						</a>
-						{% endifequal %}
-						{% if comment.user == request.user or perms.forum.delete_comment  %}
-						<a href="{% url 'forum:comment_delete' category_slug=category.slug topic_slug=topic.slug pk=comment.pk %}" class="btn btn-danger btn-sm">
-							<i class="fa fa-remove"></i>
-						</a>
-						{% endif %}
-					</td>
-				</tr>
-			{% empty %}
-				<tr>
-					<td class="text-xs-center">{% trans "No comment found!" %}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	{% include "base/_paginate.html" %}
+{% block js %}
+	{{ block.super }}
+	{% include 'base/imports/latex.html' %}
 {% endblock %}

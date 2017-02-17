@@ -7,7 +7,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'forum:topic_delete' category_slug=category.slug slug=object.slug %}" class="breadcrumb-item" >
+	<a href="#" class="breadcrumb-item" >
 		<i class="fa fa-remove"></i>
 		{% trans "Confirm delete" %}
 	</a>

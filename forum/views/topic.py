@@ -22,57 +22,38 @@ class TopicListView(ListView):
 	model = Topic
 	paginate_by = settings.PAGINATE_BY
 
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
-
 	def get_queryset(self):
-		"""Return the last topics issues."""
-		return self.get_category().get_topics()
+		category = self.request.GET.get(_("category"))
+		if category:
+			return Topic.objects.filter(category__slug=category, status='p')
+		else:
+			return Topic.objects.filter(status='p')
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicListView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
+		context['categories'] = Category.objects.filter(status='p')
 		return context
 
-class TopicDetailView(SingleObjectMixin, ListView):
+class TopicDetailView(DetailView):
 	template_name = 'forum/topic/detail.html'
 	model = Topic
-	paginate_by = settings.PAGINATE_BY
-
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
-
-	def get_queryset(self):
-		comments = self.object.get_comments()
-		return comments.exclude(pk=comments.first().pk)
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDetailView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category() 
-		context['topic'] = self.object
+		context['categories'] = Category.objects.filter(status='p')
 		return context
-
-	def get(self, request, * args, ** kwargs):
-		self.object = self.get_object(queryset=self.get_category().get_topics())
-		if not self.object.status == 'p':
-			return HttpResponseForbidden()
-		return super(TopicDetailView, self).get(request)
 
 class TopicCreateView(SuccessMessageMixin, CreateView):
 	template_name = 'forum/topic/form.html'
 	form_class = TopicForm
+	model = Topic
 	success_message = _(u"Topic created successfully")
-
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
-
+	
 	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.object.slug})
-
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.object.slug})
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicCreateView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		context['comment_form'] = CommentForm()
 		return context
 
@@ -87,7 +68,6 @@ class TopicCreateView(SuccessMessageMixin, CreateView):
 	def form_valid(self, form, form_comment):
 		form.instance.user = self.request.user
 		form.instance.created_by = self.request.user
-		form.instance.category = self.get_category()
 		form.instance.status = 'p'
 		topic = form.save()
 		form_comment.instance.user = self.request.user
@@ -104,15 +84,11 @@ class TopicUpdateView(SuccessMessageMixin, UpdateView):
 	model = Topic
 	success_message = _(u"Topic updated successfully")
 
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
-
 	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.object.slug})
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.object.slug})
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicUpdateView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		context['comment_form'] = CommentForm(instance=self.object.get_comments().first())
 		return context
 
@@ -134,37 +110,46 @@ class TopicUpdateView(SuccessMessageMixin, UpdateView):
 			return self.form_invalid(form)
 
 	def form_valid(self, form, form_comment):
-		form.save()
+		comment = Comment.objects.get(pk=form_comment.instance.pk)
+		
+		ancient = Comment(
+			user = comment.user,
+			topic = comment.topic,
+			text = comment.text,
+			status = 'r',
+			created_by = comment.created_by,
+			creation = comment.creation,
+			last_modified = comment.last_modified,
+			ip_address =comment.ip_address,
+		)
+		ancient.save()
+		form_comment.instance.ancient = ancient
+		form_comment.instance.user = self.request.user
+		form_comment.instance.last_modified = timezone.now()
 		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
-		form_comment.instance.status = 'p'
 		form_comment.save()
+		form.save()
 		return super(TopicUpdateView, self).form_valid(form)
 
 class TopicDeleteView(DeleteView):
 	template_name = 'forum/topic/check_delete.html'
 	model = Topic
-
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
-
-	def get_success_url(self):
-		return reverse_lazy('forum:topic_list', kwargs={'category_slug': self.get_category().slug})
+	success_message = _(u"Topic removed successfully")
+	success_url = reverse_lazy('forum:topic_list')
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDeleteView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		return context
 
 	def get(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
-
 		return super(TopicDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
 		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
-
+		self.object = self.get_object()
 		topic = self.get_object()
 		topic.status = 'r'
 		topic.save()

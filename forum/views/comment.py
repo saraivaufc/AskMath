@@ -20,19 +20,15 @@ class CommentCreateView(SuccessMessageMixin, CreateView):
 	model = Comment
 	form_class = CommentForm
 	success_message = _(u"Comment created successfully")
-	
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
+
+	def get_success_url(self):
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
 
 	def get_topic(self):
 		return Topic.objects.filter(slug=self.kwargs['topic_slug']).first()
 
-	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.get_topic().slug})
-
 	def get_context_data(self, ** kwargs):
 		context = super(CommentCreateView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		context['topic'] = self.get_topic()
 		return context
 
@@ -52,18 +48,14 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
 	form_class = CommentForm
 	success_message = _(u"Comment updated successfully")
 	
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
+	def get_success_url(self):
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
 
 	def get_topic(self):
 		return Topic.objects.filter(slug=self.kwargs['topic_slug']).first()
 
-	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.get_topic().slug})
-
 	def get_context_data(self, ** kwargs):
 		context = super(CommentUpdateView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		context['topic'] = self.get_topic()
 		return context
 
@@ -83,16 +75,17 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
 			user = comment.user,
 			topic = comment.topic,
 			text = comment.text,
-			date = comment.date,
 			status = 'r',
+			created_by = comment.created_by,
+			creation = comment.creation,
+			last_modified = comment.last_modified,
 			ip_address =comment.ip_address,
 		)
 		ancient.save()
-		print ancient
 		form.instance.ancient = ancient
+
 		form.instance.user = self.request.user
-		form.instance.date = timezone.now()
-		form.instance.status = 'p'
+		form.instance.last_modified = timezone.now()
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
 		return super(CommentUpdateView, self).form_valid(form)
@@ -101,31 +94,28 @@ class CommentDeleteView(DeleteView):
 	template_name = 'forum/comment/check_delete.html'
 	model = Comment
 
-	def get_category(self):
-		return Category.objects.filter(slug=self.kwargs['category_slug']).first()
+	def get_success_url(self):
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
 
 	def get_topic(self):
 		return Topic.objects.filter(slug=self.kwargs['topic_slug']).first()
 
-	def get_success_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.get_category().slug, 'slug': self.get_topic().slug})
-
 	def get_context_data(self, ** kwargs):
 		context = super(CommentDeleteView, self).get_context_data(** kwargs)
-		context['category'] = self.get_category()
 		context['topic'] = self.get_topic()
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user and not self.get_object().pk == self.get_object().topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
+		self.object = self.get_object()
+		if not self.object.user == request.user and not self.object.pk == self.object.topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
 		return super(CommentDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user and not self.get_object().pk == self.get_object().topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
+		self.object = self.get_object()
+		if not self.object.user == request.user and not self.object.pk == self.object.topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
-
-		comment = self.get_object()
+		comment = self.object
 		comment.status = 'r'
 		comment.save()
 		return HttpResponseRedirect(self.get_success_url())

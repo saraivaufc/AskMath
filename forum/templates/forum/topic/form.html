@@ -46,6 +46,7 @@
 
 {% block js %}
 	{{ block.super }}
+	{% include "base/imports/select2.html" %}
 	{% include "base/imports/latex_preview.html" with id='id_title' id_preview='MathPreview' id_buffer='MathBuffer'  %}
 	{% include "base/imports/latex_preview.html" with id='id_text' id_preview='MathPreview2' id_buffer='MathBuffer2'  %}
 {% endblock %}

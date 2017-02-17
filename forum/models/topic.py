@@ -36,6 +36,6 @@ class Topic(models.Model):
 		return self.title
 
 	class Meta:
-		ordering = ['last_modified',]
+		ordering = ['-last_modified',]
 		verbose_name = _("Topic")
 		verbose_name_plural = _("Topics")

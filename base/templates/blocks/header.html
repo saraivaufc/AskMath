@@ -49,7 +49,7 @@
 	  	</a>
 		<ul class="nav navbar-nav">
 			<li class="nav-item active">
-				<a href="{% url 'forum:category_list' %}" class="nav-link {% if request.resolver_match.namespace == 'forum' %}active{% endif %}">
+				<a href="{% url 'forum:topic_list' %}" class="nav-link {% if request.resolver_match.namespace == 'forum' %}active{% endif %}">
 					<i class="fa fa-comments-o"></i>
 					{% trans "Forum" %}
 				</a>

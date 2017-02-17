@@ -1,64 +1,12 @@
-{% extends "forum/index.html" %}
+{% load i18n%}
 
-{% load i18n humanize %}
-
-{% block title %}{% trans "List of Categories" %}{% endblock %}
-
-{% block breadcrumbs %}
-	{{ block.super }}
-	<a href="{% url 'forum:category_list' %}" class="breadcrumb-item" >
-		<i class="fa fa-comments-o"></i>
-		{% trans "Forum" %}
-	</a>
-{% endblock %}
-
-{%  block page_title %}{% trans "List of Categories" %}{% endblock %}
-
-{% block content %}
-
-	<table class="table table-bordered table-hover text">
-		<thead>
-			<tr>
-				<th>{% trans "Category" %}</th>
-				<th>{% trans "Topics" %}</th>
-				<th>{% trans "Last topic" %}</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			{% for category in object_list %}
-				<tr>
-					<td>
-						<a href="{% url 'forum:topic_list' category_slug=category.slug %}?page=last">
-							{{ category.name }}
-						</a>
-					</td>
-					<td>{{ category.get_topics|length }}</td>
-					<td>
-						{% if category.get_topics.last %}
-						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=category.get_topics.first.slug %}">
-							{{ category.get_topics.last.title }}
-						</a>
-						<label>
-							{% url 'authentication:account_detail' pk=category.get_topics.last.user.pk as link %}
-							{% blocktrans with user=category.get_topics.first.user.get_full_name date=category.get_topics.last.creation|naturaltime %}
-							by <a href="{{ link }}" class="tag tag-success">{{ user }}</a> in {{ date }}
-							{% endblocktrans %}
-						</label>
-						{% endif %}
-					</td>
-				</tr>
-			{% empty %}
-				<tr>
-					<td class="text-xs-center">{% trans "No Category found!" %}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-	{% include "base/_paginate.html" %}
-{% endblock %}
-
-{% block js %}
-	{{ block.super }}
-	{% include "base/imports/latex.html" %}
-{% endblock %}
+<ul class="list-group">
+	<div class="list-group-item list-group-item-action active">
+		{% trans "Categories" %}
+	</div>
+	{% for category in categories %}
+	<li class="list-group-item">
+		<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}">{{ category }}</a>
+	</li>
+	{% endfor %} 
+</il>

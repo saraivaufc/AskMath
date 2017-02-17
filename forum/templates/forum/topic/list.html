@@ -1,80 +1,65 @@
-{% extends 'forum/category/list.html' %}
+{% extends "forum/index.html" %}
 
-{% load i18n humanize %}
+{% load static i18n humanize %}
 
-{% block title %}
-	{% blocktrans with category=category %}
-		Topics of {{ category }}
-	{% endblocktrans %}
-{% endblock %}
+{% block title %}{% trans "Forum" %}{% endblock %}
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'forum:topic_list' category_slug=category.slug %}?page=last" class="breadcrumb-item" >
-		<i class="fa fa-hashtag"></i>
-		{% blocktrans with category=category %}
-			Topics of {{ category }}
-		{% endblocktrans %}
-	</a>
 {% endblock %}
 
-{%  block page_title %}
-	{% blocktrans with category=category %}
-		Topics of {{ category }}
-	{% endblocktrans %}
-{% endblock %}
+{% block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
 
 {% block content %}
-	<a href="{% url 'forum:topic_add' category_slug=category.slug %}" class="btn btn-success">
-		<i class="fa fa-plus"></i>
-		{% trans "New topic" %}
-	</a>
-	<table class="table table-bordered table-hover text">
-		<thead>
-			<tr>
-				<th>{% trans "Topic" %}</th>
-				<th>{% trans "Author" %}</th>
-				<th>{% trans "Comments" %}</th>
-				<th>{% trans "Last Modified" %}</th>
-				<th>{% trans "Options" %}</th>
-			</tr>
-		</thead>
+		<div class="col-md-12">
+			<a href="{% url 'forum:topic_add' %}" class="btn btn-success">
+				<i class="fa fa-plus"></i>
+				{% trans "New Topic" %}
+			</a>
+		</div>
 
-		<tbody>
+		<div class="col-xs-6 col-sm-8 col-md-9">
 			{% for topic in object_list %}
-				<tr>
-					<td>
-						<a href="{% url 'forum:topic_detail' category_slug=category.slug slug=topic.slug %}">
-							{{ topic.title }}
-						</a>
-					</td>
-					<td>
-						{% url 'authentication:account_detail' pk=topic.user.pk as link %}
-						<a href="{{ link }}" class="tag tag-success">{{ topic.user.get_full_name }}</a>
-					</td>
-					<td>{{ topic.get_comments|length|add:"-1" }}</td>
-					<td>{{ topic.last_modified|naturaltime }}</td>
-					<td class="text-xs-center">
-						{% ifequal topic.user request.user  %}
-						<a href="{% url 'forum:topic_update' category_slug=category.slug slug=topic.slug %}" class="btn btn-primary btn-sm">
-							<i class="fa fa-edit"></i>					
-						</a>
-						{% endifequal %}
-						{% if topic.user == request.user or perms.forum.delete_topic  %}
-						<a href="{% url 'forum:topic_delete' category_slug=category.slug slug=topic.slug %}" class="btn btn-danger btn-sm">
-							<i class="fa fa-remove"></i>
-						</a>
-						{% endif %}
-						
-					</td>
-				</tr>
-			{% empty %}
-				<tr>
-					<td class="text-xs-center">{% trans "No topic found!" %}</td>
-				</tr>
+				<div class="card card-block">
+					<h3 id="{ topic.slug }}">
+						<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
+						<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
+				
+						<div class="float-xs-right">
+							{% if topic.created_by == request.user  %}
+							<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+							{% endif %}
+							{% if perms.forum.delete_topic or topic.created_by == request.user %}
+							<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+							{% endif %}
+						</div>
+					</h3>					
+					<p class="text-muted">
+						{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
+					</p>
+					
+					<p>{{ topic.get_comments.first.text|truncatewords_html:20 }}</p>
+					
+					<a href="{% url 'forum:topic_detail' slug=topic.slug %}">
+						{% blocktrans count counter=topic.get_comments|length|add:-1 %}
+							See {{ counter }} comment
+							{% plural %}
+							See {{ counter }} comments
+						{% endblocktrans %}
+					</a>
+				</div>
 			{% endfor %}
-		</tbody>
-	</table>
+				<nav class="blog-pagination">
+					{% include 'base/_paginate.html' %}
+				</nav>
+		</div>
 
-	{% include "base/_paginate.html" %}
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			{% include 'forum/category/list.html' %}
+		</div>
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	{% include 'base/imports/latex.html' %}
 {% endblock %}
