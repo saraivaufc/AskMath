@@ -32,43 +32,41 @@
 </div>
 
 <div class="col-md-6">
-	<div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-6">
-			<div class="tile bg-green" style="position: absolute; right: 0px;">
-				<a href="{% url 'ask:issue_list' %}" class="tile-content iconic">
-					<span class="icon fa fa-play"></span>
-				</a>
-				<span class="tile-label">{% trans "Start here" %}</span>
-			</div>
+
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="tile bg-green" style="position: absolute; right: 0px;">
+			<a href="{% url 'ask:issue_list' %}" class="tile-content iconic">
+				<span class="icon fa fa-play"></span>
+			</a>
+			<span class="tile-label">{% trans "Start here" %}</span>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6" style="padding-right: 0; padding-left: 0;">
-			<div class="tile bg-red">
-				<a href="{% url 'authentication:account_register' %}" class="tile-content iconic">
-					<span class="icon fa fa-user-plus"></span>
-				</a>
-				<span class="tile-label">{% trans "Sign-up" %}</span>
-			</div>
+	</div>
+	<div class="col-xs-6 col-sm-6 col-md-6" style="padding-right: 0; padding-left: 0;">
+		<div class="tile bg-red">
+			<a href="{% url 'authentication:account_register' %}" class="tile-content iconic">
+				<span class="icon fa fa-user-plus"></span>
+			</a>
+			<span class="tile-label">{% trans "Sign-up" %}</span>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-6">
-			<div class="tile bg-yellow" style="position: absolute; right: 0px;">
-				<a href="{% url 'forum:topic_list' %}" class="tile-content iconic">
-					<span class="icon fa fa-comments-o"></span>
-				</a>
-				<span class="tile-label">{% trans "Forum" %}</span>
-			</div>
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6" style="padding-right: 0; padding-left: 0;">
-			<div class="tile bg-darkBlue">
-				<a href="{% url 'base:about' %}" class="tile-content iconic">
-					<span class="icon fa fa-exclamation"></span>
-				</a>
-				<span class="tile-label">{% trans "About the project" %}</span>
-			</div>
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="tile bg-yellow" style="position: absolute; right: 0px;">
+			<a href="{% url 'forum:topic_list' %}" class="tile-content iconic">
+				<span class="icon fa fa-comments-o"></span>
+			</a>
+			<span class="tile-label">{% trans "Forum" %}</span>
 		</div>
 	</div>
+	<div class="col-xs-6 col-sm-6 col-md-6" style="padding-right: 0; padding-left: 0;">
+		<div class="tile bg-darkBlue">
+			<a href="{% url 'base:about' %}" class="tile-content iconic">
+				<span class="icon fa fa-exclamation"></span>
+			</a>
+			<span class="tile-label">{% trans "About the project" %}</span>
+		</div>
+	</div>
+	
 </div>
 
 {% endblock %}

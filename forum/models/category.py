@@ -26,9 +26,6 @@ class Category(models.Model):
 	def get_topics(self):
 		return Topic.objects.filter(category=self, status='p')
 
-	def get_absolute_url(self):
-		return reverse_lazy('forum:topic_list', kwargs={'category_slug': self.slug})
-
 	def __unicode__(self):
 		return self.name
 

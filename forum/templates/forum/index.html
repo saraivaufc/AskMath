@@ -19,15 +19,17 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-8 col-md-9">
-			<label class="h4 text-xs-center text-sm-center text-md-center page-title">
-				{%  block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
-			</label>
-			<div class="page-container">
-				<div class="container-fluid">
-					<div class="row">
-						{% block content %}
+			<div class="row">
+				<label class="h4 text-xs-center text-sm-center text-md-center page-title">
+					{%  block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
+				</label>
+				<div class="page-container">
+					<div class="container-fluid">
+						<div class="row">
+							{% block content %}
 
-						{% endblock %}
+							{% endblock %}
+						</div>
 					</div>
 				</div>
 			</div>

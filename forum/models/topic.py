@@ -30,7 +30,7 @@ class Topic(models.Model):
 		return Comment.objects.filter(topic=self, status='p')
 
 	def get_absolute_url(self):
-		return reverse_lazy('forum:topic_detail', kwargs={'category_slug': self.category.slug, 'slug': self.slug})
+		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.slug})
 
 	def __unicode__(self):
 		return self.title

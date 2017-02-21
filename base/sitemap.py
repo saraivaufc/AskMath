@@ -11,12 +11,8 @@ lessons = {
 	'date_field': 'last_modified',
 }
 
-from forum.models import Category, Topic
+from forum.models import Topic
 
-categories = {
-	'queryset': Category.objects.filter(status='p'),
-	'date_field': 'last_modified',
-}
 
 topics = {
 	'queryset': Topic.objects.filter(status='p'),
