@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 15:21-0300\n"
+"POT-Creation-Date: 2017-02-21 15:43-0300\n"
 "PO-Revision-Date: 2017-02-21 15:26-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,8 +158,8 @@ msgstr "Seu login e/ou senha estão incorretos. Por favor, tente novamente."
 
 #: authentication/templates/authentication/account/login.html:31
 msgid ""
-"Your account doesn't have access to this page. To proceed, please login with"
-" an account that has access."
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
 msgstr ""
 
 #: authentication/templates/authentication/account/login.html:33
@@ -272,8 +272,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
 msgstr ""
-"Esqueceu a senha? Entre com seu email que lhes enviaremos instruções de como"
-" recupera-la."
+"Esqueceu a senha? Entre com seu email que lhes enviaremos instruções de como "
+"recupera-la."
 
 #: authentication/templates/authentication/account/register.html:14
 msgid "Sign-up"

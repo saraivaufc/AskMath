@@ -4,9 +4,9 @@ function resize_window() {
 	var header = parseInt($("#header").css("height"));
 	var breadcrumb = parseInt($("#breadcrumb").css("height"));
 	var messages = parseInt($("#messages").css("height"));
-	var container = parseInt($("#container").css("height"));
+	var content = parseInt($("#content").css("height"));
 	var footer = parseInt($("#footer").css("height"));
-	$("#container").css({"min-height":(body - header - breadcrumb - messages - footer) + "px"});
+	$("#content").css({"min-height":(body - header - breadcrumb - messages - footer) + "px"});
 }
 
 $(function(){

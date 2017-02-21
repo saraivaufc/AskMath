@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 15:21-0300\n"
+"POT-Creation-Date: 2017-02-21 15:43-0300\n"
 "PO-Revision-Date: 2017-02-21 15:28-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,11 +48,11 @@ msgstr "Nome"
 msgid "Created by"
 msgstr "Criado por"
 
-#: forum/models/category.py:37 forum/models/topic.py:19
+#: forum/models/category.py:34 forum/models/topic.py:19
 msgid "Category"
 msgstr "Categoria"
 
-#: forum/models/category.py:38
+#: forum/models/category.py:35
 msgid "Categories"
 msgstr "Categorias"
 
@@ -119,12 +119,11 @@ msgstr "Salvar"
 msgid "Preview is shown here:"
 msgstr "Pré-visualização: "
 
-#: forum/templates/forum/index.html:23
+#: forum/templates/forum/index.html:24
 msgid "The AskMath Forum"
 msgstr "AskMath - Fórum"
 
 #: forum/templates/forum/sidebar.html:6
-#| msgid "New topic"
 msgid "New Topic"
 msgstr "Novo Tópico"
 
@@ -133,7 +132,6 @@ msgid "All"
 msgstr "Todos"
 
 #: forum/templates/forum/sidebar.html:12 forum/views/topic.py:26
-#| msgid "Category"
 msgid "category"
 msgstr "Categoria"
 
@@ -154,7 +152,6 @@ msgid "Form Topic"
 msgstr "Formulário do Tópico"
 
 #: forum/templates/forum/topic/list.html:16
-#| msgid "List of Categories"
 msgid "List of Topics"
 msgstr "Lista de Tópicos"
 
@@ -176,22 +173,20 @@ msgstr[1] ""
 "Ver  %(counter)s comentários"
 
 #: forum/templates/forum/topic/list.html:52
-#| msgid "No topic found!"
 msgid "No topic found this query."
 msgstr "Nenhum tópico encontrado na busca."
 
 #: forum/urls/__init__.py:5
-#| msgid "Forum"
 msgid "^forum/"
 msgstr "^forum/"
 
 #: forum/urls/__init__.py:6
-#| msgid "^forum/categories/(?P<category_slug>[-\\w]+)/topics/"
 msgid "^forum/(?P<topic_slug>[-\\w]+)/"
 msgstr "^forum/(?P<topic_slug>[-\\w]+)/"
 
 #: forum/utils/constants.py:8
-msgid "Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
+msgid ""
+"Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
 msgstr "Use $ e $ para inserir latex no texto. Exemplo: $ ax^2 + bx + c = 0 $"
 
 #: forum/views/comment.py:22
@@ -211,7 +206,6 @@ msgid "Topic updated successfully"
 msgstr "Tópico atualizado com sucesso"
 
 #: forum/views/topic.py:139
-#| msgid "Topic created successfully"
 msgid "Topic removed successfully"
 msgstr "Tópico removido com sucesso"
 
@@ -220,7 +214,8 @@ msgstr "Tópico removido com sucesso"
 
 #~ msgid ""
 #~ "\n"
-#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> in %(date)s\n"
+#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</"
+#~ "a> in %(date)s\n"
 #~ "\t\t\t\t\t\t\t"
 #~ msgstr ""
 #~ "\n"
@@ -261,9 +256,11 @@ msgstr "Tópico removido com sucesso"
 #~ msgstr "^forum/categorias/"
 
 #~ msgid ""
-#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-\\w]+)/comments/"
+#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-"
+#~ "\\w]+)/comments/"
 #~ msgstr ""
-#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-\\w]+)/comentarios/"
+#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-"
+#~ "\\w]+)/comentarios/"
 
 #~ msgid "Date"
 #~ msgstr "Data"

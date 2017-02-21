@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 15:21-0300\n"
-"PO-Revision-Date: 2017-02-13 11:33-0234\n"
+"POT-Creation-Date: 2017-02-21 15:43-0300\n"
+"PO-Revision-Date: 2017-02-21 15:43-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -124,7 +124,7 @@ msgstr "Rede Social"
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
-#: base/templates/base/_base.html:45
+#: base/templates/base/_base.html:45 base/templates/blocks/header.html:48
 msgid "Home"
 msgstr "Início"
 
@@ -281,10 +281,6 @@ msgstr ""
 msgid "Decrease Font"
 msgstr ""
 
-#: base/templates/blocks/header.html:48
-msgid "AskMath"
-msgstr "AskMath"
-
 #: base/templates/blocks/header.html:54
 msgid "Forum"
 msgstr "Fórum"
@@ -324,8 +320,8 @@ msgstr ""
 #: base/templates/blocks/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video "
-"for free for you."
+"students who take the AskMath. There are several lessons and tutorials video"
+" for free for you."
 msgstr ""
 
 #: base/templates/blocks/meta.html:4
@@ -335,8 +331,9 @@ msgstr "Educação, Matemática, Universidade"
 #: base/templates/blocks/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instructions on how to enable JavaScript in your browser "
+"</a>."
 msgstr ""
 
 #: base/urls/__init__.py:27
@@ -415,6 +412,9 @@ msgstr "Mensagem enviada com sucesso"
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"
 
+#~ msgid "AskMath"
+#~ msgstr "AskMath"
+
 #~ msgid "Extra"
 #~ msgstr "Extra"
 
@@ -436,9 +436,7 @@ msgstr "Erro ao enviar a mensagem"
 #~ msgid "^language$"
 #~ msgstr "^linguagem$"
 
-#~ msgid ""
-#~ "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c "
-#~ "= 0 $>"
+#~ msgid "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = 0 $>"
 #~ msgstr ""
 #~ "Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
 
