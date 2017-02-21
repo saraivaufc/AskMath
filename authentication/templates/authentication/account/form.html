@@ -8,8 +8,6 @@
 {% block stylesheet %}
 {% endblock %}
 
-{% block administrators %}active{% endblock %}
-
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'authentication:account_update' pk=object.pk %}" class="breadcrumb-item" >

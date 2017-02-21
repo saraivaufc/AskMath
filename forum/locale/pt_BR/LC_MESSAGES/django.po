@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 21:05-0300\n"
-"PO-Revision-Date: 2017-02-12 12:31-0234\n"
+"POT-Creation-Date: 2017-02-21 15:21-0300\n"
+"PO-Revision-Date: 2017-02-21 15:24-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
 #: forum/apps.py:11 forum/templates/forum/index.html:5
-#: forum/templates/forum/index.html:16 forum/templates/forum/topic/list.html:5
+#: forum/templates/forum/topic/list.html:5
 msgid "Forum"
 msgstr "Fórum"
 
@@ -66,7 +66,7 @@ msgstr "Usuário"
 
 #: forum/models/comment.py:23
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: forum/models/comment.py:37
 msgid "Comment"
@@ -88,25 +88,9 @@ msgstr "Título"
 msgid "Topic"
 msgstr "Tópico"
 
-#: forum/models/topic.py:41 forum/templates/forum/category/list.html:12
+#: forum/models/topic.py:41 forum/templates/forum/topic/list.html:11
 msgid "Topics"
 msgstr "Tópicos"
-
-#: forum/templates/forum/category/list.html:6
-#, fuzzy
-#| msgid "New topic"
-msgid "New Topic"
-msgstr "Novo Tópico"
-
-#: forum/templates/forum/category/list.html:15
-msgid "All"
-msgstr ""
-
-#: forum/templates/forum/category/list.html:19 forum/views/topic.py:26
-#, fuzzy
-#| msgid "Category"
-msgid "category"
-msgstr "Categoria"
 
 #: forum/templates/forum/comment/check_delete.html:6
 #: forum/templates/forum/comment/check_delete.html:12
@@ -121,29 +105,43 @@ msgstr "Confirme a exclusão"
 msgid "Form Comment"
 msgstr "Formulário do Comentário"
 
-#: forum/templates/forum/comment/form.html:36
+#: forum/templates/forum/comment/form.html:30
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: forum/templates/forum/comment/form.html:39
-#: forum/templates/forum/topic/form.html:39
+#: forum/templates/forum/comment/form.html:33
+#: forum/templates/forum/topic/form.html:32
 msgid "Save"
 msgstr "Salvar"
 
-#: forum/templates/forum/comment/form.html:44
-#: forum/templates/forum/topic/form.html:45
+#: forum/templates/forum/comment/form.html:38
+#: forum/templates/forum/topic/form.html:38
 msgid "Preview is shown here:"
 msgstr "Pré-visualização: "
 
-#: forum/templates/forum/index.html:20 forum/templates/forum/topic/list.html:11
+#: forum/templates/forum/index.html:23
 msgid "The AskMath Forum"
-msgstr ""
+msgstr "AskMath - Fórum"
+
+#: forum/templates/forum/sidebar.html:6
+#| msgid "New topic"
+msgid "New Topic"
+msgstr "Novo Tópico"
+
+#: forum/templates/forum/sidebar.html:9
+msgid "All"
+msgstr "Todos"
+
+#: forum/templates/forum/sidebar.html:12 forum/views/topic.py:26
+#| msgid "Category"
+msgid "category"
+msgstr "Categoria"
 
 #: forum/templates/forum/topic/detail.html:35
 #: forum/templates/forum/topic/detail.html:52
 #: forum/templates/forum/topic/list.html:36
 msgid "by"
-msgstr ""
+msgstr "por"
 
 #: forum/templates/forum/topic/detail.html:60
 msgid "New Comment"
@@ -155,35 +153,46 @@ msgstr "Novo Comentário"
 msgid "Form Topic"
 msgstr "Formulário do Tópico"
 
+#: forum/templates/forum/topic/list.html:16
+#| msgid "List of Categories"
+msgid "List of Topics"
+msgstr "Lista de Tópicos"
+
 #: forum/templates/forum/topic/list.html:42
 #, python-format
 msgid ""
 "\n"
-"\t\t\t\t\t\t\tSee %(counter)s comment\n"
-"\t\t\t\t\t\t\t"
+"\t\t\t\t\tSee %(counter)s comment\n"
+"\t\t\t\t\t"
 msgid_plural ""
 "\n"
-"\t\t\t\t\t\t\tSee %(counter)s comments\n"
-"\t\t\t\t\t\t"
+"\t\t\t\t\tSee %(counter)s comments\n"
+"\t\t\t\t"
 msgstr[0] ""
+"\n"
+"Ver  %(counter)s comentários"
 msgstr[1] ""
+"\n"
+"Ver  %(counter)s comentário"
+
+#: forum/templates/forum/topic/list.html:52
+#| msgid "No topic found!"
+msgid "No topic found this query."
+msgstr "Nenhum tópico encontrado na busca."
 
 #: forum/urls/__init__.py:5
-#, fuzzy
 #| msgid "Forum"
 msgid "^forum/"
-msgstr "Fórum"
+msgstr "^forum/"
 
 #: forum/urls/__init__.py:6
-#, fuzzy
 #| msgid "^forum/categories/(?P<category_slug>[-\\w]+)/topics/"
 msgid "^forum/(?P<topic_slug>[-\\w]+)/"
-msgstr "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/"
+msgstr "^forum/(?P<topic_slug>[-\\w]+)/"
 
 #: forum/utils/constants.py:8
-msgid ""
-"Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
-msgstr ""
+msgid "Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
+msgstr "Use $ e $ para inserir latex no texto. Exemplo: $ ax^2 + bx + c = 0 $"
 
 #: forum/views/comment.py:22
 msgid "Comment created successfully"
@@ -202,21 +211,16 @@ msgid "Topic updated successfully"
 msgstr "Tópico atualizado com sucesso"
 
 #: forum/views/topic.py:139
-#, fuzzy
 #| msgid "Topic created successfully"
 msgid "Topic removed successfully"
-msgstr "Tópico criado com sucesso"
-
-#~ msgid "List of Categories"
-#~ msgstr "Lista de Categorias"
+msgstr "Tópico removido com sucesso"
 
 #~ msgid "Last topic"
 #~ msgstr "Último tópico"
 
 #~ msgid ""
 #~ "\n"
-#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</"
-#~ "a> in %(date)s\n"
+#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> in %(date)s\n"
 #~ "\t\t\t\t\t\t\t"
 #~ msgstr ""
 #~ "\n"
@@ -253,18 +257,13 @@ msgstr "Tópico criado com sucesso"
 #~ "\n"
 #~ "Tópicos de %(category)s"
 
-#~ msgid "No topic found!"
-#~ msgstr "Nenhum tópico encontrado!"
-
 #~ msgid "^forum/categories/"
 #~ msgstr "^forum/categorias/"
 
 #~ msgid ""
-#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-"
-#~ "\\w]+)/comments/"
+#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-\\w]+)/comments/"
 #~ msgstr ""
-#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-"
-#~ "\\w]+)/comentarios/"
+#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-\\w]+)/comentarios/"
 
 #~ msgid "Date"
 #~ msgstr "Data"

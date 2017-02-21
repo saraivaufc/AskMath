@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 21:05-0300\n"
+"POT-Creation-Date: 2017-02-21 15:21-0300\n"
 "PO-Revision-Date: 2017-02-13 11:33-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Created by"
 msgstr "Criado por"
 
-#: base/models/report.py:27 base/templates/blocks/header.html:128
+#: base/models/report.py:27 base/templates/blocks/header.html:115
 msgid "Report"
 msgstr ""
 
@@ -293,39 +293,31 @@ msgstr "Fórum"
 msgid "Administration"
 msgstr "Administração"
 
-#: base/templates/blocks/header.html:68
-msgid "Extra"
-msgstr "Extra"
-
-#: base/templates/blocks/header.html:73
-msgid "Rosetta"
-msgstr "Rosetta"
-
-#: base/templates/blocks/header.html:78
+#: base/templates/blocks/header.html:65
 msgid "Report errors and problems here!"
 msgstr ""
 
-#: base/templates/blocks/header.html:81
+#: base/templates/blocks/header.html:68
 msgid "Problem?"
 msgstr ""
 
-#: base/templates/blocks/header.html:96
+#: base/templates/blocks/header.html:83
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/blocks/header.html:100
+#: base/templates/blocks/header.html:87
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/blocks/header.html:104
+#: base/templates/blocks/header.html:91
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/blocks/header.html:112
+#: base/templates/blocks/header.html:99
 msgid "Login"
 msgstr "Entrar"
 
-#: base/templates/blocks/header.html:138
+#: base/templates/blocks/header.html:125
 msgid "Send"
 msgstr ""
 
@@ -422,6 +414,12 @@ msgstr "Mensagem enviada com sucesso"
 #| msgid "Error send message"
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"
+
+#~ msgid "Extra"
+#~ msgstr "Extra"
+
+#~ msgid "Rosetta"
+#~ msgstr "Rosetta"
 
 #~ msgid "Language"
 #~ msgstr "Linguagem"

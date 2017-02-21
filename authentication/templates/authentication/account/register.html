@@ -11,11 +11,16 @@
 	{{ block.super }}
 	<a href="#" class="breadcrumb-item" >
 		<i class="fa fa-users"></i>
-		{% trans "Register" %}
+		{% trans "Sign-up" %}
 	</a>
 {% endblock %}
 
-{%  block page_title %}{% trans "Register" %}{% endblock %}
+{%  block page_title %}
+	{% url 'authentication:account_login' as login_url %}
+	{% blocktrans with url=login_url %}
+		Sign-up or <a href="{{ url }}" class="text-white">Login</a>
+	{% endblocktrans %}
+{% endblock %}
 
 {% block content %}	
 	{% include "authentication/form.html" %}

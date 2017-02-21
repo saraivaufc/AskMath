@@ -15,7 +15,12 @@
 	</a>
 {% endblock %}
 
-{%  block page_title %}{% trans "Login" %}{% endblock %}
+{%  block page_title %}
+	{% url 'authentication:account_register' as register_url %}
+	{% blocktrans with url=register_url %}
+		Login or <a href="{{ url }}" class="text-white">Sign-up</a>
+	{% endblocktrans %}
+{% endblock %}
 
 {% block content %}
 	{% if form.errors %}
@@ -35,8 +40,6 @@
 		<a href="{% url 'authentication:account_password_reset' %}">
 			{% trans "Lost password?" %}
 		</a>
-		<a href="{% url 'authentication:account_register' %}">
-			{% trans "Register" %}
-		</a>
+		
 	</div>
 {% endblock %}
