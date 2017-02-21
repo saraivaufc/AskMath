@@ -9,60 +9,59 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-17 21:05-0300\n"
-"PO-Revision-Date: 2017-02-12 12:31-0234\n"
-"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Translated-Using: django-rosetta 0.7.12\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: forum/apps.py:11 forum/templates/forum/index.html:5
 #: forum/templates/forum/index.html:16 forum/templates/forum/topic/list.html:5
 msgid "Forum"
-msgstr "Fórum"
+msgstr ""
 
 #: forum/models/category.py:12 forum/models/comment.py:13
 #: forum/models/topic.py:12
 msgid "Draft"
-msgstr "Rascunho"
+msgstr ""
 
 #: forum/models/category.py:13 forum/models/comment.py:14
 #: forum/models/topic.py:13
 msgid "Published"
-msgstr "Publicado"
+msgstr ""
 
 #: forum/models/category.py:14 forum/models/comment.py:15
 #: forum/models/topic.py:14
 msgid "Removed"
-msgstr "Removido"
+msgstr ""
 
 #: forum/models/category.py:18
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #: forum/models/category.py:22 forum/models/comment.py:26
 #: forum/models/topic.py:25
 msgid "Created by"
-msgstr "Criado por"
+msgstr ""
 
 #: forum/models/category.py:37 forum/models/topic.py:19
 msgid "Category"
-msgstr "Categoria"
+msgstr ""
 
 #: forum/models/category.py:38
 msgid "Categories"
-msgstr "Categorias"
+msgstr ""
 
 #: forum/models/comment.py:19
 msgid "Ancient"
-msgstr "Ancestral"
+msgstr ""
 
 #: forum/models/comment.py:20
 msgid "User"
-msgstr "Usuário"
+msgstr ""
 
 #: forum/models/comment.py:23
 msgid "Text"
@@ -70,70 +69,66 @@ msgstr ""
 
 #: forum/models/comment.py:37
 msgid "Comment"
-msgstr "Comentário"
+msgstr ""
 
 #: forum/models/comment.py:38
 msgid "Comments"
-msgstr "Comentários"
+msgstr ""
 
 #: forum/models/topic.py:18
 msgid "user"
-msgstr "usuário"
+msgstr ""
 
 #: forum/models/topic.py:21
 msgid "Title"
-msgstr "Título"
+msgstr ""
 
 #: forum/models/topic.py:40
 msgid "Topic"
-msgstr "Tópico"
+msgstr ""
 
 #: forum/models/topic.py:41 forum/templates/forum/category/list.html:12
 msgid "Topics"
-msgstr "Tópicos"
+msgstr ""
 
 #: forum/templates/forum/category/list.html:6
-#, fuzzy
-#| msgid "New topic"
 msgid "New Topic"
-msgstr "Novo Tópico"
+msgstr ""
 
 #: forum/templates/forum/category/list.html:15
 msgid "All"
 msgstr ""
 
 #: forum/templates/forum/category/list.html:19 forum/views/topic.py:26
-#, fuzzy
-#| msgid "Category"
 msgid "category"
-msgstr "Categoria"
+msgstr ""
 
 #: forum/templates/forum/comment/check_delete.html:6
 #: forum/templates/forum/comment/check_delete.html:12
 #: forum/templates/forum/topic/check_delete.html:6
 #: forum/templates/forum/topic/check_delete.html:12
 msgid "Confirm delete"
-msgstr "Confirme a exclusão"
+msgstr ""
 
 #: forum/templates/forum/comment/form.html:6
 #: forum/templates/forum/comment/form.html:13
 #: forum/templates/forum/comment/form.html:18
 msgid "Form Comment"
-msgstr "Formulário do Comentário"
+msgstr ""
 
 #: forum/templates/forum/comment/form.html:36
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #: forum/templates/forum/comment/form.html:39
 #: forum/templates/forum/topic/form.html:39
 msgid "Save"
-msgstr "Salvar"
+msgstr ""
 
 #: forum/templates/forum/comment/form.html:44
 #: forum/templates/forum/topic/form.html:45
 msgid "Preview is shown here:"
-msgstr "Pré-visualização: "
+msgstr ""
 
 #: forum/templates/forum/index.html:20 forum/templates/forum/topic/list.html:11
 msgid "The AskMath Forum"
@@ -147,13 +142,13 @@ msgstr ""
 
 #: forum/templates/forum/topic/detail.html:60
 msgid "New Comment"
-msgstr "Novo Comentário"
+msgstr ""
 
 #: forum/templates/forum/topic/form.html:6
 #: forum/templates/forum/topic/form.html:13
 #: forum/templates/forum/topic/form.html:18
 msgid "Form Topic"
-msgstr "Formulário do Tópico"
+msgstr ""
 
 #: forum/templates/forum/topic/list.html:42
 #, python-format
@@ -169,16 +164,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: forum/urls/__init__.py:5
-#, fuzzy
-#| msgid "Forum"
 msgid "^forum/"
-msgstr "Fórum"
+msgstr ""
 
 #: forum/urls/__init__.py:6
-#, fuzzy
-#| msgid "^forum/categories/(?P<category_slug>[-\\w]+)/topics/"
 msgid "^forum/(?P<topic_slug>[-\\w]+)/"
-msgstr "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/"
+msgstr ""
 
 #: forum/utils/constants.py:8
 msgid ""
@@ -187,93 +178,20 @@ msgstr ""
 
 #: forum/views/comment.py:22
 msgid "Comment created successfully"
-msgstr "Comentário criado com sucesso"
+msgstr ""
 
 #: forum/views/comment.py:50
 msgid "Comment updated successfully"
-msgstr "Comentário atualizado com sucesso"
+msgstr ""
 
 #: forum/views/topic.py:50
 msgid "Topic created successfully"
-msgstr "Tópico criado com sucesso"
+msgstr ""
 
 #: forum/views/topic.py:86
 msgid "Topic updated successfully"
-msgstr "Tópico atualizado com sucesso"
+msgstr ""
 
 #: forum/views/topic.py:139
-#, fuzzy
-#| msgid "Topic created successfully"
 msgid "Topic removed successfully"
-msgstr "Tópico criado com sucesso"
-
-#~ msgid "List of Categories"
-#~ msgstr "Lista de Categorias"
-
-#~ msgid "Last topic"
-#~ msgstr "Último tópico"
-
-#~ msgid ""
-#~ "\n"
-#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</"
-#~ "a> in %(date)s\n"
-#~ "\t\t\t\t\t\t\t"
-#~ msgstr ""
-#~ "\n"
-#~ "de <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> há %(date)s"
-
-#~ msgid "No Category found!"
-#~ msgstr "Nenhuma categoria encontrada!"
-
-#~ msgid "Author"
-#~ msgstr "Autor"
-
-#~ msgid "Last Modified"
-#~ msgstr "Última modificação"
-
-#~ msgid "Options"
-#~ msgstr "Opções"
-
-#~ msgid "No comment found!"
-#~ msgstr "Nenhum comentário encontrado!"
-
-#~ msgid ""
-#~ "\n"
-#~ "\t\tTopics of %(category)s\n"
-#~ "\t"
-#~ msgstr ""
-#~ "\n"
-#~ "Tópicos de  %(category)s"
-
-#~ msgid ""
-#~ "\n"
-#~ "\t\t\tTopics of %(category)s\n"
-#~ "\t\t"
-#~ msgstr ""
-#~ "\n"
-#~ "Tópicos de %(category)s"
-
-#~ msgid "No topic found!"
-#~ msgstr "Nenhum tópico encontrado!"
-
-#~ msgid "^forum/categories/"
-#~ msgstr "^forum/categorias/"
-
-#~ msgid ""
-#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-"
-#~ "\\w]+)/comments/"
-#~ msgstr ""
-#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-"
-#~ "\\w]+)/comentarios/"
-
-#~ msgid "Date"
-#~ msgstr "Data"
-
-#~ msgid "Closed"
-#~ msgstr "Fechado"
-
-#~ msgid "Views count"
-#~ msgstr "Quantidade de visualizações"
-
-#~ msgid "Comment count"
-#~ msgstr "Quantidade de comentários"
+msgstr ""

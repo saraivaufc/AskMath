@@ -17,5 +17,5 @@ class AnswerForm(forms.ModelForm):
 		model = Answer
 		fields = ['choices']
 		widgets = {
-			'choices': forms.CheckboxSelectMultiple(attrs={}),
+			'choices': forms.CheckboxSelectMultiple(attrs={},),
 		}

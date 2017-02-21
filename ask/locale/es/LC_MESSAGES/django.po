@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 04:29+0000\n"
+"POT-Creation-Date: 2017-02-17 21:05-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,156 +18,168 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ask/actions.py:30
-msgid "Mark selected stories as published"
-msgstr ""
-
-#: ask/actions.py:31
-msgid "Mark selected stories as draft"
-msgstr ""
-
-#: ask/actions.py:32
-msgid "Mark selected stories as withdrawn"
-msgstr ""
-
-#: ask/models/answer.py:8
+#: ask/models/answer.py:9
 msgid "User"
 msgstr ""
 
-#: ask/models/answer.py:9 ask/models/choice.py:7 ask/models/question.py:19
+#: ask/models/answer.py:10 ask/models/lesson.py:43
+msgid "Lesson"
+msgstr ""
+
+#: ask/models/answer.py:11 ask/models/choice.py:9 ask/models/question.py:33
 msgid "Question"
 msgstr ""
 
-#: ask/models/answer.py:10 ask/models/choice.py:16
+#: ask/models/answer.py:12 ask/models/choice.py:22
 msgid "Choices"
 msgstr ""
 
-#: ask/models/answer.py:11
-msgid "Date"
-msgstr ""
-
-#: ask/models/answer.py:12
+#: ask/models/answer.py:13
 msgid "Correct"
 msgstr ""
 
-#: ask/models/answer.py:19
+#: ask/models/answer.py:14
+msgid "Exists"
+msgstr ""
+
+#: ask/models/answer.py:16 ask/models/introduction.py:13 ask/models/issue.py:27
+#: ask/models/lesson.py:30 ask/models/question.py:18 ask/models/video.py:19
+msgid "Created by"
+msgstr ""
+
+#: ask/models/answer.py:26
 msgid "Answer"
 msgstr ""
 
-#: ask/models/answer.py:20
+#: ask/models/answer.py:27
 msgid "Answers"
 msgstr ""
 
-#: ask/models/choice.py:8
+#: ask/models/choice.py:10
 msgid "Choice text"
 msgstr ""
 
-#: ask/models/choice.py:9
+#: ask/models/choice.py:11
 msgid "Is correct"
 msgstr ""
 
-#: ask/models/choice.py:15
+#: ask/models/choice.py:21
 msgid "Choice"
 msgstr ""
 
-#: ask/models/issue.py:13 ask/models/lesson.py:12
-msgid "Draft"
+#: ask/models/introduction.py:11
+msgid "Introduction text"
 msgstr ""
 
-#: ask/models/issue.py:14 ask/models/lesson.py:13
-msgid "Published"
+#: ask/models/introduction.py:23 ask/models/question.py:14
+#: ask/templates/ask/question/detail.html:27
+msgid "Introduction"
+msgstr ""
+
+#: ask/models/introduction.py:24
+msgid "Introductions"
 msgstr ""
 
 #: ask/models/issue.py:15 ask/models/lesson.py:14
-msgid "Withdrawn"
+msgid "Draft"
 msgstr ""
 
-#: ask/models/issue.py:19 ask/models/lesson.py:18
-msgid "A short label, generally used in URLs."
+#: ask/models/issue.py:16 ask/models/lesson.py:15
+msgid "Published"
 msgstr ""
 
-#: ask/models/issue.py:20 ask/models/lesson.py:20
+#: ask/models/issue.py:17 ask/models/lesson.py:16
+msgid "Removed"
+msgstr ""
+
+#: ask/models/issue.py:21 ask/models/lesson.py:21
 msgid "Name"
 msgstr ""
 
-#: ask/models/issue.py:21
+#: ask/models/issue.py:23
 msgid "Icon"
 msgstr ""
 
-#: ask/models/issue.py:38
+#: ask/models/issue.py:40
 msgid "Issue"
 msgstr ""
 
-#: ask/models/issue.py:39 ask/models/lesson.py:19
+#: ask/models/issue.py:41 ask/models/lesson.py:20
 #: ask/templates/ask/issue/list.html:12
 msgid "Issues"
 msgstr ""
 
-#: ask/models/lesson.py:21
+#: ask/models/lesson.py:23 ask/models/video.py:15
 msgid "Description"
 msgstr ""
 
-#: ask/models/lesson.py:23
+#: ask/models/lesson.py:25
 msgid "Requirements"
 msgstr ""
 
-#: ask/models/lesson.py:24 ask/models/question.py:20
-#: ask/templates/ask/lesson/detail.html:33
+#: ask/models/lesson.py:26 ask/models/question.py:34
+#: ask/templates/ask/lesson/detail.html:27
 #: ask/templates/ask/question/detail.html:6
 #: ask/templates/ask/question/detail.html:13
 msgid "Questions"
 msgstr ""
 
-#: ask/models/lesson.py:40
-msgid "Lesson"
+#: ask/models/lesson.py:27 ask/models/video.py:29
+#: ask/templates/ask/lesson/detail.html:31 ask/templates/ask/video/list.html:7
+#: ask/templates/ask/video/list.html:14
+msgid "Videos"
 msgstr ""
 
-#: ask/models/lesson.py:41
+#: ask/models/lesson.py:44
 msgid "Lessons"
 msgstr ""
 
-#: ask/models/question.py:9
+#: ask/models/question.py:13 ask/models/video.py:12
 msgid "Position"
 msgstr ""
 
-#: ask/models/question.py:10
+#: ask/models/question.py:15
 msgid "Question text"
 msgstr ""
 
-#: ask/templates/ask/index.html:5 ask/templates/ask/index.html:11
+#: ask/models/question.py:16
+msgid "Help text"
+msgstr ""
+
+#: ask/models/video.py:13
+msgid "Title"
+msgstr ""
+
+#: ask/models/video.py:16
+msgid "URL"
+msgstr ""
+
+#: ask/models/video.py:28
+msgid "Video"
+msgstr ""
+
+#: ask/templates/ask/index.html:5 ask/templates/ask/index.html:18
 msgid "Welcome"
 msgstr ""
 
-#: ask/templates/ask/index.html:34
+#: ask/templates/ask/index.html:41
 msgid "Start here"
 msgstr ""
 
-#: ask/templates/ask/index.html:42
+#: ask/templates/ask/index.html:49
 msgid "Sign-up"
 msgstr ""
 
-#: ask/templates/ask/index.html:53
+#: ask/templates/ask/index.html:60
 msgid "Forum"
 msgstr ""
 
-#: ask/templates/ask/index.html:61
+#: ask/templates/ask/index.html:68
 msgid "About the project"
 msgstr ""
 
 #: ask/templates/ask/issue/list.html:6 ask/templates/ask/issue/list.html:16
 msgid "Issue list"
-msgstr ""
-
-#: ask/templates/ask/lesson/detail.html:28
-msgid "#"
-msgstr ""
-
-#: ask/templates/ask/lesson/detail.html:31
-msgid "No question found."
-msgstr ""
-
-#: ask/templates/ask/lesson/detail.html:37
-msgid "Videos"
 msgstr ""
 
 #: ask/templates/ask/lesson/finished.html:6
@@ -183,12 +195,20 @@ msgstr ""
 msgid "Finished"
 msgstr ""
 
-#: ask/templates/ask/lesson/finished.html:28
+#: ask/templates/ask/lesson/finished.html:28 ask/utils/constants.py:11
 msgid "This lesson finished"
 msgstr ""
 
-#: ask/templates/ask/lesson/finished.html:33
+#: ask/templates/ask/lesson/finished.html:34
 msgid "Restart"
+msgstr ""
+
+#: ask/templates/ask/lesson/finished.html:39
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t\tBack to %(issue)s\n"
+"\t\t\t\t"
 msgstr ""
 
 #: ask/templates/ask/lesson/list.html:19
@@ -207,187 +227,69 @@ msgid ""
 "\t"
 msgstr ""
 
-#: ask/templates/ask/question/detail.html:32
+#: ask/templates/ask/question/detail.html:42
 msgid "Reply"
 msgstr ""
 
-#: ask/templates/ask/question/detail.html:36
+#: ask/templates/ask/question/detail.html:47
+#: ask/templates/ask/question/detail.html:57
 msgid "Help"
 msgstr ""
 
-#: ask/templates/ask/question/detail.html:39
-msgid "Jump"
+#: ask/templates/ask/question/detail.html:64
+msgid "No found questions."
 msgstr ""
 
-#: ask/templates/ask/question/detail.html:42
-msgid "Review Jumps"
-msgstr ""
-
-#: ask/urls/__init__.py:9
-msgid "^index$"
-msgstr ""
-
-#: ask/urls/__init__.py:11
-msgid "^issue/"
+#: ask/templates/ask/video/list.html:19
+#, python-format
+msgid ""
+"\n"
+"\t\tVideos of %(lesson)s\n"
+"\t"
 msgstr ""
 
 #: ask/urls/__init__.py:12
-msgid "^issue/(?P<issue_slug>[-\\w]+)/lesson/"
+msgid "^index$"
 msgstr ""
 
-#: ask/urls/__init__.py:13
+#: ask/urls/__init__.py:14
+msgid "^issues/"
+msgstr ""
+
+#: ask/urls/__init__.py:15
+msgid "^issues/(?P<issue_slug>[-\\w]+)/lessons/"
+msgstr ""
+
+#: ask/urls/__init__.py:16
 msgid ""
-"^issue/(?P<issue_slug>[-\\w]+)/lesson/(?P<lesson_slug>[-\\w]+)/question/"
+"^issues/(?P<issue_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/questions/"
 msgstr ""
 
-#: ask/urls/issue.py:7 ask/urls/lesson.py:7
+#: ask/urls/__init__.py:17
+msgid ""
+"^issues/(?P<issue_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
+msgstr ""
+
+#: ask/urls/issue.py:10 ask/urls/lesson.py:11 ask/urls/video.py:11
 msgid "^list$"
 msgstr ""
 
-#: ask/urls/lesson.py:8
-msgid "^(?P<slug>[-\\w]+)$"
+#: ask/urls/lesson.py:12 ask/urls/video.py:12
+msgid "^(?P<slug>[-\\w]+)/detail$"
 msgstr ""
 
-#: ask/urls/lesson.py:9
+#: ask/urls/lesson.py:13
 msgid "^(?P<slug>[-\\w]+)/finished$"
 msgstr ""
 
-#: ask/urls/question.py:7
-msgid "^answer_question/$"
+#: ask/urls/question.py:11
+msgid "^answer$"
 msgstr ""
 
-#: ask/utils/colors.py:8
-msgid "Lime"
+#: ask/utils/constants.py:8
+msgid "You answer is correct"
 msgstr ""
 
-#: ask/utils/colors.py:9
-msgid "Green"
-msgstr ""
-
-#: ask/utils/colors.py:10 ask/utils/colors.py:22
-msgid "Emerald"
-msgstr ""
-
-#: ask/utils/colors.py:11
-msgid "Teal"
-msgstr ""
-
-#: ask/utils/colors.py:12
-msgid "Blue"
-msgstr ""
-
-#: ask/utils/colors.py:13
-msgid "Cyan"
-msgstr ""
-
-#: ask/utils/colors.py:14
-msgid "Cobalt"
-msgstr ""
-
-#: ask/utils/colors.py:15
-msgid "Indigo"
-msgstr ""
-
-#: ask/utils/colors.py:16
-msgid "Violet"
-msgstr ""
-
-#: ask/utils/colors.py:17
-msgid "Magenta"
-msgstr ""
-
-#: ask/utils/colors.py:18
-msgid "Orange"
-msgstr ""
-
-#: ask/utils/colors.py:19
-msgid "Amber"
-msgstr ""
-
-#: ask/utils/colors.py:20
-msgid "Yellow"
-msgstr ""
-
-#: ask/utils/colors.py:21
-msgid "Brown"
-msgstr ""
-
-#: ask/utils/colors.py:23
-msgid "Steel"
-msgstr ""
-
-#: ask/utils/colors.py:24
-msgid "Mauve"
-msgstr ""
-
-#: ask/utils/colors.py:25
-msgid "Taupe"
-msgstr ""
-
-#: ask/utils/colors.py:26
-msgid "Gray"
-msgstr ""
-
-#: ask/utils/colors.py:30
-msgid "Dark Brown"
-msgstr ""
-
-#: ask/utils/colors.py:31
-msgid "Dark Indigo"
-msgstr ""
-
-#: ask/utils/colors.py:32
-msgid "Dark Cyan"
-msgstr ""
-
-#: ask/utils/colors.py:33
-msgid "Dark Cobalt"
-msgstr ""
-
-#: ask/utils/colors.py:34
-msgid "Dark Teal"
-msgstr ""
-
-#: ask/utils/colors.py:35
-msgid "Dark Emerald"
-msgstr ""
-
-#: ask/utils/colors.py:36
-msgid "Dark Green"
-msgstr ""
-
-#: ask/utils/colors.py:37
-msgid "Dark Orange"
-msgstr ""
-
-#: ask/utils/colors.py:38
-msgid "Dark Violet"
-msgstr ""
-
-#: ask/utils/colors.py:39
-msgid "Dark Blue"
-msgstr ""
-
-#: ask/utils/colors.py:43
-msgid "Light Blue"
-msgstr ""
-
-#: ask/utils/colors.py:44
-msgid "Light Red"
-msgstr ""
-
-#: ask/utils/colors.py:45
-msgid "Light Green"
-msgstr ""
-
-#: ask/utils/colors.py:46
-msgid "Lighter Blue"
-msgstr ""
-
-#: ask/utils/colors.py:47
-msgid "Light Olive"
-msgstr ""
-
-#: ask/utils/colors.py:48
-msgid "Light Orange"
+#: ask/utils/constants.py:9
+msgid "You answer is incorrect"
 msgstr ""

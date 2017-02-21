@@ -12,54 +12,53 @@
 	</a>
 {% endblock %}
 
+
+{%  block page_title %}
+	{{ topic.title }}
+{% endblock %}
+
 {% block content %}
-	<div class="col-xs-12 col-sm-4 col-md-3 text">
-		{% include 'forum/category/list.html' %}
-	</div>
+	<div class="card card-block full-width">
+		<h1 class="h4" id="{ topic.slug }}">
+			<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
+			<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
+			<div class="float-xs-right">
+				{% if topic.created_by == request.user  %}
+				<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+				{% endif %}
+				{% if perms.forum.delete_topic or topic.created_by == request.user %}
+				<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+				{% endif %}
+			</div>
+		</h1>	
+		<h2 class="text-muted h6">
+			{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
+		</h2>
 
-	<div class="col-xs-12 col-sm-8 col-md-9">
-		<div class="card card-block">
-			<h1 class="h4" id="{ topic.slug }}">
-				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
-				<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
-				<div class="float-xs-right">
-					{% if topic.created_by == request.user  %}
-					<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-					{% endif %}
-					{% if perms.forum.delete_topic or topic.created_by == request.user %}
-					<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
-					{% endif %}
-				</div>
-			</h1>	
-			<h2 class="text-muted h6">
-				{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
-			</h2>
-
-			<p>{{ topic.get_comments.first }}</p>
-			
-			<ul>
-				{% for comment in topic.get_comments  %}
-					{% if not forloop.first %}
-						<li>
-							{{ comment.text }} 
-							{% if comment.created_by == request.user  %}
-							<a href="{% url 'forum:comment_update' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-edit"></i></a>
-							{% endif %}
-							{% if perms.comment.delete_comment or comment.created_by == request.user %}
-							<a href="{% url 'forum:comment_delete' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-remove"></i></a>
-							{% endif %}
-							<p class="text-muted">
-								{{ comment.creation|naturaltime }} {% trans "by" %} <b>{{ comment.created_by.get_full_name }}</b>
-							</p>
-						</li>
-					{% endif %}
-				{% endfor %}
-			</ul>
-			<a href="{% url 'forum:comment_add' topic_slug=topic.slug %}" class="btn btn-link">
-				<i class="fa fa-plus"></i>
-				{% trans "New Comment" %}
-			</a>
-		</div>
+		<p>{{ topic.get_comments.first }}</p>
+		
+		<ul>
+			{% for comment in topic.get_comments  %}
+				{% if not forloop.first %}
+					<li>
+						{{ comment.text }} 
+						{% if comment.created_by == request.user  %}
+						<a href="{% url 'forum:comment_update' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-edit"></i></a>
+						{% endif %}
+						{% if perms.comment.delete_comment or comment.created_by == request.user %}
+						<a href="{% url 'forum:comment_delete' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-link btn-sm"><i class="fa fa-remove"></i></a>
+						{% endif %}
+						<p class="text-muted">
+							{{ comment.creation|naturaltime }} {% trans "by" %} <b>{{ comment.created_by.get_full_name }}</b>
+						</p>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		<a href="{% url 'forum:comment_add' topic_slug=topic.slug %}" class="btn btn-link">
+			<i class="fa fa-plus"></i>
+			{% trans "New Comment" %}
+		</a>
 	</div>
 {% endblock %}
 

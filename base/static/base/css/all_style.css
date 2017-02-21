@@ -170,5 +170,9 @@ ul.messagelist li.danger {
 
 /* Links */
 a {
-	text-decoration: underline !important ;
+	text-decoration: underline;
+}
+
+nav a , ul a{
+	text-decoration: none;
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-13 11:32-0300\n"
+"POT-Creation-Date: 2017-02-17 21:05-0300\n"
 "PO-Revision-Date: 2017-01-11 12:41-0234\n"
 "Last-Translator: None None <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,15 +206,15 @@ msgid ""
 "correctly."
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:12
+#: authentication/templates/authentication/account/password_reset_confirm.html:13
 msgid "Submit"
 msgstr "Enviar"
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:16
+#: authentication/templates/authentication/account/password_reset_confirm.html:17
 msgid "Password reset unsuccessful"
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:17
+#: authentication/templates/authentication/account/password_reset_confirm.html:18
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."

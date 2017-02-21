@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 04:29+0000\n"
+"POT-Creation-Date: 2017-02-17 21:05-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,94 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/_base.html:48 templates/_header.html:12
-msgid "Home"
+#: askmath/settings.py:179
+msgid "Brazilian Portuguese"
 msgstr ""
 
-#: templates/_footer.html:10
-msgid "About"
+#: askmath/settings.py:180
+msgid "English"
 msgstr ""
 
-#: templates/_footer.html:13
-msgid "Terms of Use"
-msgstr ""
-
-#: templates/_footer.html:16
-msgid "Privacy Policy"
-msgstr ""
-
-#: templates/_footer.html:19
-msgid "Contact Us"
-msgstr ""
-
-#. Translators: Label of a button that triggers language
-#: templates/_footer.html:37
-msgid "Go"
-msgstr ""
-
-#: templates/_form.html:44
-msgid "Save"
-msgstr ""
-
-#: templates/_header.html:20
-msgid "Extra"
-msgstr ""
-
-#: templates/_header.html:25
-msgid "Django Admin"
-msgstr ""
-
-#: templates/_header.html:29
-msgid "Rosetta"
-msgstr ""
-
-#: templates/_header.html:46
-msgid "Profile"
-msgstr ""
-
-#: templates/_header.html:50
-msgid "Change password"
-msgstr ""
-
-#: templates/_header.html:54
-msgid "Logout"
-msgstr ""
-
-#: templates/_header.html:62
-msgid "Login"
-msgstr ""
-
-#: templates/_no_script.html:3
-msgid ""
-"For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
-msgstr ""
-
-#: templates/_paginate.html:6 templates/_paginate.html:8
-msgid "Previous"
-msgstr ""
-
-#: templates/_paginate.html:24 templates/_paginate.html:26
-msgid "Next"
-msgstr ""
-
-#: templates/_paginate.html:37
-msgid "CSV"
-msgstr ""
-
-#: templates/fields/datetime.html:10
-msgid "This field can not be empty"
-msgstr ""
-
-#: templates/fields/file.html:8 templates/fields/image.html:8
-msgid "Currently"
-msgstr ""
-
-#: templates/fields/file.html:13 templates/fields/image.html:13
-msgid "Change"
-msgstr ""
-
-#: templates/fields/headers/caption.html:6
-msgid "This field is required!"
+#: askmath/settings.py:181
+msgid "Spanish"
 msgstr ""

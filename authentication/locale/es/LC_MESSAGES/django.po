@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 04:29+0000\n"
+"POT-Creation-Date: 2017-02-17 21:05-0300\n"
 "PO-Revision-Date: 2016-12-29 01:09-0234\n"
 "Last-Translator: None None <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,13 +134,11 @@ msgid "Delete"
 msgstr ""
 
 #: authentication/templates/authentication/account/form.html:17
+#: authentication/templates/authentication/account/form.html:22
 msgid "Form User"
 msgstr ""
 
-#: authentication/templates/authentication/account/form.html:22
-msgid "Form Author"
-msgstr ""
-
+#: authentication/templates/authentication/account/login.html:5
 #: authentication/templates/authentication/account/login.html:14
 #: authentication/templates/authentication/account/login.html:18
 msgid "Login"
@@ -186,12 +184,13 @@ msgstr ""
 msgid "Your password was changed."
 msgstr ""
 
-#: authentication/templates/authentication/account/password_change_form.html:9
-msgid "Password Change Form"
+#: authentication/templates/authentication/account/password_change_form.html:5
+#: authentication/templates/authentication/account/password_change_form.html:15
+msgid "Change password"
 msgstr ""
 
-#: authentication/templates/authentication/account/password_change_form.html:13
-msgid "Change password"
+#: authentication/templates/authentication/account/password_change_form.html:11
+msgid "Password Change Form"
 msgstr ""
 
 #: authentication/templates/authentication/account/password_reset_complete.html:8
@@ -208,15 +207,15 @@ msgid ""
 "correctly."
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:12
+#: authentication/templates/authentication/account/password_reset_confirm.html:13
 msgid "Submit"
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:16
+#: authentication/templates/authentication/account/password_reset_confirm.html:17
 msgid "Password reset unsuccessful"
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:17
+#: authentication/templates/authentication/account/password_reset_confirm.html:18
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
@@ -284,52 +283,56 @@ msgstr ""
 msgid "^account/"
 msgstr ""
 
-#: authentication/urls/account.py:8
+#: authentication/urls/account.py:9
 msgid "^login$"
 msgstr ""
 
-#: authentication/urls/account.py:9
+#: authentication/urls/account.py:10
 msgid "^logout$"
 msgstr ""
 
-#: authentication/urls/account.py:10
+#: authentication/urls/account.py:11
 msgid "^register$"
 msgstr ""
 
-#: authentication/urls/account.py:11
+#: authentication/urls/account.py:12
 msgid "^(?P<pk>[0-9]+)/detail$"
 msgstr ""
 
-#: authentication/urls/account.py:12
+#: authentication/urls/account.py:13
 msgid "^(?P<pk>[0-9]+)/edit$"
 msgstr ""
 
-#: authentication/urls/account.py:13
+#: authentication/urls/account.py:14
 msgid "^(?P<pk>[0-9]+)/delete$"
 msgstr ""
 
-#: authentication/urls/account.py:15
+#: authentication/urls/account.py:16
 msgid "^password/change$"
 msgstr ""
 
-#: authentication/urls/account.py:22
+#: authentication/urls/account.py:23
 msgid "^password_change/done$"
 msgstr ""
 
-#: authentication/urls/account.py:27
+#: authentication/urls/account.py:28
 msgid "^password/reset$"
 msgstr ""
 
-#: authentication/urls/account.py:34
+#: authentication/urls/account.py:35
 msgid "^password_reset/done$"
 msgstr ""
 
-#: authentication/urls/account.py:38
+#: authentication/urls/account.py:39
 msgid "^password_reset/(?P<uidb64>[0-9A-Za-z_\\-]+)/(?P<token>.+)$"
 msgstr ""
 
-#: authentication/urls/account.py:43
+#: authentication/urls/account.py:44
 msgid "^password_reset/complete$"
+msgstr ""
+
+#: authentication/utils/constants.py:5
+msgid "User success created"
 msgstr ""
 
 #~ msgid "Administrators"

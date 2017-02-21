@@ -6,51 +6,56 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
+	<a href="{% url 'forum:topic_list' %}" class="breadcrumb-item" >
+		<i class="fa fa-comment-o"></i>
+		{% trans "Topics" %}
+	</a>
 {% endblock %}
 
-{% block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
+{%  block page_title %}
+	{% trans "List of Topics" %}
+{% endblock %}
 
 {% block content %}
-
-		<div class="col-xs-12 col-sm-4 col-md-3 text">
-			{% include 'forum/category/list.html' %}
-		</div>
-
-		<div class="col-xs-12 col-sm-8 col-md-9">
-			{% for topic in object_list %}
-				<div class="card card-block">
-					<h1 class="h4" id="{ topic.slug }}">
-						<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
-						<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
-				
-						<div class="float-xs-right">
-							{% if topic.created_by == request.user  %}
-							<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-							{% endif %}
-							{% if perms.forum.delete_topic or topic.created_by == request.user %}
-							<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
-							{% endif %}
-						</div>
-					</h1>					
-					<h2 class="text-muted h6">
-						{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
-					</h2>
-					
-					<p>{{ topic.get_comments.first.text|truncatewords_html:20 }}</p>
-					
-					<a href="{% url 'forum:topic_detail' slug=topic.slug %}">
-						{% blocktrans count counter=topic.get_comments|length|add:-1 %}
-							See {{ counter }} comment
-							{% plural %}
-							See {{ counter }} comments
-						{% endblocktrans %}
-					</a>
+	{% for topic in object_list %}
+		<div class="card card-block full-width">
+			<h1 class="h4" id="{ topic.slug }}">
+				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
+				<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
+		
+				<div class="float-xs-right">
+					{% if topic.created_by == request.user  %}
+					<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+					{% endif %}
+					{% if perms.forum.delete_topic or topic.created_by == request.user %}
+					<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+					{% endif %}
 				</div>
-			{% endfor %}
-				<nav class="blog-pagination">
-					{% include 'base/_paginate.html' %}
-				</nav>
+			</h1>					
+			<h2 class="text-muted h6">
+				{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
+			</h2>
+			
+			<p>{{ topic.get_comments.first.text|truncatewords_html:20 }}</p>
+			
+			<a href="{% url 'forum:topic_detail' slug=topic.slug %}">
+				{% blocktrans count counter=topic.get_comments|length|add:-1 %}
+					See {{ counter }} comment
+					{% plural %}
+					See {{ counter }} comments
+				{% endblocktrans %}
+			</a>
 		</div>
+	{% empty %}
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<p class="lead">{% trans "No topic found this query." %}</p>
+			</div>
+		</div>
+	{% endfor %}
+		<nav class="blog-pagination">
+			{% include 'base/_paginate.html' %}
+		</nav>
 {% endblock %}
 
 {% block js %}
