@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-22 14:14-0300\n"
-"PO-Revision-Date: 2017-02-22 14:17-0234\n"
-"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
+"PO-Revision-Date: 2017-02-22 15:04-0234\n"
+"Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -31,38 +31,38 @@ msgstr ""
 #: base/actions.py:12
 #, python-format
 msgid "%s successfully marked as published."
-msgstr ""
+msgstr "%s elementos selecionados marcados como publicados."
 
 #: base/actions.py:20
 #, python-format
 msgid "%s successfully marked as draft."
-msgstr ""
+msgstr "%s elementos selecionados marcados como rascunhos."
 
 #: base/actions.py:28
 #, python-format
 msgid "%s successfully marked as removed."
-msgstr ""
+msgstr "%s elementos selecionados marcados como resolvidos."
 
 #: base/actions.py:30
 msgid "Mark selected stories as published"
-msgstr ""
+msgstr "Marque os elementos selecionados como publicados."
 
 #: base/actions.py:31
 msgid "Mark selected stories as draft"
-msgstr ""
+msgstr "Marque os elementos selecionados como rascunhos."
 
 #: base/actions.py:32
 msgid "Mark selected stories as removed"
-msgstr ""
+msgstr "Marque os elementos selecionados como removidos."
 
 #: base/admin.py:35
 #, python-format
 msgid "%s successfully marked as solved."
-msgstr ""
+msgstr "%s elementos selecionados marcados como resolvido."
 
 #: base/admin.py:37
 msgid "Mark selected stories as solved"
-msgstr ""
+msgstr "Marque os elementos selecionados como resolvidos."
 
 #: base/forms/contact.py:5
 msgid "Subject"
@@ -78,19 +78,19 @@ msgstr "Email"
 
 #: base/models/report.py:10
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 #: base/models/report.py:11
 msgid "Report text"
-msgstr ""
+msgstr "Texto"
 
 #: base/models/report.py:13
 msgid "Solved"
-msgstr ""
+msgstr "Resolvido"
 
 #: base/models/report.py:14
 msgid "Solved by"
-msgstr ""
+msgstr "Resolvido por"
 
 #: base/models/report.py:17 base/models/social_network.py:14
 msgid "Created by"
@@ -98,11 +98,11 @@ msgstr "Criado por"
 
 #: base/models/report.py:27 base/templates/blocks/header.html:115
 msgid "Report"
-msgstr ""
+msgstr "Reporte"
 
 #: base/models/report.py:28
 msgid "Reports"
-msgstr ""
+msgstr "Reportes"
 
 #: base/models/social_network.py:9
 msgid "Name"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: base/templates/base/_check_delete.html:7
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: base/templates/base/_form.html:12
 msgid "Save"
@@ -176,7 +176,7 @@ msgstr "Este campo é obrigatório"
 #: base/templates/base/handlers/400.html:7
 #: base/templates/base/handlers/400.html:11
 msgid "Bad request"
-msgstr ""
+msgstr "Requisição ruim"
 
 #: base/templates/base/handlers/400.html:13
 #: base/templates/base/handlers/403.html:13
@@ -188,7 +188,7 @@ msgstr ""
 #: base/templates/base/handlers/403.html:7
 #: base/templates/base/handlers/403.html:11
 msgid "Permission denied"
-msgstr ""
+msgstr "Permissão negada"
 
 #: base/templates/base/handlers/404.html:5
 #: base/templates/base/handlers/404.html:7
@@ -218,7 +218,7 @@ msgstr ""
 #: base/templates/base/timezone.html:16 base/templates/base/timezone.html:23
 #: base/templates/blocks/footer.html:27
 msgid "Timezone"
-msgstr ""
+msgstr "Zona"
 
 #. Translators: Label of a button that triggers language
 #: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:45
@@ -263,23 +263,23 @@ msgstr "Ligar/Desligar Alto Contraste - Atalho #3"
 
 #: base/templates/blocks/header.html:18
 msgid "High Contrast-OFF"
-msgstr ""
+msgstr "Alto Contraste-Desligado"
 
 #: base/templates/blocks/header.html:22
 msgid "Increase Font - Shortcut #4"
-msgstr ""
+msgstr "Aumentar Fonte - Atalho #4"
 
 #: base/templates/blocks/header.html:23
 msgid "Increase Font"
-msgstr ""
+msgstr "Aumentar Fonte"
 
 #: base/templates/blocks/header.html:27
 msgid "Decrease Font - Shortcut #5"
-msgstr ""
+msgstr "Diminuir Fonte - Atalho #5"
 
 #: base/templates/blocks/header.html:28
 msgid "Decrease Font"
-msgstr ""
+msgstr "Diminuir Fonte"
 
 #: base/templates/blocks/header.html:54
 msgid "Forum"
@@ -291,11 +291,11 @@ msgstr "Administração"
 
 #: base/templates/blocks/header.html:65
 msgid "Report errors and problems here!"
-msgstr ""
+msgstr "Reporte erros e problemas aqui!"
 
 #: base/templates/blocks/header.html:68
 msgid "Problem?"
-msgstr ""
+msgstr "Problema?"
 
 #: base/templates/blocks/header.html:83
 msgid "Profile"
@@ -315,7 +315,7 @@ msgstr "Entrar"
 
 #: base/templates/blocks/header.html:125
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: base/templates/blocks/meta.html:3
 msgid ""
@@ -335,6 +335,10 @@ msgid ""
 "target=\"_blank\">instructions on how to enable JavaScript in your browser "
 "</a>."
 msgstr ""
+"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o"
+" Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instruções de como habilitar o Javascript em seu navegador"
+" </a>."
 
 #: base/urls/__init__.py:27
 msgid "^about/$"
@@ -374,11 +378,11 @@ msgstr "^contato$"
 
 #: base/urls/__init__.py:33
 msgid "^report/"
-msgstr ""
+msgstr "^reportar/"
 
 #: base/urls/__init__.py:46
 msgid "^timezone$"
-msgstr ""
+msgstr "^zona$"
 
 #: base/urls/contact.py:8
 msgid "^$"
@@ -386,7 +390,7 @@ msgstr ""
 
 #: base/urls/report.py:8
 msgid "^add$"
-msgstr ""
+msgstr "^adicionar$"
 
 #: base/utils/constants.py:5
 msgid "Message send success"
@@ -398,7 +402,7 @@ msgstr "Erro ao enviar a mensagem"
 
 #: base/utils/constants.py:8
 msgid "Timezone configured success"
-msgstr ""
+msgstr "Zona configurada com sucesso."
 
 #: base/utils/constants.py:10
 #| msgid "Message send success"

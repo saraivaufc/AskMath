@@ -7,16 +7,9 @@
 	<link rel="stylesheet" type="text/css" media="all" href="{% static "authentication/css/base.css" %}" />
 {% endblock %}
 
-{% block title %}{% endblock %}
+{% block title %}{% trans "Authentication" %}{% endblock %}
 
-{% block breadcrumbs %}
-	<a href="{% url 'ask:home' %}" class="breadcrumb-item" >
-		<i class="fa fa-home" aria-hidden="true"></i>
-		{% trans "Home" %}
-	</a>
-{% endblock %}
-
-{%  block page_title %}{% trans "Site Administration" %}{% endblock %}
+{%  block page_title %}{% trans "Authentication" %}{% endblock %}
 
 {% block content %}
 

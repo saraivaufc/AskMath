@@ -32,8 +32,8 @@ class TopicAdmin(admin.ModelAdmin, StatusAction):
 
 class CommentAdmin(admin.ModelAdmin, StatusAction):
 	model = Comment
-	list_display = ('user', 'topic', 'text', 'status', 'created_by', 'last_modified')
-	list_filter = ['user', 'topic', 'status', 'last_modified',]
+	list_display = ('text', 'user', 'topic' , 'status', 'creation')
+	list_filter = ['user', 'topic', 'status', 'creation',]
 	search_fields = ['text']
 	actions = []
 
