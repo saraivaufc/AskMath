@@ -1,0 +1,22 @@
+@font-face {
+    font-family: Expressway;
+    src: url("../fonts/expresswayrg.ttf");
+}
+
+@font-face {
+    font-family: Huxtable;
+    src: url("../fonts/huxtable.ttf");
+}
+
+@font-face {
+    font-family: Letterng;
+    src: url("../fonts/letterng.ttf");
+}
+
+.font-external-primary{
+	font-family: Letterng !important;
+}
+
+.font-external-secondary{
+	font-family: Huxtable !important;
+}

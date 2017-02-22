@@ -1,6 +1,7 @@
 html, body {
 	height: 100%;
 	background-color: #fff;
+	font-family: -apple-system, Expressway ,Arial,sans-serif !important;
 }
 
 .header{
@@ -22,7 +23,7 @@ html, body {
 }
 
 .page-container{
-	background-color: #ffa;
+	background-color: #ffffc7;
 	margin: 0em 0em 1em 0em;
 	padding: 5px 5px;
 	width: 100%;
