@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 15:43-0300\n"
-"PO-Revision-Date: 2017-02-21 15:43-0234\n"
+"POT-Creation-Date: 2017-02-22 14:14-0300\n"
+"PO-Revision-Date: 2017-02-22 14:17-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -401,13 +401,11 @@ msgid "Timezone configured success"
 msgstr ""
 
 #: base/utils/constants.py:10
-#, fuzzy
 #| msgid "Message send success"
 msgid "Report send successful"
 msgstr "Mensagem enviada com sucesso"
 
 #: base/utils/constants.py:11
-#, fuzzy
 #| msgid "Error send message"
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"

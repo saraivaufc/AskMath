@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 15:43-0300\n"
+"POT-Creation-Date: 2017-02-22 14:14-0300\n"
 "PO-Revision-Date: 2017-02-17 21:02-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,19 +163,19 @@ msgstr "Vídeo"
 msgid "Welcome"
 msgstr "Bem-vindo"
 
-#: ask/templates/ask/index.html:41
+#: ask/templates/ask/index.html:38 ask/templates/ask/index.html:41
 msgid "Start here"
 msgstr "Comece aqui"
 
-#: ask/templates/ask/index.html:49
+#: ask/templates/ask/index.html:46 ask/templates/ask/index.html:49
 msgid "Sign-up"
 msgstr "Registrar-se"
 
-#: ask/templates/ask/index.html:58
+#: ask/templates/ask/index.html:55 ask/templates/ask/index.html:58
 msgid "Forum"
 msgstr "Forum"
 
-#: ask/templates/ask/index.html:66
+#: ask/templates/ask/index.html:63 ask/templates/ask/index.html:66
 msgid "About the project"
 msgstr "Sobre esse projeto"
 

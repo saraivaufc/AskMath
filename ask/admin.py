@@ -40,7 +40,7 @@ class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
 	extra = 1
 	list_display = ('text', 'created_by', 'last_modified')
-	list_filter = ['last_modified']
+	list_filter = ['last_modified',]
 	search_fields = ['text']
 
 	inlines = [

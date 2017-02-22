@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = "_form_fields"
-NEW_TEXT = "_fields"
-FILE_TYPES = ['(.)\.html', ]
+TEXT = "ugettext as _"
+NEW_TEXT = "ugettext_lazy as _"
+FILE_TYPES = ['(.)\.py', ]
 
 rexs = []
 for i in FILE_TYPES:
