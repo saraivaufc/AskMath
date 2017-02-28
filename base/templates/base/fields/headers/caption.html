@@ -1,11 +1,7 @@
 {% load i18n %}
-<div class="col-xs-12 col-sm-4 col-md-2">
-	<div class="row">
-		<label for="{{ field.auto_id }}">
-			{{field.label}}
-			{% if field.field.required %}
-				<span class="text-danger" data-toggle="tooltip" data-html="true" title="{% trans 'This field is required!' %}">*</span>
-			{% endif %}:
-		</label>
-	</div>
-</div>
+<label for="{{ field.auto_id }}">
+	{{field.label}}
+	{% if field.field.required %}
+		<span class="text-danger" data-toggle="tooltip" data-html="true" title="{% trans 'This field is required!' %}">*</span>
+	{% endif %}:
+</label>

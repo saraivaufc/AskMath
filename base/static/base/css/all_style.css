@@ -95,22 +95,8 @@ hr.divider{
 	display: none;
 }
 
-
-/* FORMS */
-.form-group{
-	margin-bottom: 0px;
-}
-
 span.select2-selection--multiple{
 	width: 100% !important;
-}
-
-input[type="datetime"]{
-	width: 150px !important;
-}
-
-input[type="number"], input[type="date"]{
-	width: 200px !important;
 }
 
 .navbar{
@@ -163,10 +149,6 @@ ul.messagelist li.warning {
 ul.messagelist li.danger {
     background: #ffefef url(../img/icon-no.svg) 40px 12px no-repeat;
     background-size: 16px auto;
-}
-
-.form-control {
-    width: inherit;
 }
 
 /* Links */

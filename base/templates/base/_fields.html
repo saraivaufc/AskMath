@@ -6,32 +6,38 @@
 {% endfor %}
 
 {% for field in form.visible_fields %}
-	{% if field|is_checkbox %}
-		{% include 'base/fields/checkbox.html' %}
-	{% elif field|is_radio %}
-		{% include 'base/fields/radio.html' %}
-	{% elif field|is_select %}
-		{% include 'base/fields/select.html' %}
-	{% elif field|is_select_multiple %}
-		{% include 'base/fields/select_multiple.html' %}
-	{% elif field|is_file %}
-		{% include 'base/fields/file.html' %}
-	{% elif field|is_text  %}
-		{% include 'base/fields/text.html' %}
-	{% elif field|is_textarea %}
-		{% include 'base/fields/textarea.html' %}
-	{% elif field|is_email %}
-		{% include 'base/fields/email.html' %}
-	{% elif field|is_number %}
-		{% include 'base/fields/number.html' %}
-	{% elif field|is_date %}
-		{% include 'base/fields/date.html' %}
-	{% elif field|is_datetime %}
-		{% include 'base/fields/datetime.html' %}
-	{% elif field|is_password %}
-		{% include 'base/fields/password.html' %}
-	{% else %}
-		{% include 'base/fields/field.html' %}
-	{% endif %}
-	<hr class="divider"></hr>
+	<div class="row">
+		<div class="col-md-4">
+			{% if field|is_checkbox %}
+				{% include 'base/fields/checkbox.html' %}
+			{% elif field|is_radio %}
+				{% include 'base/fields/radio.html' %}
+			{% elif field|is_select %}
+				{% include 'base/fields/select.html' %}
+			{% elif field|is_select_multiple %}
+				{% include 'base/fields/select_multiple.html' %}
+			{% elif field|is_file %}
+				{% include 'base/fields/file.html' %}
+			{% elif field|is_text  %}
+				{% include 'base/fields/text.html' %}
+			{% elif field|is_textarea %}
+				{% include 'base/fields/textarea.html' %}
+			{% elif field|is_email %}
+				{% include 'base/fields/email.html' %}
+			{% elif field|is_number %}
+				{% include 'base/fields/number.html' %}
+			{% elif field|is_date %}
+				{% include 'base/fields/date.html' %}
+			{% elif field|is_datetime %}
+				{% include 'base/fields/datetime.html' %}
+			{% elif field|is_password %}
+				{% include 'base/fields/password.html' %}
+			{% else %}
+				{% include 'base/fields/field.html' %}
+			{% endif %}
+		</div>
+		<div class="col-md-8">
+				{% include 'base/fields/headers/errors.html' %}
+		</div>
+	</div>
 {% endfor %}
