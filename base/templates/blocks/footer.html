@@ -7,7 +7,7 @@
 		<ul class="nav navbar-nav">
 			<li class="nav-item">
 				<div class="nav-link">
-			  		&copy; 2014 - {{ current_year }} PET-TI
+			  		&copy; 2014 - {{ current_year }} Ciano Saraiva
 			  	</div>
 			</li>
 			<li class="nav-item">
@@ -22,10 +22,18 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{% url 'base:contact' %}">{% trans "Contact Us" %}</a>
 			</li>
-			<li class="nav-item">
-				<a href="{% url 'base:timezone' %}" class="nav-link">
-					{% trans "Timezone" %}
+			<li class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					{% trans "Most" %}
 				</a>
+				<div class="dropdown-menu">
+					<a href="{% url 'base:timezone' %}" class="dropdown-item">
+						{% trans "Timezone" %}
+					</a>
+					<a href="{% url 'base:credits' %}" class="dropdown-item">
+						{% trans "Credits" %}
+					</a>
+				</div>
 			</li>
 			<li class="nav-item">
 				<div class="nav-link">

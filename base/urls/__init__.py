@@ -3,6 +3,7 @@
 """
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
+from django.views.generic.base import TemplateView
 from django.contrib.flatpages import views
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
@@ -27,10 +28,10 @@ urlpatterns = (
 	url(_(r'^about/$'), views.flatpage, {'url': _(u'/about/')}, name='about'),
 	url(_(r'^terms/$'), views.flatpage, {'url': _(u'/terms/')}, name='terms'),
 	url(_(r'^privacy/$'), views.flatpage, {'url': _(u'/privacy/')}, name='privacy'),
-	url(_(r'^credits/$'), views.flatpage, {'url': _(u'/credits/')}, name='credits'),
 	
 	url(_(r'^contact/'), include('base.urls.contact')),
 	url(_(r'^report/'), include('base.urls.report')),
+	url(_(r'^credits$'), TemplateView.as_view(template_name="base/credits.html"), name='credits'),	
 )
 
 urlpatterns += (

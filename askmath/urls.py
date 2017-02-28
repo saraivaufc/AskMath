@@ -12,7 +12,6 @@ from django.views.generic.base import RedirectView
 from partners_admin.admin import partners_admin
 
 urlpatterns = i18n_patterns(
-	url(r'^$', RedirectView.as_view(url=reverse_lazy('ask:home'), permanent=False), name='home'),
 	url(r'^', include('base.urls', namespace="base", app_name="base")),
 	url(r'^', include('ask.urls', namespace="ask", app_name="ask")),
 	url(r'^', include('authentication.urls', namespace="authentication", app_name="authentication")),

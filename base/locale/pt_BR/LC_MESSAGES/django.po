@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 14:14-0300\n"
-"PO-Revision-Date: 2017-02-22 15:04-0234\n"
+"POT-Creation-Date: 2017-02-22 23:36-0300\n"
+"PO-Revision-Date: 2017-02-22 22:27-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -96,7 +96,7 @@ msgstr "Resolvido por"
 msgid "Created by"
 msgstr "Criado por"
 
-#: base/models/report.py:27 base/templates/blocks/header.html:115
+#: base/models/report.py:27 base/templates/blocks/header.html:121
 msgid "Report"
 msgstr "Reporte"
 
@@ -160,6 +160,11 @@ msgstr "Contato"
 msgid "Contact us"
 msgstr "Contate-nos"
 
+#: base/templates/base/credits.html:5 base/templates/base/credits.html:11
+#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:34
+msgid "Credits"
+msgstr "Créditos"
+
 #: base/templates/base/fields/file.html:5
 msgid "Currently"
 msgstr "Atualmente"
@@ -216,12 +221,12 @@ msgstr ""
 
 #: base/templates/base/timezone.html:6 base/templates/base/timezone.html:12
 #: base/templates/base/timezone.html:16 base/templates/base/timezone.html:23
-#: base/templates/blocks/footer.html:27
+#: base/templates/blocks/footer.html:31
 msgid "Timezone"
 msgstr "Zona"
 
 #. Translators: Label of a button that triggers language
-#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:45
+#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:53
 msgid "Go"
 msgstr "Ir"
 
@@ -240,6 +245,10 @@ msgstr "Politica de Privacidade"
 #: base/templates/blocks/footer.html:23
 msgid "Contact Us"
 msgstr "Contate-nos"
+
+#: base/templates/blocks/footer.html:27
+msgid "Most"
+msgstr ""
 
 #: base/templates/blocks/header.html:7
 msgid "Skip to main content of the page - Shortcut #1"
@@ -297,31 +306,31 @@ msgstr "Reporte erros e problemas aqui!"
 msgid "Problem?"
 msgstr "Problema?"
 
-#: base/templates/blocks/header.html:83
+#: base/templates/blocks/header.html:89
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/blocks/header.html:87
+#: base/templates/blocks/header.html:93
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/blocks/header.html:91
+#: base/templates/blocks/header.html:97
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/blocks/header.html:99
+#: base/templates/blocks/header.html:105
 msgid "Login"
 msgstr "Entrar"
 
-#: base/templates/blocks/header.html:125
+#: base/templates/blocks/header.html:131
 msgid "Send"
 msgstr "Enviar"
 
 #: base/templates/blocks/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video"
-" for free for you."
+"students who take the AskMath. There are several lessons and tutorials video "
+"for free for you."
 msgstr ""
 
 #: base/templates/blocks/meta.html:4
@@ -331,46 +340,36 @@ msgstr "Educação, Matemática, Universidade"
 #: base/templates/blocks/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
-"target=\"_blank\">instructions on how to enable JavaScript in your browser "
-"</a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
+"\">instructions on how to enable JavaScript in your browser </a>."
 msgstr ""
-"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o"
-" Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" "
-"target=\"_blank\">instruções de como habilitar o Javascript em seu navegador"
-" </a>."
+"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o "
+"Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" target="
+"\"_blank\">instruções de como habilitar o Javascript em seu navegador </a>."
 
-#: base/urls/__init__.py:27
+#: base/urls/__init__.py:28
 msgid "^about/$"
 msgstr "^sobre/$"
 
-#: base/urls/__init__.py:27
+#: base/urls/__init__.py:28
 msgid "/about/"
 msgstr "/sobre/"
 
-#: base/urls/__init__.py:28
+#: base/urls/__init__.py:29
 msgid "^terms/$"
 msgstr "^termos/$"
 
-#: base/urls/__init__.py:28
+#: base/urls/__init__.py:29
 msgid "/terms/"
 msgstr "/termos/"
 
-#: base/urls/__init__.py:29
+#: base/urls/__init__.py:30
 msgid "^privacy/$"
 msgstr "^privacidade/$"
 
-#: base/urls/__init__.py:29
+#: base/urls/__init__.py:30
 msgid "/privacy/"
 msgstr "/privacidade/"
-
-#: base/urls/__init__.py:30
-msgid "^credits/$"
-msgstr "^creditos/$"
-
-#: base/urls/__init__.py:30
-msgid "/credits/"
-msgstr "/creditos/"
 
 #: base/urls/__init__.py:32
 msgid "^contact/"
@@ -380,13 +379,13 @@ msgstr "^contato$"
 msgid "^report/"
 msgstr "^reportar/"
 
-#: base/urls/__init__.py:46
+#: base/urls/__init__.py:34
+msgid "^credits$"
+msgstr "^creditos$"
+
+#: base/urls/__init__.py:47
 msgid "^timezone$"
 msgstr "^zona$"
-
-#: base/urls/contact.py:8
-msgid "^$"
-msgstr ""
 
 #: base/urls/report.py:8
 msgid "^add$"
@@ -405,14 +404,15 @@ msgid "Timezone configured success"
 msgstr "Zona configurada com sucesso."
 
 #: base/utils/constants.py:10
-#| msgid "Message send success"
 msgid "Report send successful"
 msgstr "Mensagem enviada com sucesso"
 
 #: base/utils/constants.py:11
-#| msgid "Error send message"
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"
+
+#~ msgid "/credits/"
+#~ msgstr "/creditos/"
 
 #~ msgid "AskMath"
 #~ msgstr "AskMath"
@@ -438,12 +438,11 @@ msgstr "Erro ao enviar a mensagem"
 #~ msgid "^language$"
 #~ msgstr "^linguagem$"
 
-#~ msgid "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = 0 $>"
+#~ msgid ""
+#~ "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c "
+#~ "= 0 $>"
 #~ msgstr ""
 #~ "Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
-
-#~ msgid "Credits"
-#~ msgstr "Créditos"
 
 #~ msgid "^policies/$"
 #~ msgstr "^politicas/$"

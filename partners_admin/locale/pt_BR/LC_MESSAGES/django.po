@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 14:14-0300\n"
+"POT-Creation-Date: 2017-02-22 23:36-0300\n"
 "PO-Revision-Date: 2017-02-12 14:14-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,16 @@ msgstr "Ordenar {count} Questões"
 #, python-brace-format
 msgid "Sort {count} Videos"
 msgstr "Ordenar {count} Vídeos"
+
+#: partners_admin/templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: partners_admin/templates/admin/base_site.html:6
+#, fuzzy
+#| msgid "AskMath - Administration"
+msgid "Django administration"
+msgstr "AskMath - Administração"
 
 #: partners_admin/templates/partners_admin/question/sort.html:7
 #: partners_admin/templates/partners_admin/video/sort.html:8

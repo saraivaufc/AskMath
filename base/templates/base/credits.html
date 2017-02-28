@@ -1,0 +1,34 @@
+{% extends "base/_base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Credits" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'base:credits' %}" class="breadcrumb-item" >
+		<i class="fa fa-handshake-o" target="_blank" ></i>
+		{% trans "Credits" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Credits" %}{% endblock %}
+
+{% block content %}
+	<ul>
+		<li>Python - <a href="https://www.python.org" target="_blank" >https://www.python.org</a></li>
+		<li>Django - <a href="https://www.djangoproject.com" target="_blank" >https://www.djangoproject.com</a></li>
+		<li>Metro Ui CSS - <a href="https://metroui.org.ua" target="_blank" >https://metroui.org.ua</a></li>
+		<li>Rosetta Package - <a href="https://pypi.python.org/pypi/django-rosetta" target="_blank" >https://pypi.python.org/pypi/django-rosetta</a></li>
+		<li>Django REST framework - <a href="http://www.django-rest-framework.org" target="_blank" >http://www.django-rest-framework.org</a></li>
+		<li>Python Social Auth - <a href="http://psa.matiasaguirre.net/docs/index.html" target="_blank" >http://psa.matiasaguirre.net/docs/index.html</a></li>
+		<li>Jquery - <a href="https://jquery.com" target="_blank" >https://jquery.com</a></li>
+		<li>Jquery UI - <a href="https://jqueryui.com" target="_blank" >https://jqueryui.com</a></li>
+		<li>Highcharts - <a href="http://www.highcharts.com" target="_blank" >http://www.highcharts.com</a></li>
+		<li>MathJax - <a href="https://www.mathjax.org" target="_blank" >https://www.mathjax.org</a></li>
+		<li>WebKit - <a href="http://www.webkit.org" target="_blank" >http://www.webkit.org</a></li>
+		<li>Web Animation - <a href="https://github.com/web-animations/web-animations-js" target="_blank" >https://github.com/web-animations/web-animations-js</a></li>
+		<li>Select2 - <a href="https://select2.github.io" target="_blank" >https://select2.github.io</a></li>
+		<li>Celery - <a href="http://www.celeryproject.org" target="_blank" >http://www.celeryproject.org</a></li></li>
+	</ul>
+{% endblock %}

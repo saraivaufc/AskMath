@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 14:14-0300\n"
+"POT-Creation-Date: 2017-02-22 23:36-0300\n"
 "PO-Revision-Date: 2017-02-21 15:26-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,8 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
 #: authentication/apps.py:11
+#: authentication/templates/authentication/index.html:10
+#: authentication/templates/authentication/index.html:12
 msgid "Authentication"
 msgstr "Autenticação"
 
@@ -289,14 +291,6 @@ msgstr ""
 "\n"
 "Registrar-se ou <a href=\"%(url)s\" class=\"text-white\">Entrar</a>"
 
-#: authentication/templates/authentication/index.html:15
-msgid "Home"
-msgstr "Início"
-
-#: authentication/templates/authentication/index.html:19
-msgid "Site Administration"
-msgstr "Site de Administração"
-
 #: authentication/urls/__init__.py:5
 msgid "^account/"
 msgstr "^conta/"
@@ -352,6 +346,12 @@ msgstr "^recuperar_senha/completo$"
 #: authentication/utils/constants.py:5
 msgid "User success created"
 msgstr "Usuário criado com sucesso"
+
+#~ msgid "Home"
+#~ msgstr "Início"
+
+#~ msgid "Site Administration"
+#~ msgstr "Site de Administração"
 
 #~ msgid "Register"
 #~ msgstr "Registrar"

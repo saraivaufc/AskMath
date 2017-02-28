@@ -75,7 +75,7 @@
 			<li class="nav-item dropdown active">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 					<i class="fa fa-user-circle"></i>
-					{{ request.user.email  }}
+					{{ request.user.get_full_name  }}
 				</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="{% url 'authentication:account_detail' pk=request.user.pk %}">

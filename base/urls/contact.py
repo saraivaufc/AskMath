@@ -5,5 +5,5 @@ from django.utils.translation import ugettext_lazy as _
 from ..views import ContactListView
 
 urlpatterns = [
-	url(_(r'^$'), ContactListView.as_view(), name="contact"),
+	url(r'^$', ContactListView.as_view(), name="contact"),
 ]

@@ -59,6 +59,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rosetta',
+    'rest_framework',
     'django_js_reverse',
 )
 
