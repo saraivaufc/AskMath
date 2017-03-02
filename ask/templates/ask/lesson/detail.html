@@ -20,7 +20,7 @@
 
 {% block content %}
 		<div class="container-fluid">
-			<p class="lead">{{ lesson.description }}</p>
+			<p class="lead text-justify">{{ lesson.description }}</p>
 			<a href="{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
 				<i class="fa fa-question"></i>
 				{% trans "Questions" %}

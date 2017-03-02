@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 01:06-0300\n"
-"PO-Revision-Date: 2017-03-01 23:45-0234\n"
+"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"PO-Revision-Date: 2017-03-02 12:40-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -68,11 +68,11 @@ msgstr "Marque os elementos selecionados como resolvidos."
 msgid "Subject"
 msgstr "Assunto"
 
-#: base/forms/contact.py:6 base/models/report.py:11
+#: base/forms/contact.py:6 base/models/report.py:13
 msgid "Message"
 msgstr "Mensagem"
 
-#: base/forms/contact.py:7
+#: base/forms/contact.py:7 base/models/report.py:12
 msgid "Email"
 msgstr "Email"
 
@@ -80,23 +80,28 @@ msgstr "Email"
 msgid "Page"
 msgstr "Página"
 
-#: base/models/report.py:13
+#: base/models/report.py:11
+#| msgid "Name"
+msgid "Full Name"
+msgstr "Nome completo"
+
+#: base/models/report.py:16
 msgid "Solved"
 msgstr "Resolvido"
 
-#: base/models/report.py:14
+#: base/models/report.py:17
 msgid "Solved by"
 msgstr "Resolvido por"
 
-#: base/models/report.py:17 base/models/social_network.py:14
+#: base/models/report.py:20 base/models/social_network.py:14
 msgid "Created by"
 msgstr "Criado por"
 
-#: base/models/report.py:27 base/templates/blocks/header.html:115
+#: base/models/report.py:30 base/templates/blocks/header.html:115
 msgid "Report"
 msgstr "Reporte"
 
-#: base/models/report.py:28
+#: base/models/report.py:31
 msgid "Reports"
 msgstr "Reportes"
 
@@ -116,11 +121,11 @@ msgstr "Ícone"
 msgid "Social Network"
 msgstr "Rede Social"
 
-#: base/models/social_network.py:24
+#: base/models/social_network.py:24 base/templates/base/report.html:20
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
-#: base/templates/base/_base.html:45 base/templates/blocks/header.html:48
+#: base/templates/base/_base.html:45
 msgid "Home"
 msgstr "Início"
 
@@ -148,16 +153,8 @@ msgstr "Anterior"
 msgid "Next"
 msgstr "Próximo"
 
-#: base/templates/base/contact.html:5 base/templates/base/contact.html:11
-msgid "Contact"
-msgstr "Contato"
-
-#: base/templates/base/contact.html:15
-msgid "Contact us"
-msgstr "Contate-nos"
-
 #: base/templates/base/credits.html:5 base/templates/base/credits.html:11
-#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:26
+#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:23
 msgid "Credits"
 msgstr "Créditos"
 
@@ -215,13 +212,21 @@ msgid ""
 "email and should be fixed shortly. Thanks for your patience."
 msgstr ""
 
+#: base/templates/base/report.html:5 base/templates/base/report.html:11
+msgid "Contact"
+msgstr "Contato"
+
+#: base/templates/base/report.html:15
+msgid "Contact us"
+msgstr "Contate-nos"
+
 #: base/templates/base/timezone.html:6 base/templates/base/timezone.html:12
 #: base/templates/base/timezone.html:16 base/templates/base/timezone.html:23
 msgid "Timezone"
 msgstr "Zona"
 
 #. Translators: Label of a button that triggers language
-#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:43
+#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:40
 msgid "Go"
 msgstr "Ir"
 
@@ -236,10 +241,6 @@ msgstr "Termos de Uso"
 #: base/templates/blocks/footer.html:20
 msgid "Privacy Policy"
 msgstr "Politica de Privacidade"
-
-#: base/templates/blocks/footer.html:23
-msgid "Contact Us"
-msgstr "Contate-nos"
 
 #: base/templates/blocks/header.html:7
 msgid "Skip to main content of the page - Shortcut #1"
@@ -281,6 +282,10 @@ msgstr "Diminuir Fonte - Atalho #5"
 msgid "Decrease Font"
 msgstr "Diminuir Fonte"
 
+#: base/templates/blocks/header.html:48
+msgid "AskMath"
+msgstr "AskMath"
+
 #: base/templates/blocks/header.html:54
 msgid "Forum"
 msgstr "Fórum"
@@ -292,6 +297,10 @@ msgstr "Administração"
 #: base/templates/blocks/header.html:65
 msgid "Report errors and problems here!"
 msgstr "Reporte erros e problemas aqui!"
+
+#: base/templates/blocks/header.html:66 base/views/report.py:24
+msgid "page"
+msgstr ""
 
 #: base/templates/blocks/header.html:68
 msgid "Problem?"
@@ -320,8 +329,8 @@ msgstr "Enviar"
 #: base/templates/blocks/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video "
-"for free for you."
+"students who take the AskMath. There are several lessons and tutorials video"
+" for free for you."
 msgstr ""
 
 #: base/templates/blocks/meta.html:4
@@ -331,12 +340,14 @@ msgstr "Educação, Matemática, Universidade"
 #: base/templates/blocks/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
-"\">instructions on how to enable JavaScript in your browser </a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instructions on how to enable JavaScript in your browser "
+"</a>."
 msgstr ""
-"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o "
-"Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" target="
-"\"_blank\">instruções de como habilitar o Javascript em seu navegador </a>."
+"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o"
+" Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" "
+"target=\"_blank\">instruções de como habilitar o Javascript em seu navegador"
+" </a>."
 
 #: base/urls/__init__.py:28
 msgid "^about/$"
@@ -363,18 +374,14 @@ msgid "/privacy/"
 msgstr "/privacidade/"
 
 #: base/urls/__init__.py:32
-msgid "^contact/"
-msgstr "^contato$"
-
-#: base/urls/__init__.py:33
 msgid "^report/"
 msgstr "^reportar/"
 
-#: base/urls/__init__.py:34
+#: base/urls/__init__.py:33
 msgid "^credits$"
 msgstr "^creditos$"
 
-#: base/urls/__init__.py:47
+#: base/urls/__init__.py:46
 msgid "^timezone$"
 msgstr "^zona$"
 
@@ -402,14 +409,17 @@ msgstr "Mensagem enviada com sucesso"
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"
 
+#~ msgid "Contact Us"
+#~ msgstr "Contate-nos"
+
+#~ msgid "^contact/"
+#~ msgstr "^contato$"
+
 #~ msgid "Report text"
 #~ msgstr "Texto"
 
 #~ msgid "/credits/"
 #~ msgstr "/creditos/"
-
-#~ msgid "AskMath"
-#~ msgstr "AskMath"
 
 #~ msgid "Extra"
 #~ msgstr "Extra"
@@ -432,9 +442,7 @@ msgstr "Erro ao enviar a mensagem"
 #~ msgid "^language$"
 #~ msgstr "^linguagem$"
 
-#~ msgid ""
-#~ "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c "
-#~ "= 0 $>"
+#~ msgid "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = 0 $>"
 #~ msgstr ""
 #~ "Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
 

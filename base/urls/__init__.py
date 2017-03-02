@@ -29,7 +29,6 @@ urlpatterns = (
 	url(_(r'^terms/$'), views.flatpage, {'url': _(u'/terms/')}, name='terms'),
 	url(_(r'^privacy/$'), views.flatpage, {'url': _(u'/privacy/')}, name='privacy'),
 	
-	url(_(r'^contact/'), include('base.urls.contact')),
 	url(_(r'^report/'), include('base.urls.report')),
 	url(_(r'^credits$'), TemplateView.as_view(template_name="base/credits.html"), name='credits'),	
 )

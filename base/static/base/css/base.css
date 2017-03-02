@@ -52,15 +52,6 @@ html, body {
 	color: #818a91;
 }
 
-.full-width{
-	width: 100%;
-	min-width: 100%;
-}
-
-.full-height{
-	height: 100%;
-}
-
 .text{
 	background-color: #fff;
 	padding: 10px;

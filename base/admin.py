@@ -21,9 +21,9 @@ class SocialNetworkAdmin(admin.ModelAdmin):
 
 class ReportAdmin(admin.ModelAdmin):
 	model = Report
-	list_display = ('page', 'report_text','created_by', 'solved', 'solved_by', 'last_modified')
-	list_filter = ['solved', 'solved_by', 'created_by', 'last_modified',]
-	search_fields = ['report_text']
+	list_display = ('page', 'name', 'email', 'message', 'solved_in', 'solved_by', 'last_modified')
+	list_filter = ['solved_in', 'solved_by', 'last_modified',]
+	search_fields = ['name','email', 'message']
 	actions = ['make_solved']
 
 	def make_solved(self, request, queryset):

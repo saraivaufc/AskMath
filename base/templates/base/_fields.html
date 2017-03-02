@@ -7,10 +7,10 @@
 
 {% for field in form.visible_fields %}
 	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-md-2">
+		<div class="{% if is_small %}col-xs-12{% elif is_middle %}col-sm-4{% elif is_larger %}col-md-2{% else %}}col-xs-12 col-md-2 col-sm-4{% endif %}">
 			{% include 'base/fields/headers/caption.html' %}
 		</div>
-		<div class="col-xs-12 col-sm-8 col-md-10">
+		<div class="{% if is_small %}col-xs-12{% elif is_middle %}col-sm-8{% elif is_larger %}col-md-10{% else %}}col-xs-12 col-md-8 col-sm-10{% endif %}">
 		{% if field|is_checkbox %}
 			{% include 'base/fields/checkbox.html' %}
 		{% elif field|is_radio %}
@@ -35,6 +35,8 @@
 			{% include 'base/fields/datetime.html' %}
 		{% elif field|is_password %}
 			{% include 'base/fields/password.html' %}
+		{% elif field|is_url %}
+			{% include 'base/fields/url.html' %}
 		{% else %}
 			{% include 'base/fields/field.html' %}
 		{% endif %}

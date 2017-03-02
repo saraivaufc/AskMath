@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = "ugettext as _"
-NEW_TEXT = "ugettext_lazy as _"
-FILE_TYPES = ['(.)\.py', ]
+TEXT = "full-height"
+NEW_TEXT = "h-100"
+FILE_TYPES = ['(.)\.html', ]
 
 rexs = []
 for i in FILE_TYPES:

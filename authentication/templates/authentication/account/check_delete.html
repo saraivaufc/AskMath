@@ -19,7 +19,7 @@
 {%  block page_title %}{% trans "Confirm delete" %}{% endblock %}
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid text-xs-center full-width">
+<div class="jumbotron jumbotron-fluid text-xs-center w-100">
 	<div class="container-fluid">
 		<form action="" method="post">{% csrf_token %}
 			<p class="lead">{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>

@@ -19,19 +19,27 @@
 {% endblock %}
 
 {%  block page_title %}
-	{% trans "Topics" %}
+	{% trans "Forum" %}
 {% endblock %}
 
 {% block content %}
-	<p class="lead">
-		{% url 'forum:topic_add' as url_new_topic %}
-		{% blocktrans with url=url_new_topic %}
-			Click <a href="{{ url }}">here</a> to add topic. 
-		{% endblocktrans %}
-	</p>
+	<div class="w-100 mb-1">
+		<div class="btn-group" role="group">
+			<a href="{% url 'forum:topic_list' %}" class="btn btn-success">
+				<i class="fa fa-plus"></i>
+				{% trans "New Topic" %}
+			</a>
+		</div>
+		<div class="btn-group float-xs-right" role="group">
+			<a href="{% url 'forum:topic_list' %}" class="btn btn-secondary {% if not category_selected %}active{% endif %}">{% trans "All" %}</a>
+			{% for category in categories %}
+			<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}" class="btn btn-secondary {% if category == category_selected %}active{% endif %}">{{ category.name }}</a>
+			{% endfor %}
+		</div>
+	</div>
 	
 	{% for topic in object_list %}
-		<div class="card card-block full-width">
+		<div class="card card-block w-100">
 			<h1 class="h4" id="{ topic.slug }}">
 				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
 				<div class="float-xs-right">

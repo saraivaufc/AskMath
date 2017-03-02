@@ -29,6 +29,12 @@
 			</a>
 			<span class="tile-label">{{ video.title }}</span>
 		</div>
+	{% empty %}
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<p class="lead">{% trans "No found videos." %}</p>
+			</div>
+		</div>
 	{% endfor %}
 
 	{% include "base/_paginate.html" %}

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 01:06-0300\n"
-"PO-Revision-Date: 2017-03-01 23:46-0234\n"
+"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"PO-Revision-Date: 2017-03-02 11:49-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -266,6 +266,10 @@ msgid ""
 msgstr ""
 "\n"
 "Vídeos de  %(lesson)s"
+
+#: ask/templates/ask/video/list.html:35
+msgid "No found videos."
+msgstr "Não foram encontradas vídeos."
 
 #: ask/urls/__init__.py:12
 msgid "^index$"

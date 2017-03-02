@@ -41,7 +41,10 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		#total de questoes ja respondidas corretamente pelo usuario atual
 		context['questions_corrects'] = len( filter(lambda question: question.get_answers().filter(user=self.request.user, correct=True, exists=True).exists(), self.get_lesson().questions.all()))
 		#a porcentagem que conclusao da licao
-		context['percent_completed'] = (context['questions_corrects'] * 100) / context['questions_amount']
+		try:
+			context['percent_completed'] = (context['questions_corrects'] * 100) / context['questions_amount']
+		except ZeroDivisionError:
+			context['percent_completed'] = 0
 		return context
 
 	def get(self, request, * args, ** kwargs):

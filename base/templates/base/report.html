@@ -1,0 +1,34 @@
+{% extends "base/_base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Contact" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-vcard"></i>
+		{% trans "Contact" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Contact us" %}{% endblock %}
+
+{% block content %}
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<ul class="list-group">
+			<li class="list-group-item disabled">{% trans "Social Networks" %}:</li>
+			{% for social_network in social_networks %}
+			<li class="list-group-item">
+				<img src="{{ social_network.icon.url }}" class="img-thumbnail rounded float-xs-left" style="width: 50px; margin-right: 10px;">
+				{{ social_network.name }}
+				</br>
+				<a href="{{ social_network.url }}" target="_blank">{{ social_network.url }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-8">
+		{% include "base/_form.html" with is_middle=True %}
+	</div>
+{% endblock %}

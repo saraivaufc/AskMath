@@ -6,7 +6,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="#" class="breadcrumb-item" >
+	<a href="{% url 'forum:topic_detail' slug=topic.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-hashtag"></i>
 		{{ topic.title }}
 	</a>
@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="card card-block full-width">
+	<div class="card card-block w-100">
 		<h1 class="h4" id="{ topic.slug }}">
 			<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
 			<div class="float-xs-right">

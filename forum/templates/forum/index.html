@@ -9,37 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'forum/css/base.css' %}">
 {% endblock %}
 
-{% block site %}
-<section id="content" class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-md-3">
-			<div class="row">
-			{% block sidebar %}
-				{% include 'forum/sidebar.html' %}
-			{% endblock %}
-			</div>
-		</div>
-
-		<div class="col-xs-12 col-sm-8 col-md-9">
-			<div class="row">
-				<label class="h4 text-xs-center text-sm-center text-md-center page-title">
-					{%  block page_title %}{% trans "The AskMath Forum" %}{% endblock %}
-				</label>
-				<div class="page-container">
-					<div class="container-fluid">
-						<div class="row">
-							{% block content %}
-
-							{% endblock %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-{% endblock %}
-
 {% block js %}
 	{{ block.super }}
 	<script src="{% static "forum/js/base.js" %}"></script>

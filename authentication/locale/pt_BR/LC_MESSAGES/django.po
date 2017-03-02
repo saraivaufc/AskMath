@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 01:06-0300\n"
-"PO-Revision-Date: 2017-02-21 15:26-0234\n"
-"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
+"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"PO-Revision-Date: 2017-03-02 11:22-0234\n"
+"Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -26,13 +26,15 @@ msgstr "Autenticação"
 
 #: authentication/forms/user.py:10
 msgid "Agree the Terms and Conditions"
-msgstr ""
+msgstr "Aceito os Termos e Condições"
 
 #: authentication/forms/user.py:10
 msgid ""
 "Clicking here, you agree to the Terms and Conditions set out by this site, "
 "including our Cookie Use."
 msgstr ""
+"Clicando aqui, você aceita todos os termos e condições para usar esse site, "
+"incluindo o uso de Cookies."
 
 #: authentication/models/user.py:39
 msgid "First Name "
@@ -173,6 +175,8 @@ msgid ""
 "Your account doesn't have access to this page. To proceed, please login with "
 "an account that has access."
 msgstr ""
+"Você não possui permissão para acessar essa página. Para prosseguir, por "
+"favor realize login. "
 
 #: authentication/templates/authentication/account/login.html:33
 msgid "Please login to see this page."
@@ -260,7 +264,7 @@ msgstr ""
 
 #: authentication/templates/authentication/account/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Seu nome de usuário, caso tenha esquecido:"
 
 #: authentication/templates/authentication/account/password_reset_email.html:10
 msgid "Thanks for using our site!"
