@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 23:36-0300\n"
-"PO-Revision-Date: 2017-02-22 22:27-0234\n"
+"POT-Creation-Date: 2017-03-02 01:06-0300\n"
+"PO-Revision-Date: 2017-03-01 23:45-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -68,7 +68,7 @@ msgstr "Marque os elementos selecionados como resolvidos."
 msgid "Subject"
 msgstr "Assunto"
 
-#: base/forms/contact.py:6
+#: base/forms/contact.py:6 base/models/report.py:11
 msgid "Message"
 msgstr "Mensagem"
 
@@ -79,10 +79,6 @@ msgstr "Email"
 #: base/models/report.py:10
 msgid "Page"
 msgstr "Página"
-
-#: base/models/report.py:11
-msgid "Report text"
-msgstr "Texto"
 
 #: base/models/report.py:13
 msgid "Solved"
@@ -96,7 +92,7 @@ msgstr "Resolvido por"
 msgid "Created by"
 msgstr "Criado por"
 
-#: base/models/report.py:27 base/templates/blocks/header.html:121
+#: base/models/report.py:27 base/templates/blocks/header.html:115
 msgid "Report"
 msgstr "Reporte"
 
@@ -136,7 +132,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Sim"
 
-#: base/templates/base/_form.html:12
+#: base/templates/base/_form.html:11
 msgid "Save"
 msgstr "Salvar"
 
@@ -148,7 +144,7 @@ msgstr "Fechar"
 msgid "Previous"
 msgstr "Anterior"
 
-#: base/templates/base/_paginate.html:24 base/templates/base/_paginate.html:26
+#: base/templates/base/_paginate.html:26 base/templates/base/_paginate.html:28
 msgid "Next"
 msgstr "Próximo"
 
@@ -161,19 +157,19 @@ msgid "Contact us"
 msgstr "Contate-nos"
 
 #: base/templates/base/credits.html:5 base/templates/base/credits.html:11
-#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:34
+#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:26
 msgid "Credits"
 msgstr "Créditos"
 
-#: base/templates/base/fields/file.html:5
+#: base/templates/base/fields/file.html:4
 msgid "Currently"
 msgstr "Atualmente"
 
-#: base/templates/base/fields/file.html:8
+#: base/templates/base/fields/file.html:7
 msgid "Change"
 msgstr "Alterar"
 
-#: base/templates/base/fields/headers/caption.html:7
+#: base/templates/base/fields/headers/caption.html:5
 msgid "This field is required!"
 msgstr "Este campo é obrigatório"
 
@@ -221,12 +217,11 @@ msgstr ""
 
 #: base/templates/base/timezone.html:6 base/templates/base/timezone.html:12
 #: base/templates/base/timezone.html:16 base/templates/base/timezone.html:23
-#: base/templates/blocks/footer.html:31
 msgid "Timezone"
 msgstr "Zona"
 
 #. Translators: Label of a button that triggers language
-#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:53
+#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:43
 msgid "Go"
 msgstr "Ir"
 
@@ -245,10 +240,6 @@ msgstr "Politica de Privacidade"
 #: base/templates/blocks/footer.html:23
 msgid "Contact Us"
 msgstr "Contate-nos"
-
-#: base/templates/blocks/footer.html:27
-msgid "Most"
-msgstr ""
 
 #: base/templates/blocks/header.html:7
 msgid "Skip to main content of the page - Shortcut #1"
@@ -271,8 +262,8 @@ msgid "On/Off High Contrast - Shortcut #3"
 msgstr "Ligar/Desligar Alto Contraste - Atalho #3"
 
 #: base/templates/blocks/header.html:18
-msgid "High Contrast-OFF"
-msgstr "Alto Contraste-Desligado"
+msgid "High Contrast"
+msgstr "Alto Contraste"
 
 #: base/templates/blocks/header.html:22
 msgid "Increase Font - Shortcut #4"
@@ -306,23 +297,23 @@ msgstr "Reporte erros e problemas aqui!"
 msgid "Problem?"
 msgstr "Problema?"
 
-#: base/templates/blocks/header.html:89
+#: base/templates/blocks/header.html:83
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/blocks/header.html:93
+#: base/templates/blocks/header.html:87
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/blocks/header.html:97
+#: base/templates/blocks/header.html:91
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/blocks/header.html:105
+#: base/templates/blocks/header.html:99
 msgid "Login"
 msgstr "Entrar"
 
-#: base/templates/blocks/header.html:131
+#: base/templates/blocks/header.html:125
 msgid "Send"
 msgstr "Enviar"
 
@@ -410,6 +401,9 @@ msgstr "Mensagem enviada com sucesso"
 #: base/utils/constants.py:11
 msgid "Error send Report"
 msgstr "Erro ao enviar a mensagem"
+
+#~ msgid "Report text"
+#~ msgstr "Texto"
 
 #~ msgid "/credits/"
 #~ msgstr "/creditos/"

@@ -4,7 +4,6 @@ function active_constrast(){
 	var button_contrast = $("#button-contrast");
 	button_contrast.removeClass("disable-contrast");
 	button_contrast.addClass("enable-contrast");
-	button_contrast.text("Alto Contraste-ON [3]");
 }
 
 function disable_constrast(){
@@ -13,7 +12,6 @@ function disable_constrast(){
 	var button_contrast = $("#button-contrast");
 	button_contrast.removeClass("enable-contrast");
 	button_contrast.addClass("disable-contrast");
-	button_contrast.text("Alto Contraste-OFF [3]");
 }
 
 function set_font(size){

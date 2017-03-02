@@ -14,7 +14,6 @@ html, body {
 
 .page-title{
 	color:#FFF;
-	/*background-color: #0275d8;*/
 	background-color: #1ba1e2;
 	margin: 0em 0em 0em 0em;
 	padding: 5px;
@@ -45,6 +44,7 @@ html, body {
 }
 
 .breadcrumb{
+	background-color: #fff;
 	margin: 0em;
 }
 

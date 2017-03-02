@@ -1,15 +1,17 @@
 {% load i18n%}
 
-<div class="h4" style="margin: 1em 0em 0em 0em;">
-	<div class="list-group h5">
-		<a href="{% url 'forum:topic_add' %}" class="list-group-item list-group-item-action list-group-item-success">
-			{% trans "New Topic" %}
-		</a>
-		<a href="{% url 'forum:topic_list' %}" class="list-group-item list-group-item-action">
+<div class="list-group full-width h5 text-xs-center" style="padding-right: 5px;">
+	<label class="h4 text-xs-center text-sm-center text-md-center page-title">
+		{% trans "Categories" %}
+	</label>
+	<a href="{% url 'forum:topic_list' %}" 
+		class="list-group-item list-group-item-action {% if not category_selected %}list-group-item-info{% endif %}">
 			{% trans "All" %}
+	</a>
+	{% for category in categories %}
+		<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}"
+		class="list-group-item list-group-item-action {% if category == category_selected %}list-group-item-info{% endif %}">
+			{{ category }}
 		</a>
-		{% for category in categories %}
-			<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}" class="list-group-item list-group-item-action">{{ category }}</a>
-		{% endfor %} 
-	</div>
+	{% endfor %} 
 </div>

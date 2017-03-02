@@ -8,7 +8,7 @@ from django.conf import settings
 
 class Report(models.Model):
 	page = models.URLField(verbose_name=_(u"Page"), blank=True)
-	report_text = models.TextField(verbose_name=_(u"Report text"))
+	report_text = models.TextField(verbose_name=_(u"Message"))
 	
 	solved = models.DateTimeField(verbose_name=_(u"Solved"), null=True, blank=True)
 	solved_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Solved by"), related_name="report_solved_by", null=True, blank=True)

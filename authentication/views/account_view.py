@@ -8,11 +8,11 @@ from django.conf import settings
 from django.contrib import messages
 
 from ..utils.constants import Constants
+from ..forms import UserForm
 
 class UserCreateView(CreateView):
 	template_name = 'authentication/account/register.html'
-	model = User
-	fields=["first_name", "last_name", "username", "email", "password"]
+	form_class = UserForm
 	success_url = reverse_lazy('authentication:account_login')
 
 	def form_valid(self, form):

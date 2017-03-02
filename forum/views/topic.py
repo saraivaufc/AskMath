@@ -23,15 +23,19 @@ class TopicListView(ListView):
 	paginate_by = settings.PAGINATE_BY
 
 	def get_queryset(self):
-		category = self.request.GET.get(_("category"))
-		if category:
-			return Topic.objects.filter(category__slug=category, status='p')
+		category_slug = self.request.GET.get(_("category"))
+		if category_slug:
+			return Topic.objects.filter(category__slug=category_slug, status='p')
 		else:
 			return Topic.objects.filter(status='p')
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicListView, self).get_context_data(** kwargs)
 		context['categories'] = Category.objects.filter(status='p')
+		
+		category_slug = self.request.GET.get(_("category"))
+		if category_slug:
+			context['category_selected'] = Category.objects.filter(slug=category_slug).first()	
 		return context
 
 class TopicDetailView(DetailView):

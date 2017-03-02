@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 23:36-0300\n"
-"PO-Revision-Date: 2017-02-17 21:02-0234\n"
-"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
+"POT-Creation-Date: 2017-03-02 01:06-0300\n"
+"PO-Revision-Date: 2017-03-01 23:46-0234\n"
+"Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
 #: ask/api/urls.py:6
-#, fuzzy
-#| msgid "^issues/"
 msgid "^issue/$"
-msgstr "^assuntos/"
+msgstr "^assunto/$"
 
 #: ask/api/urls.py:7
-#, fuzzy
-#| msgid "Lesson"
 msgid "^lesson/$"
-msgstr "Lição"
+msgstr "^licao/$"
 
 #: ask/models/answer.py:9
 msgid "User"
@@ -248,16 +244,16 @@ msgstr ""
 "\n"
 "Questões de  %(lesson)s"
 
-#: ask/templates/ask/question/detail.html:42
+#: ask/templates/ask/question/detail.html:47
 msgid "Reply"
 msgstr "Responder"
 
-#: ask/templates/ask/question/detail.html:47
-#: ask/templates/ask/question/detail.html:57
+#: ask/templates/ask/question/detail.html:52
+#: ask/templates/ask/question/detail.html:62
 msgid "Help"
 msgstr "Ajuda"
 
-#: ask/templates/ask/question/detail.html:64
+#: ask/templates/ask/question/detail.html:69
 msgid "No found questions."
 msgstr "Não foram encontradas questões."
 

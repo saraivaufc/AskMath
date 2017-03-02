@@ -7,22 +7,33 @@
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'forum:topic_list' %}" class="breadcrumb-item" >
-		<i class="fa fa-comment-o"></i>
-		{% trans "Topics" %}
+		<i class="fa fa-comments"></i>
+		{% trans "Forum" %}
 	</a>
+	{% if category_selected %}
+	<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category_selected.slug }}" class="breadcrumb-item" >
+		<i class="fa fa-filter"></i>
+		{{ category_selected }}
+	</a>
+	{% endif %}
 {% endblock %}
 
 {%  block page_title %}
-	{% trans "List of Topics" %}
+	{% trans "Topics" %}
 {% endblock %}
 
 {% block content %}
+	<p class="lead">
+		{% url 'forum:topic_add' as url_new_topic %}
+		{% blocktrans with url=url_new_topic %}
+			Click <a href="{{ url }}">here</a> to add topic. 
+		{% endblocktrans %}
+	</p>
+	
 	{% for topic in object_list %}
 		<div class="card card-block full-width">
 			<h1 class="h4" id="{ topic.slug }}">
 				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
-				<span class="tag tag-warning tag-sm">{{ topic.category.name }}</span>
-		
 				<div class="float-xs-right">
 					{% if topic.created_by == request.user  %}
 					<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
