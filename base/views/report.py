@@ -14,6 +14,7 @@ class ReportCreateView(CreateView):
 
 	def form_valid(self, form):
 		form.instance.created_by = self.request.user
+		form.instance.page = self.request.path
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
 		messages.success(self.request, Constants.REPORT_SUCCESS_SEND)

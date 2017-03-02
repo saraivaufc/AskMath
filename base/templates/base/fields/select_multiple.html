@@ -1,12 +1,10 @@
 {% load i18n manager_tags %}
 
 <div class="form-group">
-	{% include 'base/fields/headers/caption.html' %}
 	<select multiple="multiple"
 		{% include 'base/fields/headers/attrs.html' %}
 		{% for value, text in field.field.choices %}
 			<option value="{{ value }}" {% if value|convert:'int' in field.value|convert:'int' %}selected="selected"{% endif %}>{{ text }}</option>
 		{% endfor %}
 	</select>
-	{% include 'base/fields/headers/errors.html' %}
 </div>

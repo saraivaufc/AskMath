@@ -28,7 +28,12 @@
 			{% include 'base/_modal.html' with id="introduction" title=INTRODUCTION_TITLE body=question.introduction.text %}
 		{% endif %}
 		
-		<div class="col-md-6">
+		<div class="col-md-8">
+			<progress class="progress progress-warning progress-striped progress-animated" value="{{ percent_completed }}" max="100" aria-describedby="example-caption-6">
+				<div class="progress">
+					<span class="progress-bar" style="width: 25%;"></span>
+				</div>
+			</progress>
 			<p class="lead">
 				{{ question.text }}
 			</p>
@@ -50,7 +55,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-6">
+		<div class="col-md-4">
 			
 		</div>
 		{% if question.help %}

@@ -36,8 +36,12 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		context = super(QuestionDetailView, self).get_context_data(** kwargs)
 		context['issue'] = self.get_issue()
 		context['lesson'] = self.get_lesson()
-		context['answers_amount'] = len(self.get_object().get_answers())
-		context['answers_corrects'] = len(self.get_object().get_answers().filter(correct=True))
+		#total de questoes da licao
+		context['questions_amount'] = len(self.get_lesson().questions.all())
+		#total de questoes ja respondidas corretamente pelo usuario atual
+		context['questions_corrects'] = len( filter(lambda question: question.get_answers().filter(user=self.request.user, correct=True, exists=True).exists(), self.get_lesson().questions.all()))
+		#a porcentagem que conclusao da licao
+		context['percent_completed'] = (context['questions_corrects'] * 100) / context['questions_amount']
 		return context
 
 	def get(self, request, * args, ** kwargs):

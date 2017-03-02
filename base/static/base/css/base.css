@@ -159,3 +159,7 @@ a {
 nav a , ul a{
 	text-decoration: none;
 }
+
+.form-control{
+	max-width: 400px;
+}

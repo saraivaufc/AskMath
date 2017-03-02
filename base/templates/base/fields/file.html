@@ -1,6 +1,5 @@
 {% load i18n %}
 <div class="form-group">
-	{% include 'base/fields/headers/caption.html' %}
 		{% if field.value %}
 			{% trans "Currently" %}:<a href="{{ MEDIA_URL }}{{ field.value }}" target="_blank">{{ field.value }}</a>
 		{% endif %}
@@ -8,5 +7,4 @@
 			{% trans "Change" %}:
 		{% endif %}
 		<input type="file" {% include 'base/fields/headers/attrs.html' %} />
-		{% include 'base/fields/headers/errors.html' %}
 </div>
