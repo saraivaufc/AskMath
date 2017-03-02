@@ -1,0 +1,20 @@
+{% load i18n%}
+
+<div class="list-group h5 mb-1 w-100">
+	<a href="{% url 'forum:topic_add' %}" class="list-group-item "> 
+		{% trans "New Topic" %}
+		<span class="tag tag-success tag-pill float-xs-right">+</span>	
+	</a>
+</div>
+
+<div class="list-group h5 w-100">
+	<a href="{% url 'forum:topic_list' %}" class="list-group-item {% if not category_selected and object_list %}active{% endif %}">
+		{% trans "All" %}
+	</a>
+	{% for category in categories %}
+	<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}" class="list-group-item {% if category == category_selected %}active{% endif %}">
+		{{ category.name }}
+		<span class="tag tag-default tag-pill float-xs-right">{{ category.get_topics|length }}</span>
+	</a>
+	{% endfor %}
+</div>

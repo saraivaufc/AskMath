@@ -9,6 +9,23 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'forum/css/base.css' %}">
 {% endblock %}
 
+{% block site %}
+	<section id="content" class="container-fluid">
+		<h1 class="h4 text-xs-center text-sm-center text-md-center page-title">
+			{%  block page_title %}The AskMath Forum{% endblock %}
+		</h1>
+		<div class="page-container">
+			<div class="container-fluid">
+				<div class="row">
+					{% block content %}
+
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
 {% block js %}
 	{{ block.super }}
 	<script src="{% static "forum/js/base.js" %}"></script>

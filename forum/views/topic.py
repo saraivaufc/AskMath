@@ -58,7 +58,6 @@ class TopicCreateView(SuccessMessageMixin, CreateView):
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicCreateView, self).get_context_data(** kwargs)
-		context['categories'] = Category.objects.filter(status='p')
 		context['comment_form'] = CommentForm()
 		return context
 
@@ -94,7 +93,6 @@ class TopicUpdateView(SuccessMessageMixin, UpdateView):
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicUpdateView, self).get_context_data(** kwargs)
-		context['categories'] = Category.objects.filter(status='p')
 		context['comment_form'] = CommentForm(instance=self.object.get_comments().first())
 		return context
 
@@ -149,7 +147,6 @@ class TopicDeleteView(DeleteView):
 
 	def get_context_data(self, ** kwargs):
 		context = super(TopicDeleteView, self).get_context_data(** kwargs)
-		context['categories'] = Category.objects.filter(status='p')
 		return context
 
 	def get(self, request, * args, ** kwargs):

@@ -44,7 +44,7 @@ html, body {
 }
 
 .breadcrumb{
-	background-color: #fff;
+	background-color: inherit;
 	margin: 0em;
 }
 

@@ -18,63 +18,30 @@
 	{% endif %}
 {% endblock %}
 
-{%  block page_title %}
-	{% trans "Forum" %}
-{% endblock %}
-
 {% block content %}
-	<div class="w-100 mb-1">
-		<div class="btn-group" role="group">
-			<a href="{% url 'forum:topic_list' %}" class="btn btn-success">
-				<i class="fa fa-plus"></i>
-				{% trans "New Topic" %}
-			</a>
-		</div>
-		<div class="btn-group float-xs-right" role="group">
-			<a href="{% url 'forum:topic_list' %}" class="btn btn-secondary {% if not category_selected %}active{% endif %}">{% trans "All" %}</a>
-			{% for category in categories %}
-			<a href="{% url 'forum:topic_list' %}?{% trans "category" %}={{ category.slug }}" class="btn btn-secondary {% if category == category_selected %}active{% endif %}">{{ category.name }}</a>
-			{% endfor %}
+
+	<div class="col-md-3">
+		<div class="row">
+		{% include 'forum/topic/sidebar_categories.html' %}		
 		</div>
 	</div>
-	
-	{% for topic in object_list %}
-		<div class="card card-block w-100">
-			<h1 class="h4" id="{ topic.slug }}">
-				<a href="{% url 'forum:topic_detail' slug=topic.slug %}">{{ topic.title }}</a>
-				<div class="float-xs-right">
-					{% if topic.created_by == request.user  %}
-					<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-					{% endif %}
-					{% if perms.forum.delete_topic or topic.created_by == request.user %}
-					<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
-					{% endif %}
+
+	<div class="col-md-9">
+		<div class="row">
+			{% for topic in object_list %}
+				{% include 'forum/topic/_render.html' %}
+			{% empty %}
+				<div class="jumbotron">
+					<div class="container-fluid">
+						<p class="lead">{% trans "No topic found this query." %}</p>
+					</div>
 				</div>
-			</h1>					
-			<h2 class="text-muted h6">
-				{{ topic.creation|naturaltime }} {% trans "by" %} <b>{{ topic.created_by.get_full_name }}</b>
-			</h2>
-			
-			<p>{{ topic.get_comments.first.text|truncatewords_html:20 }}</p>
-			
-			<a href="{% url 'forum:topic_detail' slug=topic.slug %}">
-				{% blocktrans count counter=topic.get_comments|length|add:-1 %}
-					See {{ counter }} comment
-					{% plural %}
-					See {{ counter }} comments
-				{% endblocktrans %}
-			</a>
+			{% endfor %}
+			<nav class="blog-pagination">
+				{% include 'base/_paginate.html' %}
+			</nav>
 		</div>
-	{% empty %}
-		<div class="jumbotron">
-			<div class="container-fluid">
-				<p class="lead">{% trans "No topic found this query." %}</p>
-			</div>
-		</div>
-	{% endfor %}
-		<nav class="blog-pagination">
-			{% include 'base/_paginate.html' %}
-		</nav>
+	</div>
 {% endblock %}
 
 {% block js %}
