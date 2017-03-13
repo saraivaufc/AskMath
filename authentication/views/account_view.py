@@ -34,7 +34,7 @@ class UserDetailView(DetailView):
 class UserUpdateView(UpdateView):
 	template_name = 'authentication/account/form.html'
 	model = User
-	fields = ['first_name', 'last_name', 'username', 'email']
+	fields = ['first_name', 'last_name', 'profile_image', 'email']
 
 	def get_success_url(self):
 		return reverse_lazy('authentication:account_detail', kwargs={'pk': self.object.pk})

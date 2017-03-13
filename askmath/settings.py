@@ -68,6 +68,7 @@ LOCAL_APPS = (
     'ask',
     'authentication',
     'forum',
+    'gamification',
     'partners_admin',
 )
 
@@ -172,6 +173,7 @@ LOCALE_PATHS = (
     path('ask/locale'),
     path('authentication/locale'),
     path('forum/locale'),
+    path('gamification/locale'),
     path('partners_admin/locale'),
     '/var/local/translations/locale',
 )
@@ -211,9 +213,13 @@ MEDIA_URL = '/media/'
 
 # Media uploads dirs
 
+PROFILE_IMAGE_DEFAULT = "files/no_avatar.png"
+
+PROFILE_IMAGE_DIR = 'uploads/profile_image/%Y/%m/%d'
 ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 USER_AVATAR_DIR = 'uploads/user_avatar'
+LEVEL_IMAGE_DIR = 'uploads/level_image/%Y/%m/%d'
 
 # Pagination
 

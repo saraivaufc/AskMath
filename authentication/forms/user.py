@@ -10,4 +10,4 @@ class UserForm(forms.ModelForm):
 	terms = forms.BooleanField(label=_('Agree the Terms and Conditions'), widget=forms.CheckboxInput(), help_text=_("Clicking here, you agree to the Terms and Conditions set out by this site, including our Cookie Use."))
 	class Meta:
 		model = User
-		fields = ["first_name", "last_name", "username", "email", "password", "terms"]
+		fields = ["first_name", "last_name", "email", "password", "terms"]

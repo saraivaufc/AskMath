@@ -22,6 +22,10 @@ from ask.admin import IssueAdmin, LessonAdmin, IntroductionAdmin, QuestionAdmin,
 from forum.models import Category, Topic, Comment
 from forum.admin import CategoryAdmin, TopicAdmin, CommentAdmin
 
+#Gamification
+from gamification.models import Level, LevelManager, RankingManager, ScoreManager
+from gamification.admin import LevelAdmin, LevelManagerAdmin, RankingManagerAdmin, ScoreManagerAdmin
+
 #Authentication
 from authentication.models import User
 from django.contrib.auth.models import Group, Permission
@@ -121,6 +125,12 @@ partners_admin.register(Answer, AnswerAdmin)
 partners_admin.register(Category, CategoryAdmin)
 partners_admin.register(Topic, TopicAdmin)
 partners_admin.register(Comment, CommentAdmin)
+
+#Gamification
+partners_admin.register(Level, LevelAdmin)
+partners_admin.register(LevelManager, LevelManagerAdmin)
+partners_admin.register(RankingManager, RankingManagerAdmin)
+partners_admin.register(ScoreManager, ScoreManagerAdmin)
 
 #Authentication
 partners_admin.register(User, UserAdmin)
