@@ -216,7 +216,7 @@ MEDIA_URL = '/media/'
 PROFILE_IMAGE_DEFAULT = "files/no_avatar.png"
 
 PROFILE_IMAGE_DIR = 'uploads/profile_image/%Y/%m/%d'
-ISSUE_PHOTO_DIR = 'uploads/issue_photo/%Y/%m/%d'
+ISSUE_PHOTO_DIR = 'uploads/course_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 USER_AVATAR_DIR = 'uploads/user_avatar'
 LEVEL_IMAGE_DIR = 'uploads/level_image/%Y/%m/%d'

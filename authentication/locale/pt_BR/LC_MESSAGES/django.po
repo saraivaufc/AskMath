@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"POT-Creation-Date: 2017-03-14 05:35-0300\n"
 "PO-Revision-Date: 2017-03-02 11:22-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,67 +36,65 @@ msgstr ""
 "Clicando aqui, você aceita todos os termos e condições para usar esse site, "
 "incluindo o uso de Cookies."
 
-#: authentication/models/user.py:39
+#: authentication/models/user.py:40
 msgid "First Name "
 msgstr "Primeiro Nome"
 
-#: authentication/models/user.py:39
+#: authentication/models/user.py:40
 msgid "Please enter you first name."
 msgstr "Por favor, entre com seu primeiro nome."
 
-#: authentication/models/user.py:40
+#: authentication/models/user.py:41
 msgid "Last Name "
 msgstr "Último Nome"
 
-#: authentication/models/user.py:40
+#: authentication/models/user.py:41
 msgid "Please enter you last name."
 msgstr "Por favor, entre com seu último nome."
 
-#: authentication/models/user.py:41
-#: authentication/templates/authentication/account/_render.html:22
-msgid "Username"
-msgstr "Nome de usuário"
-
-#: authentication/models/user.py:41
-msgid "Please enter you username."
-msgstr "Por favor, entre com seu nome de usuário."
-
 #: authentication/models/user.py:42
-#: authentication/templates/authentication/account/_render.html:25
+#: authentication/templates/authentication/account/_render.html:22
+#, fuzzy
+#| msgid "Profile"
+msgid "Profile Image"
+msgstr "Perfil"
+
+#: authentication/models/user.py:43
+#: authentication/templates/authentication/account/_render.html:27
 msgid "Email"
 msgstr "Email"
 
-#: authentication/models/user.py:42
+#: authentication/models/user.py:43
 msgid "Please enter you email."
 msgstr "Por favor, entre com seu email."
 
-#: authentication/models/user.py:43
+#: authentication/models/user.py:44
 msgid "Active"
 msgstr "Ativo"
 
-#: authentication/models/user.py:43
+#: authentication/models/user.py:44
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
 
-#: authentication/models/user.py:44
+#: authentication/models/user.py:45
 msgid "Date joined"
 msgstr "Data de cadastro"
 
-#: authentication/models/user.py:45
+#: authentication/models/user.py:46
 msgid "Moderator Status"
 msgstr "Status de Moderador"
 
-#: authentication/models/user.py:46
+#: authentication/models/user.py:47
 msgid "Staff Status"
 msgstr "Status de Técnico"
 
-#: authentication/models/user.py:87
+#: authentication/models/user.py:86
 msgid "User"
 msgstr "Usuário"
 
-#: authentication/models/user.py:88
+#: authentication/models/user.py:87
 msgid "Users"
 msgstr "Usuários"
 
@@ -113,7 +111,11 @@ msgstr "Vazio"
 msgid "Last Name"
 msgstr "Último Nome"
 
-#: authentication/templates/authentication/account/_render.html:28
+#: authentication/templates/authentication/account/_render.html:24
+msgid "See Image"
+msgstr ""
+
+#: authentication/templates/authentication/account/_render.html:30
 msgid "Date Joined"
 msgstr "Data de cadastro"
 
@@ -360,6 +362,12 @@ msgstr "^recuperar_senha/completo$"
 #: authentication/utils/constants.py:5
 msgid "User success created"
 msgstr "Usuário criado com sucesso"
+
+#~ msgid "Username"
+#~ msgstr "Nome de usuário"
+
+#~ msgid "Please enter you username."
+#~ msgstr "Por favor, entre com seu nome de usuário."
 
 #~ msgid "Home"
 #~ msgstr "Início"

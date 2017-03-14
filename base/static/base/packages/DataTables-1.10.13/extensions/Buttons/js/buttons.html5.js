@@ -435,7 +435,7 @@ function _addToZip( zip, obj ) {
 				// from the root node, so we need to save them. Do this by
 				// replacing the namespace nodes with a regular attribute that
 				// we convert back when serialised. Edge does not have this
-				// issue
+				// course
 				var worksheet = val.childNodes[0];
 				var i, ien;
 				var attrs = [];

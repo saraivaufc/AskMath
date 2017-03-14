@@ -34,10 +34,10 @@
 					{% trans "Restart" %}
 				</button>
 			</form>
-			<a href="{% url 'ask:lesson_list' issue.slug %}" class="btn btn-info" role="button">
+			<a href="{% url 'ask:lesson_list' course.slug %}" class="btn btn-info" role="button">
 				<i class="fa fa-level-up"></i>
-				{% blocktrans with issue=issue %}
-					Back to {{ issue }}
+				{% blocktrans with course=course %}
+					Back to {{ course }}
 				{% endblocktrans %}
 			</a>
 			</div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"POT-Creation-Date: 2017-03-14 05:35-0300\n"
 "PO-Revision-Date: 2017-02-21 15:28-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Criado por"
 msgid "Category"
 msgstr "Categoria"
 
-#: forum/models/category.py:35 forum/templates/forum/sidebar.html:5
+#: forum/models/category.py:35
 msgid "Categories"
 msgstr "Categorias"
 
@@ -89,7 +89,7 @@ msgstr "Título"
 msgid "Topic"
 msgstr "Tópico"
 
-#: forum/models/topic.py:41 forum/templates/forum/topic/list.html:22
+#: forum/models/topic.py:41
 msgid "Topics"
 msgstr "Tópicos"
 
@@ -106,41 +106,22 @@ msgstr "Confirme a exclusão"
 msgid "Form Comment"
 msgstr "Formulário do Comentário"
 
-#: forum/templates/forum/comment/form.html:30
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: forum/templates/forum/comment/form.html:33
+#: forum/templates/forum/comment/form.html:27
 #: forum/templates/forum/topic/form.html:32
 msgid "Save"
 msgstr "Salvar"
 
-#: forum/templates/forum/comment/form.html:38
+#: forum/templates/forum/comment/form.html:32
 #: forum/templates/forum/topic/form.html:38
 msgid "Preview is shown here:"
 msgstr "Pré-visualização: "
 
-#: forum/templates/forum/index.html:26
-msgid "The AskMath Forum"
-msgstr "AskMath - Fórum"
-
-#: forum/templates/forum/sidebar.html:9
-msgid "All"
-msgstr "Todos"
-
-#: forum/templates/forum/sidebar.html:12
-#: forum/templates/forum/topic/list.html:14 forum/views/topic.py:26
-#: forum/views/topic.py:36
-msgid "category"
-msgstr "Categoria"
-
-#: forum/templates/forum/topic/detail.html:34
-#: forum/templates/forum/topic/detail.html:51
-#: forum/templates/forum/topic/list.html:47
+#: forum/templates/forum/topic/_render.html:16
+#: forum/templates/forum/topic/_render.html:34
 msgid "by"
 msgstr "por"
 
-#: forum/templates/forum/topic/detail.html:59
+#: forum/templates/forum/topic/_render.html:43
 msgid "New Comment"
 msgstr "Novo Comentário"
 
@@ -150,34 +131,23 @@ msgstr "Novo Comentário"
 msgid "Form Topic"
 msgstr "Formulário do Tópico"
 
-#: forum/templates/forum/topic/list.html:28
-#, python-format
-msgid ""
-"\n"
-"\t\t\tClick <a href=\"%(url)s\">here</a> to add topic. \n"
-"\t\t"
-msgstr ""
+#: forum/templates/forum/topic/list.html:14
+#: forum/templates/forum/topic/sidebar_categories.html:15
+#: forum/views/topic.py:26 forum/views/topic.py:36
+msgid "category"
+msgstr "Categoria"
 
-#: forum/templates/forum/topic/list.html:53
-#, python-format
-msgid ""
-"\n"
-"\t\t\t\t\tSee %(counter)s comment\n"
-"\t\t\t\t\t"
-msgid_plural ""
-"\n"
-"\t\t\t\t\tSee %(counter)s comments\n"
-"\t\t\t\t"
-msgstr[0] ""
-"\n"
-"Ver  %(counter)s comentário"
-msgstr[1] ""
-"\n"
-"Ver  %(counter)s comentários"
-
-#: forum/templates/forum/topic/list.html:63
+#: forum/templates/forum/topic/list.html:36
 msgid "No topic found this query."
 msgstr "Nenhum tópico encontrado na busca."
+
+#: forum/templates/forum/topic/sidebar_categories.html:5
+msgid "New Topic"
+msgstr "Novo Tópico"
+
+#: forum/templates/forum/topic/sidebar_categories.html:12
+msgid "All"
+msgstr "Todos"
 
 #: forum/urls/__init__.py:5
 msgid "^forum/"
@@ -196,7 +166,7 @@ msgstr "Use $ e $ para inserir latex no texto. Exemplo: $ ax^2 + bx + c = 0 $"
 msgid "Comment created successfully"
 msgstr "Comentário criado com sucesso"
 
-#: forum/views/comment.py:50
+#: forum/views/comment.py:49
 msgid "Comment updated successfully"
 msgstr "Comentário atualizado com sucesso"
 
@@ -204,16 +174,34 @@ msgstr "Comentário atualizado com sucesso"
 msgid "Topic created successfully"
 msgstr "Tópico criado com sucesso"
 
-#: forum/views/topic.py:90
+#: forum/views/topic.py:89
 msgid "Topic updated successfully"
 msgstr "Tópico atualizado com sucesso"
 
-#: forum/views/topic.py:143
+#: forum/views/topic.py:141
 msgid "Topic removed successfully"
 msgstr "Tópico removido com sucesso"
 
-#~ msgid "New Topic"
-#~ msgstr "Novo Tópico"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "The AskMath Forum"
+#~ msgstr "AskMath - Fórum"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\t\t\t\tSee %(counter)s comment\n"
+#~ "\t\t\t\t\t"
+#~ msgid_plural ""
+#~ "\n"
+#~ "\t\t\t\t\tSee %(counter)s comments\n"
+#~ "\t\t\t\t"
+#~ msgstr[0] ""
+#~ "\n"
+#~ "Ver  %(counter)s comentário"
+#~ msgstr[1] ""
+#~ "\n"
+#~ "Ver  %(counter)s comentários"
 
 #~ msgid "List of Topics"
 #~ msgstr "Lista de Tópicos"

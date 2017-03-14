@@ -1,4 +1,4 @@
-from .issue import Issue
+from .course import Course
 from .lesson import Lesson
 from .question import Question
 from .choice import Choice

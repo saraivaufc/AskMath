@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
             options={'ordering': ['date'], 'verbose_name': 'Choice', 'verbose_name_plural': 'Choices'},
         ),
         migrations.AlterModelOptions(
-            name='issue',
-            options={'ordering': ['name'], 'verbose_name': 'Issue', 'verbose_name_plural': 'Issues'},
+            name='course',
+            options={'ordering': ['name'], 'verbose_name': 'Course', 'verbose_name_plural': 'Courses'},
         ),
         migrations.AlterModelOptions(
             name='lesson',

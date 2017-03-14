@@ -8,7 +8,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'ask:lesson_detail' issue_slug=issue.slug slug=lesson.slug %}" class="breadcrumb-item" >
+	<a href="{% url 'ask:lesson_detail' course_slug=course.slug slug=lesson.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-puzzle-piece"></i>
 		{{ lesson }}
 	</a>
@@ -21,11 +21,11 @@
 {% block content %}
 		<div class="container-fluid">
 			<p class="lead text-justify">{{ lesson.description }}</p>
-			<a href="{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
+			<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
 				<i class="fa fa-question"></i>
 				{% trans "Questions" %}
 			</a>
-			<a href="{% url 'ask:video_list' issue_slug=issue.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
+			<a href="{% url 'ask:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
 				<i class="fa fa-film"></i>
 				{% trans "Videos" %}
 			</a>

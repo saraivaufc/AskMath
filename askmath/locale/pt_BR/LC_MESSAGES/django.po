@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"POT-Creation-Date: 2017-03-14 05:35-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: askmath/settings.py:180
+#: askmath/settings.py:182
 msgid "Brazilian Portuguese"
 msgstr "Português Brasileiro"
 
-#: askmath/settings.py:181
+#: askmath/settings.py:183
 msgid "English"
 msgstr "Inglês"
 
-#: askmath/settings.py:182
+#: askmath/settings.py:184
 msgid "Spanish"
 msgstr "Espanhol"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"POT-Creation-Date: 2017-03-14 05:35-0300\n"
 "PO-Revision-Date: 2017-03-02 12:40-0234\n"
 "Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,6 @@ msgid "Page"
 msgstr "Página"
 
 #: base/models/report.py:11
-#| msgid "Name"
 msgid "Full Name"
 msgstr "Nome completo"
 
@@ -97,7 +96,7 @@ msgstr "Resolvido por"
 msgid "Created by"
 msgstr "Criado por"
 
-#: base/models/report.py:30 base/templates/blocks/header.html:115
+#: base/models/report.py:30 base/templates/blocks/header.html:116
 msgid "Report"
 msgstr "Reporte"
 
@@ -137,7 +136,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Sim"
 
-#: base/templates/base/_form.html:11
+#: base/templates/base/_form.html:10
 msgid "Save"
 msgstr "Salvar"
 
@@ -306,31 +305,31 @@ msgstr ""
 msgid "Problem?"
 msgstr "Problema?"
 
-#: base/templates/blocks/header.html:83
+#: base/templates/blocks/header.html:84
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/blocks/header.html:87
+#: base/templates/blocks/header.html:88
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/blocks/header.html:91
+#: base/templates/blocks/header.html:92
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/blocks/header.html:99
+#: base/templates/blocks/header.html:100
 msgid "Login"
 msgstr "Entrar"
 
-#: base/templates/blocks/header.html:125
+#: base/templates/blocks/header.html:126
 msgid "Send"
 msgstr "Enviar"
 
 #: base/templates/blocks/meta.html:3
 msgid ""
 "Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video"
-" for free for you."
+"students who take the AskMath. There are several lessons and tutorials video "
+"for free for you."
 msgstr ""
 
 #: base/templates/blocks/meta.html:4
@@ -340,14 +339,12 @@ msgstr "Educação, Matemática, Universidade"
 #: base/templates/blocks/no_script.html:3
 msgid ""
 "For full functionality of this site it is necessary to enable JavaScript. "
-"Here are the <a href=\"http://www.enable-javascript.com/pt/\" "
-"target=\"_blank\">instructions on how to enable JavaScript in your browser "
-"</a>."
+"Here are the <a href=\"http://www.enable-javascript.com/pt/\" target=\"_blank"
+"\">instructions on how to enable JavaScript in your browser </a>."
 msgstr ""
-"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o"
-" Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" "
-"target=\"_blank\">instruções de como habilitar o Javascript em seu navegador"
-" </a>."
+"Para usar todas as funcionalidades deste site, faz-se necessário habilitar o "
+"Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" target="
+"\"_blank\">instruções de como habilitar o Javascript em seu navegador </a>."
 
 #: base/urls/__init__.py:28
 msgid "^about/$"
@@ -442,7 +439,9 @@ msgstr "Erro ao enviar a mensagem"
 #~ msgid "^language$"
 #~ msgstr "^linguagem$"
 
-#~ msgid "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c = 0 $>"
+#~ msgid ""
+#~ "Use <$ and $> to insert latex in text.\t\t\t\t\tExample: <$ ax^2 + bx + c "
+#~ "= 0 $>"
 #~ msgstr ""
 #~ "Use <$ e $> para inserir latex no texto. Exemplo: <$ ax^2 + bx + c = 0 $>"
 

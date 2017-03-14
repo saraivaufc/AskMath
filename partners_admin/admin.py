@@ -15,8 +15,8 @@ from base.models import SocialNetwork, Report
 from base.admin import SocialNetworkAdmin, ReportAdmin
 
 #Ask
-from ask.models import Issue, Lesson, Introduction, Question, Video, Answer
-from ask.admin import IssueAdmin, LessonAdmin, IntroductionAdmin, QuestionAdmin, VideoAdmin, AnswerAdmin
+from ask.models import Course, Lesson, Introduction, Question, Video, Answer
+from ask.admin import CourseAdmin, LessonAdmin, IntroductionAdmin, QuestionAdmin, VideoAdmin, AnswerAdmin
 
 #Forum
 from forum.models import Category, Topic, Comment
@@ -114,7 +114,7 @@ partners_admin.register(SocialNetwork, SocialNetworkAdmin)
 partners_admin.register(Report, ReportAdmin)
 
 #Ask
-partners_admin.register(Issue, IssueAdmin)
+partners_admin.register(Course, CourseAdmin)
 partners_admin.register(Lesson, LessonPartnerAdmin)
 partners_admin.register(Introduction, IntroductionAdmin)
 partners_admin.register(Question, QuestionAdmin)

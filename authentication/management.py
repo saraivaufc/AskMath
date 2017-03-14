@@ -18,8 +18,8 @@ group_permissions = {
 			#Site
 			'add_site', 'change_site', 'delete_site',
 		#Ask
-			#Issue
-			'add_issue', 'change_issue', 'delete_issue', 
+			#Course
+			'add_course', 'change_course', 'delete_course', 
 			#Lesson
 			'add_lesson', 'change_lesson', 'delete_lesson',
 			#Question
@@ -42,8 +42,8 @@ group_permissions = {
 	],
 	"teacher": [
 		#Ask
-			#Issue
-			'add_issue', 'change_issue', 'delete_issue', 
+			#Course
+			'add_course', 'change_course', 'delete_course', 
 			#Lesson
 			'add_lesson', 'change_lesson', 'delete_lesson',
 			#Question
@@ -66,8 +66,8 @@ group_permissions = {
 	],
 	"assistant": [
 		#Ask
-			#Issue
-			'add_issue', 'change_issue', 'delete_issue', 
+			#Course
+			'add_course', 'change_course', 'delete_course', 
 			#Lesson
 			'add_lesson', 'change_lesson', 'delete_lesson',
 			#Question

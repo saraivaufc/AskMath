@@ -28,9 +28,9 @@ class Migration(migrations.Migration):
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='issue',
+            model_name='course',
             name='created_by',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, related_name='issue_created_by', to=settings.AUTH_USER_MODEL, verbose_name='User'),
+            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, related_name='course_created_by', to=settings.AUTH_USER_MODEL, verbose_name='User'),
         ),
         migrations.AlterField(
             model_name='lesson',

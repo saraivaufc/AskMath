@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             new_name='creation',
         ),
         migrations.RenameField(
-            model_name='issue',
+            model_name='course',
             old_name='date',
             new_name='creation',
         ),
@@ -67,7 +67,7 @@ class Migration(migrations.Migration):
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='issue',
+            model_name='course',
             name='last_modified',
             field=models.DateTimeField(auto_now=True),
         ),

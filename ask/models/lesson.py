@@ -17,7 +17,7 @@ STATUS_CHOICES = (
 )
 
 class Lesson(models.Model):
-	issues = models.ManyToManyField("Issue", verbose_name=_(u"Issues"), related_name='lesson_issues', blank=True)
+	courses = models.ManyToManyField("Course", verbose_name=_(u"Courses"), related_name='lesson_courses', blank=True)
 	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
 	description = models.TextField(verbose_name=_(u"Description"))
@@ -32,8 +32,8 @@ class Lesson(models.Model):
 	last_modified = models.DateTimeField(auto_now=True)
 
 	def get_absolute_url(self):
-		issue = self.issues.filter(status='p').first()
-		return reverse_lazy('ask:lesson_detail', kwargs={'issue_slug': issue.slug, 'slug': self.slug})
+		course = self.courses.filter(status='p').first()
+		return reverse_lazy('ask:lesson_detail', kwargs={'course_slug': course.slug, 'slug': self.slug})
 
 	def __unicode__(self):
 		return self.name

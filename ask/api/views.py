@@ -4,16 +4,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from ..models import Issue, Lesson
-from .serializers import IssueSerializer, LessonSerializer
+from ..models import Course, Lesson
+from .serializers import CourseSerializer, LessonSerializer
 
-class IssueList(APIView):
+class CourseList(APIView):
 	"""
-	List all Issues
+	List all Courses
 	"""
 	def get(self, request, format=None):
-		disciplines = Issue.objects.filter(status='p')
-		serializer = IssueSerializer(disciplines, context={'request': request}, many=True)
+		disciplines = Course.objects.filter(status='p')
+		serializer = CourseSerializer(disciplines, context={'request': request}, many=True)
 		return Response(serializer.data)
 
 class LessonList(APIView):

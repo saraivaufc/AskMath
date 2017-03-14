@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from .issue import IssueForm
+from .course import CourseForm
 from .lesson import LessonForm
 from .question import QuestionForm
 from .answer import AnswerForm

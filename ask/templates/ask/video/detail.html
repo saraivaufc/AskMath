@@ -9,7 +9,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'ask:video_detail' issue_slug=issue.slug lesson_slug=lesson.slug slug=video.slug %}" class="breadcrumb-item" >
+	<a href="{% url 'ask:video_detail' course_slug=course.slug lesson_slug=lesson.slug slug=video.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-film"></i>
 		{{ video }}
 	</a>

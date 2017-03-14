@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 12:40-0300\n"
+"POT-Creation-Date: 2017-03-14 05:35-0300\n"
 "PO-Revision-Date: 2017-02-12 14:14-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,24 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: partners_admin/admin.py:45
+#: partners_admin/admin.py:49
 msgid "AskMath - Administration"
 msgstr "AskMath - Administração"
 
-#: partners_admin/admin.py:46
+#: partners_admin/admin.py:50
 msgid "AskMath - Site Administration"
 msgstr "AskMath - Site de Administração"
 
-#: partners_admin/admin.py:47
+#: partners_admin/admin.py:51
 msgid "Applications"
 msgstr "Aplicações"
 
-#: partners_admin/admin.py:73
+#: partners_admin/admin.py:77
 #, python-brace-format
 msgid "Sort {count} Questions"
 msgstr "Ordenar {count} Questões"
 
-#: partners_admin/admin.py:79
+#: partners_admin/admin.py:83
 #, python-brace-format
 msgid "Sort {count} Videos"
 msgstr "Ordenar {count} Vídeos"

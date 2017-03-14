@@ -1,0 +1,33 @@
+{% extends "ask/index.html" %}
+
+
+{% load i18n %}
+
+{% block title %}{% trans "Course list" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:course_list' %}" class="breadcrumb-item" >
+		<i class="fa fa-list"></i>
+		{% trans "Courses" %}
+	</a>
+{% endblock %}
+
+{%  block page_title %}{% trans "Course list" %}{% endblock %}
+
+{% block content %}
+	{% for course in object_list %}
+		<div class="tile {{ course.color }}">
+			<a href="{% url 'ask:lesson_list' course.slug %}" class="tile-content {% if course.icon %}image-set{% else %}iconic{% endif %}">
+				{% if course.icon %}
+					<img src="{{ course.icon.url }}" style="width: 100%;">
+				{% else %}
+					<span class="icon fa fa-leaf"></span>
+				{% endif %}
+			</a>
+			<span class="tile-label">{{ course }}</span>
+		</div>
+	{% endfor %}
+
+	{% include "base/_paginate.html" %}
+{% endblock %}

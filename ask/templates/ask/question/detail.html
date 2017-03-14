@@ -8,7 +8,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'ask:answer_question' issue_slug=issue.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
+	<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-question"></i>
 		{% trans "Questions" %}
 	</a>

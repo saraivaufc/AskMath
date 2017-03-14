@@ -46,19 +46,19 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Issue',
+            name='Course',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, verbose_name='Name')),
                 ('slug', base.utils.models.AutoSlugField(blank=True, db_index=False, populate_from=b'name', unique=True)),
-                ('icon', models.ImageField(blank=True, null=True, upload_to=b'uploads/issue_photo/%Y/%m/%d', verbose_name='Icon')),
+                ('icon', models.ImageField(blank=True, null=True, upload_to=b'uploads/course_photo/%Y/%m/%d', verbose_name='Icon')),
                 ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'r', 'Removed')], max_length=1)),
                 ('color', models.CharField(blank=True, default=ask.utils.colors.get_color, max_length=20)),
                 ('date', models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Issue',
-                'verbose_name_plural': 'Issues',
+                'verbose_name': 'Course',
+                'verbose_name_plural': 'Courses',
             },
         ),
         migrations.CreateModel(
@@ -71,7 +71,7 @@ class Migration(migrations.Migration):
                 ('status', models.CharField(choices=[(b'd', 'Draft'), (b'p', 'Published'), (b'r', 'Removed')], max_length=1)),
                 ('color', models.CharField(blank=True, default=ask.utils.colors.get_color, max_length=20)),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('issues', models.ManyToManyField(blank=True, related_name='lesson_issues', to='ask.Issue', verbose_name='Issues')),
+                ('courses', models.ManyToManyField(blank=True, related_name='lesson_courses', to='ask.Course', verbose_name='Courses')),
             ],
             options={
                 'verbose_name': 'Lesson',

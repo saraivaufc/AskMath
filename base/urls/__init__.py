@@ -21,7 +21,7 @@ from django.contrib.sitemaps import GenericSitemap
 from django.contrib.flatpages import views
 from django.contrib.flatpages.sitemaps import FlatPageSitemap
 
-from ..sitemap import (issues, lessons, topics)
+from ..sitemap import (courses, lessons, topics)
 from ..views.timezone import timezone_view
 
 urlpatterns = (
@@ -49,7 +49,7 @@ urlpatterns += (
 	url(r'^sitemap\.xml$', sitemap, {'sitemaps': 
 			{
 			'flatpages': FlatPageSitemap, 
-			'issues': GenericSitemap(issues, priority=0.6), 
+			'courses': GenericSitemap(courses, priority=0.6), 
 			'lessons': GenericSitemap(lessons, priority=0.6),
 			'topics': GenericSitemap(topics, priority=0.2),
 			}

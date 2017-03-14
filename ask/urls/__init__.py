@@ -12,8 +12,8 @@ urlpatterns = [
 	url(_(r'^index$'), TemplateView.as_view(template_name="ask/index.html"), name="home"),
 	url(_(r'^api/'), include('ask.api.urls')),
 	
-	url(_(r'^issues/'), include('ask.urls.issue')),
-	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/'), include('ask.urls.lesson')),
-	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/questions/'), include('ask.urls.question')),
-	url(_(r'^issues/(?P<issue_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/videos/'), include('ask.urls.video')),
+	url(_(r'^courses/'), include('ask.urls.course')),
+	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/'), include('ask.urls.lesson')),
+	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/questions/'), include('ask.urls.question')),
+	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/videos/'), include('ask.urls.video')),
 ]

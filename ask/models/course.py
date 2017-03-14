@@ -17,25 +17,25 @@ STATUS_CHOICES = (
 	('r', _('Removed')),
 )
 
-class Issue(models.Model):
+class Course(models.Model):
 	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.ISSUE_PHOTO_DIR, null=True, blank=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	color = models.CharField(max_length=20, default=get_color, blank=True)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="issue_created_by", blank=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="course_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True) 
 
 
 	def get_absolute_url(self):
-		return reverse_lazy('ask:lesson_list', kwargs={'issue_slug': self.slug})
+		return reverse_lazy('ask:lesson_list', kwargs={'course_slug': self.slug})
 
 	def __unicode__(self):
 		return self.name
 
 	class Meta:
 		ordering = ['name']
-		verbose_name = _(u'Issue')
-		verbose_name_plural = _(u'Issues')
+		verbose_name = _(u'Course')
+		verbose_name_plural = _(u'Courses')

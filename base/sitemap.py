@@ -1,8 +1,8 @@
 
-from ask.models import Issue, Lesson, Question
+from ask.models import Course, Lesson, Question
 
-issues = {
-	'queryset': Issue.objects.filter(status='p'),
+courses = {
+	'queryset': Course.objects.filter(status='p'),
 	'date_field': 'last_modified',
 }
 

@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from ask.models import Issue, Lesson, Question, Answer
+from ask.models import Course, Lesson, Question, Answer
 from ask.forms import AnswerForm, LessonForm
 from ask.utils.constants import Constants
 from ask.utils.lesson import get_question_of_lesson
@@ -17,14 +17,14 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 	form_class = AnswerForm
 	model = Answer
 	
-	def get_issue(self):
-		return Issue.objects.filter(slug=self.kwargs['issue_slug']).first()
+	def get_course(self):
+		return Course.objects.filter(slug=self.kwargs['course_slug']).first()
 
 	def get_lesson(self):
 		return Lesson.objects.filter(slug=self.kwargs['lesson_slug']).first()
 
 	def get_success_url(self):
-		return reverse_lazy('ask:answer_question', kwargs={'issue_slug': self.get_issue().slug, 'lesson_slug': self.get_lesson().slug})
+		return reverse_lazy('ask:answer_question', kwargs={'course_slug': self.get_course().slug, 'lesson_slug': self.get_lesson().slug})
 
 	def get_object(self):
 		return get_question_of_lesson(self.request.user, self.get_lesson())
@@ -34,7 +34,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 
 	def get_context_data(self, ** kwargs):
 		context = super(QuestionDetailView, self).get_context_data(** kwargs)
-		context['issue'] = self.get_issue()
+		context['course'] = self.get_course()
 		context['lesson'] = self.get_lesson()
 		#total de questoes da licao
 		context['questions_amount'] = len(self.get_lesson().questions.all())
@@ -48,15 +48,15 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_issue().status == 'p' or not self.get_lesson().status == 'p':
+		if not self.get_course().status == 'p' or not self.get_lesson().status == 'p':
 			return HttpResponseForbidden()
 		self.object = self.get_object()
 		if not self.object and self.get_lesson().questions.all():
-			return HttpResponseRedirect(reverse_lazy('ask:lesson_finished', kwargs={'issue_slug': self.get_issue().slug, 'slug': self.get_lesson().slug } ))
+			return HttpResponseRedirect(reverse_lazy('ask:lesson_finished', kwargs={'course_slug': self.get_course().slug, 'slug': self.get_lesson().slug } ))
 		return super(QuestionDetailView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_issue().status == 'p' or not self.get_lesson().status == 'p':
+		if not self.get_course().status == 'p' or not self.get_lesson().status == 'p':
 			return HttpResponseForbidden()
 		self.object = self.get_object()
 		form = self.get_form(request.POST, request.FILES)

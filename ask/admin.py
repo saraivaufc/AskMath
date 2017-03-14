@@ -5,11 +5,11 @@ from django.contrib.admin import AdminSite
 
 from base.actions import (StatusAction, )
 
-from .models import (Issue, Lesson, Question, Choice, Answer, Video, Introduction, )
-from .forms import (IssueForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm,)
+from .models import (Course, Lesson, Question, Choice, Answer, Video, Introduction, )
+from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm,)
 
-class IssueAdmin(admin.ModelAdmin, StatusAction):
-	form = IssueForm
+class CourseAdmin(admin.ModelAdmin, StatusAction):
+	form = CourseForm
 	list_display = ('name', 'status', 'created_by', 'last_modified')
 	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
@@ -22,9 +22,9 @@ class IssueAdmin(admin.ModelAdmin, StatusAction):
 class LessonAdmin(admin.ModelAdmin, StatusAction):
 	form = LessonForm
 	list_display = ('name', 'status', 'created_by', 'last_modified')
-	list_filter = ['issues', 'status', 'last_modified']
+	list_filter = ['courses', 'status', 'last_modified']
 	search_fields = ['name']
-	filter_horizontal = ['issues', 'requirements','questions', 'videos', ]
+	filter_horizontal = ['courses', 'requirements','questions', 'videos', ]
 	actions = []
 
 	def save_model(self, request, obj, form, change):
@@ -80,7 +80,7 @@ class IntroductionAdmin(admin.ModelAdmin):
 		form.instance.created_by = request.user
 		form.save()
 
-admin.site.register(Issue, IssueAdmin)
+admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)

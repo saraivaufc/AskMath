@@ -13,7 +13,12 @@
 	{{ block.super }}
 {% endblock %}
 
-{% block page_title %}{% trans "Welcome" %}{% endblock %}
+{% block page_title %}
+	{% trans "Welcome" %}
+	{% if request.user.is_authenticated %}
+		@{{ request.user.first_name }}
+	{% endif %}
+{% endblock %}
 
 {% block content %}
 
@@ -38,7 +43,7 @@
 
 	<div class="col-xs-6 col-sm-6 col-md-6">
 		<div class="tile bg-green" style="position: absolute; right: 0px;">
-			<a href="{% url 'ask:issue_list' %}" class="tile-content iconic" title="{% trans "Start here" %}">
+			<a href="{% url 'ask:course_list' %}" class="tile-content iconic" title="{% trans "Start here" %}">
 				<span class="icon fa fa-play"></span>
 			</a>
 			<span class="tile-label">{% trans "Start here" %}</span>

@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = "full-height"
-NEW_TEXT = "h-100"
-FILE_TYPES = ['(.)\.html', ]
+TEXT = "issue"
+NEW_TEXT = "course"
+FILE_TYPES = ['(.)\.py', ]
 
 rexs = []
 for i in FILE_TYPES:

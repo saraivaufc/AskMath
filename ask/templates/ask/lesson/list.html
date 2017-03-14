@@ -1,23 +1,23 @@
-{% extends "ask/issue/list.html" %}
+{% extends "ask/course/list.html" %}
 
 
 {% load i18n %}
 
 {% block title %}
-	{{ issue }}
+	{{ course }}
 {% endblock %}
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'ask:lesson_list' issue.slug %}" class="breadcrumb-item" >
-		<i class="fa fa-book"></i>
-		{{ issue }}
+	<a href="{% url 'ask:lesson_list' course.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-leaf"></i>
+		{{ course }}
 	</a>
 {% endblock %}
 
 {%  block page_title %}
-	{% blocktrans with issue=issue %}
-		Lessons of {{ issue }}
+	{% blocktrans with course=course %}
+		Lessons of {{ course }}
 	{% endblocktrans %}
 {% endblock %}
 
@@ -27,7 +27,7 @@
 			<div class="row flex-items-xs-center">
 				{% for lesson in lessons %}
 				<div class="tile {{ lesson.color }}">
-					<a href="{% url 'ask:lesson_detail' issue_slug=issue.slug slug=lesson.slug %}" class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
+					<a href="{% url 'ask:lesson_detail' course_slug=course.slug slug=lesson.slug %}" class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
 						{% if lesson.icon %}
 							<img src="{{ lesson.icon.url }}" style="width: 100%;">
 						{% else %}

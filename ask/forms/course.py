@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 
 from django.forms import ModelForm
 
-from ..models import Issue
+from ..models import Course
 
-class IssueForm(ModelForm):
+class CourseForm(ModelForm):
 	class Meta:
-		model = Issue
+		model = Course
 		fields = ['name', 'icon', 'status',]
