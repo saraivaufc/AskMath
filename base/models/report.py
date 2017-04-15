@@ -8,7 +8,7 @@ from django.conf import settings
 
 class Report(models.Model):
 	page = models.URLField(verbose_name=_(u"Page"), blank=True)
-	name = models.CharField(verbose_name=_(u"Full Name"), max_length=100, null=True, blank=True)
+	name = models.CharField(verbose_name=_(u"Name"), max_length=100, null=True, blank=True)
 	email = models.EmailField(verbose_name=_(u"Email"), null=True, blank=True)
 	message = models.TextField(verbose_name=_(u"Message"))
 

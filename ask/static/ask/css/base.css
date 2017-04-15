@@ -70,11 +70,11 @@
 }
 .stepper.diamond li {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+		  transform: rotate(45deg);
 }
 .stepper.diamond li:before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+		  transform: rotate(-45deg);
 }
 
 .stepper > ul > li > label{
@@ -93,4 +93,43 @@
 	margin-top: 3em;
 	width: 20em;
 	margin-left: -9em;
+}
+
+@-webkit-keyframes slide_out {
+	0%{
+		margin-left: 0%;
+	}
+	50%{
+		margin-left: -50%;
+	}
+	100%{
+		margin-left: -100%;
+	}
+}
+
+@-webkit-keyframes slide_in {
+	0%{
+		margin-left: 100%;
+	}
+	50%{
+		margin-left: 50%;
+	}
+	100%{
+		margin-left: 0%;
+	}
+}
+
+
+#introduction{
+	-webkit-animation-name: slide_in;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-direction: alternate;
+}
+
+#question{
+	-webkit-animation-name: slide_in;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-direction: alternate;
 }

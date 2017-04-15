@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<li class="nav-item dropdown">
+	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+		<i class="fa fa-flag-checkered"></i>
+		{% trans "Scores" %}
+	</a>
+	<ul class="dropdown-menu">
+		<li class="dropdown-item">
+			<b>{% trans "LEVEL" %}:</b> 
+			{{ level_manager.level.name }} <img src="{{ level_manager.level.image.url }}" width="20" height="20">
+		</li>
+		<li class="dropdown-item">
+			<b>{% trans "XP" %}:</b>
+			{{ score_manager.xp }}
+		</li>
+		<li class="dropdown-item">
+			<b>{% trans "RP" %}:</b>
+			{{ score_manager.rp }}
+		</li>
+		<li class="dropdown-item">
+			<b>{% trans "SKILL" %}:</b>
+			{{ score_manager.skill }}
+		</li>
+		<li class="dropdown-item">
+			<b>{% trans "REPUTATION" %}:</b>
+			{{ score_manager.reputation }}
+		</li>
+	</ul
+</li>

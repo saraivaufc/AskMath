@@ -15,6 +15,9 @@ class ScoreManager(models.Model):
 	def up_xp(self, factor):
 		self.xp += factor
 
+	def down_xp(self, factor):
+		self.xp -= factor
+
 	def up_rp(self, factor):
 		self.rp += factor
 

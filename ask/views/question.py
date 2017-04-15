@@ -7,10 +7,12 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from ask.models import Course, Lesson, Question, Answer
-from ask.forms import AnswerForm, LessonForm
-from ask.utils.constants import Constants
-from ask.utils.lesson import get_question_of_lesson
+from ..models import Course, Lesson, Question, Answer
+from ..forms import AnswerForm, LessonForm
+from ..utils.constants import Constants
+from ..utils.lesson import get_question_of_lesson
+
+from gamification.models import ScoreManager
 
 class QuestionDetailView(SingleObjectMixin, FormView):
 	template_name = 'ask/question/detail.html'
@@ -75,8 +77,14 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		answer.correct = set(list(  answer.question.get_choices().filter(is_correct=True)  )) == set(list(  form.cleaned_data['choices'] ))
 		answer.save()
 		form.save_m2m()
+		
+		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
+
 		if answer.correct:
+			score_manager.up_xp(4)
 			messages.success(self.request, Constants.ANSWER_CORRECT)
 		else:
+			score_manager.up_xp(1)
 			messages.error(self.request, Constants.ANSWER_INCORRECT)
+		score_manager.save()
 		return super(QuestionDetailView, self).form_valid(form)

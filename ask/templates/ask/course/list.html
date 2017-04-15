@@ -26,6 +26,9 @@
 				{% endif %}
 			</a>
 			<span class="tile-label">{{ course }}</span>
+			{% if course.is_private %}
+				<span class="tile-badge bg-yellow fg-white" data-toggle="tooltip" data-placement="top" title='{% blocktrans with amount=course.amount %}This course is private. Paid R${{ amount }} to access.{% endblocktrans %}'><i class="fa fa-star"></i></span>
+			{% endif %}
 		</div>
 	{% endfor %}
 

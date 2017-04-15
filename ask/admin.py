@@ -10,8 +10,8 @@ from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm,
 
 class CourseAdmin(admin.ModelAdmin, StatusAction):
 	form = CourseForm
-	list_display = ('name', 'status', 'created_by', 'last_modified')
-	list_filter = ['status', 'creation', 'last_modified']
+	list_display = ('name', 'is_private', 'amount', 'status', 'last_modified')
+	list_filter = ['is_private', 'status', 'creation', 'last_modified']
 	search_fields = ['name']
 	actions = []
 

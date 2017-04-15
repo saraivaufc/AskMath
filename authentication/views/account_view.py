@@ -38,6 +38,18 @@ class UserUpdateView(UpdateView):
 
 	def get_success_url(self):
 		return reverse_lazy('authentication:account_detail', kwargs={'pk': self.object.pk})
+
+	def get(self, request, * args, ** kwargs):
+		user = self.get_object()
+		if not request.user == user:
+			return HttpResponseForbidden()
+		return super(UserUpdateView, self).get(request)
+
+	def post(self, request, * args, ** kwargs):
+		user = self.get_object()
+		if not request.user == user:
+			return HttpResponseForbidden()
+		return super(UserDetailView, self).post(request)
 	
 	def form_valid(self, form):
 		return super(UserUpdateView, self).form_valid(form)
@@ -46,3 +58,15 @@ class UserDeleteView(DeleteView):
 	template_name = 'authentication/account/check_delete.html'
 	model = User
 	success_url = reverse_lazy('authentication:account_login')
+
+	def get(self, request, * args, ** kwargs):
+		user = self.get_object()
+		if not request.user == user:
+			return HttpResponseForbidden()
+		return super(UserDeleteView, self).get(request)
+
+	def post(self, request, * args, ** kwargs):
+		user = self.get_object()
+		if not request.user == user:
+			return HttpResponseForbidden()
+		return super(UserDeleteView, self).post(request)

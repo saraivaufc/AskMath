@@ -23,8 +23,8 @@ from forum.models import Category, Topic, Comment
 from forum.admin import CategoryAdmin, TopicAdmin, CommentAdmin
 
 #Gamification
-from gamification.models import Level, LevelManager, RankingManager, ScoreManager
-from gamification.admin import LevelAdmin, LevelManagerAdmin, RankingManagerAdmin, ScoreManagerAdmin
+from gamification.models import Level, LevelManager, ScoreManager
+from gamification.admin import LevelAdmin, LevelManagerAdmin, ScoreManagerAdmin
 
 #Authentication
 from authentication.models import User
@@ -129,7 +129,6 @@ partners_admin.register(Comment, CommentAdmin)
 #Gamification
 partners_admin.register(Level, LevelAdmin)
 partners_admin.register(LevelManager, LevelManagerAdmin)
-partners_admin.register(RankingManager, RankingManagerAdmin)
 partners_admin.register(ScoreManager, ScoreManagerAdmin)
 
 #Authentication

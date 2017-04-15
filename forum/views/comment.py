@@ -15,6 +15,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from ..models import Category, Topic, Comment
 from ..forms import CommentForm
 
+from gamification.models import ScoreManager
+
 class CommentCreateView(SuccessMessageMixin, CreateView):
 	template_name = 'forum/comment/form.html'
 	model = Comment
@@ -40,6 +42,11 @@ class CommentCreateView(SuccessMessageMixin, CreateView):
 		form.instance.status = 'p'
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
+
+		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
+		score_manager.up_xp(20)
+		score_manager.save()
+
 		return super(CommentCreateView, self).form_valid(form)
 
 class CommentUpdateView(SuccessMessageMixin, UpdateView):
@@ -118,4 +125,9 @@ class CommentDeleteView(DeleteView):
 		comment = self.object
 		comment.status = 'r'
 		comment.save()
+
+		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
+		score_manager.down_xp(10)
+		score_manager.save()
+
 		return HttpResponseRedirect(self.get_success_url())

@@ -114,6 +114,7 @@ span.select2-selection--multiple{
 .jumbotron{
   width: 100%;
   margin-bottom: 0em;
+  background-color: transparent;
 }
 
 ul.messagelist {

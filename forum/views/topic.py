@@ -17,6 +17,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 from ..models import Category, Topic, Comment
 from ..forms import TopicForm, CommentForm
 
+from gamification.models import ScoreManager
+
+
 class TopicListView(ListView):
 	template_name = 'forum/topic/list.html'
 	model = Topic
@@ -80,6 +83,11 @@ class TopicCreateView(SuccessMessageMixin, CreateView):
 		form_comment.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form_comment.instance.status = 'p'
 		form_comment.save()
+		
+		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
+		score_manager.up_xp(10)
+		score_manager.save()
+
 		return super(TopicCreateView, self).form_valid(form)
 
 class TopicUpdateView(SuccessMessageMixin, UpdateView):
@@ -161,4 +169,9 @@ class TopicDeleteView(DeleteView):
 		topic = self.get_object()
 		topic.status = 'r'
 		topic.save()
+
+		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
+		score_manager.down_xp(10)
+		score_manager.save()
+		
 		return HttpResponseRedirect(self.get_success_url())

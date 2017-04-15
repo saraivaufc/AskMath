@@ -44,74 +44,77 @@ AUTH_USER_MODEL = 'authentication.User'
 # Application definition
 
 DJANGO_APPS = (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'django.contrib.sites',
-    'django.contrib.flatpages',
-    'django.contrib.sitemaps',
+	'django.contrib.admin',
+	'django.contrib.admindocs',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	'django.contrib.humanize',
+	'django.contrib.sites',
+	'django.contrib.flatpages',
+	'django.contrib.sitemaps',
 )
 
 THIRD_PARTY_APPS = (
-    'rosetta',
-    'rest_framework',
-    'django_js_reverse',
+	'rosetta',
+	'rest_framework',
+	'django_js_reverse',
 )
 
 LOCAL_APPS = (
-    'base',
-    'ask',
-    'authentication',
-    'forum',
-    'gamification',
-    'partners_admin',
+	'base',
+	'ask',
+	'authentication',
+	'forum',
+	'gamification',
+	'partners_admin',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    #add to translate
-    'django.middleware.locale.LocaleMiddleware',
-    #add to timezone
-    'base.middleware.timezone.TimezoneMiddleware',
+	'django.middleware.security.SecurityMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
+	'django.middleware.common.CommonMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	#to flatpages
+	'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+	#add to translate
+	'django.middleware.locale.LocaleMiddleware',
+	#add to timezone
+	'base.middleware.timezone.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'askmath.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            'base/templates',
-            'ask/templates',
-            'authentication/templates',
-            'forum/templates',
-            'partners_admin/templates',
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+	{
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'DIRS': [
+			'base/templates',
+			'ask/templates',
+			'authentication/templates',
+			'forum/templates',
+			'gamification/templates',			
+			'partners_admin/templates',
+		],
+		'APP_DIRS': True,
+		'OPTIONS': {
+			'context_processors': [
+				'django.template.context_processors.debug',
+				'django.template.context_processors.request',
+				'django.contrib.auth.context_processors.auth',
+				'django.contrib.messages.context_processors.messages',
+				'gamification.context_processors.managers',
+			],
+		},
+	},
 ]
 
 WSGI_APPLICATION = 'askmath.wsgi.application'
@@ -127,14 +130,14 @@ LOGOUT_URL = reverse_lazy("authentication:account_logout")
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': config.DATABASE_ENGINE,
-        'NAME': config.DATABASE_NAME,
-        'USER': config.DATABASE_USER,
-        'PASSWORD': config.DATABASE_PASSWORD,
-        'HOST': config.DATABASE_HOST,
-        'PORT': config.DATABASE_PORT,
-    }
+	'default': {
+		'ENGINE': config.DATABASE_ENGINE,
+		'NAME': config.DATABASE_NAME,
+		'USER': config.DATABASE_USER,
+		'PASSWORD': config.DATABASE_PASSWORD,
+		'HOST': config.DATABASE_HOST,
+		'PORT': config.DATABASE_PORT,
+	}
 }
 
 
@@ -142,18 +145,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+	{
+		'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+	},
 ]
 
 
@@ -162,26 +165,26 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 FORMAT_MODULE_PATH = [
-    'askmath.formats',
+	'askmath.formats',
 ]
 
 from askmath.formats.pt_BR.formats import * #GAMBI
 
 LOCALE_PATHS = (
-    path('askmath/locale'),
-    path('base/locale'),
-    path('ask/locale'),
-    path('authentication/locale'),
-    path('forum/locale'),
-    path('gamification/locale'),
-    path('partners_admin/locale'),
-    '/var/local/translations/locale',
+	path('askmath/locale'),
+	path('base/locale'),
+	path('ask/locale'),
+	path('authentication/locale'),
+	path('forum/locale'),
+	path('gamification/locale'),
+	path('partners_admin/locale'),
+	'/var/local/translations/locale',
 )
 
 LANGUAGES = (
-    ('pt-br', _('Brazilian Portuguese')),
-    ('en', _('English')),
-    ('es', _('Spanish')),
+	('pt-br', _('Brazilian Portuguese')),
+	('en', _('English')),
+	('es', _('Spanish')),
 )
 
 LANGUAGE_CODE='en'
@@ -201,11 +204,11 @@ USE_TZ = True
 STATIC_ROOT = path('static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    path('base/static/'),
-    path('ask/static/'),
-    path('authentication/static/'),
-    path('forum/static/'),
-    path('/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'),
+	path('base/static/'),
+	path('ask/static/'),
+	path('authentication/static/'),
+	path('forum/static/'),
+	path('/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'),
 )
 
 MEDIA_ROOT = path('media/')
@@ -215,7 +218,6 @@ MEDIA_URL = '/media/'
 
 PROFILE_IMAGE_DEFAULT = "files/no_avatar.png"
 
-PROFILE_IMAGE_DIR = 'uploads/profile_image/%Y/%m/%d'
 ISSUE_PHOTO_DIR = 'uploads/course_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 USER_AVATAR_DIR = 'uploads/user_avatar'
@@ -228,11 +230,11 @@ PAGINATE_BY = 10
 # MessagesTAGS
 
 MESSAGE_TAGS = {
-    message_constants.DEBUG: 'debug',
-    message_constants.INFO: 'info',
-    message_constants.SUCCESS: 'success',
-    message_constants.WARNING: 'warning',
-    message_constants.ERROR: 'danger',
+	message_constants.DEBUG: 'debug',
+	message_constants.INFO: 'info',
+	message_constants.SUCCESS: 'success',
+	message_constants.WARNING: 'warning',
+	message_constants.ERROR: 'danger',
 }
 
 # Session

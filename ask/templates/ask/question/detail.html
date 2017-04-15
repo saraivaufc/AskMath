@@ -15,48 +15,58 @@
 {% endblock %}
 
 {%  block page_title %}
-	{% blocktrans with lesson=lesson %}
-		Questions of {{ lesson }}
-	{% endblocktrans %}
+	{{ lesson }}
 {% endblock %}
 
 {% block content %}
+	<progress class="progress progress-warning progress-striped progress-animated" value="{{ percent_completed }}" max="100" aria-describedby="example-caption-6">
+		<div class="progress">
+			<span class="progress-bar" style="width: 25%;"></span>
+		</div>
+	</progress>
 	{% if question %}
 		
 		{% if question.introduction %}
-			{% trans "Introduction" as INTRODUCTION_TITLE %}
-			{% include 'base/_modal.html' with id="introduction" title=INTRODUCTION_TITLE body=question.introduction.text %}
-		{% endif %}
-		
-		<div class="col-md-8">
-			<progress class="progress progress-warning progress-striped progress-animated" value="{{ percent_completed }}" max="100" aria-describedby="example-caption-6">
-				<div class="progress">
-					<span class="progress-bar" style="width: 25%;"></span>
-				</div>
-			</progress>
-			<p class="lead">
-				{{ question.text }}
-			</p>
-			<form action="#" method="post">
-				{% csrf_token %}
-				{{ form.as_table }}
-			<div class="row">
-				<div class="btn-group" role="group">
-					<button type="submit" class="btn btn-success">
-						<i class="fa fa-check"></i>
-						{% trans "Reply" %}
-					</button>
-					</form>
-					<button type="button" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
-						<i class="fa fa-exclamation"></i>
-						{% trans "Help" %}
+		<div id="introduction" class="jumbotron">
+			<div class="container-fluid">
+				<p class="lead text-xs-center">{{ question.introduction.text }}</p>
+				<div class="text-xs-center">
+					<button id="next" class="btn btn-success">
+						{% trans "Next" %}
+						<i class="fa fa-angle-double-right"></i>
 					</button>
 				</div>
 			</div>
 		</div>
-		
-		<div class="col-md-4">
-			
+		<style type="text/css">
+			#question{
+				display: none;
+			}
+		</style>
+		{% endif %}
+
+		<div id="question">
+			<div class="container">
+				<p class="lead">
+					{{ question.text }}
+				</p>
+				<form action="#" method="post">
+					{% csrf_token %}
+					{{ form.as_table }}
+				<div class="row">
+					<div class="btn-group" role="group">
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-check"></i>
+							{% trans "Reply" %}
+						</button>
+						</form>
+						<button type="button" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
+							<i class="fa fa-exclamation"></i>
+							{% trans "Help" %}
+						</button>
+					</div>
+				</div>
+			</form>
 		</div>
 		{% if question.help %}
 			{% trans "Help" as HELP_TITLE %}
@@ -71,14 +81,4 @@
 		</div>
 	{% endif %}
 
-{% endblock %}
-
-{% block scripts %}
-	{{ block.super }}
-
-	{% if question.introduction %}
-	<script type="text/javascript">
-		$("#introduction").modal('show');
-	</script>
-	{% endif %}
 {% endblock %}

@@ -1,3 +1,11 @@
+$("button#next").on('click', function(){
+	setTimeout(function() {
+		$("#introduction").hide();
+	}, 500);
+	$("#introduction").css({'-webkit-animation-name':'slide_out'});
+	$("#question").show();
+});
+
 function loadSearch(){
 	var data = [];
 	var search = $("input[name='search']");
@@ -27,3 +35,4 @@ function loadSearch(){
 $(function(){
 	loadSearch();	
 })
+

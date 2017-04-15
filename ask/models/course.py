@@ -11,19 +11,24 @@ from base.utils.models import AutoSlugField
 
 from ..utils.colors import get_color
 
-STATUS_CHOICES = (
-	('d', _('Draft')),
-	('p', _('Published')),
-	('r', _('Removed')),
-)
-
 class Course(models.Model):
-	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
+	DRAFT = 'd'
+	PUBLISHED = 'p'
+	REMOVED = 'r'
+	STATUS_CHOICES = (
+		(DRAFT, _('Draft')),
+		(PUBLISHED, _('Published')),
+		(REMOVED, _('Removed')),
+	)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
+	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
 	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.ISSUE_PHOTO_DIR, null=True, blank=True)
+	is_private = models.BooleanField(verbose_name=_(u"is Private"), default=False)
+	amount = models.DecimalField(verbose_name=_(u"Amount"), max_digits=10, decimal_places=2 , default=00.00)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
-	color = models.CharField(max_length=20, default=get_color, blank=True)
 	
+
+	color = models.CharField(max_length=20, default=get_color, blank=True)
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="course_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True) 
