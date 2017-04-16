@@ -17,19 +17,19 @@
 
 {% block content %}
 	{% for course in object_list %}
-		<div class="tile {{ course.color }}">
-			<a href="{% url 'ask:lesson_list' course.slug %}" class="tile-content {% if course.icon %}image-set{% else %}iconic{% endif %}">
+		<a href="{% url 'ask:lesson_list' course.slug %}" class="tile {{ course.color }}">
+			<div class="tile-content {% if course.icon %}image-set{% else %}iconic{% endif %}">
 				{% if course.icon %}
 					<img src="{{ course.icon.url }}" style="width: 100%;">
 				{% else %}
 					<span class="icon fa fa-leaf"></span>
 				{% endif %}
-			</a>
+			</div>
 			<span class="tile-label">{{ course }}</span>
 			{% if course.is_private %}
 				<span class="tile-badge bg-yellow fg-white" data-toggle="tooltip" data-placement="top" title='{% blocktrans with amount=course.amount %}This course is private. Paid R${{ amount }} to access.{% endblocktrans %}'><i class="fa fa-star"></i></span>
 			{% endif %}
-		</div>
+		</a>
 	{% endfor %}
 
 	{% include "base/_paginate.html" %}

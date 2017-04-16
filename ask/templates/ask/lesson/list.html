@@ -26,16 +26,16 @@
 		<div class="col-md-12">
 			<div class="row flex-items-xs-center">
 				{% for lesson in lessons %}
-				<div class="tile {{ lesson.color }}">
-					<a href="{% url 'ask:lesson_detail' course_slug=course.slug slug=lesson.slug %}" class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
+				<a href="{% url 'ask:lesson_detail' course_slug=course.slug slug=lesson.slug %}" class="tile {{ lesson.color }}">
+					<div class="tile-content {% if lesson.icon %}image-set{% else %}iconic{% endif %}">
 						{% if lesson.icon %}
 							<img src="{{ lesson.icon.url }}" style="width: 100%;">
 						{% else %}
 							<span class="icon fa fa-puzzle-piece"></span>
 						{% endif %}
-					</a>
+					</div>
 					<span class="tile-label">{{ lesson }}</span>
-				</div>
+				</a>
 				{% endfor %}
 			</div>
 		</div>
