@@ -42,9 +42,11 @@
 </div>
 {% endcomment %}
 
-<nav class="navbar navbar-dark navbar-transparent navbar-fixed-top navbar-color-on-scroll navbar-primary">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll navbar-primary">
 	<div class="container">
-		<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+		<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fa fa-bars fg-white"></i>
+		</button>
 		<div  id="navbar-header" class="collapse navbar-toggleable-xs">
 			<a href="{% url 'ask:home' %}" class="navbar-brand">
 				{% trans "AskMath" %}
