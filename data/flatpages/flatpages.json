@@ -3,9 +3,9 @@
 		"model": "flatpages.flatpage",
 		"pk": 1,
 		"fields": {
-			"url": "/about/",
+			"url": "/en/about/",
 			"title": "About Us",
-			"content": "templates/about.html",
+			"content": "templates/en_about.html",
 			"sites": [1]
 		}
 	},
@@ -13,9 +13,9 @@
 		"model": "flatpages.flatpage",
 		"pk": 2,
 		"fields": {
-			"url": "/privacy/",
+			"url": "/en/privacy/",
 			"title": "Privacy Policies",
-			"content": "templates/privacy.html",
+			"content": "templates/en_privacy.html",
 			"sites": [1]
 		}
 	},
@@ -23,9 +23,9 @@
 		"model": "flatpages.flatpage",
 		"pk": 3,
 		"fields": {
-			"url": "/terms/",
+			"url": "/en/terms/",
 			"title": "Terms os Use",
-			"content": "templates/terms.html",
+			"content": "templates/en_terms.html",
 			"sites": [1]
 		}
 	},
@@ -33,7 +33,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 4,
 		"fields": {
-			"url": "/pt-br/sobre/",
+			"url": "/sobre/",
 			"title": "Sobre",
 			"content": "templates/pt-br_about.html",
 			"sites": [1]
@@ -43,7 +43,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 5,
 		"fields": {
-			"url": "/pt-br/privacidade/",
+			"url": "/privacidade/",
 			"title": "Políticas de Privacidade",
 			"content": "templates/pt-br_privacy.html",
 			"sites": [1]
@@ -53,7 +53,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 6,
 		"fields": {
-			"url": "/pt-br/termos/",
+			"url": "/termos/",
 			"title": "Termos de Uso",
 			"content": "templates/pt-br_terms.html",
 			"sites": [1]
