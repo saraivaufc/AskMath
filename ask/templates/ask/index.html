@@ -14,10 +14,7 @@
 {% endblock %}
 
 {% block page_title %}
-	{% trans "Welcome" %}
-	{% if request.user.is_authenticated %}
-		@{{ request.user.first_name }}
-	{% endif %}
+	{% trans "Welcome to AskMath" %}
 {% endblock %}
 
 {% block content %}
