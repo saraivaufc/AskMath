@@ -1,9 +1,9 @@
-{% load i18n ask_tags %}
+{% load i18n %}
 
 <div class="form-group">
 	<select {% include 'base/fields/headers/attrs.html' %}>
 		{% for value, text in field.field.choices %}
-			<option value="{{ value }}" {% ifequal value field.value %}selected="selected"{% endifequal %}>{{ text }}</option>
+			<option value="{{ value }}" {% ifequal value field.value %} selected="selected" {% endifequal %}>{{ text }}</option>
 		{% endfor %}
 	</select>
 </div>
