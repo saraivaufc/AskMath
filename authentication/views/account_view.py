@@ -49,7 +49,7 @@ class UserUpdateView(UpdateView):
 		user = self.get_object()
 		if not request.user == user:
 			return HttpResponseForbidden()
-		return super(UserDetailView, self).post(request)
+		return super(UserUpdateView, self).post(request)
 	
 	def form_valid(self, form):
 		return super(UserUpdateView, self).form_valid(form)

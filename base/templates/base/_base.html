@@ -28,7 +28,7 @@
 </head>
 {% load i18n %}
 
-<body class="components-page">
+<body class="{% block page_type %}components-page{% endblock %}">
 	{% include 'blocks/no_script.html' %}
 
 	{% block header  %}

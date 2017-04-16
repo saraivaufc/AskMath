@@ -50,7 +50,7 @@
 		<div  id="navbar-header" class="collapse navbar-toggleable-xs">
 			<a href="{% url 'ask:home' %}" class="navbar-brand">
 				{% trans "AskMath" %}
-		  	</a>
+			</a>
 			<ul class="nav navbar-nav">
 				<li class="nav-item">
 					<a href="{% url 'forum:topic_list' %}" class="nav-link">
@@ -77,6 +77,11 @@
 						{{ request.user.get_full_name  }}
 					</a>
 					<div class="dropdown-menu">
+						<div class="profile">
+							<div class="avatar m-1">
+								<img src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}"" alt="Circle Image" class="img-circle img-responsive img-raised" width="100%">
+							</div>
+						</div>
 						<a class="dropdown-item" href="{% url 'authentication:account_detail' pk=request.user.pk %}">
 							<i class="fa fa-user"></i>
 							{% trans "Profile" %}
