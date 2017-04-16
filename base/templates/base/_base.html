@@ -28,54 +28,59 @@
 </head>
 {% load i18n %}
 
-<body>
+<body  class="components-page">
 	{% include 'blocks/no_script.html' %}
 
 	{% block header  %}
-	<header id="header">
 		{% include "blocks/header.html" %}
-	</header>
 	{% endblock %}
 
-	{% block two_header %}
-	<nav id="breadcrumb" class="breadcrumb">
-        {% block breadcrumbs %}
-        <a href="{% url 'ask:home' %}" class="breadcrumb-item" >
-			<i class="fa fa-home" aria-hidden="true"></i>
-			{% trans "Home" %}
-		</a>
- 	   {% endblock %}
-	</nav>
-	{% endblock %}
-	
-	{% block messages %}
-	<section id="messages" class="container-fluid">
-		{% include 'blocks/messages.html' %}
-	</section>
-	{% endblock messages %}
+	<div class="wrapper">
 
-	{% block site %}
-	<section id="content" class="container-fluid">
-		<h1 class="h4 text-xs-center text-sm-center text-md-center page-title">
-			{%  block page_title %}{% endblock %}
-		</h1>
-		<div class="page-container">
-			<div class="container-fluid">
+		{% block site %}
+
+		<div class="header header-filter">
+			<div class="container">
 				<div class="row">
-					{% block content %}
-
-					{% endblock %}
+					<div class="col-md-12">
+						<h1 class="title text-xs-center">{%  block page_title %}{% endblock %}</h1>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	{% endblock %}
+
+		<section id="content" class="main main-raised p-1">
+			<div class="section-basic">
+				{% block two_header %}
+				<nav id="breadcrumb" class="breadcrumb">
+			        {% block breadcrumbs %}
+			        <a href="{% url 'ask:home' %}" class="breadcrumb-item" >
+						<i class="fa fa-home" aria-hidden="true"></i>
+						{% trans "Home" %}
+					</a>
+			 	   {% endblock %}
+				</nav>
+				{% endblock %}
+				
+				{% block messages %}
+					{% include 'blocks/messages.html' %}
+				{% endblock messages %}
+
+				<div class="container-fluid">
+					<div class="row">
+					{% block content %}
+
+					{% endblock %}
+					</div>
+				</div>
+			</div>
+		</section>
+		{% endblock %}
+	</div>
 
 
 	{% block footer %}
-	<footer id="footer">
 		{% include "blocks/footer.html" %}
-	</footer>
 	{% endblock %}
 
 	{% block js %}

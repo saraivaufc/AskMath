@@ -40,6 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 	first_name = models.CharField(verbose_name=_(u"First Name "), max_length=100, blank=False, null=False, help_text=_(u'Please enter you first name.'), )
 	last_name = models.CharField(verbose_name=_(u"Last Name "), max_length=100, blank=False, null=False, help_text=_(u'Please enter you last name.'), )
 	email = models.EmailField(verbose_name=_(u"Email"), max_length=254, unique=True,  null=False, blank=False, help_text=_(u'Please enter you email.'), )
+	profile_image = models.ImageField(verbose_name=_(u"Profile Image"), null=True, blank=True)
 	is_active = models.BooleanField(verbose_name=_('Active'), default=True, help_text=_(u'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
 	date_joined = models.DateTimeField(verbose_name=_(u'Date joined'), default=timezone.now)
 	is_moderator = models.BooleanField(_('Moderator Status'), default=False, blank=True)

@@ -12,22 +12,6 @@ html, body {
 }
 
 
-.page-title{
-	color:#FFF;
-	background-color: #1ba1e2;
-	margin: 0em 0em 0em 0em;
-	padding: 5px;
-	width: 100%;
-	line-height: 1.5;
-}
-
-.page-container{
-	background-color: #ffffc7;
-	margin: 0em 0em 1em 0em;
-	padding: 5px 5px;
-	width: 100%;
-}
-
 .sidebar, .sidebar > .sidebar-item{
 	width: 100%;
 	margin-right: 5px;
@@ -90,23 +74,6 @@ span.select2-selection--multiple{
 	width: 100% !important;
 }
 
-.navbar{
-	border-radius: 0;
-}
-
-.nav-link.active:after {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  margin-left: -3rem;
-  vertical-align: middle;
-  content: "";
-  border-right: .5rem solid transparent;
-  border-bottom: .5rem solid;
-  border-left: .5rem solid transparent;
-}
-
 .tag-sm{
 	font-size: .6em;
 }
@@ -115,32 +82,6 @@ span.select2-selection--multiple{
   width: 100%;
   margin-bottom: 0em;
   background-color: transparent;
-}
-
-ul.messagelist {
-    padding: 0;
-    margin: 0;
-}
-
-ul.messagelist li {
-    display: block;
-    font-weight: 400;
-    font-size: 13px;
-    padding: 10px 10px 10px 65px;
-    margin: 0 0 0 0;
-    background: #dfd url(../img/icon-yes.svg) 40px 12px no-repeat;
-    background-size: 16px auto;
-    color: #333;
-}
-
-ul.messagelist li.warning {
-    background: #ffc url(../img/icon-alert.svg) 40px 14px no-repeat;
-    background-size: 14px auto;
-}
-
-ul.messagelist li.danger {
-    background: #ffefef url(../img/icon-no.svg) 40px 12px no-repeat;
-    background-size: 16px auto;
 }
 
 /* Links */
@@ -154,14 +95,4 @@ nav a , ul a{
 
 .form-control{
 	max-width: 400px;
-}
-
-.submit-row{
-	padding: 12px 14px;
-	margin: 0 0 20px;
-	background: #f8f8f8;
-	border: 1px solid #eee;
-	border-radius: 4px;
-	text-align: right;
-	overflow: hidden;
 }

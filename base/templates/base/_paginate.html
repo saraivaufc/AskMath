@@ -1,6 +1,6 @@
 {% load i18n static %}
 <div class="col-md-12">
-	 <ul class="pagination pagination-sm">
+	 <ul class="pagination pagination-sm pagination-info">
 		{% if page_obj.has_previous %}
 		<li class="page-item">
 		 	<a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-label="{% trans 'Previous' %}">
