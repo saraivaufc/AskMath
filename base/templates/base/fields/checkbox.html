@@ -1,8 +1,10 @@
 {% load i18n %}
 
-<div class="form-check">
-	<label class="form-check-label">
-	    <input  class="form-check-input" type="checkbox" {% if field.value == True or field.initial == True %}checked{% endif %}
-		{% include 'base/fields/headers/attrs.html' %} />
-	</label>
+<div class="form-control">
+	<div class="checkbox">
+		<label>
+		    <input  type="checkbox" {% if field.value == True or field.initial == True %}checked{% endif %}
+			{% include 'base/fields/headers/attrs.html' %} />
+		</label>
+	</div>
 </div>

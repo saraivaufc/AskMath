@@ -46,25 +46,40 @@
 		{% endif %}
 
 		<div id="question">
-			<div class="container">
-				<p class="lead">
-					{{ question.text }}
-				</p>
+			<div class="container-fluid">
+				<div class="row">
+					<p class="lead">
+						{{ question.text }}
+					</p>
+				</div>
 				<form action="#" method="post">
 					{% csrf_token %}
-					{{ form.as_table }}
-				<div class="row">
-					<div class="btn-group" role="group">
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check"></i>
-							{% trans "Reply" %}
-						</button>
-						</form>
-						<button type="button" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
-							<i class="fa fa-exclamation"></i>
-							{% trans "Help" %}
-						</button>
-					</div>
+						<div class="row">
+							{% for choice in form.choices %}
+								<div class="form-control">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"  id="{{ choice.auto_id }}" name="{{ choice.name }}" value="{{ choice.choice_value }}" {% if choice.choice_value in form.choices.value %} checked="checked" {% endif %}>{{ choice }}
+										</label>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="row">
+							<div class="btn-group" role="group">
+								<button type="submit" class="btn btn-success">
+									<i class="fa fa-check"></i>
+									{% trans "Reply" %}
+								</button>
+								{% if question.help %}
+								<a href="#" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
+									<i class="fa fa-exclamation"></i>
+									{% trans "Help" %}
+								</a>
+								{% endif %}
+							</div>
+						</div>
+					</form>
 				</div>
 			</form>
 		</div>
