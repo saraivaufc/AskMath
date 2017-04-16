@@ -10,7 +10,7 @@ name="{% if form.prefix %}{{form.prefix}}-{% endif %}{{ field.name }}"
 
 tabindex="{{ forloop.counter }}"
 
-class="form-control {{ field.css_classes }}"
+class="{{ field.css_classes }}"
 
 {% for key , value in field.field.widget.attrs.items %}
 	{{key}} = "{{value}}"

@@ -1,5 +1,5 @@
 {% load i18n %}
 
 <div class="form-group">
-	<textarea {% include 'base/fields/headers/attrs.html' %}/ style="height: 100px;">{% if field.value %}{{ field.value }}{% endif %}</textarea>
+	<textarea class="form-control" {% include 'base/fields/headers/attrs.html' %}/ style="height: 100px;">{% if field.value %}{{ field.value }}{% endif %}</textarea>
 </div>
