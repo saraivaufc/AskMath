@@ -6,6 +6,10 @@
 }
 
 
+.main {
+    z-index: 1;
+}
+
 .sidebar, .sidebar > .sidebar-item{
 	width: 100%;
 	margin-right: 5px;
@@ -78,4 +82,48 @@ span.select2-selection--multiple{
 
 .jumbotron{
   width: 100%;
+  background-color: inherit;
+}
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+.img-logo{
+	position: relative;
+	z-index: 0;
+	background-color: #fff;
+	max-width: 200px;
+	margin: -80px auto 0;
+	border-radius: 50%;
+	bottom: -150px;
 }

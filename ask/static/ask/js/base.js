@@ -6,10 +6,12 @@ $("button#next").on('click', function(){
 	$("#question").show();
 });
 
+/*
+
 function loadSearch(){
 	var data = [];
 	var search = $("input[name='search']");
-	var url = Urls['ask:api_issue']() + "?format=json"; 
+	var url = Urls['ask:api_course']() + "?format=json"; 
 	$.get(url, function(objects){
 		for(var i=0; i<objects.length; i++){
 			var object = {id: objects[i].slug, text:objects[i].name}
@@ -36,3 +38,4 @@ $(function(){
 	loadSearch();	
 })
 
+*/

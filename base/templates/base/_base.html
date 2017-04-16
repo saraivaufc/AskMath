@@ -1,4 +1,4 @@
-{% load i18n static %}
+{% load i18n static js_reverse %}
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html 
@@ -31,8 +31,8 @@
 <body class="{% block page_type %}components-page{% endblock %}">
 	{% include 'blocks/no_script.html' %}
 
-	{% block header  %}
-		{% include "blocks/header.html" %}
+	{% block navbar  %}
+		{% include "blocks/navbar.html" %}
 	{% endblock %}
 
 	<div class="wrapper">
@@ -90,6 +90,7 @@
 
 	{% block scripts %}
 		<script type="text/javascript" src="{% url 'base:javascript-catalog' %}"></script>
+		<script type="text/javascript" charset="utf-8">{% js_reverse_inline %}</script>
 	{% endblock %}
 </body>
 </html>

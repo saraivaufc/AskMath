@@ -237,10 +237,27 @@ MESSAGE_TAGS = {
 	message_constants.ERROR: 'danger',
 }
 
-# Session
+# Reverse
 
-SESSION_COOKIE_NAME = "askmath_sessionid"
+JS_REVERSE_JS_VAR_NAME = 'Urls'
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
+JS_REVERSE_JS_MINIFY = True
+JS_REVERSE_EXCLUDE_NAMESPACES = []
+JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'ask', 'forum']
+
+# Settings for CSRF cookie.
+#remover isso se o admin tiver dando erro 403 na producao
 CSRF_COOKIE_NAME = "askmath_csrftoken"
+CSRF_COOKIE_SECURE=False
+
+# Settings for Session cookie.
+#remover isso se o admin tiver dando erro 403 na producao
+SESSION_COOKIE_NAME = "askmath_sessionid"
+SESSION_COOKIE_SECURE=False
+SESSION_SAVE_EVERY_REQUEST = True
+
+# Session
+#remover isso se o admin tiver dando erro 403 na producao
 LANGUAGE_COOKIE_NAME = "askmath_language"
 
 #Email
