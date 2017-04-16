@@ -19,17 +19,23 @@
 {% endblock %}
 
 {% block content %}
+	<div class="jumbotron">
 		<div class="container-fluid">
 			<p class="lead text-justify">{{ lesson.description }}</p>
-			<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
-				<i class="fa fa-question"></i>
-				{% trans "Questions" %}
-			</a>
-			<a href="{% url 'ask:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
-				<i class="fa fa-film"></i>
-				{% trans "Videos" %}
-			</a>
+			<div class="w-100 text-xs-center">
+				<div class="btn-group" role="group">
+				<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
+					<i class="fa fa-question"></i>
+					{% trans "Questions" %}
+				</a>
+				<a href="{% url 'ask:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
+					<i class="fa fa-film"></i>
+					{% trans "Videos" %}
+				</a>
+				</div>
+			</div>
 		</div>
+</div>
 {% endblock %}
 
 {% block js %}
