@@ -22,6 +22,12 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'base:credits' %}">{% trans "Credits" %}</a>
 					</li>
+					<li class="nav-item" data-toggle="tooltip" title="{% trans 'Report errors and problems here!' %}">
+						<a href="{% url 'base:report_create' %}?{% trans "page" %}={{ request.path }}" class="nav-link"  data-toggle="modals" data-target="#report"  >
+							<i class="fa fa-bug"></i>
+							{% trans "Problems?" %}
+						</a>
+					</li>
 					<li class="nav-item">
 						<div class="nav-link">
 							<form action="{% url 'set_language' %}" method="POST">

@@ -23,16 +23,9 @@
 		<div class="container-fluid">
 			<p class="lead text-justify">{{ lesson.description }}</p>
 			<div class="w-100 text-xs-center">
-				<div class="btn-group" role="group">
-				<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-success" role="button" >
-					<i class="fa fa-question"></i>
-					{% trans "Questions" %}
+				<a class="btn btn-lg btn-success"  href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" role="button" >
+					<i class="fa fa-play"></i> {% trans "Start lesson" %}
 				</a>
-				<a href="{% url 'ask:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" type="button" class="btn btn-info" role="button">
-					<i class="fa fa-film"></i>
-					{% trans "Videos" %}
-				</a>
-				</div>
 			</div>
 		</div>
 </div>

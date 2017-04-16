@@ -58,12 +58,6 @@
 						{% trans "Forum" %}
 					</a>
 				</li>
-				<li class="nav-item" data-toggle="tooltip" title="{% trans 'Report errors and problems here!' %}">
-					<a href="{% url 'base:report_create' %}?{% trans "page" %}={{ request.path }}" class="nav-link"  data-toggle="modals" data-target="#report"  >
-						<i class="fa fa-bug"></i>
-						{% trans "Problem?" %}
-					</a>
-				</li>
 			</ul>
 
 			<ul class="nav navbar-nav float-sm-right">
@@ -79,7 +73,7 @@
 					<div class="dropdown-menu">
 						<div class="profile">
 							<div class="avatar m-1">
-								<img src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}"" alt="Circle Image" class="img-circle img-responsive img-raised" width="100%">
+								<img src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}"" alt="Circle Image" class="img-responsive img-raised" width="100%">
 							</div>
 						</div>
 						<a class="dropdown-item" href="{% url 'authentication:account_detail' pk=request.user.pk %}">
