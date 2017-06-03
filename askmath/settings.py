@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-import os, config
+import os
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
@@ -28,7 +28,7 @@ SITE_ID = 1
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config.SECRET_KEY
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -131,15 +131,10 @@ LOGOUT_URL = reverse_lazy("authentication:account_logout")
 
 DATABASES = {
 	'default': {
-		'ENGINE': config.DATABASE_ENGINE,
-		'NAME': config.DATABASE_NAME,
-		'USER': config.DATABASE_USER,
-		'PASSWORD': config.DATABASE_PASSWORD,
-		'HOST': config.DATABASE_HOST,
-		'PORT': config.DATABASE_PORT,
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 	}
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -165,10 +160,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 FORMAT_MODULE_PATH = [
-	'askmath.formats',
+	'base.formats',
 ]
-
-from askmath.formats.pt_BR.formats import * #GAMBI
 
 LOCALE_PATHS = (
 	path('askmath/locale'),
@@ -216,8 +209,7 @@ MEDIA_URL = '/media/'
 
 # Media uploads dirs
 
-PROFILE_IMAGE_DEFAULT = "files/no_avatar.png"
-
+PROFILE_IMAGE_DIR = 'uploads/profile_image/%Y/%m/%d'
 ISSUE_PHOTO_DIR = 'uploads/course_photo/%Y/%m/%d'
 SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
 USER_AVATAR_DIR = 'uploads/user_avatar'
@@ -237,38 +229,31 @@ MESSAGE_TAGS = {
 	message_constants.ERROR: 'danger',
 }
 
-# Reverse
 
 JS_REVERSE_JS_VAR_NAME = 'Urls'
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
 JS_REVERSE_JS_MINIFY = True
 JS_REVERSE_EXCLUDE_NAMESPACES = []
-JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'ask', 'forum']
+JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'ask',]
 
 # Settings for CSRF cookie.
 #remover isso se o admin tiver dando erro 403 na producao
 CSRF_COOKIE_NAME = "askmath_csrftoken"
 CSRF_COOKIE_SECURE=False
+CSRF_COOKIE_AGE = 60 * 30
 
 # Settings for Session cookie.
 #remover isso se o admin tiver dando erro 403 na producao
 SESSION_COOKIE_NAME = "askmath_sessionid"
 SESSION_COOKIE_SECURE=False
+SESSION_COOKIE_AGE =  60 * 30
 SESSION_SAVE_EVERY_REQUEST = True
 
 # Session
 #remover isso se o admin tiver dando erro 403 na producao
 LANGUAGE_COOKIE_NAME = "askmath_language"
 
-#Email
+RESTRICTEDSESSIONS_AUTHED_ONLY = True
 
-EMAIL_ADMINS = config.EMAIL_ADMINS
-DEFAULT_FROM_EMAIL = config.DEFAULT_FROM_EMAIL
 
-EMAIL_HOST = config.EMAIL_HOST
-EMAIL_HOST_USER = config.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = config.EMAIL_HOST_PASSWORD
-EMAIL_PORT = config.EMAIL_PORT
-EMAIL_USE_TLS = config.EMAIL_USE_TLS
-EMAIL_BACKEND = config.EMAIL_BACKEND
-
+from secrete_settings import *

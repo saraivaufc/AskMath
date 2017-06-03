@@ -21,13 +21,13 @@ class SocialNetworkAdmin(admin.ModelAdmin):
 
 class ReportAdmin(admin.ModelAdmin):
 	model = Report
-	list_display = ('page', 'name', 'email', 'message', 'solved_in', 'solved_by', 'last_modified')
+	list_display = ('name', 'email', 'message', 'solved_in', 'solved_by', 'last_modified')
 	list_filter = ['solved_in', 'solved_by', 'last_modified',]
 	search_fields = ['name','email', 'message']
 	actions = ['make_solved']
 
 	def make_solved(self, request, queryset):
-		rows_updated = queryset.update(solved=timezone.now(), solved_by=request.user)
+		rows_updated = queryset.update(solved_in=timezone.now(), solved_by=request.user)
 		if rows_updated == 1:
 			message_bit = _("1 story was")
 		else:

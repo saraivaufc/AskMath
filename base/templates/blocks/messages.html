@@ -1,14 +1,16 @@
 {% load i18n %}
 
 {% if messages %}
-    <ul class="messagelist">
-	{% for message in messages %}
-    	<li{% if message.tags %} class="alert alert-{{ message.tags }} {{ message.tags }}" role="alert""{% endif %}>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            {{ message|capfirst }}
-        </li>
+    {% for message in messages %}
+        <div class="row">
+            <div class="alert {% if message.tags %}alert-{{ message.tags }} {{ message.tags }} {% endif %} pt-1 pb-1 w-100">
+                <div class="container-fluid">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                    </button>
+                    {{ message|capfirst }}
+                </div>
+            </div>
+        </div>
     {% endfor %}
-    </li{%>
 {% endif %}

@@ -23,23 +23,25 @@
 {% endblock %}
 
 {% block content %}
-	<div class="jumbotron">
-		<div class="container-fluid">
-			<p class="lead">{% trans "This lesson finished" %}</p>
-			<form action="#" method="POST">
-				{% csrf_token %}
-			<div class="btn-group" role="group">
-				<button type="submit" class="btn btn-success" role="button">
-					<i class="fa fa-refresh"></i>
-					{% trans "Restart" %}
-				</button>
-			</form>
-			<a href="{% url 'ask:lesson_list' course.slug %}" class="btn btn-info" role="button">
-				<i class="fa fa-level-up"></i>
-				{% blocktrans with course=course %}
-					Back to {{ course }}
-				{% endblocktrans %}
-			</a>
+	<div class="row">
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<p class="lead">{% trans "This lesson finished" %}</p>
+				<form action="#" method="POST">
+					{% csrf_token %}
+					<div class="btn-group" role="group">
+						<button type="submit" class="btn btn-success" role="button">
+							<i class="fa fa-refresh"></i>
+							{% trans "Restart" %}
+						</button>
+					</div>
+				</form>
+				<a href="{% url 'ask:lesson_list' course.slug %}" class="btn btn-info" role="button">
+					<i class="fa fa-level-up"></i>
+					{% blocktrans with course=course %}
+						Back to {{ course }}
+					{% endblocktrans %}
+				</a>
 			</div>
 		</div>
 	</div>

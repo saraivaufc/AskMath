@@ -19,27 +19,28 @@
 {% endblock %}
 
 {% block content %}
-
-	<div class="col-md-3">
-		<div class="row">
-		{% include 'forum/topic/sidebar_categories.html' %}		
+	<div class="row">
+		<div class="col-md-3">
+			<div class="row">
+			{% include 'forum/topic/sidebar_categories.html' %}		
+			</div>
 		</div>
-	</div>
 
-	<div class="col-md-9">
-		<div class="row">
-			{% for topic in object_list %}
-				{% include 'forum/topic/_render.html' %}
-			{% empty %}
-				<div class="jumbotron">
-					<div class="container-fluid">
-						<p class="lead">{% trans "No topic found this query." %}</p>
+		<div class="col-md-9">
+			<div class="row">
+				{% for topic in object_list %}
+					{% include 'forum/topic/_render.html' %}
+				{% empty %}
+					<div class="jumbotron">
+						<div class="container-fluid">
+							<p class="lead">{% trans "No topic found this query." %}</p>
+						</div>
 					</div>
-				</div>
-			{% endfor %}
-			<nav class="blog-pagination">
-				{% include 'base/_paginate.html' %}
-			</nav>
+				{% endfor %}
+				<nav class="blog-pagination">
+					{% include 'base/_paginate.html' %}
+				</nav>
+			</div>
 		</div>
 	</div>
 {% endblock %}

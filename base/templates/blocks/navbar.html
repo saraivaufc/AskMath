@@ -62,30 +62,38 @@
 
 			<ul class="nav navbar-nav float-sm-right">
 				{% if request.user.is_authenticated %}
+
+				{% if request.user.is_staff %}
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-dashboard"></i>
+								{% trans "Dashboard" %}
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank" class="nav-link">
+								<i class="fa fa-cogs"></i>
+							{% trans "Administration" %}
+							</a>
+							<a class="dropdown-item" href="{% url 'rosetta-home' %}" target="_blank" class="nav-link">
+								<i class="fa fa-language"></i>
+								{% trans "Translate" %}
+							</a>
+						</div>
+					</li>
+				{% endif %}
 				
 				{% include "gamification/bar.html" %}
 
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-user-circle"></i>
+						<img class="profile m-0" src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}" alt="{% trans 'Profile Image' %}">
 						{{ request.user.get_full_name  }}
 					</a>
 					<div class="dropdown-menu">
-						<div class="profile">
-							<div class="avatar m-1">
-								<img src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}"" alt="Circle Image" class="img-responsive img-raised" width="100%">
-							</div>
-						</div>
 						<a class="dropdown-item" href="{% url 'authentication:account_detail' pk=request.user.pk %}">
 							<i class="fa fa-user"></i>
 							{% trans "Profile" %}
 						</a>
-						{% if request.user.is_staff  %}
-						<a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank" class="nav-link {% if request.resolver_match.namespace == 'admin' %}active{% endif %}">
-							<i class="fa fa-dashboard"></i>
-							{% trans "Administration" %}
-						</a>
-						{% endif %}
 						<a class="dropdown-item" href="{% url 'authentication:account_password_change' %}">
 							<i class="fa fa-key"></i>
 							{% trans "Change password" %}
@@ -101,6 +109,12 @@
 						<a href="{% url 'authentication:account_login' %}" class="nav-link">
 							<i class="fa fa-sign-in"></i>
 							{% trans "Login" %}
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'authentication:account_register' %}" class="nav-link">
+							<i class="fa fa-user-plus"></i>
+							{% trans "Sign-Up" %}
 						</a>
 					</li>
 				{% endif %}

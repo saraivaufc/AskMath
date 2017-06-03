@@ -6,13 +6,14 @@ from django.contrib.auth import authenticate, login, logout
 from authentication.models import User
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 
 from ..utils.constants import Constants
-from ..forms import UserForm
+from ..forms import AccountForm, ProfileForm
 
 class UserCreateView(CreateView):
 	template_name = 'authentication/account/register.html'
-	form_class = UserForm
+	form_class = AccountForm
 	success_url = reverse_lazy('authentication:account_login')
 
 	def form_valid(self, form):
@@ -33,11 +34,11 @@ class UserDetailView(DetailView):
 
 class UserUpdateView(UpdateView):
 	template_name = 'authentication/account/form.html'
+	form_class = ProfileForm
 	model = User
-	fields = ['first_name', 'last_name', 'profile_image', 'email']
 
 	def get_success_url(self):
-		return reverse_lazy('authentication:account_detail', kwargs={'pk': self.object.pk})
+		return reverse_lazy('authentication:account_detail', kwargs={'pk': self.object.pk})	
 
 	def get(self, request, * args, ** kwargs):
 		user = self.get_object()

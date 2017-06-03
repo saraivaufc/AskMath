@@ -34,12 +34,10 @@
 		{% endif %}
 	{% endif %}
 
-	{% include "authentication/form.html" %}
-	
-	<div class="col-md-12">
+	<div class="col-md-6 offset-md-3">
+		{% include "authentication/form.html" %}
 		<a href="{% url 'authentication:account_password_reset' %}">
 			{% trans "Lost password?" %}
 		</a>
-		
 	</div>
 {% endblock %}

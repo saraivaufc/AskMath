@@ -1,1 +1,1 @@
-from .user import UserForm
+from .user import AccountForm, ProfileForm

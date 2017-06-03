@@ -1,0 +1,2 @@
+Comunicação:
+	- Permitir que pessoas marquem encontros para estudar

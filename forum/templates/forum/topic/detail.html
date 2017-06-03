@@ -14,13 +14,17 @@
 
 
 {% block content %}
-	<div class="col-md-3">
-		<div class="row">
-		{% include 'forum/topic/sidebar_categories.html' %}		
+	<div class="row">
+		<div class="col-md-3">
+			<div class="row">
+			{% include 'forum/topic/sidebar_categories.html' %}		
+			</div>
 		</div>
-	</div>
-	<div class="col-md-9">
-		{% include 'forum/topic/_render.html' %}	
+		<div class="col-md-9">
+			<div class="row">
+			{% include 'forum/topic/_render.html' %}
+			</div>
+		</div>
 	</div>
 {% endblock %}
 

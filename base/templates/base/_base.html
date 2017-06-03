@@ -1,6 +1,10 @@
 {% load i18n static js_reverse %}
-<!DOCTYPE html>
+
 {% get_current_language as LANGUAGE_CODE %}
+
+{% trans 'Whether you are in college or in NASA laboratories, join the community of students who take the AskMath. There are several lessons and tutorials video for free for you.' as meta_description %}
+
+<!DOCTYPE html>
 <html 
 	lang="{{ LANGUAGE_CODE|default:"en-us" }}"
 	itemscope=""
@@ -9,7 +13,18 @@
 	xmlns:fb="http://www.facebook.com/2008/fbml"
 	class="modernizr-no-touchevents modernizr-flexbox modernizr-no-flexboxtweener">
 <head>
-	{% include 'blocks/meta.html' %}
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="author" content="{% block meta_author %}Ciano Saraiva{% endblock %}"/>
+	<meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}"/>
+	<meta name="keywords" content="{% block meta_keywords %}{% trans 'Education,Mathematics,University' %}{% endblock %}"/>
+	<meta name="robots" content="index, follow"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!-- OpenGraph Protocol -->
+	{% block opengraph %}
+		{% include 'blocks/opengraph.html' %}
+	{% endblock %}
 	
 	<title>AskMath - {% block title %}{% endblock %}</title>
 	
@@ -28,7 +43,7 @@
 </head>
 {% load i18n %}
 
-<body class="{% block page_type %}components-page{% endblock %}">
+<body class="components-page">
 	{% include 'blocks/no_script.html' %}
 
 	{% block navbar  %}
@@ -43,14 +58,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 class="title h2 text-xs-center mb-0">{%  block page_title %}{% endblock %}</h1>
-						<h2 class="title h3 text-xs-center mt-0">{%  block page_subtitle %}{% endblock %}</h2>
+						<h1 class="title h2 text-xs-center mt-0">{%  block page_title %}{% endblock %}</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<section id="content" class="main main-raised p-1">
+		<section id="content" class="main main-raised">
 			<div class="section-basic">
 				{% block two_header %}
 				<nav id="breadcrumb" class="breadcrumb">
@@ -62,26 +76,30 @@
 			 	   {% endblock %}
 				</nav>
 				{% endblock %}
-				
+			</div>
+			<div class="section-basic p-1">
+				<div class="container-fluid">
 				{% block messages %}
 					{% include 'blocks/messages.html' %}
 				{% endblock messages %}
+				</div>
 
 				<div class="container-fluid">
-					<div class="row">
 					{% block content %}
 
 					{% endblock %}
-					</div>
 				</div>
 			</div>
 		</section>
 		{% endblock %}
 	</div>
 
-
 	{% block footer %}
 		{% include "blocks/footer.html" %}
+	{% endblock %}
+
+	{% block modals %}
+
 	{% endblock %}
 
 	{% block js %}

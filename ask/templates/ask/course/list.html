@@ -16,6 +16,7 @@
 {%  block page_title %}{% trans "Course list" %}{% endblock %}
 
 {% block content %}
+	<div class="row">
 	{% for course in object_list %}
 		<a href="{% url 'ask:lesson_list' course.slug %}" class="tile {{ course.color }}">
 			<div class="tile-content {% if course.icon %}image-set{% else %}iconic{% endif %}">
@@ -31,6 +32,8 @@
 			{% endif %}
 		</a>
 	{% endfor %}
-
-	{% include "base/_paginate.html" %}
+	</div>
+	<div class="row">
+		{% include "base/_paginate.html" %}
+	</div>
 {% endblock %}
