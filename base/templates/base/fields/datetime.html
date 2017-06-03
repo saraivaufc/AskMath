@@ -1,5 +1,6 @@
 {% load i18n %}
 
 <div class="form-group">
-	<input type="datetime" class="form-control" placeholder="xx/xx/xxxx xx:xx:xx" {% include 'base/fields/headers/attrs.html' %} />
+	{% include 'base/fields/headers/caption.html' %}
+	<input type="datetime" class="form-control" {% include 'base/fields/headers/attrs.html' %} />
 </div>

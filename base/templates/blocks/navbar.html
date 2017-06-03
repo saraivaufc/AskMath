@@ -86,7 +86,7 @@
 
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-						<img class="profile m-0" src="{% if request.user.profile_image %}{{ request.user.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}" alt="{% trans 'Profile Image' %}">
+						<i class="fa fa-user-circle"></i>
 						{{ request.user.get_full_name  }}
 					</a>
 					<div class="dropdown-menu">

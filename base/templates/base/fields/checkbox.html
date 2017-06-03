@@ -1,7 +1,7 @@
 {% load i18n %}
 <div class="checkbox">
+	{% include 'base/fields/headers/caption.html' %}
 	<label>
-	    <input type="checkbox" {% if field.value == True or field.initial == True %}checked{% endif %}
-		{% include 'base/fields/headers/attrs.html' %} />
+		<input type="checkbox" {% if field.value == True or field.initial == True %}checked{% endif %}{% include 'base/fields/headers/attrs.html' %} />
 	</label>
 </div>

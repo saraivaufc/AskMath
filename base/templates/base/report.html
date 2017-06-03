@@ -16,25 +16,21 @@
 
 {% block content %}
 	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="row">
-				<ul class="list-group w-100">
-					<li class="list-group-item disabled">{% trans "Social Networks" %}:</li>
-					{% for social_network in social_networks %}
-					<li class="list-group-item">
-						<img src="{{ social_network.icon.url }}" class="float-xs-left" style="width: 50px; margin-right: 10px;">
-						{{ social_network.name }}
-						</br>
-						<a href="{{ social_network.url }}" target="_blank">{{ social_network.url }}</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
 		<div class="col-xs-12 col-sm-6 col-md-8">
-			<div class="row">
 			{% include "base/_form.html" with is_middle=True %}
-			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<ul class="list-group w-100">
+				<li class="list-group-item disabled">{% trans "Social Networks" %}:</li>
+				{% for social_network in social_networks %}
+				<li class="list-group-item">
+					<img src="{{ social_network.icon.url }}" class="float-xs-left" style="width: 50px; margin-right: 10px;">
+					{{ social_network.name }}
+					</br>
+					<a href="{{ social_network.url }}" target="_blank">{{ social_network.url }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
 	</div>
 {% endblock %}

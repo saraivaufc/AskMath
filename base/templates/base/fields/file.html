@@ -1,1 +1,11 @@
-{{ field }}
+{% load i18n %}
+
+<div class="container-fluid">
+	<div class="row">
+		{% include 'base/fields/headers/caption.html' %}
+	</div>
+	<div class="row">
+		{{ field }}
+	</div>
+	<br>
+</div>
