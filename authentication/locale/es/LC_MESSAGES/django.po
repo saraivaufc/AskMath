@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-17 21:05-0300\n"
+"POT-Creation-Date: 2017-04-30 05:22-0300\n"
 "PO-Revision-Date: 2016-12-29 01:09-0234\n"
 "Last-Translator: None None <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,19 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.8\n"
 
 #: authentication/apps.py:11
+#: authentication/templates/authentication/index.html:10
+#: authentication/templates/authentication/index.html:12
 msgid "Authentication"
+msgstr ""
+
+#: authentication/forms/user.py:10
+msgid "Terms and Conditions"
+msgstr ""
+
+#: authentication/forms/user.py:10
+msgid ""
+"Clicking here, you agree to the Terms and Conditions set out by this site, "
+"including our Cookie Use."
 msgstr ""
 
 #: authentication/models/user.py:39
@@ -41,20 +53,15 @@ msgstr ""
 
 #: authentication/models/user.py:41
 #: authentication/templates/authentication/account/_render.html:22
-msgid "Username"
-msgstr ""
-
-#: authentication/models/user.py:41
-msgid "Please enter you username."
-msgstr ""
-
-#: authentication/models/user.py:42
-#: authentication/templates/authentication/account/_render.html:25
 msgid "Email"
 msgstr ""
 
-#: authentication/models/user.py:42
+#: authentication/models/user.py:41
 msgid "Please enter you email."
+msgstr ""
+
+#: authentication/models/user.py:42
+msgid "Profile Image"
 msgstr ""
 
 #: authentication/models/user.py:43
@@ -79,11 +86,11 @@ msgstr ""
 msgid "Staff Status"
 msgstr ""
 
-#: authentication/models/user.py:87
+#: authentication/models/user.py:85
 msgid "User"
 msgstr ""
 
-#: authentication/models/user.py:88
+#: authentication/models/user.py:86
 msgid "Users"
 msgstr ""
 
@@ -100,7 +107,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: authentication/templates/authentication/account/_render.html:28
+#: authentication/templates/authentication/account/_render.html:25
 msgid "Date Joined"
 msgstr ""
 
@@ -121,27 +128,30 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: authentication/templates/authentication/account/detail.html:17
+#: authentication/templates/authentication/account/detail.html:9
 msgid "Profile"
 msgstr ""
 
-#: authentication/templates/authentication/account/detail.html:25
+#: authentication/templates/authentication/account/detail.html:31
 msgid "Edit"
 msgstr ""
 
-#: authentication/templates/authentication/account/detail.html:29
-msgid "Delete"
+#: authentication/templates/authentication/account/detail.html:36
+msgid "Remove"
 msgstr ""
 
-#: authentication/templates/authentication/account/form.html:17
-#: authentication/templates/authentication/account/form.html:22
+#: authentication/templates/authentication/account/form.html:15
+#: authentication/templates/authentication/account/form.html:20
 msgid "Form User"
 msgstr ""
 
 #: authentication/templates/authentication/account/login.html:5
 #: authentication/templates/authentication/account/login.html:14
-#: authentication/templates/authentication/account/login.html:18
 msgid "Login"
+msgstr ""
+
+#: authentication/templates/authentication/account/login.html:18
+msgid "Sign-in"
 msgstr ""
 
 #: authentication/templates/authentication/account/login.html:22
@@ -158,18 +168,12 @@ msgstr ""
 msgid "Please login to see this page."
 msgstr ""
 
-#: authentication/templates/authentication/account/login.html:36
+#: authentication/templates/authentication/account/login.html:38
 msgid "Lost password?"
 msgstr ""
 
-#: authentication/templates/authentication/account/login.html:39
-#: authentication/templates/authentication/account/register.html:14
-#: authentication/templates/authentication/account/register.html:18
-msgid "Register"
-msgstr ""
-
 #: authentication/templates/authentication/account/password_change_done.html:8
-msgid "Password Reset Change"
+msgid "Password Change"
 msgstr ""
 
 #: authentication/templates/authentication/account/password_change_done.html:12
@@ -207,15 +211,11 @@ msgid ""
 "correctly."
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:13
-msgid "Submit"
-msgstr ""
-
-#: authentication/templates/authentication/account/password_reset_confirm.html:17
+#: authentication/templates/authentication/account/password_reset_confirm.html:11
 msgid "Password reset unsuccessful"
 msgstr ""
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:18
+#: authentication/templates/authentication/account/password_reset_confirm.html:12
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
@@ -271,12 +271,9 @@ msgid ""
 "instructions for setting a new one."
 msgstr ""
 
-#: authentication/templates/authentication/index.html:15
-msgid "Home"
-msgstr ""
-
-#: authentication/templates/authentication/index.html:19
-msgid "Site Administration"
+#: authentication/templates/authentication/account/register.html:14
+#: authentication/templates/authentication/account/register.html:18
+msgid "Sign-up"
 msgstr ""
 
 #: authentication/urls/__init__.py:5

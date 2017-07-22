@@ -1,0 +1,23 @@
+{% extends "competition/challenge/detail.html" %}
+
+{% load i18n static %}
+
+{% block title %}{% trans "Form Solution" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="" class="breadcrumb-item">
+		<i class="fa fa-file-text-o"></i>
+		{% trans "Form Solution" %}
+	</a>
+{% endblock %}
+
+{% block page_title %}{% trans "Form Solution" %}{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			{% include 'base/_form.html' %}
+		</div>
+	</div>
+{% endblock %}

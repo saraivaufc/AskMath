@@ -8,18 +8,20 @@ from ..utils.models import AutoSlugField
 
 from .topic import Topic
 
-STATUS_CHOICES = (
-	('d', _('Draft')),
-	('p', _('Published')),
-	('r', _('Removed')),
-)
-
 class Category(models.Model):
-	name = models.CharField(verbose_name=_("Name"), max_length=75)
+	DRAFT = 'd'
+	PUBLISHED = 'p'
+	REMOVED = 'r'
+	STATUS_CHOICES = (
+		(DRAFT, _('Draft')),
+		(PUBLISHED, _('Published')),
+		(REMOVED, _('Removed')),
+	)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
+	name = models.CharField(verbose_name=_("Name"), max_length=75)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="category_created_by", blank=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Created by"), related_name="category_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 

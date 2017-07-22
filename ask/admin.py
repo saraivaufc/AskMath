@@ -1,31 +1,31 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from django.contrib.admin import AdminSite
-
-from base.actions import (StatusAction, )
 
 from .models import (Course, Lesson, Question, Choice, Answer, Video, Introduction, )
 from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm,)
 
-class CourseAdmin(admin.ModelAdmin, StatusAction):
+class CourseAdmin(admin.ModelAdmin):
 	form = CourseForm
-	list_display = ('name', 'is_private', 'amount', 'status', 'last_modified')
-	list_filter = ['is_private', 'status', 'creation', 'last_modified']
+	list_display = ('name', 'status', 'last_modified')
+	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
-	actions = []
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
 		form.save()
 
-class LessonAdmin(admin.ModelAdmin, StatusAction):
+class QuestionInline(admin.TabularInline):
+	model = Question
+	fields = ['introduction','text', 'help']
+	extra = 1
+
+class LessonAdmin(admin.ModelAdmin):
 	form = LessonForm
 	list_display = ('name', 'status', 'created_by', 'last_modified')
 	list_filter = ['courses', 'status', 'last_modified']
 	search_fields = ['name']
-	filter_horizontal = ['courses', 'requirements','questions', 'videos', ]
-	actions = []
+	filter_horizontal = ['courses', 'requirements', 'questions', 'videos', ]
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
@@ -52,8 +52,8 @@ class QuestionAdmin(admin.ModelAdmin):
 		form.save()
 
 class AnswerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'lesson', 'question','correct','exists', 'created_by', 'last_modified')
-	list_filter = ['user', 'lesson', 'question','correct','exists', 'last_modified']
+	list_display = ('user', 'lesson', 'question','is_correct','exists', 'created_by', 'last_modified')
+	list_filter = ['user', 'lesson', 'question','is_correct','exists', 'last_modified']
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
@@ -64,7 +64,6 @@ class VideoAdmin(admin.ModelAdmin):
 	list_display = ('title', 'position', 'url', 'created_by', 'last_modified')
 	list_filter = ['last_modified']
 	search_fields = ['title', 'description']
-	actions = []
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user

@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<html>
+<title>{{ subject }}</title>
+<body>
+	{% blocktrans with user=user message=message %}
+		<p>Dear {{ user }}, </p>
+		<p>{{ message }}</p>
+    {% endblocktrans %}
+</body>
+</html>

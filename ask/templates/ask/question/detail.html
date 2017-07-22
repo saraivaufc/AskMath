@@ -1,4 +1,4 @@
-{% extends "ask/lesson/detail.html" %}
+{% extends "ask/lesson/list.html" %}
 
 {% load i18n %}
 
@@ -6,82 +6,87 @@
 	{% trans "Questions" %}
 {% endblock %}
 
-{% block breadcrumbs %}
-	{{ block.super }}
-	<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
-		<i class="fa fa-question"></i>
-		{% trans "Questions" %}
-	</a>
-{% endblock %}
-
 {%  block page_title %}
 	{{ lesson }}
 {% endblock %}
 
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'ask:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-question"></i>
+		{% blocktrans with lesson=lesson %}
+			Questions of {{ lesson }}
+		{% endblocktrans %}
+	</a>
+{% endblock %}
+
 {% block content %}
 	<div class="row">
-		<progress class="progress progress-warning progress-striped progress-animated" value="{{ percent_completed }}" max="100" aria-describedby="example-caption-6">
-			<div class="progress">
-				<span class="progress-bar" style="width: 25%;"></span>
-			</div>
-		</progress>
+		<div class="col-md-12">
+			<progress class="progress progress-warning" value="{{ percent_completed }}" max="100" style="height: 20px;">
+				<div class="progress">
+					<span class="progress-bar" style="width: 25%;"></span>
+				</div>
+			</progress>
+		</div>
 	</div>
 	{% if question %}
+		{% if question.introduction %}
 		<div class="row">
-			{% if question.introduction %}
-			<div id="introduction" class="jumbotron">
-				<div class="container-fluid">
-					<p class="lead text-xs-center">{{ question.introduction.text }}</p>
-					<div class="text-xs-center">
-						<button id="next" class="btn btn-success">
-							{% trans "Next" %}
-							<i class="fa fa-angle-double-right"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-			<style type="text/css">
-				#question{
-					display: none;
-				}
-			</style>
-			{% endif %}
-		</div>
-
-		<div id="question">
-			<div class="row">
-				<p class="lead">
-					{{ question.text }}
-				</p>
-			</div>
-			<form action="#content" method="post">
-				{% csrf_token %}
-				{% for choice in form.choices %}
-				<div class="row">
-					<div class="form-control">
-						<div class="checkbox">
-							<label>
-								<input type="checkbox"  id="{{ choice.auto_id }}" name="{{ choice.name }}" value="{{ choice.choice_value }}" {% if choice.choice_value in form.choices.value %} checked="checked" {% endif %}>{{ choice }}
-							</label>
+			<div class="col-md-12">
+				<div id="introduction" class="jumbotron">
+					<div class="container-fluid">
+						<p class="lead text-xs-center">{{ question.introduction.text }}</p>
+						<div class="text-xs-center">
+							<button id="next" class="btn btn-success">
+								{% trans "Next" %}
+								<i class="fa fa-angle-double-right"></i>
+							</button>
 						</div>
 					</div>
 				</div>
-				{% endfor %}
-				<div class="row">
-					<div class="btn-group" role="group">
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-check"></i>
-							{% trans "Reply" %}
-						</button>
-						{% if question.help %}
-						<a href="#" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
-							<i class="fa fa-exclamation"></i>
-							{% trans "Help" %}
-						</a>
-						{% endif %}
-					</div>
+				<style type="text/css">
+					#question{
+						display: none;
+					}
+				</style>
+			</div>
+		</div>
+		{% endif %}
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="question">
+					<p class="lead">
+						{{ question.text }}
+					</p>
+					<form action="#content" method="post">
+						{% csrf_token %}
+						{% for choice in form.choices %}
+						<div class="form-control">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"  id="{{ choice.auto_id }}" name="{{ choice.name }}" value="{{ choice.choice_value }}" {% if choice.choice_value in form.choices.value %} checked="checked" {% endif %}>{{ choice }}
+								</label>
+							</div>
+						</div>
+						{% endfor %}
+						<div class="btn-group" role="group">
+							<button type="submit" class="btn btn-success">
+								<i class="fa fa-check"></i>
+								{% trans "Reply" %}
+							</button>
+							{% if question.help %}
+							<a href="#" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
+								<i class="fa fa-exclamation"></i>
+								{% trans "Help" %}
+							</a>
+							{% endif %}
+						</div>
+					</form>
 				</div>
-			</form>
+			</div>
 		</div>
 
 		{% if question.help %}
@@ -91,11 +96,15 @@
 
 	{% else %}
 		<div class="row">
-			<div class="jumbotron">
-				<div class="container-fluid">
-					<p class="lead">{% trans "No found questions." %}</p>
+			<div class="col-md-12">
+				<div class="jumbotron">
+					<div class="container-fluid">
+						<p class="lead">{% trans "No found questions." %}</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	{% endif %}
+
+	{% include "ask/imports/latex.html" %}
 {% endblock %}

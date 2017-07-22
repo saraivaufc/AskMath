@@ -40,32 +40,30 @@ function accessibility(){
 
 	if(Cookies.get("font")){
 		set_font(Cookies.get("font"));
-		var button_font = $("#button-font");
-		button_font.removeClass("font-minus");
-		button_font.addClass("font-plus");
-		button_font.text("Big Font-ON [4]");
 
 	}
 }
 
-accessibility();
+$(function(){
+	accessibility();
 
-$("#button-contrast").click(function(){
-	if($(this).hasClass("disable-contrast")){
-		active_constrast();
-		Cookies.set("contrast", true);
-		console.log("Contrar Enable");
-	}else if($(this).hasClass("enable-contrast")){
-		disable_constrast();
-		Cookies.remove("contrast");
-		console.log("Contrar Disable");
-	}
-});
+	$("#button-contrast").click(function(){
+		if($(this).hasClass("disable-contrast")){
+			active_constrast();
+			Cookies.set("contrast", true);
+			console.log("Contrar Enable");
+		}else if($(this).hasClass("enable-contrast")){
+			disable_constrast();
+			Cookies.remove("contrast");
+			console.log("Contrar Disable");
+		}
+	});
 
-$("#increase-font").click(function(){
-	alter_font(2);
-});
+	$("#increase-font").click(function(){
+		alter_font(2);
+	});
 
-$("#decrease-font").click(function(){
-	alter_font(-2);
+	$("#decrease-font").click(function(){
+		alter_font(-2);
+	});
 });

@@ -1,0 +1,15 @@
+{% load i18n%}
+
+<div class="sidebar-module">
+	<ol class="list-unstyled">
+		{% for category in categories %}
+		<li class="list-group-item">
+			<a href="{% url 'blog:post_list' slug=category.slug %}">
+				<i class="fa fa-tag"></i>
+				{{ category.name }}
+				<span class="tag tag-default tag-pill float-xs-right">{{ category.get_posts|length }}</span>
+			</a>
+		</li>
+		{% endfor %}
+	</ol>
+</div>

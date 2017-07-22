@@ -19,17 +19,21 @@
 {%  block page_title %}{% trans "Confirm delete" %}{% endblock %}
 
 {% block content %}
-<div class="jumbotron jumbotron-fluid text-xs-center w-100">
-	<div class="container-fluid">
-		<form action="" method="post">{% csrf_token %}
-			<p class="lead">{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
-			<a href="{% url 'authentication:account_detail' pk=object.pk %}" class="btn btn-info">
-				{% trans "No" %}
-			</a>
-			<button class="btn btn-primary" type="submit">
-				{% trans "Yes" %}
-			</button>
-		</form>
+<div class="row">
+	<div class="col-md-12">
+		<div class="jumbotron text-xs-center">
+			<div class="container-fluid">
+				<form action="" method="post">{% csrf_token %}
+					<p class="lead">{% trans "Are you sure you want to delete" %} "{{ object }}"?</p>
+					<a href="{% url 'authentication:account_detail' pk=object.pk %}" class="btn btn-info">
+						{% trans "No" %}
+					</a>
+					<button class="btn btn-primary" type="submit">
+						{% trans "Yes" %}
+					</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -31,23 +31,6 @@ class LessonListView(ListView):
 		context['course'] = self.get_course()
 		return context
 
-class LessonDetailView(DetailView):
-	template_name = 'ask/lesson/detail.html'
-	model = Lesson
-
-	def get_course(self):
-		return Course.objects.filter(slug=self.kwargs['course_slug']).first()
-
-	def get_context_data(self, ** kwargs):
-		context = super(LessonDetailView, self).get_context_data(** kwargs)
-		context['course'] = self.get_course()
-		return context
-
-	def get(self, request, * args, ** kwargs):
-		if not self.get_object().status == 'p':
-			return HttpResponseForbidden()
-		return super(LessonDetailView, self).get(request)
-
 class LessonFinishedView(DetailView):
 	template_name = 'ask/lesson/finished.html'
 	model = Lesson

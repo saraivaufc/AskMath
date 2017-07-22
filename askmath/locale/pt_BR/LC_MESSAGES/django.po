@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 07:39-0300\n"
+"POT-Creation-Date: 2017-07-21 23:49-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,23 +19,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: askmath/settings.py:182
+#: askmath/settings.py:204
 msgid "Brazilian Portuguese"
 msgstr "Português Brasileiro"
 
-#: askmath/settings.py:183
+#: askmath/settings.py:205
 msgid "English"
 msgstr "Inglês"
 
-#: askmath/settings.py:184
-msgid "Spanish"
-msgstr "Espanhol"
+#: askmath/settings.py:346
+msgid "Blog to The AskMath"
+msgstr ""
+
+#: askmath/urls.py:15
+msgid "^authentication/"
+msgstr "^autenticacao/"
+
+#: askmath/urls.py:16
+#, fuzzy
+#| msgid "^authentication/"
+msgid "^competition/"
+msgstr "^autenticacao/"
+
+#: askmath/urls.py:17
+msgid "^forum/"
+msgstr ""
+
+#: askmath/urls.py:18
+msgid "^blog/"
+msgstr ""
+
+#~ msgid "Spanish"
+#~ msgstr "Espanhol"
 
 #~ msgid "^ask/"
 #~ msgstr "^ask/"
-
-#~ msgid "^authentication/"
-#~ msgstr "^autenticacao/"
 
 #~ msgid "^about-us/$"
 #~ msgstr "^sobre/$"

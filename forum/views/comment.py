@@ -3,12 +3,14 @@
 from __future__ import unicode_literals
 
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.http import HttpResponseForbidden
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.conf import settings
 from django.utils import timezone
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 
@@ -21,7 +23,7 @@ class CommentCreateView(SuccessMessageMixin, CreateView):
 	template_name = 'forum/comment/form.html'
 	model = Comment
 	form_class = CommentForm
-	success_message = _(u"Comment created successfully")
+	success_message = _("Comment created successfully")
 
 	def get_success_url(self):
 		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
@@ -36,10 +38,8 @@ class CommentCreateView(SuccessMessageMixin, CreateView):
 
 	def form_valid(self, form):
 		form.instance.user = self.request.user
-		form.instance.created_by = self.request.user
 		form.instance.topic = self.get_topic()
-		form.instance.date = timezone.now()
-		form.instance.status = 'p'
+		form.instance.status = Comment.PUBLISHED
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
 
@@ -53,7 +53,7 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
 	template_name = 'forum/comment/form.html'
 	model = Comment
 	form_class = CommentForm
-	success_message = _(u"Comment updated successfully")
+	success_message = _("Comment updated successfully")
 	
 	def get_success_url(self):
 		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
@@ -67,12 +67,12 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
+		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
 		return super(CommentUpdateView, self).get(request, * args, ** kwargs)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user or self.get_object().pk == self.get_object().topic.get_comments().first().pk:
+		if not self.get_object().user == request.user:
 			return HttpResponseForbidden()
 		return super(CommentUpdateView, self).post(request, * args, ** kwargs)
 
@@ -82,24 +82,24 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
 			user = comment.user,
 			topic = comment.topic,
 			text = comment.text,
-			status = 'r',
-			created_by = comment.created_by,
+			status = Comment.REMOVED,
 			creation = comment.creation,
 			last_modified = comment.last_modified,
 			ip_address =comment.ip_address,
 		)
 		ancient.save()
 		form.instance.ancient = ancient
-
 		form.instance.user = self.request.user
 		form.instance.last_modified = timezone.now()
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
 		return super(CommentUpdateView, self).form_valid(form)
 
-class CommentDeleteView(DeleteView):
+class CommentDeleteView(SuccessMessageMixin, DeleteView):
 	template_name = 'forum/comment/check_delete.html'
 	model = Comment
+	success_message = _("Comment removed successfully")
+	
 
 	def get_success_url(self):
 		return reverse_lazy('forum:topic_detail', kwargs={'slug': self.get_topic().slug})
@@ -114,20 +114,21 @@ class CommentDeleteView(DeleteView):
 
 	def get(self, request, * args, ** kwargs):
 		self.object = self.get_object()
-		if not self.object.user == request.user and not self.object.pk == self.object.topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
+		if not self.object.user == request.user and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
 		return super(CommentDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
 		self.object = self.get_object()
-		if not self.object.user == request.user and not self.object.pk == self.object.topic.get_comments().first().pk and not request.user.has_perm('forum.delete_comment'):
+		if not self.object.user == request.user and not request.user.has_perm('forum.delete_comment'):
 			return HttpResponseForbidden()
 		comment = self.object
-		comment.status = 'r'
+		comment.status = Comment.REMOVED
 		comment.save()
 
 		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
 		score_manager.down_xp(10)
 		score_manager.save()
 
+		messages.success(request, self.success_message)		
 		return HttpResponseRedirect(self.get_success_url())

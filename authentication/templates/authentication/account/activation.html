@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<html>
+<title>{% trans "Email Activation" %}</title>
+<body>
+	{% blocktrans with user=user activate_url=activate_url %}
+		<p>Dear {{ user }}</p>
+		<p>Your account has successfully created. Please click below link to activate your account.</p>
+		<p><a href="{{ activate_url }}"> Activate your account </a></p>
+    {% endblocktrans %}
+</body>
+</html>

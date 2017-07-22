@@ -7,9 +7,11 @@ from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 
-from base.utils.models import AutoSlugField
+import hashlib
 
-from ..utils.colors import get_color
+from ask import settings as local_settings
+
+from base.utils.models import AutoSlugField
 
 class Course(models.Model):
 	DRAFT = 'd'
@@ -22,16 +24,19 @@ class Course(models.Model):
 	)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
 	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
-	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.ISSUE_PHOTO_DIR, null=True, blank=True)
-	is_private = models.BooleanField(verbose_name=_(u"is Private"), default=False)
-	amount = models.DecimalField(verbose_name=_(u"Amount"), max_digits=10, decimal_places=2 , default=00.00)
+	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=local_settings.COURSE_ICON_DIR)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-
-	color = models.CharField(max_length=20, default=get_color, blank=True)
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="course_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True) 
+
+	def save(self, *args, **kwargs):
+		if not self.id and self.icon:
+			hash = hashlib.md5(self.icon.read()).hexdigest()
+			if self.icon.name.find(hash) == -1:
+				self.icon.name = "".join((hash, ".", self.icon.name.split(".")[-1]))
+		super(Course, self).save(*args, **kwargs)
 
 
 	def get_absolute_url(self):

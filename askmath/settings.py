@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for askmath project.
 
@@ -9,11 +11,15 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-import os
+import os, sys
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.messages import constants as message_constants
+
+from imp import reload
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +30,16 @@ path = lambda *args: os.path.join(PROJECT_PATH, *args)
 
 SITE_ID = 1
 
+SERVER_EMAIL = u'saraiva.ufc@gmail.com'
+
+ADMINS = [
+	(u'Ciano Saraiva', u'saraiva.ufc@gmail.com'),
+]
+
+MANAGERS = [
+    ('Ciano Saraiva', 'saraiva.ufc@gmail.com'),
+]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -33,13 +49,10 @@ SECRET_KEY = ""
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', ]
-
-# Authentication
-
-AUTH_PROFILE_MODULE = 'authentication.User'
-AUTH_USER_MODEL = 'authentication.User'
-
+if DEBUG:
+	ALLOWED_HOSTS = ["*"]
+else:
+	ALLOWED_HOSTS = ["www.askmath.org", "192.168.43.42"]
 
 # Application definition
 
@@ -67,9 +80,10 @@ LOCAL_APPS = (
 	'base',
 	'ask',
 	'authentication',
-	'forum',
 	'gamification',
-	'partners_admin',
+	'competition',
+	'forum',
+	'blog',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -100,9 +114,10 @@ TEMPLATES = [
 			'base/templates',
 			'ask/templates',
 			'authentication/templates',
+			'gamification/templates',
+			'competition/templates',	
 			'forum/templates',
-			'gamification/templates',			
-			'partners_admin/templates',
+			'blog/templates',
 		],
 		'APP_DIRS': True,
 		'OPTIONS': {
@@ -111,7 +126,9 @@ TEMPLATES = [
 				'django.template.context_processors.request',
 				'django.contrib.auth.context_processors.auth',
 				'django.contrib.messages.context_processors.messages',
-				'gamification.context_processors.managers',
+				'base.context_processors.load',
+				'blog.context_processors.load',
+				'gamification.context_processors.load',
 			],
 		},
 	},
@@ -133,6 +150,14 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',
 		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
+}
+
+# Cache
+CACHES = {
+	'default': {
+		'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+		'LOCATION': 'cache',
 	}
 }
 
@@ -166,18 +191,18 @@ FORMAT_MODULE_PATH = [
 LOCALE_PATHS = (
 	path('askmath/locale'),
 	path('base/locale'),
-	path('ask/locale'),
 	path('authentication/locale'),
-	path('forum/locale'),
+	path('ask/locale'),
 	path('gamification/locale'),
-	path('partners_admin/locale'),
+	path('competition/locale'),
+	path('forum/locale'),
+	path('blog/locale'),
 	'/var/local/translations/locale',
 )
 
 LANGUAGES = (
 	('pt-br', _('Brazilian Portuguese')),
 	('en', _('English')),
-	('es', _('Spanish')),
 )
 
 LANGUAGE_CODE='pt-br'
@@ -190,7 +215,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
@@ -198,22 +222,27 @@ STATIC_ROOT = path('static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 	path('base/static/'),
-	path('ask/static/'),
 	path('authentication/static/'),
+	path('ask/static/'),
+	path('gamification/static/'),
+	path('competition/static/'),
 	path('forum/static/'),
+	path('blog/static/'),
 	path('/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'),
 )
 
 MEDIA_ROOT = path('media/')
 MEDIA_URL = '/media/'
 
-# Media uploads dirs
+# Authentication
 
-PROFILE_IMAGE_DIR = 'uploads/profile_image/%Y/%m/%d'
-ISSUE_PHOTO_DIR = 'uploads/course_photo/%Y/%m/%d'
-SOCIAL_NETWORK_ICON_DIR = 'uploads/social_network_icon/%Y/%m/%d'
-USER_AVATAR_DIR = 'uploads/user_avatar'
-LEVEL_IMAGE_DIR = 'uploads/level_image/%Y/%m/%d'
+AUTH_PROFILE_MODULE = 'authentication.User'
+AUTH_USER_MODEL = 'authentication.User'
+
+LOGIN_URL = reverse_lazy("authentication:account_login")
+LOGOUT_URL = reverse_lazy("authentication:account_logout")
+LOGIN_REDIRECT_URL = reverse_lazy("base:home")
+
 
 # Pagination
 
@@ -229,6 +258,94 @@ MESSAGE_TAGS = {
 	message_constants.ERROR: 'danger',
 }
 
+# Session and Security - alter with connections SSL
+
+SECURE_SSL_REDIRECT = False
+
+SESSION_COOKIE_DOMAIN = None #.example.com
+SESSION_COOKIE_NAME = "askmath_sessionid"
+SESSION_COOKIE_SECURE=False
+
+CSRF_COOKIE_DOMAIN = None #.example.com
+CSRF_COOKIE_NAME = "askmath_csrftoken"
+CSRF_COOKIE_SECURE=False
+
+LANGUAGE_COOKIE_DOMAIN = None #.example.com
+LANGUAGE_COOKIE_NAME = "askmath_language"
+
+if not DEBUG:
+	LOGGING = {
+		'version': 1,
+		'disable_existing_loggers': False,
+		'filters': {
+			'require_debug_false': {
+				'()': 'django.utils.log.RequireDebugFalse'
+			}
+		},
+		'handlers': {
+			# Include the default Django email handler for errors
+			# This is what you'd get without configuring logging at all.
+			'mail_admins': {
+				'class': 'django.utils.log.AdminEmailHandler',
+				'level': 'ERROR',
+				'filters': ['require_debug_false'],
+				# But the emails are plain text by default - HTML is nicer
+				'include_html': True,
+			},
+			# Log to a text file that can be rotated by logrotate
+			'logfile': {
+				'class': 'logging.handlers.WatchedFileHandler',
+				'filename': '/var/log/django/askmath.log'
+			},
+		},
+		'loggers': {
+			# Again, default Django configuration to email unhandled exceptions
+			'django.request': {
+				'handlers': ['logfile', 'mail_admins'],
+				'level': 'ERROR',
+				'propagate': False,
+			},
+			# Might as well log any errors anywhere else in Django
+			'django': {
+				'handlers': ['logfile'],
+			   'level': 'ERROR',
+				'propagate': False,
+			},
+		},
+	}
+
+#**************** EXTERNAL SETTINGS ***************************
+
+# base settings
+SITE_NAME = 'AskMath'
+SITE_URL = 'http://www.askmath.org'
+SITE_AUTHOR = 'PET - Tecnologia da Informação'
+SITE_DESCRIPTION = ''
+SITE_HOME = reverse_lazy("ask:home")
+
+# authentication settings
+PERMISSIONS = {}
+GROUP_PERMISSIONS = {
+	"administrator": [
+
+	],
+	"teacher": [
+
+	],
+	"assistant": [
+
+	],
+	"student": [
+
+	],
+}
+DEFAULT_GROUP = "student"
+CONFIRM_EMAIL = False
+
+# blog settings
+BLOG_NAME = _('Blog to The AskMath')
+
+# Reverse
 
 JS_REVERSE_JS_VAR_NAME = 'Urls'
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
@@ -236,24 +353,7 @@ JS_REVERSE_JS_MINIFY = True
 JS_REVERSE_EXCLUDE_NAMESPACES = []
 JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'ask',]
 
-# Settings for CSRF cookie.
-#remover isso se o admin tiver dando erro 403 na producao
-CSRF_COOKIE_NAME = "askmath_csrftoken"
-CSRF_COOKIE_SECURE=False
-CSRF_COOKIE_AGE = 60 * 30
-
-# Settings for Session cookie.
-#remover isso se o admin tiver dando erro 403 na producao
-SESSION_COOKIE_NAME = "askmath_sessionid"
-SESSION_COOKIE_SECURE=False
-SESSION_COOKIE_AGE =  60 * 30
-SESSION_SAVE_EVERY_REQUEST = True
-
-# Session
-#remover isso se o admin tiver dando erro 403 na producao
-LANGUAGE_COOKIE_NAME = "askmath_language"
-
-RESTRICTEDSESSIONS_AUTHED_ONLY = True
-
-
-from secrete_settings import *
+try:
+	from secrete_settings import *
+except ImportError:
+    pass

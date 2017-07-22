@@ -16,21 +16,18 @@
 {%  block page_title %}{% trans "Course list" %}{% endblock %}
 
 {% block content %}
-	<div class="row">
+	<div class="row pr-1">
 	{% for course in object_list %}
-		<a href="{% url 'ask:lesson_list' course.slug %}" class="tile {{ course.color }}">
-			<div class="tile-content {% if course.icon %}image-set{% else %}iconic{% endif %}">
-				{% if course.icon %}
-					<img src="{{ course.icon.url }}" style="width: 100%;">
-				{% else %}
-					<span class="icon fa fa-leaf"></span>
-				{% endif %}
+		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 pr-0">
+			<div class="card card-hover">
+				<a href="{% url 'ask:lesson_list' course.slug %}">
+					<img class="card-img-top w-100 p-1" src="{{ course.icon.url }}" alt="Card image cap">
+				</a>
+				<div class="card-block text-xs-center p-0">
+					<h4 class="card-title text-primary">{{ course }}</h4>
+				</div>
 			</div>
-			<span class="tile-label">{{ course }}</span>
-			{% if course.is_private %}
-				<span class="tile-badge bg-yellow fg-white" data-toggle="tooltip" data-placement="top" title='{% blocktrans with amount=course.amount %}This course is private. Paid R${{ amount }} to access.{% endblocktrans %}'><i class="fa fa-star"></i></span>
-			{% endif %}
-		</a>
+		</div>
 	{% endfor %}
 	</div>
 	<div class="row">

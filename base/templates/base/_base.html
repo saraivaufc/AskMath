@@ -1,39 +1,53 @@
-{% load i18n static js_reverse %}
+{% load i18n static %}
 
 {% get_current_language as LANGUAGE_CODE %}
-
-{% trans 'Whether you are in college or in NASA laboratories, join the community of students who take the AskMath. There are several lessons and tutorials video for free for you.' as meta_description %}
+{% url 'base:home' as url_home %}
 
 <!DOCTYPE html>
 <html 
-	lang="{{ LANGUAGE_CODE|default:"en-us" }}"
+	lang="{{ LANGUAGE_CODE }}"
 	itemscope=""
 	itemtype="http://schema.org/Organization"
 	xmlns:og="http://opengraphprotocol.org/schema/"
 	xmlns:fb="http://www.facebook.com/2008/fbml"
 	class="modernizr-no-touchevents modernizr-flexbox modernizr-no-flexboxtweener">
 <head>
+	<link rel="canonical" href="{{ site_url }}" />
+	
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="author" content="{% block meta_author %}Ciano Saraiva{% endblock %}"/>
-	<meta name="description" content="{% block meta_description %}{{ meta_description }}{% endblock %}"/>
-	<meta name="keywords" content="{% block meta_keywords %}{% trans 'Education,Mathematics,University' %}{% endblock %}"/>
 	<meta name="robots" content="index, follow"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<!-- OpenGraph Protocol -->
+	<meta name="author" content="{% block meta_author %}{{ site_author }}{% endblock %}"/>
+	<meta name="description" content="{% block meta_description %}{{ site_description }}{% endblock %}"/>
+
 	{% block opengraph %}
-		{% include 'blocks/opengraph.html' %}
+		<meta property="og:title" content="{{ site_name }}" />
+		<meta property="og:description" content="{{ site_description }}" />
+		<meta property="og:type" content="website"/>
+		<meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+		<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+		<meta property="og:image" content="
+			{{ request.scheme }}://{{ request.get_host }}
+			{% if LANGUAGE_CODE == 'pt-br' %}
+				{% static 'base/img/social/pt-br.jpg' %}
+			{% else %}
+				{% static 'base/img/social/en.jpg' %}
+			{% endif %}
+			" />
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
 	{% endblock %}
 	
-	<title>AskMath - {% block title %}{% endblock %}</title>
+	<title>{{ site_name }} - {% block title %}{% endblock %}</title>
 	
 	{% block css %}
-		{% include 'blocks/css.html' %}	
+		{% include 'blocks/css.html' %}
 	{% endblock %}
 	
-	{% block stylesheet %}
-
+	{% block js %}
+		{% include 'blocks/js.html' %}
 	{% endblock %}
 
 	<!--[if (lt IE 9) & (!IEMobile)]>
@@ -41,43 +55,37 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
 	<![endif]-->
 </head>
-{% load i18n %}
 
-<body class="components-page">
+<body class="{% block page_type %}base-page{% endblock %}">
 	{% include 'blocks/no_script.html' %}
-
-	{% block navbar  %}
-		{% include "blocks/navbar.html" %}
-	{% endblock %}
-
 	<div class="wrapper">
-
-		{% block site %}
-
-		<div class="header header-filter">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 class="title h2 text-xs-center mt-0">{%  block page_title %}{% endblock %}</h1>
-					</div>
+		{% if not is_popup %}
+			{% block navbar  %}
+				{% include "blocks/navbar.html" %}
+			{% endblock %}
+		{% endif %}
+			{% block header %}
+			<div class="header header-filter" style="background-image: url('{%  block page_image %}{% static 'base/img/header_background.jpg' %}{% endblock %}');">
+				<div class="container text-xs-center">
+					<h2 class="title">{%  block page_title %}{% endblock %}</h2>
 				</div>
 			</div>
-		</div>
+			{% endblock %}
 
-		<section id="content" class="main main-raised">
+		<section id="content" class="main main-raised p-0">
 			<div class="section-basic">
-				{% block two_header %}
+				{% block sub_navbar %}
 				<nav id="breadcrumb" class="breadcrumb">
-			        {% block breadcrumbs %}
-			        <a href="{% url 'ask:home' %}" class="breadcrumb-item" >
+					{% block breadcrumbs %}
+					<a href="{{ url_home }}" class="breadcrumb-item" >
 						<i class="fa fa-home" aria-hidden="true"></i>
 						{% trans "Home" %}
 					</a>
-			 	   {% endblock %}
+				   {% endblock %}
 				</nav>
 				{% endblock %}
 			</div>
-			<div class="section-basic p-1">
+			<div class="section-basic pb-1">
 				<div class="container-fluid">
 				{% block messages %}
 					{% include 'blocks/messages.html' %}
@@ -91,24 +99,11 @@
 				</div>
 			</div>
 		</section>
-		{% endblock %}
 	</div>
-
-	{% block footer %}
-		{% include "blocks/footer.html" %}
-	{% endblock %}
-
-	{% block modals %}
-
-	{% endblock %}
-
-	{% block js %}
-		{% include 'blocks/js.html' %}
-	{% endblock %}
-
-	{% block scripts %}
-		<script type="text/javascript" src="{% url 'base:javascript-catalog' %}"></script>
-		<script type="text/javascript" charset="utf-8">{% js_reverse_inline %}</script>
-	{% endblock %}
+	{% if not is_popup %}
+		{% block footer %}
+			{% include "blocks/footer.html" %}
+		{% endblock %}
+	{% endif %}
 </body>
 </html>

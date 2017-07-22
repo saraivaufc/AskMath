@@ -1,0 +1,65 @@
+{% extends "competition/challenge/list.html" %}
+
+{% load i18n humanize %}
+
+{% block title %}
+	{{ challenge.title|truncatewords:10 }}
+{% endblock %}
+
+{%  block page_title %}
+	{{ challenge.title|truncatewords:10 }}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'competition:challenge_detail' slug=challenge.slug %}" class="breadcrumb-item">
+		<i class="fa fa-puzzle-piece"></i>
+		{{ challenge.title|truncatewords:5 }}
+	</a>
+{% endblock %}
+
+{% block content %}
+	<div class="card card-block">
+		<h4 class="card-title">
+			{{ challenge.title }} 
+			<label>{{ challenge.creation|naturaltime }}</label>
+		</h4>
+		<p class="card-text">{{ challenge.description|safe|linebreaks }}</p>
+	</div>
+
+	<div class="text-xs-center">
+		<a href="{% url 'competition:challenge_solution_create' challenge_slug=challenge.slug %}" class="btn btn-primary">
+			<i class="fa fa-plus"></i>
+			{% trans "Add Solution" %}
+		</a>
+	</div>
+
+	{% for solution in object_list %}
+		<div class="card card-block">
+			{% if solution.is_correct %}
+				<i class="fa fa-lg fa-check-square-o text-success float-xs-right" data-toggle="tooltip" data-placement="left" title="{% trans 'This solution is correct!' %}"></i>
+			{% endif %}
+			<h4 class="card-title">
+				<i class="fa fa-user"></i> {{ solution.user.get_full_name }} 
+				<label>{{ solution.last_modified|naturaltime }}</label>
+			</h4>
+			<p class="card-text">
+				{{ solution.text|safe|linebreaks }}
+			</p>
+			{% if request.user.is_authenticated and request.user == solution.user and not solution.is_correct %}
+			<a href="{% url 'competition:challenge_solution_update' challenge_slug=challenge.slug pk=solution.pk %}" class="btn btn-info btn-xs">
+				<i class="fa fa-edit"></i>
+				{% trans "Edit" %}
+			</a>
+			<a href="{% url 'competition:challenge_solution_delete' challenge_slug=challenge.slug pk=solution.pk %}" class="btn btn-danger btn-xs">
+				<i class="fa fa-remove"></i>
+				{% trans "Delete" %}
+			</a>
+			{% endif %}
+		</div>
+	{% endfor %}
+	<div class="row">
+		{% include "base/_paginate.html" %}
+	</div>
+	{% include 'ask/imports/latex.html' %}
+{% endblock %}

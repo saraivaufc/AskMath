@@ -1,33 +1,17 @@
-{% load i18n static %}
-<div class="col-md-12">
-	 <ul class="pagination pagination-sm pagination-info">
-		{% if page_obj.has_previous %}
-		<li class="page-item">
-		 	<a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-label="{% trans 'Previous' %}">
-				<span aria-hidden="true">&laquo;</span>
-				<span class="sr-only">{% trans 'Previous' %}</span>
-			</a>
-		</li>
+{% load i18n static base_tags %}
 
-		{% endif %}
-		
+{% with parameters=request.GET|remove:'page' %}
+<div class="col-md-12">
+	 <ul class="pagination pagination-primary pagination-sm">
 		{% for page in page_obj.paginator.page_range %}
 			{% if page >= page_obj.number|add:-5 and page <= page_obj.number|add:5  %}
 			<li class="page-item {% if page_obj.number == page %}active{% endif %}">
-			  <a class="page-link" href="?page={{ page }}">
-			  	{{ page }} 
-			  </a>
+				<a class="btn btn-default btn-xs" href="?{% if parameters.urlencode %}{{ parameters.urlencode }}&{% endif %}page={{ page }}">
+					{{ page }} 
+				</a>
 			</li>
 			{% endif %}
 		{% endfor %}
-
-		{% if page_obj.has_next %}
-		<li class="page-item">
-		  <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="{% trans 'Next' %}">
-			<span aria-hidden="true">&raquo;</span>
-			<span class="sr-only">{% trans 'Next' %}</span>
-		  </a>
-		</li>
-		{% endif %}
 	</ul>
 </div>
+{% endwith %}

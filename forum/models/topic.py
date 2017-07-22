@@ -8,23 +8,26 @@ from base.utils.models import AutoSlugField
 
 from .comment import Comment
 
-STATUS_CHOICES = (
-	('d', _('Draft')),
-	('p', _('Published')),
-	('r', _('Removed')),
-)
-
 class Topic(models.Model):
+	DRAFT = 'd'
+	PUBLISHED = 'p'
+	REMOVED = 'r'
+	STATUS_CHOICES = (
+		(DRAFT, _('Draft')),
+		(PUBLISHED, _('Published')),
+		(REMOVED, _('Removed')),
+	)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("user"))
 	category = models.ForeignKey('forum.Category', verbose_name=_("Category"))
 
-	title = models.CharField(verbose_name=_("Title"), max_length=75)
 	slug = AutoSlugField(populate_from="title", db_index=False, blank=True, unique=True)
+	title = models.CharField(verbose_name=_("Title"), max_length=75)
+	description = models.TextField(verbose_name=_("Description"))
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="topic_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
+	ip_address = models.GenericIPAddressField(blank=True, null=True)
 	
 	def get_comments(self):
 		return Comment.objects.filter(topic=self, status='p')

@@ -8,15 +8,15 @@ from django.conf import settings
 
 from base.utils.models import AutoSlugField
 
-from ..utils.colors import get_color
-
-STATUS_CHOICES = (
-	('d', _('Draft')),
-	('p', _('Published')),
-	('r', _('Removed')),
-)
-
 class Lesson(models.Model):
+	DRAFT = 'd'
+	PUBLISHED = 'p'
+	REMOVED = 'r'
+	STATUS_CHOICES = (
+		(DRAFT, _('Draft')),
+		(PUBLISHED, _('Published')),
+		(REMOVED, _('Removed')),
+	)
 	courses = models.ManyToManyField("Course", verbose_name=_(u"Courses"), related_name='lesson_courses', blank=True)
 	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
@@ -25,7 +25,6 @@ class Lesson(models.Model):
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
 	questions = models.ManyToManyField("Question", verbose_name=_(u"Questions"), related_name='lesson_question', blank=True)
 	videos = models.ManyToManyField("Video", verbose_name=_(u"Videos"), related_name='lesson_video', blank=True)
-	color = models.CharField(max_length=20, default=get_color, blank=True)
 	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="lesson_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)

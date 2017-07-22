@@ -5,13 +5,15 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from django.conf import settings
 
+from base import settings as local_settings
+
 class SocialNetwork(models.Model):
-	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
-	url = models.URLField(verbose_name=_(u"URL"))
-	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=settings.SOCIAL_NETWORK_ICON_DIR)
+	name = models.CharField(verbose_name=_("Name"), max_length=255)
+	url = models.URLField(verbose_name=_("URL"))
+	icon = models.ImageField(verbose_name=_("Icon"), upload_to=local_settings.SOCIAL_NETWORK_ICON_DIR)
 	sites = models.ManyToManyField(Site)
 
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="social_network_created_by", blank=True)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Created by"), related_name="social_network_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 	
@@ -20,5 +22,5 @@ class SocialNetwork(models.Model):
 
 	class Meta:
 		ordering = ("name", )
-		verbose_name = _(u'Social Network')
-		verbose_name_plural = _(u'Social Networks')
+		verbose_name = _('Social Network')
+		verbose_name_plural = _('Social Networks')

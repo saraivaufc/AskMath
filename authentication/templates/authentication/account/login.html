@@ -10,34 +10,32 @@
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'authentication:account_login' %}" class="breadcrumb-item" >
-		<i class="fa fa-users"></i>
+		<i class="fa fa fa-sign-in"></i>
 		{% trans "Login" %}
 	</a>
 {% endblock %}
 
-{%  block page_title %}
-	{% url 'authentication:account_register' as register_url %}
-	{% blocktrans with url=register_url %}
-		Login or <a href="{{ url }}" class="text-white">Sign-up</a>
-	{% endblocktrans %}
-{% endblock %}
+{%  block page_title %}{% trans "Sign-in" %}{% endblock %}
 
 {% block content %}
-	{% if form.errors %}
-	<p>{% trans "Your username and password didn't match. Please try again." %}</p>
-	{% endif %}
-	{% if next %}
-		{% if user.is_authenticated %}
-			<p>{% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}</p>
-		{% else %}
-			<p>{% trans "Please login to see this page." %}</p>
-		{% endif %}
-	{% endif %}
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			{% if form.errors %}
+			<p>{% trans "Your username and password didn't match. Please try again." %}</p>
+			{% endif %}
+			{% if next %}
+				{% if user.is_authenticated %}
+					<p>{% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}</p>
+				{% else %}
+					<p>{% trans "Please login to see this page." %}</p>
+				{% endif %}
+			{% endif %}
+		
+			{% include "base/_form.html" %}	
 
-	<div class="col-md-6 offset-md-3">
-		{% include "authentication/form.html" %}
-		<a href="{% url 'authentication:account_password_reset' %}">
-			{% trans "Lost password?" %}
-		</a>
+			<a href="{% url 'authentication:account_password_reset' %}">
+				{% trans "Lost password?" %}
+			</a>
+		</div>
 	</div>
 {% endblock %}

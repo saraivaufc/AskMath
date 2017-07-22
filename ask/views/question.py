@@ -41,7 +41,7 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		#total de questoes da licao
 		context['questions_amount'] = len(self.get_lesson().questions.all())
 		#total de questoes ja respondidas corretamente pelo usuario atual
-		context['questions_corrects'] = len( filter(lambda question: question.get_answers().filter(user=self.request.user, correct=True, exists=True).exists(), self.get_lesson().questions.all()))
+		context['questions_corrects'] = len( filter(lambda question: question.get_answers().filter(user=self.request.user, is_correct=True, exists=True).exists(), self.get_lesson().questions.all()))
 		#a porcentagem que conclusao da licao
 		try:
 			context['percent_completed'] = (context['questions_corrects'] * 100) / context['questions_amount']
@@ -74,13 +74,13 @@ class QuestionDetailView(SingleObjectMixin, FormView):
 		answer.created_by = self.request.user
 		answer.lesson = self.get_lesson()
 		answer.question = self.get_object()
-		answer.correct = set(list(  answer.question.get_choices().filter(is_correct=True)  )) == set(list(  form.cleaned_data['choices'] ))
+		answer.is_correct = set(list(  answer.question.get_choices().filter(is_correct=True)  )) == set(list(  form.cleaned_data['choices'] ))
 		answer.save()
 		form.save_m2m()
 		
 		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
 
-		if answer.correct:
+		if answer.is_correct:
 			score_manager.up_xp(4)
 			messages.success(self.request, Constants.ANSWER_CORRECT)
 		else:

@@ -1,0 +1,25 @@
+{% load i18n humanize %}
+
+{% url 'blog:post_detail' slug=post.slug as link %}
+
+<div class="blog-post">
+	<a href="{{ link }}" class="blog-post-title">
+		{{ post.title|title }}
+	</a>
+	<button class="btn btn-default btn-xs" data-toggle="modal" data-target="#share_{{ post.id }}" title="{% trans 'Share' %}">
+		<i class="fa fa-share-alt"></i>
+	</button>
+	<p class="blog-post-meta">
+		{% blocktrans with date=post.creation author=post.author.get_full_name %}
+			{{ date }} by <a href="#">{{ author }}</a>
+		{% endblocktrans %}
+	</p>
+	<p>
+		{% if post.image %}
+			<img src="{{ post.image.url }}" width="40%" align="right">
+		{% endif %}
+		{{ post.description|safe|linebreaks }}
+	</p>
+</div>
+
+{% include 'blog/share.html' with id=post.id url=link title=blog.post text=post.description|truncatechars:"150" %}

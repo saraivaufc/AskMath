@@ -2,33 +2,72 @@
 
 {% load static i18n humanize %}
 
-{% block title %}{{ topic.title }}{% endblock %}
+{% block title %}{{ topic.title|truncatewords:10 }}{% endblock %}
+
+{% block page_title %}{{ topic.title|truncatewords:10 }}{% endblock %}
 
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'forum:topic_detail' slug=topic.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-hashtag"></i>
-		{{ topic.title }}
+		{{ topic.title|truncatewords:5 }}
 	</a>
 {% endblock %}
 
 
 {% block content %}
-	<div class="row">
-		<div class="col-md-3">
-			<div class="row">
-			{% include 'forum/topic/sidebar_categories.html' %}		
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="row">
-			{% include 'forum/topic/_render.html' %}
-			</div>
-		</div>
+	<div class="card card-block">
+		<h4 class="card-title">
+			{{ topic.title }}
+			<label>{{ topic.creation|naturaltime }}</label>
+		</h4>
+		<p class="text-justify">{{ topic.description|safe }}</p>
+		{% if topic.user == request.user  %}
+			<a href="{% url 'forum:topic_update' slug=topic.slug %}" class="btn btn-info btn-xs">
+				<i class="fa fa-edit"></i>
+				{% trans "Edit" %}
+			</a>
+		{% endif %}
+		{% if perms.forum.delete_topic or topic.user == request.user %}
+			<a href="{% url 'forum:topic_delete' slug=topic.slug %}" class="btn btn-danger btn-xs">
+				<i class="fa fa-remove"></i>
+				{% trans "Delete" %}
+			</a>
+		{% endif %}
 	</div>
-{% endblock %}
-
-{% block js %}
-	{{ block.super }}
-	{% include 'base/imports/latex.html' %}
+	<div class="text-xs-center">
+		<a href="{% url 'forum:comment_add' topic_slug=topic.slug %}" class="btn btn-primary">
+			<i class="fa fa-plus"></i>
+			{% trans "Add Comment" %}
+		</a>
+	</div>
+	{% for comment in object_list %}
+		<div class="card card-block">
+			<h4 class="card-title">
+				<i class="fa fa-user"></i> {{ comment.user.get_full_name }}
+				<label>{{ comment.last_modified|naturaltime }}</label>
+			</h4>
+			<p class="card-text">
+				{{ comment.text|safe|linebreaks }}
+			</p>
+			{% if request.user.is_authenticated %}
+				{% if request.user == comment.user %}
+					<a href="{% url 'forum:comment_update' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-info btn-xs">
+						<i class="fa fa-edit"></i>
+						{% trans "Edit" %}
+					</a>
+				{% endif %}
+				{% if request.user == comment.user or perms.comment.delete_comment %}
+					<a href="{% url 'forum:comment_delete' topic_slug=topic.slug pk=comment.pk %}" class="btn btn-danger btn-xs">
+						<i class="fa fa-remove"></i>
+						{% trans "Delete" %}
+					</a>
+				{% endif %}
+			{% endif %}
+		</div>
+	{% endfor %}
+	<div class="row">
+		{% include "base/_paginate.html" %}
+	</div>
+	{% include 'ask/imports/latex.html' %}
 {% endblock %}

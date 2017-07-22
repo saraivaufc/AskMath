@@ -2,38 +2,29 @@
 {% load base_tags %}
 
 {% for hidden in form.hidden_fields %}
-	{{hidden }}
+	{{ hidden }}
 {% endfor %}
 
+<fieldset class="module aligned">
 {% for field in form.visible_fields %}
-	{% if field|is_checkbox %}
-		{% include 'base/fields/checkbox.html' %}
-	{% elif field|is_radio %}
-		{% include 'base/fields/radio.html' %}
-	{% elif field|is_select %}
-		{% include 'base/fields/select.html' %}
-	{% elif field|is_select_multiple %}
-		{% include 'base/fields/select_multiple.html' %}
-	{% elif field|is_file %}
-		{% include 'base/fields/file.html' %}
-	{% elif field|is_text  %}
-		{% include 'base/fields/text.html' %}
-	{% elif field|is_textarea %}
-		{% include 'base/fields/textarea.html' %}
-	{% elif field|is_email %}
-		{% include 'base/fields/email.html' %}
-	{% elif field|is_number %}
-		{% include 'base/fields/number.html' %}
-	{% elif field|is_date %}
-		{% include 'base/fields/date.html' %}
-	{% elif field|is_datetime %}
-		{% include 'base/fields/datetime.html' %}
-	{% elif field|is_password %}
-		{% include 'base/fields/password.html' %}
-	{% elif field|is_url %}
-		{% include 'base/fields/url.html' %}
-	{% else %}
-		{% include 'base/fields/field.html' %}
-	{% endif %}
-	{% include 'base/fields/headers/errors.html' %}
+	<div class="form-row field-{{ field.field.name }}">
+		<div class="field-box{% if field.name %} field-{{ field.name }}{% endif %}{% if not field.is_readonly and field.errors %} errors{% endif %}{% if field.is_hidden %} hidden{% endif %}" >
+		    {% if not field.is_readonly %}{{ field.errors }}{% endif %}
+		    <label for="{{ field.auto_id }}">
+				{{ field.label }}
+				{% if field.field.required %}
+					<span class="text-danger" data-toggle="tooltip" data-html="true" title="{% trans 'This field is required!' %}">*</span>
+				{% endif %}:
+			</label>
+		    {% if field.is_readonly %}
+	            <p>{{ field.contents }}</p>
+	        {% else %}
+	            {{ field }}
+	        {% endif %}
+		    {% if field.help_text %}
+		    	<span class="help" data-toggle="tooltip"  data-html="true"  title="{{ field.help_text|safe }}"><i class="fa fa-question-circle"></i></span>
+		    {% endif %}
+		</div>
+	</div>
 {% endfor %}
+</fieldset>

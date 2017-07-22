@@ -1,17 +1,21 @@
 from django.conf.urls import include, url
-from authentication.views import UserCreateView, UserDetailView, UserUpdateView, UserDeleteView
 from django.contrib.auth import views as auth_views
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 
+from authentication.views import AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView, AccountActivateView
+
 urlpatterns = [
 	url(_(r'^login$'), auth_views.login, {'template_name': 'authentication/account/login.html',}, name="account_login"),
 	url(_(r'^logout$'), login_required(auth_views.logout), {'next_page': reverse_lazy("authentication:account_login")}, name="account_logout"),
-	url(_(r'^register$'), UserCreateView.as_view(), name="account_register"),
-	url(_(r'^(?P<pk>[0-9]+)/detail$'), UserDetailView.as_view(), name="account_detail"),
-	url(_(r'^(?P<pk>[0-9]+)/edit$'), UserUpdateView.as_view(), name="account_update"),
-	url(_(r'^(?P<pk>[0-9]+)/delete$'), UserDeleteView.as_view(), name="account_delete"),
+	url(_(r'^register$'), AccountCreateView.as_view(), name="account_register"),
+	url(_(r'^(?P<pk>[0-9]+)/detail$'), AccountDetailView.as_view(), name="account_detail"),
+	url(_(r'^(?P<pk>[0-9]+)/edit$'), AccountUpdateView.as_view(), name="account_update"),
+	url(_(r'^(?P<pk>[0-9]+)/delete$'), AccountDeleteView.as_view(), name="account_delete"),
+
+	url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/activate/$', 
+		AccountActivateView.as_view(), name='account_activate'),
 
 	url(_(r'^password/change$'), auth_views.password_change, 
 	 	{'template_name': 'authentication/account/password_change_form.html',

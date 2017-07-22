@@ -1,95 +1,12 @@
-from authentication.models import User
 from django.contrib.auth.models import Permission
 from django.contrib.auth.models import Group
 from django.contrib.contenttypes.models import ContentType
 
-group_permissions = {
-	"administrator": [
-		#Base
-			#SocialNetwork
-			'add_socialnetwork', 'change_socialnetwork', 'delete_socialnetwork', 
-		#Authentication
-			#User
-			'change_user',
-		#FlatPages
-			#FlatPage
-			'add_flatpage', 'change_flatpage', 'delete_flatpage', 
-		#Sites
-			#Site
-			'add_site', 'change_site', 'delete_site',
-		#Ask
-			#Course
-			'add_course', 'change_course', 'delete_course', 
-			#Lesson
-			'add_lesson', 'change_lesson', 'delete_lesson',
-			#Question
-			'add_question', 'change_question', 'delete_question',
-			#Choice
-			'add_choice', 'change_choice', 'delete_choice',
-			#Introduction
-			'add_introduction', 'change_introduction', 'delete_introduction',
-			#Video
-			'add_video', 'change_video', 'delete_video',
-			#Answer
-			'change_answer',
-		#Forum
-			#category
-			'add_category', 'change_category', 'delete_category',
-			#topic
-			'delete_topic',
-			#comment
-			'delete_comment',
-	],
-	"teacher": [
-		#Ask
-			#Course
-			'add_course', 'change_course', 'delete_course', 
-			#Lesson
-			'add_lesson', 'change_lesson', 'delete_lesson',
-			#Question
-			'add_question', 'change_question', 'delete_question',
-			#Choice
-			'add_choice', 'change_choice', 'delete_choice',
-			#Introduction
-			'add_introduction', 'change_introduction', 'delete_introduction',
-			#Video
-			'add_video', 'change_video', 'delete_video',
-			#Answer
-			'change_answer',
-		#Forum
-			#category
-			'add_category', 'change_category', 'delete_category',
-			#topic
-			'delete_topic',
-			#comment
-			'delete_comment',
-	],
-	"assistant": [
-		#Ask
-			#Course
-			'add_course', 'change_course', 'delete_course', 
-			#Lesson
-			'add_lesson', 'change_lesson', 'delete_lesson',
-			#Question
-			'add_question', 'change_question', 'delete_question',
-			#Choice
-			'add_choice', 'change_choice', 'delete_choice',
-			#Introduction
-			'add_introduction', 'change_introduction', 'delete_introduction',
-			#Video
-			'add_video', 'change_video', 'delete_video',
-		#Forum
-			#category
-			'add_category', 'change_category', 'delete_category',
-			#topic
-			'delete_topic',
-			#comment
-			'delete_comment',
-	],
-	"student": [
-	
-	]
-}
+from authentication import settings as local_settings
+from .models import User
+
+permissions = local_settings.PERMISSIONS
+group_permissions = local_settings.GROUP_PERMISSIONS
 
 def create_user_groups(sender, **kwargs):
 	print "Initialising data post_migrate"
@@ -104,7 +21,7 @@ def create_user_groups(sender, **kwargs):
 			
 		for perm in group_permissions[group]:
 			try:
-				perm = Permission.objects.get(codename=perm)
+				perm, created = Permission.objects.get_or_create(codename=perm, name=permissions[perm], content_type=content_type)
 			except Exception, e:
 				print e, ">>" ,perm
 				continue

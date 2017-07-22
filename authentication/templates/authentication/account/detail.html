@@ -15,27 +15,32 @@
 {% endblock %}
 
 {% block content %}
-	<div class="col-md-2">
-		<div class="text-xs-center">
-			<img src="{% if object.profile_image %}{{ object.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}" class="img-fluid img-raised" width="100%">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="text-xs-center">
+				<img src="{% if object.profile_image %}{{ object.profile_image.url }}{% else %}{% static 'base/img/default-avatar.png' %}{% endif %}" class="img-fluid img-raised" width="100%">
+			</div>
+		</div>
+		<div class="col-md-10">
+			{% include 'authentication/account/_render.html' %}	
 		</div>
 	</div>
-	<div class="col-md-10">
-		{% include 'authentication/account/_render.html' %}	
-	</div>
-	<div class="col-md-12">
-		<div class="float-xs-right">
-			{% if request.user.pk == object.pk  %}
-			<a href="{% url 'authentication:account_update' pk=request.user.pk %}" class="btn btn-info">
-				<i class="fa fa-edit"></i>
-				{% trans "Edit" %}
-			</a>
 
-			<a href="{% url 'authentication:account_delete' pk=request.user.pk %}" class="btn btn-danger">
-				<i class="fa fa-remove"></i>
-				{% trans "Remove" %}
-			</a>
-			{% endif %}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="float-xs-right">
+				{% if request.user.pk == object.pk  %}
+				<a href="{% url 'authentication:account_update' pk=request.user.pk %}" class="btn btn-info">
+					<i class="fa fa-edit"></i>
+					{% trans "Edit" %}
+				</a>
+
+				<a href="{% url 'authentication:account_delete' pk=request.user.pk %}" class="btn btn-danger">
+					<i class="fa fa-remove"></i>
+					{% trans "Remove" %}
+				</a>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 {% endblock %}

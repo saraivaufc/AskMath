@@ -1,0 +1,26 @@
+{% load i18n static %}
+
+<div id="share_{{ id }}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h3 class="modal-title">{% trans "Share in" %}</h3>
+			</div>
+			<div class="modal-body">
+				<div class="ssk ssk-center ssk-lg w-100">
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-facebook"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-twitter"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-google-plus"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-pinterest"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-tumblr"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-vk"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-linkedin"></button>
+					<button data-url="{{ request.scheme }}://{{ request.get_host }}{{ url }}" data-title="{{ title }}" data-text="{{ text }}" class="ssk ssk-email"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

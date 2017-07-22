@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 07:39-0300\n"
-"PO-Revision-Date: 2017-03-02 12:40-0234\n"
-"Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
+"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"PO-Revision-Date: 2017-07-16 16:58-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,203 +19,226 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: base/actions.py:9 base/actions.py:17 base/actions.py:25 base/admin.py:32
-msgid "1 story was"
-msgstr ""
-
-#: base/actions.py:11 base/actions.py:19 base/actions.py:27 base/admin.py:34
+#: base/admin.py:46
 #, python-format
-msgid "%s stories were"
-msgstr ""
+msgid "%(site_name)s - Administration"
+msgstr "%(site_name)s - Administração"
 
-#: base/actions.py:12
+#: base/admin.py:47
 #, python-format
-msgid "%s successfully marked as published."
-msgstr "%s elementos selecionados marcados como publicados."
+msgid "%(site_name)s - Site Administration"
+msgstr "%(site_name)s - Site de Administração"
 
-#: base/actions.py:20
-#, python-format
-msgid "%s successfully marked as draft."
-msgstr "%s elementos selecionados marcados como rascunhos."
+#: base/admin.py:48
+msgid "Applications"
+msgstr "Aplicações"
 
-#: base/actions.py:28
-#, python-format
-msgid "%s successfully marked as removed."
-msgstr "%s elementos selecionados marcados como resolvidos."
+#: base/apps.py:9
+msgid "Base"
+msgstr "Base"
 
-#: base/actions.py:30
-msgid "Mark selected stories as published"
-msgstr "Marque os elementos selecionados como publicados."
+#: base/forms/report.py:34
+msgid "Feedback"
+msgstr "Feedback"
 
-#: base/actions.py:31
-msgid "Mark selected stories as draft"
-msgstr "Marque os elementos selecionados como rascunhos."
+#: base/forms/report.py:35
+msgid "This is an important message."
+msgstr "Esta mensagem é importante."
 
-#: base/actions.py:32
-msgid "Mark selected stories as removed"
-msgstr "Marque os elementos selecionados como removidos."
-
-#: base/admin.py:35
-#, python-format
-msgid "%s successfully marked as solved."
-msgstr "%s elementos selecionados marcados como resolvido."
-
-#: base/admin.py:37
-msgid "Mark selected stories as solved"
-msgstr "Marque os elementos selecionados como resolvidos."
-
-#: base/forms/contact.py:5
+#: base/models/email_marketing.py:10
 msgid "Subject"
 msgstr "Assunto"
 
-#: base/forms/contact.py:6 base/models/report.py:13
+#: base/models/email_marketing.py:11 base/models/report.py:12
 msgid "Message"
 msgstr "Mensagem"
 
-#: base/forms/contact.py:7 base/models/report.py:12
-msgid "Email"
-msgstr "Email"
+#: base/models/email_marketing.py:12
+msgid "Quantity"
+msgstr "Quantidade"
 
-#: base/models/report.py:10
-msgid "Page"
-msgstr "Página"
+#: base/models/email_marketing.py:14
+msgid "Receivers"
+msgstr "Receptadores"
 
-#: base/models/report.py:11
-msgid "Full Name"
-msgstr "Nome completo"
+#: base/models/email_marketing.py:23
+msgid "Email Marketing"
+msgstr "Marketing de Email"
 
-#: base/models/report.py:16
-msgid "Solved"
-msgstr "Resolvido"
+#: base/models/email_marketing.py:24
+msgid "Email Marketings"
+msgstr "Marketing de Email"
 
-#: base/models/report.py:17
-msgid "Solved by"
-msgstr "Resolvido por"
-
-#: base/models/report.py:20 base/models/social_network.py:14
-msgid "Created by"
-msgstr "Criado por"
-
-#: base/models/report.py:30 base/templates/blocks/header.html:114
-msgid "Report"
-msgstr "Reporte"
-
-#: base/models/report.py:31
-msgid "Reports"
-msgstr "Reportes"
-
-#: base/models/social_network.py:9
+#: base/models/report.py:10 base/models/social_network.py:11
 msgid "Name"
 msgstr "Nome"
 
-#: base/models/social_network.py:10
+#: base/models/report.py:11
+msgid "Email"
+msgstr "Email"
+
+#: base/models/report.py:13 base/templates/base/emails/reply.html:4
+msgid "Reply"
+msgstr "Resposta"
+
+#: base/models/report.py:15
+msgid "Solved"
+msgstr "Resolvido"
+
+#: base/models/report.py:16
+msgid "Solved by"
+msgstr "Resolvido por"
+
+#: base/models/report.py:19 base/models/social_network.py:16
+msgid "Created by"
+msgstr "Criado por"
+
+#: base/models/report.py:29
+msgid "Report"
+msgstr "Reporte"
+
+#: base/models/report.py:30
+msgid "Reports"
+msgstr "Reportes"
+
+#: base/models/social_network.py:12
 msgid "URL"
 msgstr "URL"
 
-#: base/models/social_network.py:11
+#: base/models/social_network.py:13
 msgid "Icon"
 msgstr "Ícone"
 
-#: base/models/social_network.py:23
+#: base/models/social_network.py:25
 msgid "Social Network"
 msgstr "Rede Social"
 
-#: base/models/social_network.py:24 base/templates/base/report.html:20
+#: base/models/social_network.py:26 base/templates/base/report.html:24
 msgid "Social Networks"
 msgstr "Redes Sociais"
 
-#: base/templates/base/_base.html:45
+#: base/templates/base/_base.html:82
 msgid "Home"
 msgstr "Início"
 
 #: base/templates/base/_check_delete.html:5
 msgid "Are you sure you want to delete"
-msgstr ""
+msgstr "Tem certeza de que deseja excluir"
 
 #: base/templates/base/_check_delete.html:7
+#: base/templates/base/_check_restore.html:7
+msgid "No"
+msgstr "Não"
+
+#: base/templates/base/_check_delete.html:8
+#: base/templates/base/_check_restore.html:8
 msgid "Yes"
 msgstr "Sim"
 
-#: base/templates/base/_form.html:10
-msgid "Save"
-msgstr "Salvar"
+#: base/templates/base/_check_restore.html:5
+msgid "Are you sure you want to restore"
+msgstr "Tem certeza de que deseja restaurar"
+
+#: base/templates/base/_fields.html:16
+msgid "This field is required!"
+msgstr "Este campo é obrigatório"
+
+#: base/templates/base/_form.html:11
+msgid "Send"
+msgstr "Enviar"
 
 #: base/templates/base/_modal.html:16
 msgid "Close"
 msgstr "Fechar"
 
-#: base/templates/base/_paginate.html:6 base/templates/base/_paginate.html:8
-msgid "Previous"
-msgstr "Anterior"
+#: base/templates/base/emails/email_marketing.html:6
+#, python-format
+msgid ""
+"\n"
+"\t\t<p>Dear %(user)s, </p>\n"
+"\t\t<p>%(message)s</p>\n"
+"    "
+msgstr ""
+"\n"
+"<p>Querido %(user)s,</p>\n"
+"<p>%(message)s</p>"
 
-#: base/templates/base/_paginate.html:26 base/templates/base/_paginate.html:28
-msgid "Next"
-msgstr "Próximo"
-
-#: base/templates/base/credits.html:5 base/templates/base/credits.html:11
-#: base/templates/base/credits.html:15 base/templates/blocks/footer.html:23
-msgid "Credits"
-msgstr "Créditos"
-
-#: base/templates/base/fields/file.html:4
-msgid "Currently"
-msgstr "Atualmente"
-
-#: base/templates/base/fields/file.html:7
-msgid "Change"
-msgstr "Alterar"
-
-#: base/templates/base/fields/headers/caption.html:5
-msgid "This field is required!"
-msgstr "Este campo é obrigatório"
+#: base/templates/base/emails/reply.html:6
+#, python-format
+msgid ""
+"\n"
+"\t\t\t<dl itemscope>\n"
+"\t\t\t\t<dt>Name:</dt>\n"
+"\t\t\t\t<dd>%(name)s</dd>\n"
+"\t\t\t\t<dt>Email:</dt>\n"
+"\t\t\t\t<dd>%(email)s</dd>\n"
+"\t\t\t\t<dt>Message:</dt>\n"
+"\t\t\t\t<dd>%(message)s</dd>\n"
+"\t\t\t\t<dt>Reply:</dt>\n"
+"\t\t\t\t<dd>%(reply)s</dd>\n"
+"\t\t\t</dl>\n"
+"\t    "
+msgstr ""
+"\n"
+"<dl itemscope>\n"
+"<dt>Nome:</dt>\n"
+"<dd>%(name)s</dd>\n"
+"<dt>Email:</dt>\n"
+"<dd>%(email)s</dd>\n"
+"<dt>Mensagem:</dt>\n"
+"<dd>%(message)s</dd>\n"
+"<dt>Resposta:</dt>\n"
+"<dd>%(reply)s</dd>\n"
+"</dl>"
 
 #: base/templates/base/handlers/400.html:5
-#: base/templates/base/handlers/400.html:7
 #: base/templates/base/handlers/400.html:11
 msgid "Bad request"
 msgstr "Requisição ruim"
 
-#: base/templates/base/handlers/400.html:13
-#: base/templates/base/handlers/403.html:13
-#: base/templates/base/handlers/404.html:13
-msgid "We're sorry, but the requested page could not be found."
+#: base/templates/base/handlers/400.html:12
+msgid ""
+"The request could not be understood by the server due to malformed syntax. "
+"The client should not repeat the request without modifications."
 msgstr ""
+"A solicitação não pôde ser entendida pelo servidor devido à sintaxe "
+"malformada. O cliente não deve repetir o pedido sem modificações."
 
 #: base/templates/base/handlers/403.html:5
-#: base/templates/base/handlers/403.html:7
 #: base/templates/base/handlers/403.html:11
 msgid "Permission denied"
 msgstr "Permissão negada"
 
+#: base/templates/base/handlers/403.html:12
+msgid "You do not have the appropriate permissions to access this page."
+msgstr "Você não tem as permissões apropriadas para acessar esta página."
+
 #: base/templates/base/handlers/404.html:5
-#: base/templates/base/handlers/404.html:7
 #: base/templates/base/handlers/404.html:11
 msgid "Page not found"
 msgstr "Página não encontrada"
 
-#: base/templates/base/handlers/500.html:7
+#: base/templates/base/handlers/404.html:12
+msgid "We're sorry, but the requested page could not be found."
+msgstr "Desculpe, mas a página solicitada não foi encontrada."
+
+#: base/templates/base/handlers/500.html:11
 msgid "Server error"
 msgstr "Erro no servidor"
 
 #: base/templates/base/handlers/500.html:12
-msgid "Server error (500)"
-msgstr "Erro no servidor (500)"
-
-#: base/templates/base/handlers/500.html:15
-msgid "Server Error <em>(500)</em>"
-msgstr "Erro no servidor <em>(500)</em>"
-
-#: base/templates/base/handlers/500.html:16
 msgid ""
 "There's been an error. It's been reported to the site administrators via "
 "email and should be fixed shortly. Thanks for your patience."
 msgstr ""
+"Ocorreu um erro. Ele foi relatado para os administradores do site via e-mail "
+"e deve ser corrigido em breve. Obrigado pela sua paciência."
 
 #: base/templates/base/report.html:5 base/templates/base/report.html:11
 msgid "Contact"
 msgstr "Contato"
 
-#: base/templates/base/report.html:15
+#: base/templates/base/report.html:15 base/templates/blocks/footer.html:19
 msgid "Contact us"
 msgstr "Contate-nos"
 
@@ -224,117 +247,84 @@ msgstr "Contate-nos"
 msgid "Timezone"
 msgstr "Zona"
 
-#. Translators: Label of a button that triggers language
-#: base/templates/base/timezone.html:31 base/templates/blocks/footer.html:40
+#: base/templates/base/timezone.html:31
 msgid "Go"
 msgstr "Ir"
 
-#: base/templates/blocks/footer.html:14
+#: base/templates/blocks/footer.html:10
 msgid "About"
 msgstr "Sobre"
 
-#: base/templates/blocks/footer.html:17
+#: base/templates/blocks/footer.html:13
 msgid "Terms of Use"
 msgstr "Termos de Uso"
 
-#: base/templates/blocks/footer.html:20
+#: base/templates/blocks/footer.html:16
 msgid "Privacy Policy"
 msgstr "Politica de Privacidade"
 
-#: base/templates/blocks/header.html:7
-msgid "Skip to main content of the page - Shortcut #1"
-msgstr "Ir para o conteúdo principal da página - Atalho #1"
+#: base/templates/blocks/navbar.html:9
+msgid "Site Logo"
+msgstr "Logotipo do Site"
 
-#: base/templates/blocks/header.html:8
-msgid "To Content"
-msgstr "Ir para conteúdo"
-
-#: base/templates/blocks/header.html:12
-msgid "Skip to navigation of the page - Shortcut #2"
-msgstr "Ir para a barra de navegação da página - Atalho #2"
-
-#: base/templates/blocks/header.html:13
-msgid "To Navigation"
-msgstr "Ir para navegação"
-
-#: base/templates/blocks/header.html:17
-msgid "On/Off High Contrast - Shortcut #3"
-msgstr "Ligar/Desligar Alto Contraste - Atalho #3"
-
-#: base/templates/blocks/header.html:18
-msgid "High Contrast"
-msgstr "Alto Contraste"
-
-#: base/templates/blocks/header.html:22
-msgid "Increase Font - Shortcut #4"
-msgstr "Aumentar Fonte - Atalho #4"
-
-#: base/templates/blocks/header.html:23
-msgid "Increase Font"
-msgstr "Aumentar Fonte"
-
-#: base/templates/blocks/header.html:27
-msgid "Decrease Font - Shortcut #5"
-msgstr "Diminuir Fonte - Atalho #5"
-
-#: base/templates/blocks/header.html:28
-msgid "Decrease Font"
-msgstr "Diminuir Fonte"
-
-#: base/templates/blocks/header.html:48
-msgid "AskMath"
-msgstr "AskMath"
-
-#: base/templates/blocks/header.html:54
-msgid "Forum"
-msgstr "Fórum"
-
-#: base/templates/blocks/header.html:57
-msgid "Report errors and problems here!"
-msgstr "Reporte erros e problemas aqui!"
-
-#: base/templates/blocks/header.html:58 base/views/report.py:24
-msgid "page"
+#: base/templates/blocks/navbar.html:11
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t\t\t\t\t\t<b>%(site)s<sup>TM</sup></b> was Designed & Coded by <b>"
+"%(author)s</b>\n"
+"\t\t\t\t\t\t\t\t"
 msgstr ""
+"\n"
+"<b>%(site)s<sup>TM</sup></b> foi Desenhado & Codificado por <b>%(author)s</b>"
 
-#: base/templates/blocks/header.html:60
-msgid "Problem?"
-msgstr "Problema?"
-
-#: base/templates/blocks/header.html:76
+#: base/templates/blocks/navbar.html:36
 msgid "Profile"
 msgstr "Perfil"
 
-#: base/templates/blocks/header.html:81
-msgid "Administration"
-msgstr "Administração"
-
-#: base/templates/blocks/header.html:86
+#: base/templates/blocks/navbar.html:40
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: base/templates/blocks/header.html:90
+#: base/templates/blocks/navbar.html:44
 msgid "Logout"
 msgstr "Sair"
 
-#: base/templates/blocks/header.html:98
+#: base/templates/blocks/navbar.html:53
 msgid "Login"
 msgstr "Entrar"
 
-#: base/templates/blocks/header.html:124
-msgid "Send"
-msgstr "Enviar"
+#: base/templates/blocks/navbar.html:59
+msgid "Sign-Up"
+msgstr "Cadastrar-se"
 
-#: base/templates/blocks/meta.html:3
-msgid ""
-"Whether you are in college or in NASA laboratories, join the community of "
-"students who take the AskMath. There are several lessons and tutorials video "
-"for free for you."
-msgstr ""
+#: base/templates/blocks/navbar.html:72
+msgid "Accessibility"
+msgstr "Acessibilidade"
 
-#: base/templates/blocks/meta.html:4
-msgid "Education,Mathematics,University"
-msgstr "Educação, Matemática, Universidade"
+#: base/templates/blocks/navbar.html:76
+msgid "On/Off High Contrast - Shortcut #1"
+msgstr "Ligar/Desligar Alto Contraste - Atalho #1"
+
+#: base/templates/blocks/navbar.html:77
+msgid "High Contrast"
+msgstr "Alto Contraste"
+
+#: base/templates/blocks/navbar.html:79
+msgid "Increase Font - Shortcut #2"
+msgstr "Aumentar Fonte - Atalho #2"
+
+#: base/templates/blocks/navbar.html:80
+msgid "Increase Font"
+msgstr "Aumentar Fonte"
+
+#: base/templates/blocks/navbar.html:82
+msgid "Decrease Font - Shortcut #3"
+msgstr "Diminuir Fonte - Atalho #3"
+
+#: base/templates/blocks/navbar.html:83
+msgid "Decrease Font"
+msgstr "Diminuir Fonte"
 
 #: base/templates/blocks/no_script.html:3
 msgid ""
@@ -346,71 +336,421 @@ msgstr ""
 "Javascript. Aqui tem <a href=\"http://www.enable-javascript.com/pt/\" target="
 "\"_blank\">instruções de como habilitar o Javascript em seu navegador </a>."
 
-#: base/urls/__init__.py:28
+#: base/urls.py:22
+msgid "^home$"
+msgstr "^inicio$"
+
+#: base/urls.py:23
 msgid "^about/$"
 msgstr "^sobre/$"
 
-#: base/urls/__init__.py:28
+#: base/urls.py:23
 msgid "/about/"
 msgstr "/sobre/"
 
-#: base/urls/__init__.py:29
+#: base/urls.py:24
 msgid "^terms/$"
 msgstr "^termos/$"
 
-#: base/urls/__init__.py:29
+#: base/urls.py:24
 msgid "/terms/"
 msgstr "/termos/"
 
-#: base/urls/__init__.py:30
+#: base/urls.py:25
 msgid "^privacy/$"
 msgstr "^privacidade/$"
 
-#: base/urls/__init__.py:30
+#: base/urls.py:25
 msgid "/privacy/"
 msgstr "/privacidade/"
 
-#: base/urls/__init__.py:32
-msgid "^report/"
-msgstr "^reportar/"
+#: base/urls.py:26
+msgid "^contact_us$"
+msgstr "^contate_nos$"
 
-#: base/urls/__init__.py:33
-msgid "^credits$"
-msgstr "^creditos$"
-
-#: base/urls/__init__.py:46
+#: base/urls.py:35
 msgid "^timezone$"
 msgstr "^zona$"
 
-#: base/urls/report.py:8
-msgid "^add$"
-msgstr "^adicionar$"
-
-#: base/utils/constants.py:5
+#: base/views/report.py:15
 msgid "Message send success"
 msgstr "Mensagem enviada com sucesso"
 
-#: base/utils/constants.py:6
-msgid "Error send message"
-msgstr "Erro ao enviar a mensagem"
-
-#: base/utils/constants.py:8
+#: base/views/timezone.py:10
 msgid "Timezone configured success"
 msgstr "Zona configurada com sucesso."
 
-#: base/utils/constants.py:10
-msgid "Report send successful"
-msgstr "Mensagem enviada com sucesso"
+#~ msgid "My Devices"
+#~ msgstr "Meus Dispositivos"
 
-#: base/utils/constants.py:11
-msgid "Error send Report"
-msgstr "Erro ao enviar a mensagem"
+#~ msgid "Plans"
+#~ msgstr "Planos"
+
+#~ msgid "made by Saraiva Solutions Ltd"
+#~ msgstr "criado por Saraiva Solutions Ltd"
+
+#~ msgid "Blog"
+#~ msgstr "Blog"
+
+#~ msgid ""
+#~ "<b>Sweet Spy</b> was Designed & Coded by the staff from <b>Saraiva "
+#~ "Solutions Ltd</b>"
+#~ msgstr ""
+#~ "<b>Sweet Spy</b> foi Desenhado & Codificado pelos técnicos da <b>Saraiva "
+#~ "Solutions Ltd</b>"
+
+#, fuzzy
+#~ msgid "Sweet Spy Logo"
+#~ msgstr "Logo do Site"
+
+#~ msgid "Feed"
+#~ msgstr "Feed"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\t\t\tmade by %(author)s\n"
+#~ "\t\t\t"
+#~ msgstr ""
+#~ "\n"
+#~ "criado por %(author)s"
+
+#~ msgid "Visualize"
+#~ msgstr "Visualizar"
+
+#~ msgid "Update"
+#~ msgstr "Atualizar"
+
+#~ msgid "Delete"
+#~ msgstr "Apagar"
+
+#~ msgid "Restore"
+#~ msgstr "Restaurar"
+
+#~ msgid "Advertise here"
+#~ msgstr "Anuncie aqui"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "Search..."
+#~ msgstr "Buscar..."
+
+#~ msgid "The title is %(title)s."
+#~ msgstr "O título  é %(title)s."
+
+#~ msgid "Brazilian Portuguese"
+#~ msgstr "Português Brasileiro"
+
+#~ msgid "English"
+#~ msgstr "Inglês"
+
+#~ msgid "^authentication/"
+#~ msgstr "^autenticacao/"
+
+#~ msgid "^payment/"
+#~ msgstr "^pagamento/"
+
+#~ msgid "^blog/"
+#~ msgstr "^blog/"
+
+#~ msgid "^localization/"
+#~ msgstr "^localizacao/"
+
+#~ msgid "Save"
+#~ msgstr "Salvar"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\tAdd %(model)s\n"
+#~ "\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Adicionar %(model)s"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\tAdd %(model_name)s\n"
+#~ "\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Adicionar %(model_name)s"
+
+#~ msgid "Loading..."
+#~ msgstr "Carregando..."
+
+#~ msgid "Spanish"
+#~ msgstr "Espanhol"
+
+#~ msgid "Credits"
+#~ msgstr "Créditos"
+
+#~ msgid "^credits$"
+#~ msgstr "^creditos$"
+
+#~ msgid "Availables Plans"
+#~ msgstr "Planos Disponíveis"
+
+#~ msgid "Plans Availables"
+#~ msgstr "Planos Disponíveis"
+
+#~ msgid "1 story was"
+#~ msgstr "1 história foi"
+
+#~ msgid "%s stories were"
+#~ msgstr "%s histórias foram"
+
+#~ msgid "%s successfully marked as published."
+#~ msgstr "%s elementos selecionados marcados como publicados."
+
+#~ msgid "%s successfully marked as draft."
+#~ msgstr "%s elementos selecionados marcados como rascunhos."
+
+#~ msgid "%s successfully marked as removed."
+#~ msgstr "%s elementos selecionados marcados como resolvidos."
+
+#~ msgid "Mark selected stories as published"
+#~ msgstr "Marque os elementos selecionados como publicados."
+
+#~ msgid "Mark selected stories as draft"
+#~ msgstr "Marque os elementos selecionados como rascunhos."
+
+#~ msgid "Mark selected stories as removed"
+#~ msgstr "Marque os elementos selecionados como removidos."
+
+#~ msgid "^index$"
+#~ msgstr "^indice$"
+
+#~ msgid "Error send message"
+#~ msgstr "Erro ao enviar a mensagem"
+
+#~ msgid "Report send successful"
+#~ msgstr "Mensagem enviada com sucesso"
+
+#~ msgid "Error send Report"
+#~ msgstr "Erro ao enviar a mensagem"
+
+#~ msgid "Subscription"
+#~ msgstr "Assinatura"
+
+#~ msgid "Previous"
+#~ msgstr "Anterior"
+
+#~ msgid "Next"
+#~ msgstr "Próximo"
+
+#~ msgid "%s successfully marked as solved."
+#~ msgstr "%s elementos selecionados marcados como resolvido."
+
+#~ msgid "Mark selected stories as solved"
+#~ msgstr "Marque os elementos selecionados como resolvidos."
+
+#~ msgid "Announce"
+#~ msgstr "Anuncie"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\t\t\t\t\tYour IP: %(ip_address)s\n"
+#~ "\t\t\t\t\t\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Seu IP: %(ip_address)s"
+
+#~ msgid ""
+#~ "Get to know the best lottery tools in the world now, the most up-to-date "
+#~ "strategies to win any lottery at an amazing cost."
+#~ msgstr ""
+#~ "Conheça agora as melhores ferramentas de loterias do mundo, as mais "
+#~ "modernas estratégias para fazer você ganhar em qualquer loteria, a um "
+#~ "custo surpreendente."
+
+#~ msgid "love,betrayal,extramarital,spy,location,gps"
+#~ msgstr "amor,traição,extraconjugal,espião,localização,gps"
+
+#~ msgid "Daskboard"
+#~ msgstr "Painel de Controle"
+
+#~ msgid "Translate"
+#~ msgstr "Tradução"
+
+#~ msgid "API"
+#~ msgstr "API"
+
+#~ msgid "IP Address"
+#~ msgstr "Endereço IP"
+
+#~ msgid "Path"
+#~ msgstr "Caminho"
+
+#~ msgid "Data"
+#~ msgstr "Dados"
+
+#~ msgid "Response Code"
+#~ msgstr "Código de Resposta"
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "Log"
+#~ msgstr "Log"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\t\t\t\t\tDo not let other people access your account. If we find that "
+#~ "more than one person accesses \n"
+#~ "\t\t\t\t\t\tour system with a single account, that account will be "
+#~ "suspended, lose the \n"
+#~ "\t\t\t\t\t\tsubscription and no longer compete for our prizes.\n"
+#~ "\t\t\t\t\t\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Não permita que outras pessoas acessem sua conta. Se constatarmos que "
+#~ "mais de uma pessoa acessa\n"
+#~ "nosso sistema com uma única conta, essa conta será suspensa, perderá a "
+#~ "assinatura e não mais competirá por nossos prêmios."
+
+#, fuzzy
+#~ msgid "Profile Image"
+#~ msgstr "Perfil"
+
+#~ msgid "^report/"
+#~ msgstr "^reportar/"
+
+#~ msgid "^add$"
+#~ msgstr "^adicionar$"
+
+#~ msgid "Marketing Partners"
+#~ msgstr "Parceiros de Marketing"
+
+#~ msgid "Lottery and Online Gaming Companies"
+#~ msgstr "Empresas de loteria e jogos online"
+
+#~ msgid "Tools used on the site"
+#~ msgstr "Ferramentas usadas no site"
+
+#~ msgid "Skip to main content of the page - Shortcut #1"
+#~ msgstr "Ir para o conteúdo principal da página - Atalho #1"
+
+#~ msgid "To Content"
+#~ msgstr "Ir para conteúdo"
+
+#~ msgid "Skip to navigation of the page - Shortcut #2"
+#~ msgstr "Ir para a barra de navegação da página - Atalho #2"
+
+#~ msgid "To Navigation"
+#~ msgstr "Ir para navegação"
+
+#~ msgid "Italian"
+#~ msgstr "Italiano"
+
+#~ msgid "French"
+#~ msgstr "Francês"
+
+#~ msgid "gambling,lottery,contest,luck"
+#~ msgstr "jogador de azar, loteria, competição, sorte"
+
+#~ msgid "Dias de Sorte"
+#~ msgstr "Dias de Sorte"
+
+#~ msgid "Universal Generator"
+#~ msgstr "Gerador Universal"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\t\t\t\t\t\t<p>Today we had another winner of our weekly bonuses.\n"
+#~ "\t\t\t\t\t\t\tHe calls himself <b>%(user)s</b> and earned <b>R$ "
+#~ "%(amount)s</ b> to use as he likes.\n"
+#~ "\t\t\t\t\t\t\t<p> Keep up with your monthly fees and run for lots of "
+#~ "prizes. Click here and check it out.</p>\n"
+#~ "\t\t\t\t\t\t\t"
+#~ msgstr ""
+#~ "\n"
+#~ "<p>Hoje, tivemos mais um ganhador dos nossos bonus semanais.\n"
+#~ "Ele (a) chama-se <b>%(user)s</b> e ganhou <b>R$ %(amount)s</b> para usar "
+#~ "como quiser.</p>\n"
+#~ "<p>Esteja em dia com suas mensalidades e concorra a muitos prêmios. "
+#~ "Clique aqui e confira.</p>"
+
+#~ msgid "Bonus"
+#~ msgstr "Bonificações"
+
+#~ msgid "Suggestions of Dias"
+#~ msgstr "Dicas do Dias"
+
+#~ msgid "Tutorials"
+#~ msgstr "Tutoriais"
+
+#~ msgid "Tools"
+#~ msgstr "Ferramentas"
+
+#~ msgid "Simple Calculator"
+#~ msgstr "Calculadora Comum"
+
+#~ msgid "Lottery Calculator"
+#~ msgstr "Calculadora Lotérica"
+
+#~ msgid "Notepad"
+#~ msgstr "Bloco de Anotações"
+
+#~ msgid "Card Printer"
+#~ msgstr "Impressor de Cartelas"
+
+#~ msgid "Bets e Loteca"
+#~ msgstr "Bets e Loteca"
+
+#~ msgid "Server error (500)"
+#~ msgstr "Erro no servidor (500)"
+
+#~ msgid "Server Error <em>(500)</em>"
+#~ msgstr "Erro no servidor <em>(500)</em>"
+
+#~ msgid "Gamblings"
+#~ msgstr "Sorteios"
+
+#~ msgid "Page"
+#~ msgstr "Página"
+
+#~ msgid "Report errors and problems here!"
+#~ msgstr "Reporte erros e problemas aqui!"
+
+#~ msgid "page"
+#~ msgstr "página"
+
+#~ msgid "Problems?"
+#~ msgstr "Reporte Problemas"
+
+#~ msgid "Currently"
+#~ msgstr "Atualmente"
+
+#~ msgid "Change"
+#~ msgstr "Alterar"
+
+#~ msgid "Sign-in"
+#~ msgstr "Entrar"
+
+#~ msgid "Printing"
+#~ msgstr "Impressora"
+
+#~ msgid "Videos"
+#~ msgstr "Vídeos"
+
+#~ msgid "Full Name"
+#~ msgstr "Nome completo"
+
+#, fuzzy
+#~ msgid "Poster removed successfully"
+#~ msgstr "Mensagem enviada com sucesso"
+
+#~ msgid "AskMath"
+#~ msgstr "AskMath"
+
+#~ msgid "Forum"
+#~ msgstr "Fórum"
+
+#~ msgid "Education,Mathematics,University"
+#~ msgstr "Educação, Matemática, Universidade"
 
 #~ msgid "Contact Us"
 #~ msgstr "Contate-nos"
-
-#~ msgid "^contact/"
-#~ msgstr "^contato$"
 
 #~ msgid "Report text"
 #~ msgstr "Texto"

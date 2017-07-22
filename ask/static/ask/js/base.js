@@ -1,9 +1,11 @@
-$("button#next").on('click', function(){
-	setTimeout(function() {
-		$("#introduction").hide();
-	}, 500);
-	$("#introduction").css({'-webkit-animation-name':'slide_out'});
-	$("#question").show();
+$(function(){
+	$("button#next").on('click', function(){
+		setTimeout(function() {
+			$("#introduction").hide();
+		}, 500);
+		$("#introduction").css({'-webkit-animation-name':'slide_out'});
+		$("#question").show();
+	});
 });
 
 /*

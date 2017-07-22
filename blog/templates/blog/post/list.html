@@ -1,0 +1,59 @@
+{% extends "blog/index.html" %}
+
+{% load i18n static humanize %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/packages/social-share/css/social-share-kit.css' %}" />
+{% endblock %}
+
+
+{% block page_title %}
+	{% if category %}
+		{{ category }}
+	{% else %}
+		{{ block.super }}
+	{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	{% if category %}
+		<a href="{% url 'blog:post_list' slug=category.slug %}" class="breadcrumb-item">
+			<i class="fa fa-tag"></i>
+			{{ category.name }}
+		</a>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-9 blog-main">
+			{% for post in object_list %}
+				<div class="container-fluid">
+					<div class="row">
+					{% include 'blog/post/_render.html' %}
+					</div>
+				</div>
+			{% empty %}
+				<div class="jumbotron">
+					<div class="container-fluid">
+						<p class="lead">{% trans "No post found." %}</p>
+					</div>
+				</div>
+			{% endfor %}
+			<nav class="blog-pagination">
+				{% include 'base/_paginate.html' %}
+			</nav>
+		</div>
+		<div class="col-sm-3 blog-sidebar">
+			{% include 'blog/sidebar.html' %}
+		</div>
+	</div>
+	<script type="text/javascript" src="{% static 'blog/packages/social-share/js/social-share-kit.min.js' %}"></script>
+	<script type="text/javascript">
+		$(function(){
+			SocialShareKit.init();
+		});
+	</script>
+{% endblock %}

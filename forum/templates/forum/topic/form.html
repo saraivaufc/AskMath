@@ -20,39 +20,22 @@
 
 {% block content %}	
 	<div class="row">
-		<div class="col-md-8">
-			<div class="row">
-				<form action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
-				{% csrf_token %}
-					{% include 'base/_fields.html' %}
-					
-					{% with form=comment_form %}
-						{% include 'base/_fields.html' %}
-					{% endwith %}
-			
-					<div class="submit-row">
-						<button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
-					</div>
-				</form>
-			</div>
+		<div class="col-md-6">
+			{% include 'base/_form.html' %}
 		</div>
 
-		<div class="col-md-4 text">
-			<div class="row">
-				<label>{% trans "Preview is shown here:" %}</label>
-				<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-				<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
+		<div class="col-md-6">
+			<label>{% trans "Preview is shown here:" %}</label>
+			<div id="MathPreview" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
 
-				<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
-				<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
-			</div>
+			<div id="MathPreview2" style="border:1px solid; padding: 3px; width:100%; margin-top:5px"></div>
+			<div id="MathBuffer2"  style="border:1px solid; padding: 3px; width:100%; margin-top:5px; visibility:hidden;"></div>
 		</div>
 	</div>
-{% endblock %}
-
-{% block js %}
-	{{ block.super }}
 	{% include "base/imports/select2.html" %}
-	{% include "base/imports/latex_preview.html" with id='id_title' id_preview='MathPreview' id_buffer='MathBuffer'  %}
-	{% include "base/imports/latex_preview.html" with id='id_text' id_preview='MathPreview2' id_buffer='MathBuffer2'  %}
+	{% include "ask/imports/latex.html" %}
+	
+	{% include "ask/imports/latex_preview.html" with id='id_title' id_preview='MathPreview' id_buffer='MathBuffer'  %}
+	{% include "ask/imports/latex_preview.html" with id='id_description' id_preview='MathPreview2' id_buffer='MathBuffer2'  %}
 {% endblock %}

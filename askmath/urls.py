@@ -4,20 +4,20 @@
 from django.utils.translation import ugettext_lazy as _
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib import admin
 
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import RedirectView
 
-#from django.contrib import admin
-from partners_admin.admin import partners_admin
-
 urlpatterns = i18n_patterns(
 	url(r'^', include('base.urls', namespace="base", app_name="base")),
 	url(r'^', include('ask.urls', namespace="ask", app_name="ask")),
-	url(r'^', include('authentication.urls', namespace="authentication", app_name="authentication")),
-	url(r'^', include('forum.urls', namespace="forum", app_name="forum")),
+	url(_(r'^authentication/'), include('authentication.urls', namespace="authentication", app_name="authentication")),
+	url(_(r'^competition/'), include('competition.urls', namespace="competition", app_name="competition")),
+	url(_(r'^forum/'), include('forum.urls', namespace="forum", app_name="forum")),
+	url(_(r'^blog/'), include('blog.urls', namespace="blog", app_name="blog")),
 	
-	url(r'^admin/', include(partners_admin.urls)),
+	url(r'^admin/', admin.site.urls),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^rosetta/', include('rosetta.urls')),
 	url(r'^i18n/', include('django.conf.urls.i18n')),

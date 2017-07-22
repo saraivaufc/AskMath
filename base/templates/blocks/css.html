@@ -1,16 +1,17 @@
 {% load static %}
+	<link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" id="favicon" href="{% static 'base/img/favicon.png' %}" />
+	<link rel="canonical" href="{{ request.get_host }}" />
+	
+	<!--     Bootstrap     -->
+	<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/css/bootstrap-flex.min.css" %}" />
+	
+	<!--     Material Kit     -->
+	<link rel="stylesheet" type="text/css" href="{% static "base/packages/material-kit/assets/css/material-kit.css" %}" />
 
-<link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" id="favicon" href="{% static 'base/img/favicon.png' %}" />
-<link rel="canonical" href="{{ request.get_host }}" />
-
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap.min.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-flex.min.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-4.0.0-alpha.5/dist/css/bootstrap-grid.min.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/material-kit/assets/css/material-kit.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/material-kit/assets/css/demo.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/packages/metro/metro.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/css/accessibility.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "base/css/fonts.css" %}" />
-
-<link rel="stylesheet" type="text/css" href="{% static "base/css/base.css" %}" />
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="{% static "base/packages/font-awesome-4.7.0/css/font-awesome.min.css" %}" />
+	
+	<!--     My    -->
+	<link rel="stylesheet" type="text/css" href="{% static "base/css/accessibility.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "base/css/fonts.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "base/css/base.css" %}" />

@@ -1,10 +1,14 @@
 {% load i18n base_tags %}
-<form class="w-100" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+<form class="form" action="#" method="post" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
 	{% csrf_token %}
 	<input type="hidden" name="next" value="{{ next }}" />
 	<input type="hidden" name="is_popup" value="{% if is_popup %}true{% else %}false{% endif %}" />
-		
-	{% include "base/_fields.html" %}
 	
-	<button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+	{% include 'base/_fields.html' %}
+	
+	<div class="row">
+		<div class="col-md-12 text-xs-right">
+			<button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+		</div>
+	</div>
 </form>

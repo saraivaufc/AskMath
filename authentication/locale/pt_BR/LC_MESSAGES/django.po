@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 07:39-0300\n"
-"PO-Revision-Date: 2017-03-02 11:22-0234\n"
-"Last-Translator: Marciano Saraiva <saraiva.ufc@gmail.com>\n"
+"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"PO-Revision-Date: 2017-07-07 10:36-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,16 +19,16 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
 #: authentication/apps.py:11
-#: authentication/templates/authentication/index.html:10
-#: authentication/templates/authentication/index.html:12
+#: authentication/templates/authentication/index.html:5
+#: authentication/templates/authentication/index.html:7
 msgid "Authentication"
 msgstr "Autenticação"
 
-#: authentication/forms/user.py:10
-msgid "Agree the Terms and Conditions"
-msgstr "Aceito os Termos e Condições"
+#: authentication/forms/user.py:12
+msgid "Terms and Conditions"
+msgstr "Termos e Condições"
 
-#: authentication/forms/user.py:10
+#: authentication/forms/user.py:12
 msgid ""
 "Clicking here, you agree to the Terms and Conditions set out by this site, "
 "including our Cookie Use."
@@ -36,120 +36,130 @@ msgstr ""
 "Clicando aqui, você aceita todos os termos e condições para usar esse site, "
 "incluindo o uso de Cookies."
 
-#: authentication/models/user.py:40
-msgid "First Name "
+#: authentication/models/user.py:42
+#: authentication/templates/authentication/account/_render.html:6
+msgid "First Name"
 msgstr "Primeiro Nome"
 
-#: authentication/models/user.py:40
+#: authentication/models/user.py:42
 msgid "Please enter you first name."
 msgstr "Por favor, entre com seu primeiro nome."
 
-#: authentication/models/user.py:41
-msgid "Last Name "
+#: authentication/models/user.py:43
+#: authentication/templates/authentication/account/_render.html:19
+msgid "Last Name"
 msgstr "Último Nome"
 
-#: authentication/models/user.py:41
+#: authentication/models/user.py:43
 msgid "Please enter you last name."
 msgstr "Por favor, entre com seu último nome."
 
-#: authentication/models/user.py:42
-#: authentication/templates/authentication/account/_render.html:22
-#, fuzzy
-#| msgid "Profile"
-msgid "Profile Image"
-msgstr "Perfil"
-
-#: authentication/models/user.py:43
-#: authentication/templates/authentication/account/_render.html:27
+#: authentication/models/user.py:44
+#: authentication/templates/authentication/account/_render.html:32
 msgid "Email"
 msgstr "Email"
 
-#: authentication/models/user.py:43
+#: authentication/models/user.py:44
 msgid "Please enter you email."
 msgstr "Por favor, entre com seu email."
 
-#: authentication/models/user.py:44
+#: authentication/models/user.py:45
+msgid "Profile Image"
+msgstr "Imagem de Perfil"
+
+#: authentication/models/user.py:46
 msgid "Active"
 msgstr "Ativo"
 
-#: authentication/models/user.py:44
+#: authentication/models/user.py:46
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr ""
+"Designa se esse usuário deve ser tratado como ativo. Desmarque essa opção em "
+"vez de excluir contas."
 
-#: authentication/models/user.py:45
+#: authentication/models/user.py:47
 msgid "Date joined"
 msgstr "Data de cadastro"
 
-#: authentication/models/user.py:46
+#: authentication/models/user.py:48
 msgid "Moderator Status"
 msgstr "Status de Moderador"
 
-#: authentication/models/user.py:47
+#: authentication/models/user.py:49
 msgid "Staff Status"
 msgstr "Status de Técnico"
 
-#: authentication/models/user.py:86
+#: authentication/models/user.py:88
 msgid "User"
 msgstr "Usuário"
 
-#: authentication/models/user.py:87
+#: authentication/models/user.py:89
 msgid "Users"
 msgstr "Usuários"
 
-#: authentication/templates/authentication/account/_render.html:4
-msgid "First Name"
-msgstr "Primeiro Nome"
-
-#: authentication/templates/authentication/account/_render.html:9
-#: authentication/templates/authentication/account/_render.html:18
+#: authentication/templates/authentication/account/_render.html:11
+#: authentication/templates/authentication/account/_render.html:24
 msgid "Empty"
 msgstr "Vazio"
 
-#: authentication/templates/authentication/account/_render.html:13
-msgid "Last Name"
-msgstr "Último Nome"
-
-#: authentication/templates/authentication/account/_render.html:24
-msgid "See Image"
-msgstr ""
-
-#: authentication/templates/authentication/account/_render.html:30
+#: authentication/templates/authentication/account/_render.html:39
 msgid "Date Joined"
 msgstr "Data de cadastro"
+
+#: authentication/templates/authentication/account/activation.html:4
+#: authentication/views/account_view.py:52
+msgid "Email Activation"
+msgstr "Email de Ativação"
+
+#: authentication/templates/authentication/account/activation.html:6
+#, python-format
+msgid ""
+"\n"
+"\t\t<p>Dear %(user)s</p>\n"
+"\t\t<p>Your account has successfully created. Please click below link to "
+"activate your account.</p>\n"
+"\t\t<p><a href=\"%(activate_url)s\"> Activate your account </a></p>\n"
+"    "
+msgstr ""
+"\n"
+"<p>Querido %(user)s</p>\n"
+"<p>Sua conta foi criada com sucesso. Por favor, clique nesse link para "
+"ativar sua conta.</p>\n"
+"<p><a href=\"%(activate_url)s\"> Ativar sua conta </a></p>"
 
 #: authentication/templates/authentication/account/check_delete.html:15
 #: authentication/templates/authentication/account/check_delete.html:19
 msgid "Confirm delete"
 msgstr "Confirmação de exclusão"
 
-#: authentication/templates/authentication/account/check_delete.html:25
+#: authentication/templates/authentication/account/check_delete.html:27
 msgid "Are you sure you want to delete"
 msgstr "Você deseja delete isso?"
 
-#: authentication/templates/authentication/account/check_delete.html:27
+#: authentication/templates/authentication/account/check_delete.html:29
 msgid "No"
 msgstr "Não"
 
-#: authentication/templates/authentication/account/check_delete.html:30
+#: authentication/templates/authentication/account/check_delete.html:32
 msgid "Yes"
 msgstr "Sim"
 
-#: authentication/templates/authentication/account/detail.html:17
+#: authentication/templates/authentication/account/detail.html:9
 msgid "Profile"
 msgstr "Perfil"
 
-#: authentication/templates/authentication/account/detail.html:25
+#: authentication/templates/authentication/account/detail.html:35
 msgid "Edit"
 msgstr "Editar"
 
-#: authentication/templates/authentication/account/detail.html:29
-msgid "Delete"
+#: authentication/templates/authentication/account/detail.html:40
+msgid "Remove"
 msgstr "Excluir"
 
-#: authentication/templates/authentication/account/form.html:15
-#: authentication/templates/authentication/account/form.html:20
+#: authentication/templates/authentication/account/form.html:14
+#: authentication/templates/authentication/account/form.html:19
 msgid "Form User"
 msgstr "Formulário de Usuário"
 
@@ -158,21 +168,15 @@ msgstr "Formulário de Usuário"
 msgid "Login"
 msgstr "Entrar"
 
-#: authentication/templates/authentication/account/login.html:20
-#, python-format
-msgid ""
-"\n"
-"\t\tLogin or <a href=\"%(url)s\" class=\"text-white\">Sign-up</a>\n"
-"\t"
-msgstr ""
-"\n"
-"Entrar ou <a href=\"%(url)s\" class=\"text-white\">Registrar-se</a>"
+#: authentication/templates/authentication/account/login.html:18
+msgid "Sign-in"
+msgstr "Entrar"
 
-#: authentication/templates/authentication/account/login.html:27
+#: authentication/templates/authentication/account/login.html:24
 msgid "Your username and password didn't match. Please try again."
 msgstr "Seu login e/ou senha estão incorretos. Por favor, tente novamente."
 
-#: authentication/templates/authentication/account/login.html:31
+#: authentication/templates/authentication/account/login.html:28
 msgid ""
 "Your account doesn't have access to this page. To proceed, please login with "
 "an account that has access."
@@ -180,27 +184,27 @@ msgstr ""
 "Você não possui permissão para acessar essa página. Para prosseguir, por "
 "favor realize login. "
 
-#: authentication/templates/authentication/account/login.html:33
+#: authentication/templates/authentication/account/login.html:30
 msgid "Please login to see this page."
 msgstr "Por favor, entre no sistema para acessar essa página."
 
-#: authentication/templates/authentication/account/login.html:41
+#: authentication/templates/authentication/account/login.html:37
 msgid "Lost password?"
 msgstr "Esqueceu a senha?"
 
 #: authentication/templates/authentication/account/password_change_done.html:8
-msgid "Password Reset Change"
-msgstr ""
+msgid "Password Change"
+msgstr "Alterar senha"
 
 #: authentication/templates/authentication/account/password_change_done.html:12
 msgid "Change password done"
 msgstr "Alteração da senha concluída"
 
-#: authentication/templates/authentication/account/password_change_done.html:18
+#: authentication/templates/authentication/account/password_change_done.html:19
 msgid "Password change successful"
 msgstr "Senha alterada com sucesso"
 
-#: authentication/templates/authentication/account/password_change_done.html:19
+#: authentication/templates/authentication/account/password_change_done.html:20
 msgid "Your password was changed."
 msgstr "Sua senha foi alterada"
 
@@ -213,45 +217,49 @@ msgstr "Alterar senha"
 msgid "Password Change Form"
 msgstr "Formulário para alterar senha"
 
-#: authentication/templates/authentication/account/password_reset_complete.html:8
+#: authentication/templates/authentication/account/password_reset_complete.html:7
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr ""
+msgstr "Sua senha foi definida. Você pode ir em frente e fazer login agora."
 
-#: authentication/templates/authentication/account/password_reset_complete.html:10
+#: authentication/templates/authentication/account/password_reset_complete.html:8
 msgid "Log in"
 msgstr "Entrar"
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:8
+#: authentication/templates/authentication/account/password_reset_confirm.html:7
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
+"Digite sua nova senha duas vezes para que possamos verificar se você digitou "
+"corretamente."
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:13
-msgid "Submit"
-msgstr "Enviar"
-
-#: authentication/templates/authentication/account/password_reset_confirm.html:17
+#: authentication/templates/authentication/account/password_reset_confirm.html:10
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Redefinição de senha sem êxito"
 
-#: authentication/templates/authentication/account/password_reset_confirm.html:18
+#: authentication/templates/authentication/account/password_reset_confirm.html:11
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+"O link de redefinição de senha foi inválido, possivelmente porque ele já foi "
+"usado. Solicite uma nova redefinição de senha."
 
-#: authentication/templates/authentication/account/password_reset_done.html:8
+#: authentication/templates/authentication/account/password_reset_done.html:7
 msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
+"Enviamos-lhe instruções por escrito para definir a sua palavra-passe, se "
+"existir uma conta com o e-mail que introduziu. Você deve recebê-los em breve."
 
-#: authentication/templates/authentication/account/password_reset_done.html:10
+#: authentication/templates/authentication/account/password_reset_done.html:8
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
 msgstr ""
+"Se não receber um e-mail, certifique-se de que introduziu o endereço com o "
+"qual se registou e verifique a sua pasta de spam."
 
 #: authentication/templates/authentication/account/password_reset_email.html:2
 #, python-format
@@ -259,10 +267,12 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
+"Você está recebendo este e-mail porque solicitou uma redefinição de senha "
+"para sua conta de usuário em  %(site_name)s."
 
 #: authentication/templates/authentication/account/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Por favor, vá para a página seguinte e escolha uma nova senha:"
 
 #: authentication/templates/authentication/account/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
@@ -285,7 +295,7 @@ msgstr "Recuperar senha"
 msgid "Recover Password"
 msgstr "Recuperar senha"
 
-#: authentication/templates/authentication/account/password_reset_form.html:17
+#: authentication/templates/authentication/account/password_reset_form.html:19
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
@@ -294,80 +304,114 @@ msgstr ""
 "recupera-la."
 
 #: authentication/templates/authentication/account/register.html:14
+#: authentication/templates/authentication/account/register.html:18
 msgid "Sign-up"
 msgstr "Registrar-se"
-
-#: authentication/templates/authentication/account/register.html:20
-#, python-format
-msgid ""
-"\n"
-"\t\tSign-up or <a href=\"%(url)s\" class=\"text-white\">Login</a>\n"
-"\t"
-msgstr ""
-"\n"
-"Registrar-se ou <a href=\"%(url)s\" class=\"text-white\">Entrar</a>"
 
 #: authentication/urls/__init__.py:5
 msgid "^account/"
 msgstr "^conta/"
 
-#: authentication/urls/account.py:9
+#: authentication/urls/account.py:10
 msgid "^login$"
 msgstr "^entrar$"
 
-#: authentication/urls/account.py:10
+#: authentication/urls/account.py:11
 msgid "^logout$"
 msgstr "^sair$"
 
-#: authentication/urls/account.py:11
+#: authentication/urls/account.py:12
 msgid "^register$"
 msgstr "^registrar$"
 
-#: authentication/urls/account.py:12
+#: authentication/urls/account.py:13
 msgid "^(?P<pk>[0-9]+)/detail$"
 msgstr "^(?P<pk>[0-9]+)/detalhe$"
 
-#: authentication/urls/account.py:13
+#: authentication/urls/account.py:14
 msgid "^(?P<pk>[0-9]+)/edit$"
 msgstr "^(?P<pk>[0-9]+)/editar$"
 
-#: authentication/urls/account.py:14
+#: authentication/urls/account.py:15
 msgid "^(?P<pk>[0-9]+)/delete$"
 msgstr "^(?P<pk>[0-9]+)/excluir$"
 
-#: authentication/urls/account.py:16
+#: authentication/urls/account.py:20
 msgid "^password/change$"
 msgstr "^senha/alterar$"
 
-#: authentication/urls/account.py:23
+#: authentication/urls/account.py:27
 msgid "^password_change/done$"
 msgstr "^alterar_senha/concluida$"
 
-#: authentication/urls/account.py:28
+#: authentication/urls/account.py:32
 msgid "^password/reset$"
 msgstr "^senha/reset$"
 
-#: authentication/urls/account.py:35
+#: authentication/urls/account.py:39
 msgid "^password_reset/done$"
 msgstr "^recuperar_senha/concluida$"
 
-#: authentication/urls/account.py:39
+#: authentication/urls/account.py:43
 msgid "^password_reset/(?P<uidb64>[0-9A-Za-z_\\-]+)/(?P<token>.+)$"
 msgstr "^recuperar_senha/(?P<uidb64>[0-9A-Za-z_\\-]+)/(?P<token>.+)$"
 
-#: authentication/urls/account.py:44
+#: authentication/urls/account.py:48
 msgid "^password_reset/complete$"
 msgstr "^recuperar_senha/completo$"
 
-#: authentication/utils/constants.py:5
-msgid "User success created"
-msgstr "Usuário criado com sucesso"
+#: authentication/views/account_view.py:33
+msgid "Account created successfully."
+msgstr "Conta criada com sucesso."
+
+#: authentication/views/account_view.py:41
+msgid "Please, check your email to activate account."
+msgstr "Por favor, cheque seu e-mail para ativar sua conta."
+
+#: authentication/views/account_view.py:51
+msgid "Account Activation Email"
+msgstr "Email de Ativação da Conta"
+
+#: authentication/views/account_view.py:146
+msgid "Activation link has expired"
+msgstr "Link de ativação expirou"
+
+#~ msgid "User success created"
+#~ msgstr "Usuário criado com sucesso"
+
+#~ msgid "First Name "
+#~ msgstr "Primeiro Nome"
+
+#~ msgid "Last Name "
+#~ msgstr "Último Nome"
+
+#~ msgid "Submit"
+#~ msgstr "Enviar"
+
+#~ msgid "Delete"
+#~ msgstr "Excluir"
 
 #~ msgid "Username"
 #~ msgstr "Nome de usuário"
 
 #~ msgid "Please enter you username."
 #~ msgstr "Por favor, entre com seu nome de usuário."
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\tLogin or <a href=\"%(url)s\" class=\"text-white\">Sign-up</a>\n"
+#~ "\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Entrar ou <a href=\"%(url)s\" class=\"text-white\">Registrar-se</a>"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\tSign-up or <a href=\"%(url)s\" class=\"text-white\">Login</a>\n"
+#~ "\t"
+#~ msgstr ""
+#~ "\n"
+#~ "Registrar-se ou <a href=\"%(url)s\" class=\"text-white\">Entrar</a>"
 
 #~ msgid "Home"
 #~ msgstr "Início"
@@ -404,9 +448,6 @@ msgstr "Usuário criado com sucesso"
 
 #~ msgid "Options"
 #~ msgstr "Opções"
-
-#~ msgid "Remove"
-#~ msgstr "Excluir"
 
 #~ msgid "No Administrator found!"
 #~ msgstr "Nenhum administrador encontrado!"

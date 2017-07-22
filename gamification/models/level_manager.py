@@ -10,7 +10,7 @@ from .level import Level
 
 class LevelManager(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=_("User"))
-	level = models.ForeignKey('gamification.Level', verbose_name=_(u"Level"), blank=True)
+	level = models.ForeignKey('gamification.Level', verbose_name=_("Level"), blank=True)
 
 	def up_level(self):
 		if Level.objects.filter(number=self.level.number+1).exists():
@@ -29,5 +29,5 @@ class LevelManager(models.Model):
 
 	class Meta:
 		ordering = []
-		verbose_name = _(u'Level Manager')
-		verbose_name_plural = _(u'Levels Manager')
+		verbose_name = _('Level Manager')
+		verbose_name_plural = _('Levels Manager')

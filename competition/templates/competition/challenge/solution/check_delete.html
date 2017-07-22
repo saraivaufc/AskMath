@@ -1,0 +1,19 @@
+{% extends 'competition/challenge/detail.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Confirm delete" %}{% endblock %}
+
+{% block page_title %}{% trans "Confirm delete" %}{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-remove"></i>
+		{% trans "Confirm delete" %}
+	</a>
+{% endblock %}
+
+{% block content %}
+	{% include 'base/_check_delete.html' %}
+{% endblock %}

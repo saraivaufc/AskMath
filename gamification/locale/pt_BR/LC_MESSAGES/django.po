@@ -8,78 +8,84 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 07:39-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"PO-Revision-Date: 2017-07-21 23:36-0234\n"
+"Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: gamification/models/level.py:9
+#: gamification/models/level.py:13
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
-#: gamification/models/level.py:10
+#: gamification/models/level.py:14
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
-#: gamification/models/level.py:11
+#: gamification/models/level.py:15
 msgid "Image"
-msgstr ""
+msgstr "Imagem"
 
-#: gamification/models/level.py:18 gamification/models/level_manager.py:13
+#: gamification/models/level.py:29 gamification/models/level_manager.py:13
 msgid "Level"
-msgstr ""
+msgstr "Nível"
 
-#: gamification/models/level.py:19
+#: gamification/models/level.py:30
 msgid "Levels"
-msgstr ""
+msgstr "Níveis"
 
 #: gamification/models/level_manager.py:12
-#: gamification/models/ranking_manager.py:9
 #: gamification/models/score_manager.py:9
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 #: gamification/models/level_manager.py:32
 msgid "Level Manager"
-msgstr ""
+msgstr "Gerenciador do Nível"
 
 #: gamification/models/level_manager.py:33
 msgid "Levels Manager"
-msgstr ""
-
-#: gamification/models/ranking_manager.py:16
-msgid "Ranking Manager"
-msgstr ""
-
-#: gamification/models/ranking_manager.py:17
-msgid "Rankings Manager"
-msgstr ""
+msgstr "Gerenciadores dos Níveis"
 
 #: gamification/models/score_manager.py:10
+#: gamification/templates/gamification/bar.html:13
 msgid "XP"
-msgstr ""
+msgstr "XP"
 
 #: gamification/models/score_manager.py:11
+#: gamification/templates/gamification/bar.html:17
 msgid "RP"
-msgstr ""
+msgstr "RP"
 
 #: gamification/models/score_manager.py:12
 msgid "Skill"
-msgstr ""
+msgstr "Habilidade"
 
 #: gamification/models/score_manager.py:13
 msgid "Reputation"
-msgstr ""
+msgstr "Reputação"
 
-#: gamification/models/score_manager.py:38
+#: gamification/models/score_manager.py:41
 msgid "Score Manager"
-msgstr ""
+msgstr "Gerenciador dos Pontos"
 
-#: gamification/models/score_manager.py:39
+#: gamification/models/score_manager.py:42
 msgid "Scores Manager"
-msgstr ""
+msgstr "Gerenciadores dos Pontos"
+
+#: gamification/templates/gamification/bar.html:6
+msgid "Scores"
+msgstr "Pontos"
+
+#: gamification/templates/gamification/bar.html:21
+msgid "SKILL"
+msgstr "HABILIDADE"
+
+#: gamification/templates/gamification/bar.html:25
+msgid "REPUTATION"
+msgstr "REPUTAÇÃO"

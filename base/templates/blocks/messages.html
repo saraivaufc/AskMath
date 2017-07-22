@@ -3,12 +3,14 @@
 {% if messages %}
     {% for message in messages %}
         <div class="row">
-            <div class="alert {% if message.tags %}alert-{{ message.tags }} {{ message.tags }} {% endif %} pt-1 pb-1 w-100">
-                <div class="container-fluid">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
-                    </button>
-                    {{ message|capfirst }}
+            <div class="col-md-12">
+                <div class="alert {% if message.tags %}alert-{{ message.tags }} {{ message.tags }} {% endif %} pt-1 pb-1 w-100">
+                    <div class="container-fluid">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                        </button>
+                        {{ message|capfirst }}
+                    </div>
                 </div>
             </div>
         </div>

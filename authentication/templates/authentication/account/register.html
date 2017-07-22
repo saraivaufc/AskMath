@@ -9,19 +9,18 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="#" class="breadcrumb-item" >
-		<i class="fa fa-users"></i>
+	<a href="{% url 'authentication:account_register' %}" class="breadcrumb-item" >
+		<i class="fa fa-user-plus"></i>
 		{% trans "Sign-up" %}
 	</a>
 {% endblock %}
 
-{%  block page_title %}
-	{% url 'authentication:account_login' as login_url %}
-	{% blocktrans with url=login_url %}
-		Sign-up or <a href="{{ url }}" class="text-white">Login</a>
-	{% endblocktrans %}
-{% endblock %}
+{%  block page_title %}{% trans "Sign-up" %}{% endblock %}
 
-{% block content %}	
-	{% include "authentication/form.html" %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			{% include "base/_form.html" %}
+		</div>
+	</div>
 {% endblock %}

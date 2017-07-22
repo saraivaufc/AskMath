@@ -3,13 +3,11 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from base.actions import (StatusAction, )
-
 from .models import (Category, Topic, Comment)
 from .forms import (CategoryForm)
 
 
-class CategoryAdmin(admin.ModelAdmin, StatusAction):
+class CategoryAdmin(admin.ModelAdmin):
 	form = CategoryForm
 	list_display = ('name', 'status', 'created_by', 'last_modified')
 	search_fields = ['name']
@@ -20,8 +18,8 @@ class CategoryAdmin(admin.ModelAdmin, StatusAction):
 		form.instance.created_by = request.user
 		form.save()
 
-class TopicAdmin(admin.ModelAdmin, StatusAction):
-	list_display = ('title', 'status', 'created_by', 'last_modified')
+class TopicAdmin(admin.ModelAdmin):
+	list_display = ('title', 'status', 'last_modified')
 	search_fields = ['title']
 	list_filter = ['status', 'last_modified',]
 	actions = []
@@ -30,7 +28,7 @@ class TopicAdmin(admin.ModelAdmin, StatusAction):
 		form.instance.created_by = request.user
 		form.save()
 
-class CommentAdmin(admin.ModelAdmin, StatusAction):
+class CommentAdmin(admin.ModelAdmin):
 	model = Comment
 	list_display = ('text', 'user', 'topic' , 'status', 'creation')
 	list_filter = ['user', 'topic', 'status', 'creation',]

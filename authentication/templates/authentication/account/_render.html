@@ -1,27 +1,43 @@
 {% load i18n %}
 
-<dl class="definition" itemscope>
-	<dt class="col-sm-3">{% trans "First Name" %}:</dt>
-	<dd class="col-sm-9" itemprop="first_name">
-		{% if object.first_name %}
-			{{ object.first_name }}
-		{% else %}
-			{% trans "Empty" %}
-		{% endif %}
-	</dd>
+<dl class="dl-table" itemscope itemtype="http://schema.org/Profile">
+	<div class="row">
+		<div class="col-md-12">
+			<dt>{% trans "First Name" %}:</dt>
+			<dd itemprop="first_name">
+				{% if object.first_name %}
+					{{ object.first_name }}
+				{% else %}
+					{% trans "Empty" %}
+				{% endif %}
+			</dd>
+		</div>
+	</div>
 
-	<dt class="col-sm-3">{% trans "Last Name" %}:</dt>
-	<dd class="col-sm-9" itemprop="last_name">
-		{% if object.last_name %}
-			{{ object.last_name }}
-		{% else %}
-			{% trans "Empty" %}
-		{% endif %}
-	</dd>
+	<div class="row">
+		<div class="col-md-12">
+			<dt>{% trans "Last Name" %}:</dt>
+			<dd itemprop="last_name">
+				{% if object.last_name %}
+					{{ object.last_name }}
+				{% else %}
+					{% trans "Empty" %}
+				{% endif %}
+			</dd>
+		</div>
+	</div>
 
-	<dt class="col-sm-3">{% trans "Email" %}:</dt>
-	<dd class="col-sm-9" itemprop="email">{{ object.email }}</dd>
+	<div class="row">
+		<div class="col-md-12">
+			<dt>{% trans "Email" %}:</dt>
+			<dd itemprop="email">{{ object.email }}</dd>
+		</div>
+	</div>
 
-	<dt class="col-sm-3">{% trans "Date Joined" %}:</dt>
-	<dd class="col-sm-9" itemprop="date_joined">{{ object.date_joined }}</dd>
+	<div class="row">
+		<div class="col-md-12">
+			<dt>{% trans "Date Joined" %}:</dt>
+			<dd itemprop="date_joined">{{ object.date_joined }}</dd>
+		</div>
+	</div>
 </dl>

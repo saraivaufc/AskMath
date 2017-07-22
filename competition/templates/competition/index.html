@@ -1,0 +1,22 @@
+{% extends "base/_base.html" %}
+
+{% load static i18n %}
+
+{% block title %}{% trans "Welcome" %}{% endblock %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" media="all" href="{% static "competition/css/base.css" %}" />
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="{% static "competition/js/base.js" %}"></script>
+{% endblock %}

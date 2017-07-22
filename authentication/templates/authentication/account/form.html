@@ -11,7 +11,6 @@
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'authentication:account_update' pk=object.pk %}" class="breadcrumb-item" >
-		<i class="fa fa-user-circle"></i>
 		{% trans "Form User" %}
 	</a>
 {% endblock %}
@@ -21,5 +20,5 @@
 {% endblock %}
 
 {% block content %}
-	{% include "authentication/form.html" %}
+	{% include "base/_form.html" %}	
 {% endblock %}

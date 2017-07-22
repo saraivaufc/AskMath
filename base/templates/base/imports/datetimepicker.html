@@ -1,0 +1,39 @@
+{% load i18n static %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+<link rel="stylesheet" type="text/css" href="{% static "base/packages/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" %}">
+<script src="{% static "base/packages/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" %}"></script>
+{% if LANGUAGE_CODE == 'pt-br' %}
+	<script src="{% static "base/packages/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.pt-BR.js" %}"></script>
+{% endif %}
+
+<script type="text/javascript">
+	var options = {}
+
+	var language = $("html:first").attr("lang");
+	var date_format = "yyyy/mm/dd"; //default to en
+	var datetime_format = "yyyy/mm/dd hh:ii:ss"; //default to en
+
+	options['fontAwesome'] = true;
+	options['autoclose'] = true;
+	options['startView'] = 'year';
+
+	if(language == 'pt-br'){
+		options['language'] = 'pt-BR';
+		date_format = "dd/mm/yyyy";
+		datetime_format = "dd/mm/yyyy hh:ii:ss";
+	}
+
+	function date(s){
+		options['minView'] = 'month';
+		options['format'] = date_format;
+		$(s).datetimepicker(options);
+	}
+
+	function datetime(s){
+		options['minView'] = 'hour';
+		options['format'] = datetime_format;
+		$(s).datetimepicker(options);
+	}
+</script>

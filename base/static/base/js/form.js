@@ -1,4 +1,3 @@
-
 function create_objects(fields){
 	for(var i=0; i < fields.length; i++){
 		var field = $(fields[i].id);
@@ -8,9 +7,8 @@ function create_objects(fields){
 
 function create_object(element, url){
 	var i = $("<i>").addClass("fa fa-plus");
-	var button = $("<a>").addClass("btn btn-success btn-sm text-white").attr("type", "cancel").append(i);
-	console.log(button);
-	var button_plus=$(element).parent().parent().find('.btn-plus').append(button);
+	var button = $("<a>").addClass("btn btn-xs btn-success").attr("type", "cancel").append(i);
+	var button_plus=$(element).parent().append(button);
 	button.on('click', function(){
 		var url_ = window.location.origin + url;
 		create_window(element, url_);
@@ -19,7 +17,7 @@ function create_object(element, url){
 
 
 function create_window(element, url){
-	newWindow= window.open(url+"?is_popup=true", "sds",'height=500,width=800,resizable,scrollbars,dependent');
+	newWindow= window.open(url+"?is_popup=true", "ajax",'height=scream.height,width=scream.width,resizable,scrollbars,dependent');
 	newWindow.focus();
 	newWindow.addEventListener('load', function(){
 		var form = $(newWindow.document.forms[0]);

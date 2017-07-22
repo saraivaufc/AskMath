@@ -1,0 +1,53 @@
+{% extends "blog/post/list.html" %}
+
+{% load static i18n humanize %}
+
+{% block opengraph %}
+	<meta property="og:title" content="{{ post.title }}"/>
+	<meta property="og:description" content="{{ post.description }}" />
+	<meta property="og:type" content="website"/>
+	<meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+	<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+	<meta property="og:image" content="
+		{% if post.image %}
+			{{ request.scheme }}://{{ request.get_host }}/{{ post.image.url }}
+		{% else %}
+			{{ request.scheme }}://{{ request.get_host }}{% static 'blog/img/default/post.jpg' %}
+		{% endif %}
+	"/>
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+{% endblock %}
+
+{% block page_title %}
+	{% if post %}
+		{{ post.title|title }}
+	{% else %}
+		{{ block.super }}
+	{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="{% url 'blog:post_detail' slug=post.slug %}" class="breadcrumb-item">
+		<i class="fa fa-comment"></i>
+		{{ post.title }}
+	</a>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-9 blog-main">
+			{% include 'blog/post/_render.html' %}
+		</div>
+		<div class="col-sm-3 blog-sidebar">
+			{% include 'blog/sidebar.html' %}
+		</div>
+	</div>
+	<script type="text/javascript" src="{% static 'blog/packages/social-share/js/social-share-kit.min.js' %}"></script>
+	<script type="text/javascript">
+		$(function(){
+			SocialShareKit.init();
+		});
+	</script>
+{% endblock %}

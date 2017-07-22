@@ -6,7 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 from base.utils.models import AutoSlugField
-from ..utils.colors import get_color
 
 class Video(models.Model):
 	position = models.IntegerField(verbose_name=_(u"Position"), null=True, blank=True)
@@ -14,7 +13,6 @@ class Video(models.Model):
 	slug = AutoSlugField(populate_from="title", db_index=False, blank=True, unique=True)
 	description = models.TextField(verbose_name=_(u"Description"))
 	url = models.URLField(verbose_name=_("URL"), max_length=500)
-	color = models.CharField(max_length=20, default=get_color, blank=True)
 	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="video_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)

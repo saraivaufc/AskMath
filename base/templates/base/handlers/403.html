@@ -4,12 +4,13 @@
 
 {% block title %}{% trans 'Permission denied' %}{% endblock %}
 
-{% block page_title %}{% trans 'Permission denied' %}{% endblock %}
-
 {% block content %}
-
-<h2>{% trans 'Permission denied' %}</h2>
-
-<p>{% trans "We're sorry, but the requested page could not be found." %}</p>
-
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<div class="text-xs-center">
+				<h1 class="h2">{% trans 'Permission denied' %}</h1>
+				<p class="lead">{% trans "You do not have the appropriate permissions to access this page." %}</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

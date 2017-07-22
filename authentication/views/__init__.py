@@ -1,1 +1,1 @@
-from account_view import UserCreateView, UserDetailView, UserUpdateView, UserDeleteView
+from account_view import AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView, AccountActivateView

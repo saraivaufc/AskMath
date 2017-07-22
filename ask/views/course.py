@@ -11,4 +11,4 @@ class CourseListView(ListView):
 
 	def get_queryset(self):
 		"""Return the last published courses."""
-		return Course.objects.filter(status='p')
+		return Course.objects.filter(status=Course.PUBLISHED)

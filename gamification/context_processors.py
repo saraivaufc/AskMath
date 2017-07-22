@@ -1,6 +1,6 @@
 from .models import LevelManager, ScoreManager
 
-def managers(request):
+def load(request):
 	context = {}
 	if request.user.is_authenticated():
 		level_manager = LevelManager.objects.get_or_create(user=request.user)[0]

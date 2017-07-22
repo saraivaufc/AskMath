@@ -1,18 +1,18 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
-from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.core.urlresolvers import reverse_lazy
 
 from ..forms import ReportForm
-from ..models import SocialNetwork
-from ..utils.constants import Constants
+from ..models import Report, SocialNetwork
 
-class ReportCreateView(CreateView):
+class ReportCreateView(SuccessMessageMixin, CreateView):
 	template_name = "base/report.html"
-	form_class = ReportForm
-
-	def get_success_url(self):
-		return self.request.path
+	model = Report
+	fields = ['name', 'email', 'message',]
+	success_url = reverse_lazy('base:home')
+	success_message = _("Message send success")
 
 	def get_context_data(self, ** kwargs):
 		context = super(ReportCreateView, self).get_context_data(** kwargs)
@@ -21,12 +21,6 @@ class ReportCreateView(CreateView):
 
 	def form_valid(self, form):
 		form.instance.created_by = self.request.user if self.request.user.is_authenticated() else None 
-		form.instance.page = self.request.GET.get(_("page")) if self.request.GET.has_key(_("page")) else  self.request.path
 		form.instance.ip_address = self.request.META['REMOTE_ADDR']
 		form.save()
-		messages.success(self.request, Constants.REPORT_SUCCESS_SEND)
-		return HttpResponseRedirect(form.instance.page)
-
-	def form_invalid(self,form):
-		messages.success(self.request, Constants.REPORT_ERROR_SEND)
-		return HttpResponseRedirect(form.instance.page)
+		return super(ReportCreateView, self).form_valid(form)

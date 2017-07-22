@@ -4,12 +4,13 @@
 
 {% block title %}{% trans 'Page not found' %}{% endblock %}
 
-{% block page_title %}{% trans 'Page not found' %}{% endblock %}
-
 {% block content %}
-
-<h2>{% trans 'Page not found' %}</h2>
-
-<p class="lead">{% trans "We're sorry, but the requested page could not be found." %}</p>
-
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<div class="text-xs-center">
+				<h1 class="h2">{% trans 'Page not found' %}</h1>
+				<p class="lead">{% trans "We're sorry, but the requested page could not be found." %}</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

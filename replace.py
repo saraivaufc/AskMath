@@ -4,8 +4,8 @@ import os
 import glob
 import re
 
-TEXT = "issue"
-NEW_TEXT = "course"
+TEXT = "u'"
+NEW_TEXT = "'"
 FILE_TYPES = ['(.)\.py', ]
 
 rexs = []

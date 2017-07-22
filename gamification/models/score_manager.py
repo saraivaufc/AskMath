@@ -38,5 +38,5 @@ class ScoreManager(models.Model):
 
 	class Meta:
 		ordering = []
-		verbose_name = _(u'Score Manager')
-		verbose_name_plural = _(u'Scores Manager')
+		verbose_name = _('Score Manager')
+		verbose_name_plural = _('Scores Manager')

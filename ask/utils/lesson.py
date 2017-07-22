@@ -59,7 +59,7 @@ def get_question_of_lesson(user, lesson):
 			questions_.append(question)
 	#se nao existir mais questoes para serem respondidas, entao eu pego a resposta incorreta mais antiga
 	if not questions_:
-		answer = Answer.objects.filter(user=user, lesson=lesson, correct=False, exists=True).last()
+		answer = Answer.objects.filter(user=user, lesson=lesson, is_correct=False, exists=True).last()
 		if answer:
 			return answer.question
 

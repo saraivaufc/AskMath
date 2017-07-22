@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<html>
+	<title>{% trans "Reply" %}</title>
+	<body>
+		{% blocktrans with name=name email=email message=message reply=reply %}
+			<dl itemscope>
+				<dt>Name:</dt>
+				<dd>{{ name }}</dd>
+				<dt>Email:</dt>
+				<dd>{{ email }}</dd>
+				<dt>Message:</dt>
+				<dd>{{ message }}</dd>
+				<dt>Reply:</dt>
+				<dd>{{ reply }}</dd>
+			</dl>
+	    {% endblocktrans %}
+	</body>
+</html>

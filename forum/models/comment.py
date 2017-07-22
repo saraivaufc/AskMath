@@ -6,27 +6,24 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-
-COMMENT_MAX_LEN = 3000  # changing this needs migration
-
-STATUS_CHOICES = (
-	('d', _('Draft')),
-	('p', _('Published')),
-	('r', _('Removed')),
-)
-
 class Comment(models.Model):
+	DRAFT = 'd'
+	PUBLISHED = 'p'
+	REMOVED = 'r'
+	STATUS_CHOICES = (
+		(DRAFT, _('Draft')),
+		(PUBLISHED, _('Published')),
+		(REMOVED, _('Removed')),
+	)
 	ancient = models.ForeignKey('self', verbose_name=_("Ancient"), null=True, blank=True)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("User"))
 	topic = models.ForeignKey('forum.Topic')
 
-	text = models.TextField(_("Text"), max_length=COMMENT_MAX_LEN)
+	text = models.TextField(_("Text"))
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="comment_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
-
 	ip_address = models.GenericIPAddressField(blank=True, null=True)
 
 	def __unicode__(self):

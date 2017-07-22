@@ -11,8 +11,10 @@ from django.contrib.auth.models import (
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
+from authentication import settings as local_settings
+
 class UserManager(BaseUserManager):
-	def create_user(self, email, first_name, last_name, password, group='student'):
+	def create_user(self, email, first_name, last_name, password, group='default'):
 		if not email:
 			raise ValueError('Users must have an email address')
 		user = self.model(
@@ -37,10 +39,10 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-	first_name = models.CharField(verbose_name=_(u"First Name "), max_length=100, blank=False, null=False, help_text=_(u'Please enter you first name.'), )
-	last_name = models.CharField(verbose_name=_(u"Last Name "), max_length=100, blank=False, null=False, help_text=_(u'Please enter you last name.'), )
-	email = models.EmailField(verbose_name=_(u"Email"), max_length=254, unique=True,  null=False, blank=False, help_text=_(u'Please enter you email.'), )
-	profile_image = models.ImageField(verbose_name=_(u"Profile Image"), upload_to=settings.PROFILE_IMAGE_DIR, null=True, blank=True)
+	first_name = models.CharField(verbose_name=_("First Name"), max_length=100, blank=False, null=False, help_text=_(u'Please enter you first name.'), )
+	last_name = models.CharField(verbose_name=_("Last Name"), max_length=100, blank=False, null=False, help_text=_(u'Please enter you last name.'), )
+	email = models.EmailField(verbose_name=_("Email"), max_length=254, unique=True,  null=False, blank=False, help_text=_(u'Please enter you email.'), )
+	profile_image = models.ImageField(verbose_name=_("Profile Image"), upload_to=local_settings.PROFILE_IMAGE_DIR, null=True, blank=True)
 	is_active = models.BooleanField(verbose_name=_('Active'), default=True, help_text=_(u'Designates whether this user should be treated as active. Unselect this instead of deleting accounts.'))
 	date_joined = models.DateTimeField(verbose_name=_(u'Date joined'), default=timezone.now)
 	is_moderator = models.BooleanField(_('Moderator Status'), default=False, blank=True)
@@ -59,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 		elif self.last_name:
 			return self.last_name
 		else:
-			return self.email
+			return self.id
 
 	def get_short_name(self):
 		return self.last_name
@@ -71,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 			self.groups.add(group)
 
 	def __unicode__(self):
-		return self.get_full_name()
+		return "{0} - {1}".format(self.get_full_name(), self.email)
 
 	def natural_key(self):
 		return self.email
