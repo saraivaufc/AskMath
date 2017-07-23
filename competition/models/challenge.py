@@ -36,8 +36,12 @@ class Challenge(models.Model):
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 
+	@property
+	def solved(self):
+		return Solution.objects.filter(challenge=self, is_correct=True).exists()
+
 	def get_absolute_url(self):
-		return reverse_lazy('competition:challenge_list', kwargs={'challenge_slug': self.slug})
+		return reverse_lazy('competition:challenge_detail', kwargs={'slug': self.slug})
 
 	def __unicode__(self):
 		return self.title

@@ -23,21 +23,14 @@ class Course(models.Model):
 		(REMOVED, _('Removed')),
 	)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
-	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
-	icon = models.ImageField(verbose_name=_(u"Icon"), upload_to=local_settings.COURSE_ICON_DIR)
+	position = models.IntegerField(verbose_name=_("Position"))
+	name = models.CharField(verbose_name=_(u"Name"), max_length=50)
+	description = models.TextField(verbose_name=_(u"Description"), max_length=200)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="course_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
-	last_modified = models.DateTimeField(auto_now=True) 
-
-	def save(self, *args, **kwargs):
-		if not self.id and self.icon:
-			hash = hashlib.md5(self.icon.read()).hexdigest()
-			if self.icon.name.find(hash) == -1:
-				self.icon.name = "".join((hash, ".", self.icon.name.split(".")[-1]))
-		super(Course, self).save(*args, **kwargs)
-
+	last_modified = models.DateTimeField(auto_now=True)
 
 	def get_absolute_url(self):
 		return reverse_lazy('courses:lesson_list', kwargs={'course_slug': self.slug})
@@ -46,6 +39,6 @@ class Course(models.Model):
 		return self.name
 
 	class Meta:
-		ordering = ['name']
+		ordering = ['position']
 		verbose_name = _(u'Course')
 		verbose_name_plural = _(u'Courses')

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-23 12:33-0300\n"
-"PO-Revision-Date: 2017-02-21 15:28-0234\n"
+"POT-Creation-Date: 2017-07-23 15:13-0300\n"
+"PO-Revision-Date: 2017-07-23 15:14-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -86,7 +86,7 @@ msgstr "Título"
 
 #: forum/models/topic.py:25
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: forum/models/topic.py:43 forum/templates/forum/topic/list.html:35
 msgid "Topic"
@@ -117,18 +117,16 @@ msgstr "Pré-visualização: "
 #: forum/templates/forum/topic/detail.html:28
 #: forum/templates/forum/topic/detail.html:57
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: forum/templates/forum/topic/detail.html:34
 #: forum/templates/forum/topic/detail.html:63
 msgid "Delete"
-msgstr ""
+msgstr "Apagar"
 
 #: forum/templates/forum/topic/detail.html:41
-#, fuzzy
-#| msgid "Comment"
 msgid "Add Comment"
-msgstr "Comentário"
+msgstr "Adicionar Comentário"
 
 #: forum/templates/forum/topic/form.html:6
 #: forum/templates/forum/topic/form.html:13
@@ -143,34 +141,58 @@ msgid "category"
 msgstr "Categoria"
 
 #: forum/templates/forum/topic/list.html:26
-msgid "New Topic"
-msgstr "Novo Tópico"
+msgid "Add Topic"
+msgstr "Adicionar Tópico"
 
 #: forum/templates/forum/topic/list.html:36
 msgid "Date"
 msgstr "Data"
 
 #: forum/templates/forum/topic/list.html:49
-#, fuzzy
-#| msgid "No comment found!"
 msgid "No challenge found."
-msgstr "Nenhum comentário encontrado!"
+msgstr "Nenhum desafio encontrado."
 
 #: forum/urls/__init__.py:5
-#, fuzzy
-#| msgid "Topic"
 msgid "^topic/"
-msgstr "Tópico"
+msgstr "^topico/"
 
 #: forum/urls/__init__.py:6
-#, fuzzy
-#| msgid "^forum/(?P<topic_slug>[-\\w]+)/"
 msgid "^topic/(?P<topic_slug>[-\\w]+)/comment/"
-msgstr "^forum/(?P<topic_slug>[-\\w]+)/"
+msgstr "^topic/(?P<topic_slug>[-\\w]+)/comentario/"
+
+#: forum/urls/comment.py:8 forum/urls/topic.py:9
+msgid "^add$"
+msgstr "^adicionar$"
+
+#: forum/urls/comment.py:9
+msgid "^(?P<pk>[0-9]+)/update$"
+msgstr "^(?P<pk>[0-9]+)/atualizar$"
+
+#: forum/urls/comment.py:10
+msgid "^(?P<pk>[0-9]+)/delete$"
+msgstr "^(?P<pk>[0-9]+)/apagar$"
+
+#: forum/urls/topic.py:8
+msgid "^list$"
+msgstr "^lista$"
+
+#: forum/urls/topic.py:10
+#| msgid "^topic/(?P<topic_slug>[-\\w]+)/comment/"
+msgid "^(?P<slug>[-\\w]+)/detail$"
+msgstr "^(?P<slug>[-\\w]+)/detalhe$"
+
+#: forum/urls/topic.py:11
+#| msgid "^topic/(?P<topic_slug>[-\\w]+)/comment/"
+msgid "^(?P<slug>[-\\w]+)/update$"
+msgstr "^(?P<slug>[-\\w]+)/atualizar$"
+
+#: forum/urls/topic.py:12
+#| msgid "^topic/(?P<topic_slug>[-\\w]+)/comment/"
+msgid "^(?P<slug>[-\\w]+)/delete$"
+msgstr "^(?P<slug>[-\\w]+)/apagar$"
 
 #: forum/utils/constants.py:8
-msgid ""
-"Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
+msgid "Use $ and $ to insert latex in text.\t\t\t\t\tExample: $ ax^2 + bx + c = 0 $"
 msgstr "Use $ e $ para inserir latex no texto. Exemplo: $ ax^2 + bx + c = 0 $"
 
 #: forum/views/comment.py:26
@@ -182,10 +204,8 @@ msgid "Comment updated successfully"
 msgstr "Comentário atualizado com sucesso"
 
 #: forum/views/comment.py:101
-#, fuzzy
-#| msgid "Comment created successfully"
 msgid "Comment removed successfully"
-msgstr "Comentário criado com sucesso"
+msgstr "Comentário removido com sucesso"
 
 #: forum/views/topic.py:64
 msgid "Topic created successfully"
@@ -198,6 +218,9 @@ msgstr "Tópico atualizado com sucesso"
 #: forum/views/topic.py:102
 msgid "Topic removed successfully"
 msgstr "Tópico removido com sucesso"
+
+#~ msgid "New Topic"
+#~ msgstr "Novo Tópico"
 
 #~ msgid "^forum/"
 #~ msgstr "^forum/"
@@ -246,8 +269,7 @@ msgstr "Tópico removido com sucesso"
 
 #~ msgid ""
 #~ "\n"
-#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</"
-#~ "a> in %(date)s\n"
+#~ "\t\t\t\t\t\t\tby <a href=\"%(link)s\" class=\"tag tag-success\">%(user)s</a> in %(date)s\n"
 #~ "\t\t\t\t\t\t\t"
 #~ msgstr ""
 #~ "\n"
@@ -285,11 +307,9 @@ msgstr "Tópico removido com sucesso"
 #~ msgstr "^forum/categorias/"
 
 #~ msgid ""
-#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-"
-#~ "\\w]+)/comments/"
+#~ "^forum/categories/(?P<category_slug>[-\\w]+)/topics/(?P<topic_slug>[-\\w]+)/comments/"
 #~ msgstr ""
-#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-"
-#~ "\\w]+)/comentarios/"
+#~ "^forum/categorias/(?P<category_slug>[-\\w]+)/topicos/(?P<topic_slug>[-\\w]+)/comentarios/"
 
 #~ msgid "Closed"
 #~ msgstr "Fechado"

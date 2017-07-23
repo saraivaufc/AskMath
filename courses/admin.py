@@ -7,7 +7,7 @@ from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm,
 
 class CourseAdmin(admin.ModelAdmin):
 	form = CourseForm
-	list_display = ('name', 'status', 'last_modified')
+	list_display = ('position', 'name', 'status', 'last_modified')
 	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
 

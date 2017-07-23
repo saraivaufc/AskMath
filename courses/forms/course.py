@@ -8,4 +8,4 @@ from ..models import Course
 class CourseForm(ModelForm):
 	class Meta:
 		model = Course
-		fields = ['name', 'icon', 'status',]
+		fields = ['position', 'name', 'description', 'status',]

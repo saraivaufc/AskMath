@@ -1,0 +1,13 @@
+Grupo de ferramentas relacionadas ao conteúdo – módulos de conteúdo, planos de curso,
+glossário, busca, banco de dados, de imagens, calendário.
+Grupo de ferramentas de comunicação – e-mail, fórum e chat.
+Grupo de ferramentas de avaliação – provas, enquetes, autotestes e tarefas.
+Grupo de ferramentas de apoio ao aluno – apresentação de trabalhos, criação de homepages,
+dicas, anotações, perfil.
+
+
+Encontram-se nesse ambiente as ferramentas síncronas e assíncronas, que são utilizadas nas
+atividades do curso, tais como fórum, chat, diários, ambientes de criação coletiva,
+gerenciamento dos alunos, perfil dos usuários, material de apoio (textos, filmes, animações),
+agenda, enquete, entre outras possibilidades pedagógicas importantes ao estabelecimento de
+vínculos cognitivos, afetivos e sociais.

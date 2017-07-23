@@ -8,5 +8,5 @@ from django.contrib.auth.decorators import login_required
 from courses.views import QuestionDetailView
 
 urlpatterns = [
-	url(_(r'^answer$'), login_required(QuestionDetailView.as_view()), name="answer_question"),
+	url(_(r'^$'), login_required(QuestionDetailView.as_view()), name="question_list"),
 ]

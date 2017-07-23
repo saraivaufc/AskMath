@@ -8,8 +8,7 @@
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'courses:course_list' %}" class="breadcrumb-item" >
-		<i class="fa fa-list"></i>
-		{% trans "Courses" %}
+		<i class="fa fa-list"></i> {% trans "Courses" %}
 	</a>
 {% endblock %}
 
@@ -18,13 +17,16 @@
 {% block content %}
 	<div class="row pr-1">
 	{% for course in object_list %}
-		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 pr-0">
-			<div class="card card-hover">
+		<div class="col-md-4 pr-0 pb-1">
+			<div class="card text-xs-center p-0 h-100">
 				<a href="{% url 'courses:lesson_list' course.slug %}">
-					<img class="card-img-top w-100 p-1" src="{{ course.icon.url }}" alt="Card image cap">
+				<div class="card-header h4 text-success">
+					<i class="fa fa-tree"></i>
+					{{ course }}
+				</div>
 				</a>
-				<div class="card-block text-xs-center p-0">
-					<h4 class="card-title text-primary">{{ course }}</h4>
+				<div class="card-block">
+					<p class="text-xs-left text-muted">{{ course.description|safe|escape }}</p>
 				</div>
 			</div>
 		</div>
@@ -33,4 +35,5 @@
 	<div class="row">
 		{% include "base/_paginate.html" %}
 	</div>
+	{% include "courses/imports/latex.html" %}
 {% endblock %}

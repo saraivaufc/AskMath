@@ -20,6 +20,7 @@
 			<tr>
 				<th>{% trans "Challenge" %}</th>
 				<th>{% trans "Difficult level" %}</th>
+				<th>{% trans "Solved" %}</th>
 				<th>{% trans "Date" %}</th>
 			</tr>
 		</thead>
@@ -30,6 +31,13 @@
 						<a href="{% url 'competition:challenge_detail' slug=challenge.slug %}">{{ challenge.title }}</a>
 					</td>
 					<td>{{ challenge.get_level_display }}</td>
+					<td>
+						{% if challenge.solved %}
+							<i class="fa fa-check-circle-o text-success" alt="{% trans 'Yes' %}"></i>
+						{% else %}
+							<i class="fa fa-minus-circle text-danger" alt="{% trans 'No' %}"></i>
+						{% endif %}
+					</td>
 					<td>{{ challenge.creation|naturaltime }}</td>
 				</tr>
 			{% empty %}

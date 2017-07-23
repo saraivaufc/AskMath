@@ -6,16 +6,16 @@
 	{% trans "Form Topic" %}
 {% endblock %}
 
-{% block breadcrumbs %}
-	{{ block.super }}
-	<a href="{% url 'forum:topic_add' category_slug=category.slug" class="breadcrumb-item" >
-		<i class="fa fa-hashtag"></i>
-		{% trans "Form Topic" %}
-	</a>
-{% endblock %}
-
 {%  block page_title %}
 	{% trans "Form Topic" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-file-text-o"></i>
+		{% trans "Form Topic" %}
+	</a>
 {% endblock %}
 
 {% block content %}	

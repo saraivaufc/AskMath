@@ -21,6 +21,6 @@ class Video(models.Model):
 		return self.title
 
 	class Meta:
-		ordering = ['position', 'creation']
-		verbose_name = _('Video')
-		verbose_name_plural = _('Videos')
+		ordering = ['position', 'creation',]
+		verbose_name = _(u'Video')
+		verbose_name_plural = _(u'Videos')

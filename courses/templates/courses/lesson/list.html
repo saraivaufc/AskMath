@@ -10,7 +10,7 @@
 {% block breadcrumbs %}
 	{{ block.super }}
 	<a href="{% url 'courses:lesson_list' course.slug %}" class="breadcrumb-item" >
-		<i class="fa fa-leaf"></i>
+		<i class="fa fa-tree"></i>
 		{{ course }}
 	</a>
 {% endblock %}
@@ -23,18 +23,36 @@
 
 {% block content %}
 	{% for level, lessons in object_list.iteritems %}
-		<div class="row flex-items-xs-center">
+		<div class="row pr-1 flex-items-xs-center">
 			{% for lesson in lessons %}
-			<div class="card col-md-3">
-				<div class="card-block h-100">
-					<h4 class="card-title">{{ lesson }}</h4>
-					<p class="card-subtitle text-muted">{{ lesson.description }}</p>
-					<a href="{% url 'courses:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" class="btn btn-primary">{% trans "Questions" %}</a>
+			<div class="col-md-4 pr-0 pb-1">
+				<div class="card text-xs-center p-0 h-100">
+					<a href="{% url 'courses:question_list' course_slug=course.slug lesson_slug=lesson.slug %}">
+						<div class="card-header h4 text-success">
+							<i class="fa fa-leaf"></i>
+							{{ lesson }}
+						</div>
+					</a>
+					<div class="card-block">
+						<p class="text-xs-left text-muted">{{ lesson.description }}</p>
+						<div class="btn-group">
+							<a href="{% url 'courses:question_list' course_slug=course.slug lesson_slug=lesson.slug %}" class="btn btn-info">
+								<i class="fa fa-file"></i>
+								{% trans "Questions" %}
+							</a>
+							<a href="{% url 'courses:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" class="btn btn-warning">
+								<i class="fa fa-film"></i>
+								{% trans "Videos" %}
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			{% endfor %}
 		</div>
 	{% endfor %}
-
-	{% include "base/_paginate.html" %}
+	<div class="row">
+		{% include "base/_paginate.html" %}
+	</div>
+	{% include "courses/imports/latex.html" %}
 {% endblock %}

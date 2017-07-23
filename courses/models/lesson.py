@@ -17,10 +17,10 @@ class Lesson(models.Model):
 		(PUBLISHED, _('Published')),
 		(REMOVED, _('Removed')),
 	)
-	courses = models.ManyToManyField("Course", verbose_name=_(u"Courses"), related_name='lesson_courses', blank=True)
-	name = models.CharField(verbose_name=_(u"Name"), max_length=255)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
-	description = models.TextField(verbose_name=_(u"Description"))
+	courses = models.ManyToManyField("Course", verbose_name=_(u"Courses"), related_name='lesson_courses', blank=True)
+	name = models.CharField(verbose_name=_(u"Name"), max_length=50)
+	description = models.TextField(verbose_name=_(u"Description"), max_length=200)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
 	questions = models.ManyToManyField("Question", verbose_name=_(u"Questions"), related_name='lesson_question', blank=True)
@@ -38,6 +38,6 @@ class Lesson(models.Model):
 		return self.name
 
 	class Meta:
-		ordering = ['name']
+		ordering = ['creation']
 		verbose_name = _(u'Lesson')
 		verbose_name_plural = _(u'Lessons')

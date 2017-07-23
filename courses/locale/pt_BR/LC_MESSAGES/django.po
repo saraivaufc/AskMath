@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-23 12:33-0300\n"
+"POT-Creation-Date: 2017-07-23 15:13-0300\n"
 "PO-Revision-Date: 2017-07-23 12:34-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,8 +54,7 @@ msgid "Icon"
 msgstr "Ícone"
 
 #: courses/models/course.py:30 courses/models/lesson.py:29
-#: courses/models/question.py:16 courses/models/question.py:35
-#: courses/models/question.py:78 courses/models/video.py:17
+#: courses/models/question.py:30 courses/models/video.py:17
 msgid "Created by"
 msgstr "Criado por"
 
@@ -71,19 +70,19 @@ msgstr "Descrição"
 msgid "Requirements"
 msgstr "Requisitos"
 
-#: courses/models/lesson.py:26 courses/models/question.py:51
+#: courses/models/lesson.py:26 courses/models/question.py:45
 #: courses/templates/courses/lesson/list.html:32
 #: courses/templates/courses/question/detail.html:6
 msgid "Questions"
 msgstr "Questões"
 
-#: courses/models/lesson.py:27 courses/models/video.py:27
+#: courses/models/lesson.py:27 courses/models/video.py:26
 #: courses/templates/courses/video/list.html:7
 #: courses/templates/courses/video/list.html:14
 msgid "Videos"
 msgstr "Vídeos"
 
-#: courses/models/lesson.py:42 courses/models/question.py:72
+#: courses/models/lesson.py:42 courses/models/question.py:64
 msgid "Lesson"
 msgstr "Lição"
 
@@ -92,68 +91,73 @@ msgid "Lessons"
 msgstr "Lições"
 
 #: courses/models/question.py:14
+#, fuzzy
+#| msgid "Question"
+msgid "QUestion"
+msgstr "Questão"
+
+#: courses/models/question.py:15
 msgid "Introduction text"
 msgstr "Texto de introdução"
 
-#: courses/models/question.py:26 courses/models/question.py:31
+#: courses/models/question.py:23
 msgid "Introduction"
 msgstr "Introdução"
 
-#: courses/models/question.py:27
+#: courses/models/question.py:24
 msgid "Introductions"
 msgstr "Introduções"
 
-#: courses/models/question.py:30 courses/models/video.py:11
+#: courses/models/question.py:27 courses/models/video.py:11
 msgid "Position"
 msgstr "Posição"
 
-#: courses/models/question.py:32
+#: courses/models/question.py:28
 msgid "Question text"
 msgstr "Texto da questão"
 
-#: courses/models/question.py:33
+#: courses/models/question.py:29
 msgid "Help text"
 msgstr "Texto de ajuda"
 
-#: courses/models/question.py:50 courses/models/question.py:54
-#: courses/models/question.py:73
+#: courses/models/question.py:44 courses/models/question.py:48
+#: courses/models/question.py:65
 msgid "Question"
 msgstr "Questão"
 
-#: courses/models/question.py:55
+#: courses/models/question.py:49
 msgid "Choice text"
 msgstr "Texto da opção"
 
-#: courses/models/question.py:56
+#: courses/models/question.py:50
 msgid "Is correct"
 msgstr "É correta"
 
-#: courses/models/question.py:66
+#: courses/models/question.py:58
 msgid "Choice"
 msgstr "Opção"
 
-#: courses/models/question.py:67 courses/models/question.py:74
+#: courses/models/question.py:59 courses/models/question.py:66
 msgid "Choices"
 msgstr "Opções"
 
-#: courses/models/question.py:71
+#: courses/models/question.py:63
 msgid "User"
 msgstr "Usuário"
 
-#: courses/models/question.py:75
-#| msgid "Is correct"
+#: courses/models/question.py:67
 msgid "Is Correct"
 msgstr "Está Correta"
 
-#: courses/models/question.py:76
+#: courses/models/question.py:68
 msgid "Exists"
 msgstr "Existe"
 
-#: courses/models/question.py:87
+#: courses/models/question.py:76
 msgid "Answer"
 msgstr "Resposta"
 
-#: courses/models/question.py:88
+#: courses/models/question.py:77
 msgid "Answers"
 msgstr "Respostas"
 
@@ -165,7 +169,7 @@ msgstr "Título"
 msgid "URL"
 msgstr "URL"
 
-#: courses/models/video.py:26
+#: courses/models/video.py:25
 msgid "Video"
 msgstr "Vídeo"
 
@@ -182,7 +186,8 @@ msgstr "Bem-vindo"
 msgid ""
 "\n"
 "\t\t\t\t\tAprenda matemática de uma forma mais divertida e emocionante. \n"
-"\t\t\t\t\tSão diversas lições para aasdasdas daisjdi ajsdi jasidjai s idas jdiajs idjias jd\n"
+"\t\t\t\t\tSão diversas lições para aasdasdas daisjdi ajsdi jasidjai s idas "
+"jdiajs idjias jd\n"
 "\t\t\t\t\t"
 msgstr ""
 
@@ -230,10 +235,6 @@ msgstr "Essa lição foi finalizada"
 
 #: courses/templates/courses/lesson/finished.html:36
 #, python-format
-#| msgid ""
-#| "\n"
-#| "\t\t\t\t\tBack to %(course)s\n"
-#| "\t\t\t\t"
 msgid ""
 "\n"
 "\t\t\t\t\t\t\t\t\tBack to %(course)s\n"
@@ -258,10 +259,6 @@ msgstr ""
 
 #: courses/templates/courses/question/detail.html:18
 #, python-format
-#| msgid ""
-#| "\n"
-#| "\t\tQuestions of %(lesson)s\n"
-#| "\t"
 msgid ""
 "\n"
 "\t\t\tQuestions of %(lesson)s\n"
@@ -324,11 +321,12 @@ msgstr ""
 "^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/questoes/"
 
 #: courses/urls/__init__.py:16
-msgid "^courses/(?P<course_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
-msgstr "^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/videos/"
+msgid ""
+"^courses/(?P<course_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
+msgstr ""
+"^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/videos/"
 
-#: courses/urls/course.py:10 courses/urls/lesson.py:11
-#: courses/urls/video.py:11
+#: courses/urls/course.py:10 courses/urls/lesson.py:11 courses/urls/video.py:11
 msgid "^list$"
 msgstr "^lista$"
 

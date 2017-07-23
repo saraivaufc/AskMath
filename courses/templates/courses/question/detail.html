@@ -13,8 +13,8 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'courses:answer_question' course_slug=course.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
-		<i class="fa fa-question"></i>
+	<a href="{% url 'courses:question_list' course_slug=course.slug lesson_slug=lesson.slug %}" class="breadcrumb-item" >
+		<i class="fa fa-pencil"></i>
 		{% blocktrans with lesson=lesson %}
 			Questions of {{ lesson }}
 		{% endblocktrans %}
