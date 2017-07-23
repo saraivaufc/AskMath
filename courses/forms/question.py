@@ -13,7 +13,7 @@ class IntroductionForm(forms.ModelForm):
 class QuestionForm(forms.ModelForm):
 	class Meta:
 		model = Question
-		fields = ['introduction', 'text', 'help', ]
+		fields = ['text', 'help', ]
 
 class AnswerForm(forms.ModelForm):
 	

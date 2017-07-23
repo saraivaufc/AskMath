@@ -34,17 +34,22 @@ class LessonAdmin(admin.ModelAdmin):
 class ChoiceInline(admin.TabularInline):
 	model = Choice
 	fields = ['text','is_correct',]
+
+
+class IntroductionInline(admin.TabularInline):
+	model = Introduction
+	fields = ['text']
 	extra = 0
 
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
 	extra = 1
-	list_display = ('text', 'created_by', 'last_modified')
-	list_filter = ['last_modified',]
+	list_display = ('text', 'created_by', 'creation')
+	list_filter = ['creation',]
 	search_fields = ['text']
 
 	inlines = [
-		ChoiceInline,
+		IntroductionInline, ChoiceInline,
 	]
 
 	def save_model(self, request, obj, form, change):
@@ -52,8 +57,8 @@ class QuestionAdmin(admin.ModelAdmin):
 		form.save()
 
 class AnswerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'lesson', 'question','is_correct','exists', 'created_by', 'last_modified')
-	list_filter = ['user', 'lesson', 'question','is_correct','exists', 'last_modified']
+	list_display = ('user', 'lesson', 'question','is_correct','exists', 'creation')
+	list_filter = ['user', 'lesson', 'question','is_correct','exists', 'creation']
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
@@ -61,19 +66,9 @@ class AnswerAdmin(admin.ModelAdmin):
 
 class VideoAdmin(admin.ModelAdmin):
 	form = VideoForm
-	list_display = ('title', 'position', 'url', 'created_by', 'last_modified')
-	list_filter = ['last_modified']
+	list_display = ('title', 'position', 'url', 'created_by', 'creation')
+	list_filter = ['creation']
 	search_fields = ['title', 'description']
-
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
-
-class IntroductionAdmin(admin.ModelAdmin):
-	form = IntroductionForm
-	list_display = ('text',)
-	list_filter = ['last_modified']
-	search_fields = ['text']
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
@@ -84,4 +79,3 @@ admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Video, VideoAdmin)
-admin.site.register(Introduction, IntroductionAdmin)

@@ -16,12 +16,11 @@ class Video(models.Model):
 	
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="video_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
-	last_modified = models.DateTimeField(auto_now=True)
-
+	
 	def __unicode__(self):
 		return self.title
 
 	class Meta:
-		ordering = ['position', 'creation', 'last_modified']
-		verbose_name = _(u'Video')
-		verbose_name_plural = _(u'Videos')
+		ordering = ['position', 'creation']
+		verbose_name = _('Video')
+		verbose_name_plural = _('Videos')
