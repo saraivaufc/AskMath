@@ -17,17 +17,13 @@
 	<div class="row">
 		<div class="jumbotron p-1 text-xs-center" style="background-color: transparent;">
 			<div class="container">
-				<img src="{% static 'base/img/logo_with_name.png' %}" class="mb-1" style="max-height: 15vh; max-width: 100%;"/>
+				<img src="{% static 'base/img/logo_with_name.png' %}" class="mb-1" style="max-height: 20vh; max-width: 100%;"/>
 				<p class="h4">
 					{% blocktrans %}
 					Aprenda matemática de uma forma mais divertida e emocionante. 
 					São diversas lições para aasdasdas daisjdi ajsdi jasidjai s idas jdiajs idjias jd
 					{% endblocktrans %}
 				</p>
-				<a href="" class="btn btn-primary">
-					<i class="fa fa-list"></i>
-					{% trans "See Courses" %}
-				</a>
 			</div>
 		</div>
 	</div>
@@ -36,31 +32,31 @@
 
 	<div class="row text-xs-center">
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-			<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
-			<h4>
-				<a href="{% url 'ask:course_list' %}">{% trans "Coursers" %}</a>
-			</h4>
+			<a href="{% url 'ask:course_list' %}">
+				<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
+				<h4>{% trans "Coursers" %}</h4>
+			</a>
 			<p>{% trans "Veja no mapa onde está cada um de seus filhos." %}</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-			<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
-			<h4>
-				<a href="{% url 'competition:challenge_list' %}">{% trans "Challenges" %}</a>
-			</h4>
+			<a href="{% url 'competition:challenge_list' %}">
+				<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
+				<h4>{% trans "Challenges" %}</h4>
+			</a>
 			<p>{% trans "Escute todas as chamadas realizadas e recebidas por seus filhos." %}</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-			<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
-			<h4>
-				<a href="{% url 'forum:topic_list' %}">{% trans "Forum" %}</a>
-			</h4>
+			<a href="{% url 'forum:topic_list' %}">
+				<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
+				<h4>{% trans "Forum" %}</h4>
+			</a>
 			<p>{% trans "Escute todas as chamadas realizadas e recebidas por seus filhos." %}</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-			<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
-			<h4>
-				<a href="{% url 'blog:post_list' %}">{% trans "Blog" %}</a>
-			</h4>
+			<a href="{% url 'blog:post_list' %}">
+				<img src="{% static 'ask/img/resourcers/calls.png' %}" alt="Generic placeholder image" width="140" height="140">
+				<h4>{% trans "Blog" %}</h4>
+			</a>
 			<p>{% trans "Escute todas as chamadas realizadas e recebidas por seus filhos." %}</p>
 		</div>
 	</div>

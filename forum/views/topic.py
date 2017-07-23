@@ -111,20 +111,22 @@ class TopicDeleteView(SuccessMessageMixin, DeleteView):
 		return context
 
 	def get(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
+		self.object = self.get_object()
+		if not self.object.user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
 		return super(TopicDeleteView, self).get(request)
 
 	def post(self, request, * args, ** kwargs):
-		if not self.get_object().user == request.user and not request.user.has_perm('forum.delete_topic'):
+		self.object = self.get_object()
+		if not self.object.user == request.user and not request.user.has_perm('forum.delete_topic'):
 			return HttpResponseForbidden()
 		topic = self.get_object()
-		topic.status = Topic.PUBLISHED
+		topic.status = Topic.REMOVED
 		topic.save()
 
 		score_manager = ScoreManager.objects.get_or_create(user=self.request.user)[0]
 		score_manager.down_xp(10)
 		score_manager.save()
 		
-		messages.success(request, self.success_message)		
+		messages.success(request, self.success_message)
 		return HttpResponseRedirect(self.get_success_url())

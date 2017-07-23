@@ -12,6 +12,7 @@ from django.views.generic.base import RedirectView
 urlpatterns = i18n_patterns(
 	url(r'^', include('base.urls', namespace="base", app_name="base")),
 	url(r'^', include('ask.urls', namespace="ask", app_name="ask")),
+	
 	url(_(r'^authentication/'), include('authentication.urls', namespace="authentication", app_name="authentication")),
 	url(_(r'^competition/'), include('competition.urls', namespace="competition", app_name="competition")),
 	url(_(r'^forum/'), include('forum.urls', namespace="forum", app_name="forum")),
