@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"POT-Creation-Date: 2017-07-23 12:33-0300\n"
 "PO-Revision-Date: 2017-07-21 23:49-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: blog/apps.py:9 blog/settings.py:6
+msgid "Blog"
+msgstr "Blog"
 
 #: blog/models/category.py:11
 msgid "Name"
@@ -59,10 +63,6 @@ msgstr "Postagem"
 msgid "Posts"
 msgstr "Postagens"
 
-#: blog/settings.py:6
-msgid "Blog"
-msgstr "Blog"
-
 #: blog/templates/blog/post/_render.html:9
 msgid "Share"
 msgstr "Compartilhar"
@@ -86,12 +86,10 @@ msgid "Share in"
 msgstr "Compartilhar em"
 
 #: blog/urls.py:9
-#| msgid "^posts/(?P<slug>[-\\w]+)$"
 msgid "^post/(?P<slug>[-\\w]+)/list$"
 msgstr "^postagem/(?P<slug>[-\\w]+)/lista$"
 
 #: blog/urls.py:10
-#| msgid "^posts/(?P<slug>[-\\w]+)$"
 msgid "^post/(?P<slug>[-\\w]+)/detail$"
 msgstr "^postagem/(?P<slug>[-\\w]+)/detalhe$"
 

@@ -4,9 +4,9 @@ import os
 import glob
 import re
 
-TEXT = "u'"
-NEW_TEXT = "'"
-FILE_TYPES = ['(.)\.py', ]
+TEXT = "ask/"
+NEW_TEXT = "courses/"
+FILE_TYPES = ['(.)\.html', ]
 
 rexs = []
 for i in FILE_TYPES:

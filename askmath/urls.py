@@ -1,5 +1,5 @@
 """
-	askmath URL Configuration
+	coursesmath URL Configuration
 """
 from django.utils.translation import ugettext_lazy as _
 from django.conf.urls import include, url
@@ -11,7 +11,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = i18n_patterns(
 	url(r'^', include('base.urls', namespace="base", app_name="base")),
-	url(r'^', include('ask.urls', namespace="ask", app_name="ask")),
+	url(r'^', include('courses.urls', namespace="courses", app_name="courses")),
 	
 	url(_(r'^authentication/'), include('authentication.urls', namespace="authentication", app_name="authentication")),
 	url(_(r'^competition/'), include('competition.urls', namespace="competition", app_name="competition")),

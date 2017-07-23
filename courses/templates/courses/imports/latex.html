@@ -1,0 +1,12 @@
+{% load static %}
+
+<script type="text/javascript">AC_FL_RunContent = 0;</script>
+<script type="text/javascript" src="{% static "courses/packages/MathJax/MathJax.js" %}?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript">
+	var currentLocale = document.documentElement.lang;
+	MathJax.Hub.Config({
+		tex2jax: { inlineMath: [['$','$'], ['\\(','\\)'], ['\\[','\\]'], ]},
+		menuSettings: { locale: currentLocale },
+	});
+</script>

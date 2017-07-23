@@ -1,0 +1,50 @@
+{% extends "courses/lesson/list.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{% blocktrans with lesson=lesson %}
+		{{ lesson }} finished
+	{%  endblocktrans %}
+{% endblock %}
+
+{%  block page_title %}
+	{% blocktrans with lesson=lesson %}
+		{{ lesson }} finished
+	{%  endblocktrans %}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{{ block.super }}
+	<a href="#" class="breadcrumb-item" >
+		<i class="fa fa-flag-checkered"></i>
+		{% trans "Finished" %}
+	</a>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<div class="container-fluid">
+					<p class="lead">{% trans "This lesson finished" %}</p>
+					<form action="#" method="POST">
+						{% csrf_token %}
+						<div class="btn-group" role="group">
+							<a href="{% url 'courses:lesson_list' course.slug %}" class="btn btn-info" role="button">
+								<i class="fa fa-level-up"></i>
+								{% blocktrans with course=course %}
+									Back to {{ course }}
+								{% endblocktrans %}
+							</a>
+							<button type="submit" class="btn btn-success" role="button">
+								<i class="fa fa-refresh"></i>
+								{% trans "Restart" %}
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

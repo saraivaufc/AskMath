@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="text-xs-center">
-		<a href="{% url 'competition:challenge_solution_create' challenge_slug=challenge.slug %}" class="btn btn-primary">
+		<a href="{% url 'competition:challenge_solution_add' challenge_slug=challenge.slug %}" class="btn btn-primary">
 			<i class="fa fa-plus"></i>
 			{% trans "Add Solution" %}
 		</a>
@@ -61,5 +61,5 @@
 	<div class="row">
 		{% include "base/_paginate.html" %}
 	</div>
-	{% include 'ask/imports/latex.html' %}
+	{% include 'courses/imports/latex.html' %}
 {% endblock %}

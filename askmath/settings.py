@@ -78,7 +78,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
 	'base',
-	'ask',
+	'courses',
 	'authentication',
 	'gamification',
 	'competition',
@@ -112,7 +112,7 @@ TEMPLATES = [
 		'BACKEND': 'django.template.backends.django.DjangoTemplates',
 		'DIRS': [
 			'base/templates',
-			'ask/templates',
+			'courses/templates',
 			'authentication/templates',
 			'gamification/templates',
 			'competition/templates',	
@@ -138,7 +138,7 @@ WSGI_APPLICATION = 'askmath.wsgi.application'
 
 #Authentication
 LOGIN_URL = reverse_lazy("authentication:account_login")
-LOGIN_REDIRECT_URL = reverse_lazy("ask:home")
+LOGIN_REDIRECT_URL = reverse_lazy("courses:home")
 LOGOUT_URL = reverse_lazy("authentication:account_logout")
 
 
@@ -192,7 +192,7 @@ LOCALE_PATHS = (
 	path('askmath/locale'),
 	path('base/locale'),
 	path('authentication/locale'),
-	path('ask/locale'),
+	path('courses/locale'),
 	path('gamification/locale'),
 	path('competition/locale'),
 	path('forum/locale'),
@@ -223,7 +223,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 	path('base/static/'),
 	path('authentication/static/'),
-	path('ask/static/'),
+	path('courses/static/'),
 	path('gamification/static/'),
 	path('competition/static/'),
 	path('forum/static/'),
@@ -321,7 +321,7 @@ SITE_NAME = 'AskMath'
 SITE_URL = 'http://www.askmath.org'
 SITE_AUTHOR = 'PET - Tecnologia da Informação'
 SITE_DESCRIPTION = ''
-SITE_HOME = reverse_lazy("ask:home")
+SITE_HOME = reverse_lazy("courses:home")
 
 # authentication settings
 PERMISSIONS = {}
@@ -351,7 +351,7 @@ JS_REVERSE_JS_VAR_NAME = 'Urls'
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
 JS_REVERSE_JS_MINIFY = True
 JS_REVERSE_EXCLUDE_NAMESPACES = []
-JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'ask',]
+JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['base', 'authentication', 'courses',]
 
 try:
 	from secrete_settings import *

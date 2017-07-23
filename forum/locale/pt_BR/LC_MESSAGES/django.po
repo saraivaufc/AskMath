@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"POT-Creation-Date: 2017-07-23 12:33-0300\n"
 "PO-Revision-Date: 2017-02-21 15:28-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,7 +80,7 @@ msgstr "Comentários"
 msgid "user"
 msgstr "usuário"
 
-#: forum/models/topic.py:24 forum/templates/forum/topic/list.html:35
+#: forum/models/topic.py:24
 msgid "Title"
 msgstr "Título"
 
@@ -88,7 +88,7 @@ msgstr "Título"
 msgid "Description"
 msgstr ""
 
-#: forum/models/topic.py:43
+#: forum/models/topic.py:43 forum/templates/forum/topic/list.html:35
 msgid "Topic"
 msgstr "Tópico"
 
@@ -157,11 +157,15 @@ msgid "No challenge found."
 msgstr "Nenhum comentário encontrado!"
 
 #: forum/urls/__init__.py:5
-msgid "^forum/"
-msgstr "^forum/"
+#, fuzzy
+#| msgid "Topic"
+msgid "^topic/"
+msgstr "Tópico"
 
 #: forum/urls/__init__.py:6
-msgid "^forum/(?P<topic_slug>[-\\w]+)/"
+#, fuzzy
+#| msgid "^forum/(?P<topic_slug>[-\\w]+)/"
+msgid "^topic/(?P<topic_slug>[-\\w]+)/comment/"
 msgstr "^forum/(?P<topic_slug>[-\\w]+)/"
 
 #: forum/utils/constants.py:8
@@ -194,6 +198,9 @@ msgstr "Tópico atualizado com sucesso"
 #: forum/views/topic.py:102
 msgid "Topic removed successfully"
 msgstr "Tópico removido com sucesso"
+
+#~ msgid "^forum/"
+#~ msgstr "^forum/"
 
 #~ msgid "Save"
 #~ msgstr "Salvar"

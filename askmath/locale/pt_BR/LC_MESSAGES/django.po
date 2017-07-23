@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-21 23:49-0300\n"
+"POT-Creation-Date: 2017-07-23 12:33-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,21 +31,21 @@ msgstr "Inglês"
 msgid "Blog to The AskMath"
 msgstr ""
 
-#: askmath/urls.py:15
+#: askmath/urls.py:16
 msgid "^authentication/"
 msgstr "^autenticacao/"
 
-#: askmath/urls.py:16
+#: askmath/urls.py:17
 #, fuzzy
 #| msgid "^authentication/"
 msgid "^competition/"
 msgstr "^autenticacao/"
 
-#: askmath/urls.py:17
+#: askmath/urls.py:18
 msgid "^forum/"
 msgstr ""
 
-#: askmath/urls.py:18
+#: askmath/urls.py:19
 msgid "^blog/"
 msgstr ""
 
