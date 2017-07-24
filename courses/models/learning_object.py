@@ -6,9 +6,11 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse_lazy
 
 class LearningObject(models.Model):
-	lesson = models.ForeignKey("courses.Lesson", verbose_name=_("Lesson"), related_name="slide_lesson")
+	lesson = models.ForeignKey("courses.Lesson", verbose_name=_("Lesson"), related_name="learning_object_lesson")
 	position = models.IntegerField(verbose_name=_("Position"))
-	question = models.ForeignKey("courses.Question", verbose_name=_("Question"), related_name="slide_question", blank=True, null=True)
+	
+	question = models.ForeignKey("courses.Question", verbose_name=_("Question"), related_name="learning_object_question", blank=True, null=True)
+	video = models.ForeignKey("courses.Video", verbose_name=_("Video"), related_name="learning_object_video", blank=True, null=True)
 
 	creation = models.DateTimeField(auto_now_add=True)
 
@@ -21,10 +23,9 @@ class LearningObject(models.Model):
 		return LearningObject.objects.filter(lesson=self.lesson, position__lte=self.position).exclude(pk=self.pk).order_by('-position').first()
 
 	def __unicode__(self):
-		return str(self.position)
+		return "{0}-{1}".format(str(self.lesson), str(self.position))
 
 	class Meta:
 		ordering = ['position']
 		verbose_name = _(u'Learning Object')
 		verbose_name_plural = _(u'Learning Objects')
-		unique_together = (('lesson', 'position'),)

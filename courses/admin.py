@@ -7,7 +7,10 @@ from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm,
 
 class CourseAdmin(admin.ModelAdmin):
 	form = CourseForm
-	list_display = ('position', 'name', 'status', 'last_modified')
+	list_display = ['position', 'name', 'status', 'last_modified']
+	list_display_links = ['name']
+	list_editable = ['position']
+
 	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
 
@@ -17,8 +20,9 @@ class CourseAdmin(admin.ModelAdmin):
 
 class LearningObjectInline(admin.TabularInline):
 	model = LearningObject
-	fields = ['position', 'question']
-	extra = 1
+	fields = ['position', 'question', 'video']
+	raw_id_fields = ['question', 'video']
+	extra = 0
 
 class LessonAdmin(admin.ModelAdmin):
 	form = LessonForm
@@ -27,6 +31,9 @@ class LessonAdmin(admin.ModelAdmin):
 	search_fields = ['name']
 	filter_horizontal = ['courses', 'requirements',]
 
+	class Media:
+		js = ("base/packages/jquery-2.1.3.min.js", "courses/packages/jquery-sortable.js", "courses/js/sortable.js",)
+	
 	inlines = [
 		LearningObjectInline, 
 	]
@@ -43,14 +50,18 @@ class LearningObjectHistoryAdmin(admin.ModelAdmin):
 
 class ChoiceInline(admin.TabularInline):
 	model = Choice
-	fields = ['text','is_correct',]
+	fields = ['position', 'text','is_correct',]
+	extra = 0
 
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
-	extra = 1
+	extra = 0
 	list_display = ('text', 'created_by', 'creation')
 	list_filter = ['creation',]
 	search_fields = ['text']
+
+	class Media:
+		js = ("base/packages/jquery-2.1.3.min.js", "courses/packages/jquery-sortable.js", "courses/js/sortable.js",)
 
 	inlines = [
 		ChoiceInline,
@@ -70,7 +81,7 @@ class AnswerAdmin(admin.ModelAdmin):
 
 class VideoAdmin(admin.ModelAdmin):
 	form = VideoForm
-	list_display = ('title', 'position', 'url', 'created_by', 'creation')
+	list_display = ('title', 'url', 'created_by', 'creation')
 	list_filter = ['creation']
 	search_fields = ['title', 'description']
 

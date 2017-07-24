@@ -8,7 +8,6 @@ from django.dispatch import receiver
 from django.conf import settings
 
 class Question(models.Model):
-	position = models.IntegerField(verbose_name=_(u"Position"), null=True, blank=True)
 	text = models.TextField(verbose_name=_(u"Question text"))
 	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="question_created_by", blank=True)
@@ -26,11 +25,12 @@ class Question(models.Model):
 		return self.text[:50]
 
 	class Meta:
-		ordering = ['position', 'creation']
+		ordering = ['creation']
 		verbose_name = _(u'Question')
 		verbose_name_plural = _(u'Questions')
 
 class Choice(models.Model):
+	position = models.IntegerField(verbose_name=_("Position"))
 	question = models.ForeignKey('courses.Question', verbose_name=_('Question'))
 	text = models.CharField(verbose_name=_(u"Choice text"), max_length=255)
 	is_correct = models.BooleanField(verbose_name=_(u"Is correct"), default=False)

@@ -24,7 +24,7 @@ class Course(models.Model):
 	)
 	slug = AutoSlugField(populate_from="name", db_index=False, blank=True, unique=True)
 	position = models.IntegerField(verbose_name=_("Position"))
-	name = models.CharField(verbose_name=_(u"Name"), max_length=50)
+	name = models.CharField(verbose_name=_(u"Name"), max_length=50, unique=True)
 	description = models.TextField(verbose_name=_(u"Description"), max_length=200)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	

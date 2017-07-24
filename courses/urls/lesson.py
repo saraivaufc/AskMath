@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from courses.views import LessonListView, LessonDetailView, LessonFinishedView
 
 urlpatterns = [
-	url(_(r'^list$'), LessonListView.as_view(), name="lesson_list"),
-	url(_(r'^(?P<slug>[-\w]+)/detail$'), LessonDetailView.as_view(), name="lesson_detail"),
+	url(_(r'^$'), LessonListView.as_view(), name="lesson_list"),
+	url(_(r'^(?P<slug>[-\w]+)$'), LessonDetailView.as_view(), name="lesson_detail"),
 	url(_(r'^(?P<slug>[-\w]+)/finished$'), LessonFinishedView.as_view(), name="lesson_finished"),
 ]

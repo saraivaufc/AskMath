@@ -41,7 +41,7 @@ class Lesson(models.Model):
 
 class LearningObjectHistory(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
-	learning_object = models.ForeignKey('courses.LearningObject', verbose_name=_(u"LearningObject"), blank=True)
+	learning_object = models.ForeignKey('courses.LearningObject', verbose_name=_(u"Learning Object"), blank=True)
 	active = models.BooleanField(verbose_name=_("Active"), default=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	

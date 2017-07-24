@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-23 15:13-0300\n"
-"PO-Revision-Date: 2017-07-23 12:34-0234\n"
+"POT-Creation-Date: 2017-07-24 14:52-0300\n"
+"PO-Revision-Date: 2017-07-24 14:51-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,137 +27,127 @@ msgstr "^curso/$"
 msgid "^lesson/$"
 msgstr "^licao/$"
 
-#: courses/apps.py:8 courses/models/course.py:51 courses/models/lesson.py:20
-#: courses/templates/courses/course/list.html:12
+#: courses/apps.py:8 courses/models/course.py:44 courses/models/lesson.py:24
+#: courses/templates/courses/course/list.html:11
 #: courses/templates/courses/index.html:37
 msgid "Courses"
 msgstr "Cursos"
 
-#: courses/models/course.py:21 courses/models/lesson.py:16
+#: courses/models/course.py:21 courses/models/lesson.py:19
 msgid "Draft"
 msgstr "Rascunho"
 
-#: courses/models/course.py:22 courses/models/lesson.py:17
+#: courses/models/course.py:22 courses/models/lesson.py:20
 msgid "Published"
 msgstr "Publicado"
 
-#: courses/models/course.py:23 courses/models/lesson.py:18
+#: courses/models/course.py:23 courses/models/lesson.py:21
 msgid "Removed"
 msgstr "Removido"
 
-#: courses/models/course.py:26 courses/models/lesson.py:21
+#: courses/models/course.py:26 courses/models/learning_object.py:10
+#: courses/models/question.py:11 courses/models/video.py:11
+msgid "Position"
+msgstr "Posição"
+
+#: courses/models/course.py:27 courses/models/lesson.py:25
 msgid "Name"
 msgstr "Nome"
 
-#: courses/models/course.py:27
-msgid "Icon"
-msgstr "Ícone"
-
-#: courses/models/course.py:30 courses/models/lesson.py:29
-#: courses/models/question.py:30 courses/models/video.py:17
-msgid "Created by"
-msgstr "Criado por"
-
-#: courses/models/course.py:50
-msgid "Course"
-msgstr "Curso"
-
-#: courses/models/lesson.py:23 courses/models/video.py:14
+#: courses/models/course.py:28 courses/models/lesson.py:26
+#: courses/models/video.py:14
 msgid "Description"
 msgstr "Descrição"
 
-#: courses/models/lesson.py:25
+#: courses/models/course.py:31 courses/models/lesson.py:30
+#: courses/models/question.py:14 courses/models/video.py:17
+msgid "Created by"
+msgstr "Criado por"
+
+#: courses/models/course.py:43
+msgid "Course"
+msgstr "Curso"
+
+#: courses/models/learning_object.py:9 courses/models/lesson.py:39
+#: courses/models/question.py:50
+msgid "Lesson"
+msgstr "Lição"
+
+#: courses/models/learning_object.py:11 courses/models/question.py:30
+#: courses/models/question.py:34 courses/models/question.py:51
+msgid "Question"
+msgstr "Questão"
+
+#: courses/models/learning_object.py:28 courses/models/lesson.py:44
+msgid "Learning Object"
+msgstr "Objeto de Aprendizagem"
+
+#: courses/models/learning_object.py:29
+msgid "Learning Objects"
+msgstr "Objetos de Aprendizagem"
+
+#: courses/models/lesson.py:28
 msgid "Requirements"
 msgstr "Requisitos"
 
-#: courses/models/lesson.py:26 courses/models/question.py:45
-#: courses/templates/courses/lesson/list.html:32
+#: courses/models/lesson.py:40
+msgid "Lessons"
+msgstr "Lições"
+
+#: courses/models/lesson.py:43 courses/models/question.py:49
+msgid "User"
+msgstr "Usuário"
+
+#: courses/models/lesson.py:45
+msgid "Active"
+msgstr "Ativo"
+
+#: courses/models/lesson.py:53 courses/models/lesson.py:54
+msgid "Learning Object History"
+msgstr "Histórico dos Objetos de Aprendizagem"
+
+#: courses/models/question.py:12
+msgid "Question text"
+msgstr "Texto da questão"
+
+#: courses/models/question.py:13
+msgid "Help text"
+msgstr "Texto de ajuda"
+
+#: courses/models/question.py:31
 #: courses/templates/courses/question/detail.html:6
 msgid "Questions"
 msgstr "Questões"
 
-#: courses/models/lesson.py:27 courses/models/video.py:26
-#: courses/templates/courses/video/list.html:7
-#: courses/templates/courses/video/list.html:14
-msgid "Videos"
-msgstr "Vídeos"
-
-#: courses/models/lesson.py:42 courses/models/question.py:64
-msgid "Lesson"
-msgstr "Lição"
-
-#: courses/models/lesson.py:43
-msgid "Lessons"
-msgstr "Lições"
-
-#: courses/models/question.py:14
-#, fuzzy
-#| msgid "Question"
-msgid "QUestion"
-msgstr "Questão"
-
-#: courses/models/question.py:15
-msgid "Introduction text"
-msgstr "Texto de introdução"
-
-#: courses/models/question.py:23
-msgid "Introduction"
-msgstr "Introdução"
-
-#: courses/models/question.py:24
-msgid "Introductions"
-msgstr "Introduções"
-
-#: courses/models/question.py:27 courses/models/video.py:11
-msgid "Position"
-msgstr "Posição"
-
-#: courses/models/question.py:28
-msgid "Question text"
-msgstr "Texto da questão"
-
-#: courses/models/question.py:29
-msgid "Help text"
-msgstr "Texto de ajuda"
-
-#: courses/models/question.py:44 courses/models/question.py:48
-#: courses/models/question.py:65
-msgid "Question"
-msgstr "Questão"
-
-#: courses/models/question.py:49
+#: courses/models/question.py:35
 msgid "Choice text"
 msgstr "Texto da opção"
 
-#: courses/models/question.py:50
+#: courses/models/question.py:36
 msgid "Is correct"
 msgstr "É correta"
 
-#: courses/models/question.py:58
+#: courses/models/question.py:44
 msgid "Choice"
 msgstr "Opção"
 
-#: courses/models/question.py:59 courses/models/question.py:66
+#: courses/models/question.py:45 courses/models/question.py:52
 msgid "Choices"
 msgstr "Opções"
 
-#: courses/models/question.py:63
-msgid "User"
-msgstr "Usuário"
-
-#: courses/models/question.py:67
+#: courses/models/question.py:53
 msgid "Is Correct"
 msgstr "Está Correta"
 
-#: courses/models/question.py:68
+#: courses/models/question.py:54
 msgid "Exists"
 msgstr "Existe"
 
-#: courses/models/question.py:76
+#: courses/models/question.py:62
 msgid "Answer"
 msgstr "Resposta"
 
-#: courses/models/question.py:77
+#: courses/models/question.py:63
 msgid "Answers"
 msgstr "Respostas"
 
@@ -173,8 +163,13 @@ msgstr "URL"
 msgid "Video"
 msgstr "Vídeo"
 
+#: courses/models/video.py:26 courses/templates/courses/video/list.html:7
+#: courses/templates/courses/video/list.html:14
+msgid "Videos"
+msgstr "Vídeos"
+
 #: courses/templates/courses/course/list.html:6
-#: courses/templates/courses/course/list.html:16
+#: courses/templates/courses/course/list.html:15
 msgid "Course list"
 msgstr "Lista de cursos"
 
@@ -213,6 +208,15 @@ msgstr "Forum"
 msgid "Blog"
 msgstr ""
 
+#: courses/templates/courses/lesson/detail.html:48
+msgid "Previous"
+msgstr "Anterior"
+
+#: courses/templates/courses/lesson/detail.html:54
+#: courses/templates/courses/question/detail.html:43
+msgid "Next"
+msgstr "Próximo"
+
 #: courses/templates/courses/lesson/finished.html:6
 #: courses/templates/courses/lesson/finished.html:12
 #, python-format
@@ -229,7 +233,6 @@ msgid "Finished"
 msgstr "Finalizada"
 
 #: courses/templates/courses/lesson/finished.html:30
-#: courses/utils/constants.py:11
 msgid "This lesson finished"
 msgstr "Essa lição foi finalizada"
 
@@ -257,6 +260,18 @@ msgstr ""
 "\n"
 "Lições de %(course)s"
 
+#: courses/templates/courses/lesson/renders/question.html:11
+#: courses/templates/courses/question/detail.html:78
+msgid "Reply"
+msgstr "Responder"
+
+#: courses/templates/courses/lesson/renders/question.html:16
+#: courses/templates/courses/lesson/renders/question.html:23
+#: courses/templates/courses/question/detail.html:83
+#: courses/templates/courses/question/detail.html:93
+msgid "Help"
+msgstr "Ajuda"
+
 #: courses/templates/courses/question/detail.html:18
 #, python-format
 msgid ""
@@ -266,19 +281,6 @@ msgid ""
 msgstr ""
 "\n"
 "Questões de  %(lesson)s"
-
-#: courses/templates/courses/question/detail.html:43
-msgid "Next"
-msgstr "Próximo"
-
-#: courses/templates/courses/question/detail.html:78
-msgid "Reply"
-msgstr "Responder"
-
-#: courses/templates/courses/question/detail.html:83
-#: courses/templates/courses/question/detail.html:93
-msgid "Help"
-msgstr "Ajuda"
 
 #: courses/templates/courses/question/detail.html:102
 msgid "No found questions."
@@ -320,35 +322,53 @@ msgid ""
 msgstr ""
 "^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/questoes/"
 
-#: courses/urls/__init__.py:16
-msgid ""
-"^courses/(?P<course_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
-msgstr ""
-"^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/videos/"
-
-#: courses/urls/course.py:10 courses/urls/lesson.py:11 courses/urls/video.py:11
+#: courses/urls/course.py:10 courses/urls/lesson.py:11
 msgid "^list$"
 msgstr "^lista$"
 
 #: courses/urls/lesson.py:12
+msgid "^(?P<slug>[-\\w]+)/detail$"
+msgstr "^(?P<slug>[-\\w]+)/detalhe$"
+
+#: courses/urls/lesson.py:13
 msgid "^(?P<slug>[-\\w]+)/finished$"
 msgstr "^(?P<slug>[-\\w]+)/finalizada$"
 
 #: courses/urls/question.py:11
-msgid "^answer$"
-msgstr "^responder$"
+msgid "^(?P<pk>[0-9]+)/verification$"
+msgstr ""
 
-#: courses/urls/video.py:12
-msgid "^(?P<slug>[-\\w]+)/detail$"
-msgstr "^(?P<slug>[-\\w]+)/detalhe$"
+#: courses/views/question.py:57
+msgid "You answer is correct!"
+msgstr "Sua resposta está correta!"
 
-#: courses/utils/constants.py:8
-msgid "You answer is correct"
-msgstr "Sua resposta está correta"
+#: courses/views/question.py:60
+msgid "You answer is incorrect! Try again..."
+msgstr "Sua resposta está incorreta! Tente novamente..."
 
-#: courses/utils/constants.py:9
-msgid "You answer is incorrect"
-msgstr "Sua resposta está incorreta"
+#~ msgid "Icon"
+#~ msgstr "Ícone"
+
+#, fuzzy
+#~ msgid "QUestion"
+#~ msgstr "Questão"
+
+#~ msgid "Introduction text"
+#~ msgstr "Texto de introdução"
+
+#~ msgid "Introduction"
+#~ msgstr "Introdução"
+
+#~ msgid "Introductions"
+#~ msgstr "Introduções"
+
+#~ msgid ""
+#~ "^courses/(?P<course_slug>[-\\w]+)/lessons/(?P<lesson_slug>[-\\w]+)/videos/"
+#~ msgstr ""
+#~ "^cursos/(?P<course_slug>[-\\w]+)/licoes/(?P<lesson_slug>[-\\w]+)/videos/"
+
+#~ msgid "^answer$"
+#~ msgstr "^responder$"
 
 #, fuzzy
 #~ msgid "Coursers"
