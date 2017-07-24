@@ -1,4 +1,4 @@
 from .course import CourseListView
-from .lesson import LessonListView, LessonFinishedView
-from .question import QuestionDetailView
+from .lesson import LessonListView, LessonDetailView, LessonFinishedView
+from .question import QuestionVerificationView
 from .video import VideoListView, VideoDetailView

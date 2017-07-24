@@ -27,7 +27,7 @@
 			{% for lesson in lessons %}
 			<div class="col-md-4 pr-0 pb-1">
 				<div class="card text-xs-center p-0 h-100">
-					<a href="{% url 'courses:question_list' course_slug=course.slug lesson_slug=lesson.slug %}">
+					<a href="{% url 'courses:lesson_detail' course_slug=course.slug slug=lesson.slug %}">
 						<div class="card-header h4 text-success">
 							<i class="fa fa-leaf"></i>
 							{{ lesson }}
@@ -35,16 +35,6 @@
 					</a>
 					<div class="card-block">
 						<p class="text-xs-left text-muted">{{ lesson.description }}</p>
-						<div class="btn-group">
-							<a href="{% url 'courses:question_list' course_slug=course.slug lesson_slug=lesson.slug %}" class="btn btn-info">
-								<i class="fa fa-file"></i>
-								{% trans "Questions" %}
-							</a>
-							<a href="{% url 'courses:video_list' course_slug=course.slug lesson_slug=lesson.slug %}" class="btn btn-warning">
-								<i class="fa fa-film"></i>
-								{% trans "Videos" %}
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>

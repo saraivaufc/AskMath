@@ -2,8 +2,8 @@
 
 from django.contrib import admin
 
-from .models import (Course, Lesson, Question, Choice, Answer, Video, Introduction, )
-from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm, IntroductionForm,)
+from .models import (Course, Lesson, LearningObject, LearningObjectHistory, Question, Choice, Answer, Video, )
+from .forms import (CourseForm, LessonForm, QuestionForm, AnswerForm, VideoForm,)
 
 class CourseAdmin(admin.ModelAdmin):
 	form = CourseForm
@@ -15,9 +15,9 @@ class CourseAdmin(admin.ModelAdmin):
 		form.instance.created_by = request.user
 		form.save()
 
-class QuestionInline(admin.TabularInline):
-	model = Question
-	fields = ['introduction','text', 'help']
+class LearningObjectInline(admin.TabularInline):
+	model = LearningObject
+	fields = ['position', 'question']
 	extra = 1
 
 class LessonAdmin(admin.ModelAdmin):
@@ -25,21 +25,25 @@ class LessonAdmin(admin.ModelAdmin):
 	list_display = ('name', 'status', 'created_by', 'last_modified')
 	list_filter = ['courses', 'status', 'last_modified']
 	search_fields = ['name']
-	filter_horizontal = ['courses', 'requirements', 'questions', 'videos', ]
+	filter_horizontal = ['courses', 'requirements',]
+
+	inlines = [
+		LearningObjectInline, 
+	]
 
 	def save_model(self, request, obj, form, change):
 		form.instance.created_by = request.user
 		form.save()
 
+class LearningObjectHistoryAdmin(admin.ModelAdmin):
+	model = LearningObjectHistory
+	list_display = ('user', 'learning_object', 'active', 'creation')
+	list_filter = ['learning_object__lesson', 'active', 'creation']
+	search_fields = []
+
 class ChoiceInline(admin.TabularInline):
 	model = Choice
 	fields = ['text','is_correct',]
-
-
-class IntroductionInline(admin.TabularInline):
-	model = Introduction
-	fields = ['text']
-	extra = 0
 
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
@@ -49,7 +53,7 @@ class QuestionAdmin(admin.ModelAdmin):
 	search_fields = ['text']
 
 	inlines = [
-		IntroductionInline, ChoiceInline,
+		ChoiceInline,
 	]
 
 	def save_model(self, request, obj, form, change):
@@ -76,6 +80,7 @@ class VideoAdmin(admin.ModelAdmin):
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
+admin.site.register(LearningObjectHistory, LearningObjectHistoryAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 admin.site.register(Video, VideoAdmin)

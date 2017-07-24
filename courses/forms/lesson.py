@@ -8,4 +8,4 @@ from ..models import Lesson
 class LessonForm(ModelForm):
 	class Meta:
 		model = Lesson
-		fields = ['name', 'description', 'status', 'courses', 'requirements', 'questions', 'videos',]
+		fields = ['name', 'description', 'status', 'courses', 'requirements',]

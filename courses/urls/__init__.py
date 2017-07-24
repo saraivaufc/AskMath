@@ -13,5 +13,4 @@ urlpatterns = [
 	url(_(r'^courses/'), include('courses.urls.course')),
 	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/'), include('courses.urls.lesson')),
 	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/questions/'), include('courses.urls.question')),
-	url(_(r'^courses/(?P<course_slug>[-\w]+)/lessons/(?P<lesson_slug>[-\w]+)/videos/'), include('courses.urls.video')),
 ]

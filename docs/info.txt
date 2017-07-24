@@ -1,9 +1,10 @@
-Grupo de ferramentas relacionadas ao conteúdo – módulos de conteúdo, planos de curso,
-glossário, busca, banco de dados, de imagens, calendário.
+Grupo de ferramentas relacionadas ao conteúdo – módulos de conteúdo, planos de curso, glossário, busca, banco de dados, de imagens, calendário.
+
 Grupo de ferramentas de comunicação – e-mail, fórum e chat.
+
 Grupo de ferramentas de avaliação – provas, enquetes, autotestes e tarefas.
-Grupo de ferramentas de apoio ao aluno – apresentação de trabalhos, criação de homepages,
-dicas, anotações, perfil.
+
+Grupo de ferramentas de apoio ao aluno – apresentação de trabalhos, criação de homepages, dicas, anotações, perfil.
 
 
 Encontram-se nesse ambiente as ferramentas síncronas e assíncronas, que são utilizadas nas
@@ -11,3 +12,82 @@ atividades do curso, tais como fórum, chat, diários, ambientes de criação co
 gerenciamento dos alunos, perfil dos usuários, material de apoio (textos, filmes, animações),
 agenda, enquete, entre outras possibilidades pedagógicas importantes ao estabelecimento de
 vínculos cognitivos, afetivos e sociais.
+
+
+
+Relação prática-teoria: necessidade de contextualizar o assunto em estudo, procurando
+aproximá-lo da realidade do aluno e dos seus conhecimentos prévios.
+
+Auto-avaliação: no decorrer do texto, fazem-se necessários momentos de reflexão, ou seja,
+atividades que possibilitem ao aluno rever sua aprendizagem.
+
+Glossário: desenvolvimento de um glossário bem estruturado que esclareça o aluno sobre
+conceitos discutidos nos textos; dessa forma, reduz-se a necessidade de esclarecimento por
+parte do professor-tutor ou consultas a dicionários e/ou enciclopédias a todo o momento.
+
+Exemplificação: apresentação de exemplos de teorias ou conceitos discutidos no texto.
+
+Animações e vídeos: utilização de animações com ou sem texto podendo oferecer muitas
+oportunidades para apresentar fatos, conceitos e princípios, podendo ser usadas de forma
+interativa, como no caso das simulações. Através da simulação, tem-se a possibilidade de
+oferecer aos alunos um laboratório que facilita a aprendizagem por descoberta. O uso do
+vídeo tem, como potencial, evocar uma reposta emocional imediata no aluno. Tal reação pode
+ser determinante para motivá-lo a se engajar em determinada tarefa.
+
+Resumos: importantes para uma leitura conclusiva, em que o aluno possa relacionar as
+idéias principais do texto com os objetivos propostos.
+
+Relação teoria-prática: invertendo a situação de o aluno trazer seus conhecimentos e sua
+realidade, passa-se a ter a teoria para fazer a ligação com a realidade concreta.
+
+
+Para uma mudança de paradigma que tenha como objetivo uma educação de qualidade
+na EaD, é preciso pensar na utilização conjugada dos meios (hipermídia e hipertextual) de
+maneira que o MD constitua-se como motivador do estudo, a partir de uma linguagem
+dialógica, que instigue a pesquisa para além do material em questão.
+
+
+Para Silva (2000) os fundamentos da interatividade são basicamente três:
+1. Participação-intervenção: participar não é apenas responder “sim” ou “não” ou
+escolher uma opção dada, significa modificar a mensagem.
+2. Bidirecional-hibridação: a comunicação é produção conjugada da emissão e da
+recepção, é co-criação, os dois pólos codificam e decodificam.
+3. Permutabilidade-potencialidade: a comunicação supõe múltiplas redes articulatórias de
+conexões e liberdade de trocas, associações e significações.
+Conforme Silva (2000), esses fundamentos salientam o sentido da interatividade.
+
+
+A base de dados era constituída por texto contendo conceitos,
+definições, teoremas, história da matemática, exercícios de fixação e de aplicação, possuía
+também imagens, movimentos e aplicativos interativos. Os exercícios eram corrigidos para
+depois fazer parte da base de dados do hipertexto. Sua conclusão reflete que o hipertexto
+como meio didático mostrou ser eficiente, pois 73,1% dos alunos, envolvidos na atividade
+compreenderam a resolução do exercício proposto. Considerou-se um alto índice, por levar
+em consideração que 50% deles não usavam computador regularmente.
+
+
+A interface acima mostra as ferramentas oferecidas pelo curso entre eles destacam-se:
+chats que facilita a comunicação síncrona entre os usuários; fóruns que permite a discussão e
+reflexão de um determinado assunto ou conteúdo; glossários que possibilita aos participantes
+criar dicionários de termos relacionados com a disciplina; tarefas que podem auxiliar ao
+professor conduzir tarefas e avaliar os alunos.
+
+
+IEEE 1484.12.1.-2002 (Draft Standard for Learning Object Metadata)
+
+
+Outras características que levaram à escolha do Wiki são: (PINHO, RIBAS e LAHM,
+2007b).
+ Não hierárquico – dá ênfase à cooperação, à possibilidade de todos os usuários
+inserirem ou excluírem documentos e demais informações, independentemente de sua
+condição no grupo.
+ Transparente – identifica o registro de cada uma das alterações no sistema,
+indicando em tela quem o realizou e em que momento.
+ Customizável – permite adequar o ambiente aos interesses e necessidades dos
+usuários, de acordo com a concepção pedagógica adotada.70
+ Espaço que exige ética – há liberdade para qualquer ação dentro do ambiente, o que
+pressupõe critérios claramente definidos entre os membros do grupo.
+ Fácil articulação – permite aos usuários, de forma bastante simples, estabelecer
+links com sites de interesse do grupo e páginas pessoais.
+ Reservado a grupos específicos – o acesso é livre e restrito ao grupo, com utilização
+de senhas.

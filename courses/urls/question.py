@@ -5,8 +5,8 @@ from django.conf.urls import include, url
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 
-from courses.views import QuestionDetailView
+from courses.views import QuestionVerificationView
 
 urlpatterns = [
-	url(_(r'^$'), login_required(QuestionDetailView.as_view()), name="question_list"),
+	url(_(r'^(?P<pk>[0-9]+)/verification$'), QuestionVerificationView.as_view(), name="question_verification"),
 ]
