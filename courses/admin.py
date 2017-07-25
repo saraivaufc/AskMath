@@ -14,10 +14,6 @@ class CourseAdmin(admin.ModelAdmin):
 	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
 
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
-
 class LearningObjectInline(admin.TabularInline):
 	model = LearningObject
 	fields = ['position', 'question', 'video']
@@ -26,7 +22,7 @@ class LearningObjectInline(admin.TabularInline):
 
 class LessonAdmin(admin.ModelAdmin):
 	form = LessonForm
-	list_display = ('name', 'status', 'created_by', 'last_modified')
+	list_display = ('name', 'status', 'last_modified')
 	list_filter = ['courses', 'status', 'last_modified']
 	search_fields = ['name']
 	filter_horizontal = ['courses', 'requirements',]
@@ -38,9 +34,12 @@ class LessonAdmin(admin.ModelAdmin):
 		LearningObjectInline, 
 	]
 
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
+class LearningObjectAdmin(admin.ModelAdmin):
+	model = LearningObject
+	list_display = ('lesson', 'position', 'creation')
+	list_filter = ['creation']
+	search_fields = []
+
 
 class LearningObjectHistoryAdmin(admin.ModelAdmin):
 	model = LearningObjectHistory
@@ -56,7 +55,7 @@ class ChoiceInline(admin.TabularInline):
 class QuestionAdmin(admin.ModelAdmin):
 	form = QuestionForm
 	extra = 0
-	list_display = ('text', 'created_by', 'creation')
+	list_display = ('text', 'creation')
 	list_filter = ['creation',]
 	search_fields = ['text']
 
@@ -67,30 +66,20 @@ class QuestionAdmin(admin.ModelAdmin):
 		ChoiceInline,
 	]
 
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
-
 class AnswerAdmin(admin.ModelAdmin):
 	list_display = ('user', 'lesson', 'question','is_correct','exists', 'creation')
-	list_filter = ['user', 'lesson', 'question','is_correct','exists', 'creation']
-
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
+	list_filter = ['is_correct','exists', 'creation']
+	search_fields = ['user__first_name', 'user__last_name', 'user__email', 'lesson__name']
 
 class VideoAdmin(admin.ModelAdmin):
 	form = VideoForm
-	list_display = ('title', 'url', 'created_by', 'creation')
+	list_display = ('title', 'url', 'creation')
 	list_filter = ['creation']
 	search_fields = ['title', 'description']
 
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
-
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
+admin.site.register(LearningObject, LearningObjectAdmin)
 admin.site.register(LearningObjectHistory, LearningObjectHistoryAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)

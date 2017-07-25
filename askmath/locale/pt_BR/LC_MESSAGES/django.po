@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 14:52-0300\n"
+"POT-Creation-Date: 2017-07-25 10:47-0300\n"
 "PO-Revision-Date: 2017-02-04 11:47-0234\n"
 "Last-Translator: Ciano Saraiva <admin@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,33 @@ msgstr ""
 
 #: askmath/urls.py:19
 msgid "^blog/"
+msgstr ""
+
+#: docs/help.txt:13
+#, python-format
+msgid ""
+"\n"
+"\tThere is only one %(name)s object.\n"
+msgid_plural ""
+"\n"
+"\tThere are %(counter)s %(name)s objects.\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: docs/help.txt:20
+#, python-format
+msgid ""
+"\n"
+"\tThat will cost $ %(amount)s per year.\n"
+msgid_plural ""
+"\n"
+"\tThat will cost $ %(amount)s per %(years)s years.\n"
+msgstr[0] ""
+msgstr[1] ""
+
+#: docs/help.txt:27
+#, python-format
+msgid "The title is %(title)s."
 msgstr ""
 
 #~ msgid "Spanish"

@@ -15,8 +15,8 @@ class Report(models.Model):
 	solved_in = models.DateTimeField(verbose_name=_("Solved"), null=True, blank=True)
 	solved_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Solved by"), related_name="report_solved_by", limit_choices_to={'is_staff': True}, null=True, blank=True)
 	
-	creation = models.DateTimeField(auto_now_add=True)
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("Created by"), related_name="report_created_by", null=True, blank=True)
+	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 
 	ip_address = models.GenericIPAddressField(blank=True, null=True)

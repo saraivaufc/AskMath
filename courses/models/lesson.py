@@ -27,7 +27,6 @@ class Lesson(models.Model):
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="lesson_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 
@@ -43,7 +42,9 @@ class LearningObjectHistory(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"User"), blank=True)
 	learning_object = models.ForeignKey('courses.LearningObject', verbose_name=_(u"Learning Object"), blank=True)
 	active = models.BooleanField(verbose_name=_("Active"), default=True)
+	
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 	
 	def __unicode__(self):
 		return u"{0} >> {1}".format(self.user, self.learning_object)

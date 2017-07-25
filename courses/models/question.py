@@ -4,14 +4,16 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import pre_save
-from django.dispatch import receiver
+from django.utils import text
 from django.conf import settings
 
 class Question(models.Model):
 	text = models.TextField(verbose_name=_(u"Question text"))
-	help = models.CharField(verbose_name=_(u"Help text"), max_length=255, null=True, blank=True)
+	clue = models.CharField(verbose_name=_(u"Clue text"), max_length=255, null=True, blank=True)
 	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="question_created_by", blank=True)
+	
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	@property
 	def choices(self):
@@ -22,7 +24,8 @@ class Question(models.Model):
 		return Answer.objects.filter(question=self)
 
 	def __unicode__(self):
-		return self.text[:50]
+		t = text.Truncator(self.text)
+		return t.chars(30)
 
 	class Meta:
 		ordering = ['creation']
@@ -34,7 +37,9 @@ class Choice(models.Model):
 	question = models.ForeignKey('courses.Question', verbose_name=_('Question'))
 	text = models.CharField(verbose_name=_(u"Choice text"), max_length=255)
 	is_correct = models.BooleanField(verbose_name=_(u"Is correct"), default=False)
+	
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	def __unicode__(self):
 		return self.text
@@ -52,7 +57,9 @@ class Answer(models.Model):
 	choices = models.ManyToManyField('courses.Choice', verbose_name=_(u"Choices"))
 	is_correct = models.BooleanField(verbose_name=_("Is Correct"), default=False)
 	exists = models.BooleanField(verbose_name=_("Exists"), default=True)
+	
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 	
 	def __unicode__(self):
 		return u"{0} >> {1} >> {2}".format(self.user, self.question, self.creation)

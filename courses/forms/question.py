@@ -8,7 +8,7 @@ from ..models import Question, Answer
 class QuestionForm(forms.ModelForm):
 	class Meta:
 		model = Question
-		fields = ['text', 'help', ]
+		fields = ['text', 'clue', ]
 
 class AnswerForm(forms.ModelForm):
 	

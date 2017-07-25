@@ -14,6 +14,7 @@ class EmailMarketing(models.Model):
 	receivers = models.ManyToManyField(settings.AUTH_USER_MODEL, verbose_name=_("Receivers"), related_name="email_marketing_receivers", blank=True)
 	
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	def __unicode__(self):
 		return '{0}-{1}'.format(self.subject, self.message)

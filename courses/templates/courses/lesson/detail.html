@@ -34,6 +34,8 @@
 		<div class="col-md-12">
 		{% if learning_object.question %}
 			{% include 'courses/lesson/renders/question.html' with question=learning_object.question %}
+		{% elif learning_object.video %}
+			{% include 'courses/lesson/renders/video.html' with video=learning_object.video %}
 		{% endif %}
 		</div>
 	</div>
@@ -47,9 +49,6 @@
 					<i class="fa fa-angle-left"></i>
 					{% trans "Previous" %}
 				</a>
-				<button class="btn btn-xs disabled">
-					{{ learning_object.position }}
-				</button>
 				<a href="?next=true" class="btn btn-success">
 					{% trans "Next" %}
 					<i class="fa fa-angle-right"></i>

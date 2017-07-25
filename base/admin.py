@@ -12,13 +12,9 @@ from base import settings as local_settings
 
 class SocialNetworkAdmin(admin.ModelAdmin):
 	form = SocialNetworkForm
-	list_display = ('name', 'url', 'created_by', 'last_modified')
+	list_display = ('name', 'url', 'creation')
 	list_filter = ['sites']
 	search_fields = ['name', ]
-
-	def save_model(self, request, obj, form, change):
-		form.instance.created_by = request.user
-		form.save()
 
 class ReportAdmin(admin.ModelAdmin):
 	form = ReportForm

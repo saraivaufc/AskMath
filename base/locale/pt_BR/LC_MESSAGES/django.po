@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 14:52-0300\n"
+"POT-Creation-Date: 2017-07-25 10:47-0300\n"
 "PO-Revision-Date: 2017-07-16 16:58-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,10 +146,6 @@ msgstr "Este campo é obrigatório"
 #: base/templates/base/_form.html:11
 msgid "Send"
 msgstr "Enviar"
-
-#: base/templates/base/_modal.html:16
-msgid "Close"
-msgstr "Fechar"
 
 #: base/templates/base/emails/email_marketing.html:6
 #, python-format
@@ -379,6 +375,9 @@ msgstr "Mensagem enviada com sucesso"
 #: base/views/timezone.py:10
 msgid "Timezone configured success"
 msgstr "Zona configurada com sucesso."
+
+#~ msgid "Close"
+#~ msgstr "Fechar"
 
 #~ msgid "My Devices"
 #~ msgstr "Meus Dispositivos"

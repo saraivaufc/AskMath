@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 14:52-0300\n"
-"PO-Revision-Date: 2017-07-23 14:35-0234\n"
+"POT-Creation-Date: 2017-07-25 10:47-0300\n"
+"PO-Revision-Date: 2017-07-25 11:49-0234\n"
 "Last-Translator: Ciano Saraiva <saraiva.ufc@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -160,20 +160,18 @@ msgid "^(?P<slug>[-\\w]+)/detail$"
 msgstr "^(?P<slug>[-\\w]+)/detalhe$"
 
 #: competition/urls/challenge.py:12
-#, fuzzy
 #| msgid "^(?P<challenge_slug>[-\\w]+)/solution/create$"
 msgid "^(?P<challenge_slug>[-\\w]+)/solution/add$"
-msgstr "^(?P<challenge_slug>[-\\w]+)/solucao/criar$"
+msgstr "^(?P<challenge_slug>[-\\w]+)/solucao/adicionar$"
 
 #: competition/urls/challenge.py:13
 msgid "^(?P<challenge_slug>[-\\w]+)/solution/(?P<pk>[0-9]+)/update$"
 msgstr "^(?P<challenge_slug>[-\\w]+)/solucao/(?P<pk>[0-9]+)/atualizar$"
 
 #: competition/urls/challenge.py:14
-#, fuzzy
 #| msgid "^(?P<challenge_slug>[-\\w]+)/solution/(?P<pk>[0-9]+)/update$"
 msgid "^(?P<challenge_slug>[-\\w]+)/solution/(?P<pk>[0-9]+)/delete$"
-msgstr "^(?P<challenge_slug>[-\\w]+)/solucao/(?P<pk>[0-9]+)/atualizar$"
+msgstr "^(?P<challenge_slug>[-\\w]+)/solucao/(?P<pk>[0-9]+)/apagar$"
 
 #: competition/views/challenge.py:46
 msgid "Solution created successfully"

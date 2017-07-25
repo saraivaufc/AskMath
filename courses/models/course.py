@@ -28,7 +28,6 @@ class Course(models.Model):
 	description = models.TextField(verbose_name=_(u"Description"), max_length=200)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	
-	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u"Created by"), related_name="course_created_by", blank=True)
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)
 

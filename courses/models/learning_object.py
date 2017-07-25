@@ -13,6 +13,7 @@ class LearningObject(models.Model):
 	video = models.ForeignKey("courses.Video", verbose_name=_("Video"), related_name="learning_object_video", blank=True, null=True)
 
 	creation = models.DateTimeField(auto_now_add=True)
+	last_modified = models.DateTimeField(auto_now=True)
 
 	@property
 	def next(self):

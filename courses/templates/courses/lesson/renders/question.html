@@ -7,19 +7,15 @@
 	{{ form.as_p }}
 	<div class="btn-group" role="group">
 		<button type="submit" class="btn btn-success">
-			<i class="fa fa-check"></i>
-			{% trans "Reply" %}
+			<i class="fa fa-check-square-o"></i>
+			{% trans "Verify" %}
 		</button>
-		{% if question.help %}
-		<a href="#" class="btn btn-info {% if not question.help %}disabled{% endif %}" data-toggle="modal" data-target="#help">
-			<i class="fa fa-exclamation"></i>
-			{% trans "Help" %}
+		{% if question.clue %}
+		<a href="#" class="btn btn-info {% if not question.clue %}disabled{% endif %}" data-toggle="modal" data-target="#clue">
+			<i class="fa fa-exclamation-circle"></i>
+			{% trans "Clue" %}
 		</a>
+		{% include 'base/_modal.html' with id="clue" title=_("Clue") body=question.clue %}
 		{% endif %}
 	</div>
 </form>
-
-{% if question.help %}
-	{% trans "Help" as HELP_TITLE %}
-	{% include 'base/_modal.html' with id="help" title=HELP_TITLE body=question.help %}
-{% endif %}

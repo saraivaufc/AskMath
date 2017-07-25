@@ -3,7 +3,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 1,
 		"fields": {
-			"url": "/en/about/",
+			"url": "/about/",
 			"title": "About Us",
 			"content": "templates/en_about.html",
 			"sites": [1]
@@ -13,7 +13,7 @@
 		"model": "flatpages.flatpage",
 		"pk": 2,
 		"fields": {
-			"url": "/en/privacy/",
+			"url": "/privacy/",
 			"title": "Privacy Policies",
 			"content": "templates/en_privacy.html",
 			"sites": [1]
@@ -23,8 +23,8 @@
 		"model": "flatpages.flatpage",
 		"pk": 3,
 		"fields": {
-			"url": "/en/terms/",
-			"title": "Terms os Use",
+			"url": "/terms/",
+			"title": "Terms of Use",
 			"content": "templates/en_terms.html",
 			"sites": [1]
 		}
