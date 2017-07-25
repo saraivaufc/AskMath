@@ -24,8 +24,8 @@ class Lesson(models.Model):
 	courses = models.ManyToManyField("Course", verbose_name=_(u"Courses"), related_name='lesson_courses', blank=True)
 	name = models.CharField(verbose_name=_(u"Name"), max_length=50)
 	description = models.TextField(verbose_name=_(u"Description"), max_length=200)
-	status = models.CharField(max_length=1, choices=STATUS_CHOICES)
 	requirements = models.ManyToManyField("Lesson", verbose_name=_(u"Requirements"), related_name='lesson_requirements', blank=True)
+	status = models.CharField(max_length=1, choices=STATUS_CHOICES, default=PUBLISHED)
 	
 	creation = models.DateTimeField(auto_now_add=True)
 	last_modified = models.DateTimeField(auto_now=True)

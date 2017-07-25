@@ -1,4 +1,4 @@
-{% extends "courses/lesson/list.html" %}
+{% extends "courses/course/detail.html" %}
 
 {% load i18n %}
 
@@ -22,7 +22,7 @@
 {% block content %}
 	<div class="row">
 		<div class="col-md-12">
-			<progress class="progress progress-warning" value="{{ percentage }}" max="100" style="height: 20px;">
+			<progress class="progress progress-success" value="{{ percentage }}" max="100" style="height: 20px;">
 				<div class="progress">
 					<span class="progress-bar" style="width: 25%;"></span>
 				</div>

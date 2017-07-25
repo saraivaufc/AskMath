@@ -19,7 +19,7 @@
 	{% for course in object_list %}
 		<div class="col-md-4 pr-0 pb-1">
 			<div class="card text-xs-center p-0 h-100">
-				<a href="{% url 'courses:lesson_list' course.slug %}">
+				<a href="{% url 'courses:course_detail' slug=course.slug %}">
 				<div class="card-header h4 text-success">
 					<i class="fa fa-tree"></i>
 					{{ course }}

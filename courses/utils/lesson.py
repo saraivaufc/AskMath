@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from courses.utils.functions import lists_to_list
-from courses.models import Answer
 
 class LessonSorting():
 	def __init__(self, lessons):
@@ -49,21 +48,3 @@ class LessonSorting():
 		#agora visito apenas as licoes que possuem requisitos
 		map(lambda x: self.visit(x), self.__lessons.filter(status='p', requirements__status__contains='p'))
 		return self.__level_lesson
-
-def get_question_of_lesson(user, lesson):
-	questions = list(lesson.questions.all().order_by('position'))
-	questions_ = []
-	#primeiramente, pego todas as questoes que ainda nao foram respondidas
-	for index, question in enumerate(questions):
-		if not Answer.objects.filter(user=user, question=question, exists=True).exists():
-			questions_.append(question)
-	#se nao existir mais questoes para serem respondidas, entao eu pego a resposta incorreta mais antiga
-	if not questions_:
-		answer = Answer.objects.filter(user=user, lesson=lesson, is_correct=False, exists=True).last()
-		if answer:
-			return answer.question
-
-	if len(questions_) >= 1:
-		return questions_[0]
-	else:
-		return None

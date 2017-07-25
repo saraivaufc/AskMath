@@ -9,7 +9,7 @@
 
 {% block breadcrumbs %}
 	{{ block.super }}
-	<a href="{% url 'courses:lesson_list' course.slug %}" class="breadcrumb-item" >
+	<a href="{% url 'courses:course_detail' slug=course.slug %}" class="breadcrumb-item" >
 		<i class="fa fa-tree"></i>
 		{{ course }}
 	</a>
@@ -17,7 +17,7 @@
 
 {%  block page_title %}
 	{% blocktrans with course=course %}
-		Lessons of {{ course }}
+		{{ course }}
 	{% endblocktrans %}
 {% endblock %}
 

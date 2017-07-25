@@ -4,14 +4,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.http import HttpResponseForbidden
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
-import collections
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from courses.models import Course, Lesson, LearningObject, LearningObjectHistory, Question, Answer
 from courses.forms.question import AnswerForm
-from courses.utils.lesson import LessonSorting, get_question_of_lesson
 
 from gamification.models import ScoreManager
 
@@ -24,10 +22,8 @@ class LessonListView(ListView):
 
 	def get_queryset(self):
 		"""Return the last published lessons."""
-		lessons = Lesson.objects.filter(courses=self.get_course(), status='p')
-		lessons = LessonSorting(lessons).get_lessons()
-		levels = collections.OrderedDict(sorted(lessons.items()))
-		return levels
+		lessons = self.get_course().lessons
+		return lessons
 
 
 	def get_context_data(self, ** kwargs):

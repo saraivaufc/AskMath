@@ -14,6 +14,9 @@ class CourseAdmin(admin.ModelAdmin):
 	list_filter = ['status', 'creation', 'last_modified']
 	search_fields = ['name']
 
+	class Media:
+		js = ("base/packages/jquery-2.1.3.min.js", "courses/packages/jquery-sortable.js", "courses/js/sortable.js",)
+
 class LearningObjectInline(admin.TabularInline):
 	model = LearningObject
 	fields = ['position', 'question', 'video']

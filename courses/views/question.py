@@ -9,8 +9,6 @@ from django.contrib import messages
 
 from ..models import Course, Lesson, Question, Answer
 from ..forms import AnswerForm, LessonForm
-from ..utils.constants import Constants
-from ..utils.lesson import get_question_of_lesson
 
 from gamification.models import ScoreManager
 
